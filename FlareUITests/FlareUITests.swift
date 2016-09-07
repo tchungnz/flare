@@ -28,6 +28,4 @@ class FlareUITests: XCTestCase {
         super.tearDown()
     }
     
-   
-    
 }

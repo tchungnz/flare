@@ -14,6 +14,8 @@
 		6A7ED8901D7F2E94005FF0A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A7ED88E1D7F2E94005FF0A8 /* LaunchScreen.storyboard */; };
 		6A7ED89B1D7F2E94005FF0A8 /* FlareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7ED89A1D7F2E94005FF0A8 /* FlareTests.swift */; };
 		6A7ED8A61D7F2E94005FF0A8 /* FlareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7ED8A51D7F2E94005FF0A8 /* FlareUITests.swift */; };
+		6A7ED8B61D7F424A005FF0A8 /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7ED8B51D7F424A005FF0A8 /* RegisterPageViewController.swift */; };
+		6AF558181D7FFE7D00D37A49 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF558171D7FFE7D00D37A49 /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		6A7ED8A11D7F2E94005FF0A8 /* FlareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A7ED8A51D7F2E94005FF0A8 /* FlareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlareUITests.swift; sourceTree = "<group>"; };
 		6A7ED8A71D7F2E94005FF0A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A7ED8B51D7F424A005FF0A8 /* RegisterPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPageViewController.swift; sourceTree = "<group>"; };
+		6AF558171D7FFE7D00D37A49 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				6A7ED88C1D7F2E94005FF0A8 /* Assets.xcassets */,
 				6A7ED88E1D7F2E94005FF0A8 /* LaunchScreen.storyboard */,
 				6A7ED8911D7F2E94005FF0A8 /* Info.plist */,
+				6A7ED8B51D7F424A005FF0A8 /* RegisterPageViewController.swift */,
+				6AF558171D7FFE7D00D37A49 /* LogInViewController.swift */,
 			);
 			path = Flare;
 			sourceTree = "<group>";
@@ -256,8 +262,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AF558181D7FFE7D00D37A49 /* LogInViewController.swift in Sources */,
 				6A7ED8881D7F2E94005FF0A8 /* ViewController.swift in Sources */,
 				6A7ED8861D7F2E94005FF0A8 /* AppDelegate.swift in Sources */,
+				6A7ED8B61D7F424A005FF0A8 /* RegisterPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +492,7 @@
 				6A7ED8AC1D7F2E94005FF0A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6A7ED8AD1D7F2E94005FF0A8 /* Build configuration list for PBXNativeTarget "FlareTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +501,7 @@
 				6A7ED8AF1D7F2E94005FF0A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6A7ED8B01D7F2E94005FF0A8 /* Build configuration list for PBXNativeTarget "FlareUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +510,7 @@
 				6A7ED8B21D7F2E94005FF0A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
