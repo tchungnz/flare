@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		08EFE9CF341AC9A8593EF0B9 /* Pods_Flare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C077AF3B95864CEF341C981 /* Pods_Flare.framework */; };
 		378C31308AD144F1C77A72A4 /* Pods_FlareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE71BA334882FB87A15CE562 /* Pods_FlareTests.framework */; };
+		53C8D1011D80760B00E57400 /* flare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C8D1001D80760B00E57400 /* flare.swift */; };
+		53C8D1031D80781100E57400 /* VCMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C8D1021D80781100E57400 /* VCMapView.swift */; };
 		6A7ED8861D7F2E94005FF0A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7ED8851D7F2E94005FF0A8 /* AppDelegate.swift */; };
 		6A7ED8881D7F2E94005FF0A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7ED8871D7F2E94005FF0A8 /* ViewController.swift */; };
 		6A7ED88B1D7F2E94005FF0A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A7ED8891D7F2E94005FF0A8 /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 /* Begin PBXFileReference section */
 		071010AADE24D7DACD9ABDC4 /* Pods-Flare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flare.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flare/Pods-Flare.release.xcconfig"; sourceTree = "<group>"; };
 		1C077AF3B95864CEF341C981 /* Pods_Flare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53C8D1001D80760B00E57400 /* flare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = flare.swift; sourceTree = "<group>"; };
+		53C8D1021D80781100E57400 /* VCMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMapView.swift; sourceTree = "<group>"; };
 		6A7ED8821D7F2E94005FF0A8 /* Flare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A7ED8851D7F2E94005FF0A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A7ED8871D7F2E94005FF0A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 				6A7ED88C1D7F2E94005FF0A8 /* Assets.xcassets */,
 				6A7ED88E1D7F2E94005FF0A8 /* LaunchScreen.storyboard */,
 				6A7ED8911D7F2E94005FF0A8 /* Info.plist */,
+				53C8D1001D80760B00E57400 /* flare.swift */,
+				53C8D1021D80781100E57400 /* VCMapView.swift */,
 			);
 			path = Flare;
 			sourceTree = "<group>";
@@ -428,8 +434,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53C8D1031D80781100E57400 /* VCMapView.swift in Sources */,
 				6A7ED8881D7F2E94005FF0A8 /* ViewController.swift in Sources */,
 				6A7ED8861D7F2E94005FF0A8 /* AppDelegate.swift in Sources */,
+				53C8D1011D80760B00E57400 /* flare.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,6 +26,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
         
+        // MARK: Plots flare on map
+        
+        mapView.delegate = self
+        let flare = Flare(title: "Party at Jess' house", subtitle: "Fun times", coordinate: CLLocationCoordinate2D(latitude: 51.518691, longitude: -0.079007))
+        mapView.addAnnotation(flare)
+        
     }
     
     override func didReceiveMemoryWarning() {
