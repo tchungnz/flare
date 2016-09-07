@@ -8,19 +8,41 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>0</integer>
 		</dict>
 		<key>Pods-FlareTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 		<key>Pods-FlareUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict/>
+	<dict>
+		<key>806857FCB46763B2A91CBCF405DC5D5B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>95BDEFB76ED3F46E90CA9A7DC842A232</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CDBDD6E279B21A60AB9BEFE869BAA6E1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
 </dict>
 </plist>
