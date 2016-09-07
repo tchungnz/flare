@@ -7,6 +7,9 @@ target 'Flare' do
 
   # Pods for Flare
 
+  pod 'Firebase'
+  pod 'FirebaseAuth'
+
   target 'FlareTests' do
     inherit! :search_paths
     # Pods for testing

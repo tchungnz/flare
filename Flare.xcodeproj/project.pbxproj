@@ -18,6 +18,7 @@
 		6A7ED8901D7F2E94005FF0A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A7ED88E1D7F2E94005FF0A8 /* LaunchScreen.storyboard */; };
 		6A7ED89B1D7F2E94005FF0A8 /* FlareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7ED89A1D7F2E94005FF0A8 /* FlareTests.swift */; };
 		6A7ED8A61D7F2E94005FF0A8 /* FlareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7ED8A51D7F2E94005FF0A8 /* FlareUITests.swift */; };
+		820E2C0B1D80885D00EC4B1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 820E2C0A1D80885D00EC4B1B /* GoogleService-Info.plist */; };
 		95AE2C2BC14BA5C74112A589 /* Pods_FlareUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD03648C552D55E0A8937BA /* Pods_FlareUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		6A7ED8A11D7F2E94005FF0A8 /* FlareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A7ED8A51D7F2E94005FF0A8 /* FlareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlareUITests.swift; sourceTree = "<group>"; };
 		6A7ED8A71D7F2E94005FF0A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		820E2C0A1D80885D00EC4B1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		8CF49AC8D149AC8424F23C4C /* Pods-Flare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flare/Pods-Flare.debug.xcconfig"; sourceTree = "<group>"; };
 		9468DB4A64BFEF5B46BA9417 /* Pods-FlareUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlareUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlareUITests/Pods-FlareUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9B49188567C4D013DC7E3CA7 /* Pods-FlareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlareTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlareTests/Pods-FlareTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		6A7ED8841D7F2E94005FF0A8 /* Flare */ = {
 			isa = PBXGroup;
 			children = (
+				820E2C0A1D80885D00EC4B1B /* GoogleService-Info.plist */,
 				6A7ED8851D7F2E94005FF0A8 /* AppDelegate.swift */,
 				6A7ED8871D7F2E94005FF0A8 /* ViewController.swift */,
 				6A7ED8891D7F2E94005FF0A8 /* Main.storyboard */,
@@ -285,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A7ED8901D7F2E94005FF0A8 /* LaunchScreen.storyboard in Resources */,
+				820E2C0B1D80885D00EC4B1B /* GoogleService-Info.plist in Resources */,
 				6A7ED88D1D7F2E94005FF0A8 /* Assets.xcassets in Resources */,
 				6A7ED88B1D7F2E94005FF0A8 /* Main.storyboard in Resources */,
 			);
