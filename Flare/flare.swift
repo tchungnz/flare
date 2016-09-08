@@ -14,6 +14,8 @@ class Flare: MKPointAnnotation {
 //    let title: String?
 //    let subtitle: String?
 //    let coordinate: CLLocationCoordinate2D
+    var latitude: Double?
+    var longitude: Double?
     
 //    init(title: String, subtitle: String, coordinate: CLLocationCoordinate2D) {
 //        super.init()
@@ -27,6 +29,10 @@ class Flare: MKPointAnnotation {
         super.init()
         self.title = snapshot.value!["title"] as! String
         self.subtitle = snapshot.value!["subtitle"] as! String
+        self.latitude = Double(snapshot.value!["latitude"] as! String)
+        self.longitude = Double(snapshot.value!["longitude"] as! String)
+        self.coordinate = CLLocationCoordinate2D(latitude: self.latitude! as
+        CLLocationDegrees, longitude: self.longitude! as CLLocationDegrees)
     }
     
 }

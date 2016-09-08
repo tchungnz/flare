@@ -32,12 +32,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         
         // MARK: Create a flare
-//        var ref = FIRDatabase.database().reference()
-//        let flareRef = ref.childByAppendingPath("flares")
-//        let timestamp = FIRServerValue.timestamp()
-//        let flare1 = ["title": "Party at Tim' House", "subtitle": "@Tim", "coordinate": "latitude: 51.518691, longitude: -0.079007", "timestamp": timestamp]
-//        let flare1Ref = flareRef.childByAutoId()
-//        flare1Ref.setValue(flare1)
+        var ref = FIRDatabase.database().reference()
+        let flareRef = ref.childByAppendingPath("flares")
+        let timestamp = FIRServerValue.timestamp()
+        let flare1 = ["title": "Party at Tim' House", "subtitle": "@Tim", "latitude": "51.518691", "longitude": "-0.079007", "timestamp": timestamp]
+        let flare1Ref = flareRef.childByAutoId()
+        flare1Ref.setValue(flare1)
         
         // MARK: Retrieve flare from database
         
@@ -51,32 +51,29 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             for item in snapshot.children {
                 
                 let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
+                print(newFlare.coordinate)
                 newItems.insert(newFlare, atIndex: 0)
-                print("********************")
-                print(newItems)
             }
             
             self.flareArray = newItems
+            print("*********FLAREARRAY1***************")
+            print(self.flareArray)
+            self.mapView.delegate = self
+            self.mapView.addAnnotations(self.flareArray)
+
             
             })
         { (error) in
                 print(error.localizedDescription)
         }
-            print("*********FLAREARRAY***************")
-            print(self.flareArray)
-        
         
      
         // MARK: Plots flare on map
         
         
-        
-        
-        
-        
         mapView.delegate = self
 //        let flares = [Flare(title: "Party at Jess' house", subtitle: "@jess", coordinate: CLLocationCoordinate2D(latitude: 51.518691, longitude: -0.079007)), Flare(title: "Party at Tim's house", subtitle: "@tim", coordinate: CLLocationCoordinate2D(latitude: 51.5255, longitude: -0.0882))]
-//        mapView.addAnnotations(flares)
+        mapView.addAnnotations(self.flareArray)
         
         
     }
