@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -21,12 +22,26 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GR0-gi-2IK">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iy2-AK-hv6">
+                                <rect key="frame" x="270" y="520" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iy2-AK-hv6" secondAttribute="height" multiplier="1:1" id="Ggm-tv-uEz"/>
+                                    <constraint firstAttribute="width" constant="60" id="kGf-Sb-YaZ"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="iTunesArtwork"/>
+                                <connections>
+                                    <segue destination="d1b-im-btc" kind="presentation" identifier="cameraView" id="a6n-dq-dfg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GR0-gi-2IK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ATO-a7-01c"/>
                             <constraint firstItem="GR0-gi-2IK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XK8-zq-5WL"/>
+                            <constraint firstAttribute="bottom" secondItem="iy2-AK-hv6" secondAttribute="bottom" constant="20" symbolic="YES" id="i8R-oT-vKc"/>
                             <constraint firstAttribute="trailing" secondItem="GR0-gi-2IK" secondAttribute="trailing" id="qsz-Nz-R17"/>
+                            <constraint firstItem="iy2-AK-hv6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="506" id="rzd-0K-dUc"/>
+                            <constraint firstItem="iy2-AK-hv6" firstAttribute="centerX" secondItem="GR0-gi-2IK" secondAttribute="centerX" id="wSl-Sl-NJt"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GR0-gi-2IK" secondAttribute="bottom" id="xRS-bR-JZR"/>
                         </constraints>
                     </view>
@@ -35,6 +50,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2135" y="549"/>
+        </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="Vt9-jn-MkL">
+            <objects>
+                <viewController id="d1b-im-btc" customClass="CameraViewController" customModule="Flare" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fbf-fy-9xy"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gli-Fp-sNS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6is-w7-hqv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h6u-YG-ieV">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Brl-oX-A8z">
+                                <rect key="frame" x="262" y="538" width="77" height="30"/>
+                                <state key="normal" title="Take photo"/>
+                                <connections>
+                                    <action selector="CameraAction:" destination="d1b-im-btc" eventType="touchUpInside" id="2gp-S4-bfi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="h6u-YG-ieV" secondAttribute="trailing" constant="-20" id="DZJ-wv-Kzg"/>
+                            <constraint firstItem="h6u-YG-ieV" firstAttribute="centerX" secondItem="6is-w7-hqv" secondAttribute="centerX" id="Eo4-Jr-yTS"/>
+                            <constraint firstItem="h6u-YG-ieV" firstAttribute="centerY" secondItem="6is-w7-hqv" secondAttribute="centerY" id="J0s-pg-FlL"/>
+                            <constraint firstItem="h6u-YG-ieV" firstAttribute="top" secondItem="6is-w7-hqv" secondAttribute="top" id="OzP-pj-mzW"/>
+                            <constraint firstAttribute="trailing" secondItem="h6u-YG-ieV" secondAttribute="trailing" id="WAO-cP-rf9"/>
+                            <constraint firstItem="h6u-YG-ieV" firstAttribute="bottom" secondItem="Gli-Fp-sNS" secondAttribute="top" id="WmT-4H-JdR"/>
+                            <constraint firstItem="h6u-YG-ieV" firstAttribute="leading" secondItem="6is-w7-hqv" secondAttribute="leading" id="fWm-Bh-cIj"/>
+                            <constraint firstItem="h6u-YG-ieV" firstAttribute="top" secondItem="fbf-fy-9xy" secondAttribute="bottom" constant="-20" id="s9v-Pc-FJO"/>
+                            <constraint firstItem="h6u-YG-ieV" firstAttribute="leading" secondItem="6is-w7-hqv" secondAttribute="leadingMargin" constant="-20" id="voK-eG-T1z"/>
+                            <constraint firstItem="Gli-Fp-sNS" firstAttribute="top" secondItem="h6u-YG-ieV" secondAttribute="bottom" id="yxh-pZ-Xdu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="Camera" destination="Brl-oX-A8z" id="Vja-JD-jhQ"/>
+                        <outlet property="ImageDisplay" destination="h6u-YG-ieV" id="lSs-Ke-zwz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f0p-ZC-79o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2863" y="549"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="QRf-Wd-5j4">
@@ -69,6 +130,7 @@
                                 <state key="normal" title="Create Account"/>
                                 <connections>
                                     <action selector="createAccountAction:" destination="axg-e3-VPJ" eventType="touchUpInside" id="M7l-7T-aPg"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="mapView" id="sKj-fg-MOv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wO-6T-fMZ">
@@ -76,6 +138,7 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginAction:" destination="axg-e3-VPJ" eventType="touchUpInside" id="VzN-7d-RpE"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="mapView" id="AEb-nU-WJC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjx-6c-hgr">
@@ -125,4 +188,10 @@
             <point key="canvasLocation" x="1356" y="549"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iTunesArtwork" width="512" height="512"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="sKj-fg-MOv"/>
+    </inferredMetricsTieBreakers>
 </document>
