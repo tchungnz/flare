@@ -9,6 +9,7 @@
 
 import UIKit
 import MapKit
+import Firebase
 import CoreLocation
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
@@ -20,6 +21,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+  
+        
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
@@ -29,14 +32,19 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         // MARK: Plots flare on map
         
         mapView.delegate = self
-        let flares = [Flare(title: "Party at Jess' house", subtitle: "Fun times", coordinate: CLLocationCoordinate2D(latitude: 51.518691, longitude: -0.079007)), Flare(title: "Party at Tim's house", subtitle: "Groovy times", coordinate: CLLocationCoordinate2D(latitude: 51.5255, longitude: -0.0882))]
+        let flares = [Flare(title: "Party at Jess' house", subtitle: "@jess", coordinate: CLLocationCoordinate2D(latitude: 51.518691, longitude: -0.079007)), Flare(title: "Party at Tim's house", subtitle: "@tim", coordinate: CLLocationCoordinate2D(latitude: 51.5255, longitude: -0.0882))]
         mapView.addAnnotations(flares)
         
-//        var annotation = MKPointAnnotation()
-//        annotation.title = flare.title
-//        flare.subtitle = "Has a pool"
-//        flare.coordinate = CLLocationCoordinate2D(latitude: 51.518691, longitude: -0.079007)
-//        mapView.addAnnotation(flare)
+        
+        var ref = FIRDatabase.database().reference()
+        let postRef = ref.childByAppendingPath("posts")
+        let post1 = ["author": "gracehop", "title": "Announcing COBOL, a New Programming Language"]
+        let post1Ref = postRef.childByAutoId()
+        post1Ref.setValue(post1)
+        
+        let post2 = ["author": "alanisawesome", "title": "The Turing Machine"]
+        let post2Ref = postRef.childByAutoId()
+        post2Ref.setValue(post2)
         
     }
     

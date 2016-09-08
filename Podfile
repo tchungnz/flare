@@ -9,6 +9,7 @@ target 'Flare' do
 
   pod 'Firebase'
   pod 'FirebaseAuth'
+  pod 'Firebase/Database'
 
   target 'FlareTests' do
     inherit! :search_paths
