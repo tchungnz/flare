@@ -29,22 +29,39 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
         
+        // MARK: Create a flare
+        var ref = FIRDatabase.database().reference()
+        let flareRef = ref.childByAppendingPath("flares")
+        let timestamp = FIRServerValue.timestamp()
+        let flare1 = ["title": "Party at Jess' House", "subtitle": "@Jess", "coordinate": "latitude: 51.518691, longitude: -0.079007", "timestamp": timestamp]
+        let flare1Ref = flareRef.childByAutoId()
+        flare1Ref.setValue(flare1)
+        
+        // MARK: Retrieve flare from database
+        
+//        var refHandle: FIRDatabaseHandle?
+//       flareRef.observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+//            let flareDict = snapshot.value as! [String : AnyObject]
+//        })
+        
+ 
+//        flareRef.observeEventType(.Value, withBlock: { snapshot in
+//            print(snapshot.value)
+//            }, withCancelBlock: { error in
+//                print(error.description)
+//        })
+//        
         // MARK: Plots flare on map
         
+        
+        
+        
+        
+        
         mapView.delegate = self
-        let flares = [Flare(title: "Party at Jess' house", subtitle: "@jess", coordinate: CLLocationCoordinate2D(latitude: 51.518691, longitude: -0.079007)), Flare(title: "Party at Tim's house", subtitle: "@tim", coordinate: CLLocationCoordinate2D(latitude: 51.5255, longitude: -0.0882))]
-        mapView.addAnnotations(flares)
+//        let flares = [Flare(title: "Party at Jess' house", subtitle: "@jess", coordinate: CLLocationCoordinate2D(latitude: 51.518691, longitude: -0.079007)), Flare(title: "Party at Tim's house", subtitle: "@tim", coordinate: CLLocationCoordinate2D(latitude: 51.5255, longitude: -0.0882))]
+//        mapView.addAnnotations(flares)
         
-        
-        var ref = FIRDatabase.database().reference()
-        let postRef = ref.childByAppendingPath("posts")
-        let post1 = ["author": "gracehop", "title": "Announcing COBOL, a New Programming Language"]
-        let post1Ref = postRef.childByAutoId()
-        post1Ref.setValue(post1)
-        
-        let post2 = ["author": "alanisawesome", "title": "The Turing Machine"]
-        let post2Ref = postRef.childByAutoId()
-        post2Ref.setValue(post2)
         
     }
     
