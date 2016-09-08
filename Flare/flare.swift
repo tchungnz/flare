@@ -9,16 +9,16 @@
 import Foundation
 import MapKit
 
-class Flare: NSObject, MKAnnotation {
-    let title: String?
-    let subtitle: String?
-    let coordinate: CLLocationCoordinate2D
+class Flare: MKPointAnnotation {
+//    let title: String?
+//    let subtitle: String?
+//    let coordinate: CLLocationCoordinate2D
     
     init(title: String, subtitle: String, coordinate: CLLocationCoordinate2D) {
+        super.init()
         self.title = title
         self.subtitle = subtitle
         self.coordinate = coordinate
-        super.init()
     }
     
 }
