@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="axg-e3-VPJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Gol-l4-B8d">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -54,7 +54,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2135" y="549"/>
+            <point key="canvasLocation" x="2171" y="549"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="nPK-P6-OlG">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EWw-Pd-9cS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="gMe-HM-1Cr" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="arl-je-eAZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="q3a-uY-hLI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8Tf-5z-qBA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Placeholder for map view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGA-rC-9k8">
+                                <rect key="frame" x="112" y="130" width="193" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2135" y="1276"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="Vt9-jn-MkL">
@@ -95,6 +121,9 @@
                                     <constraint firstAttribute="width" constant="60" id="ig7-hS-1mH"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="redFlare"/>
+                                <connections>
+                                    <action selector="takePhotoAction:" destination="d1b-im-btc" eventType="touchUpInside" id="mzk-93-Xrp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -125,11 +154,33 @@
                     <connections>
                         <outlet property="cameraView" destination="Vnx-3Z-MtI" id="lL1-i2-dub"/>
                         <outlet property="tempImageView" destination="eMQ-rC-P60" id="L6a-LR-S5N"/>
+                        <segue destination="gMe-HM-1Cr" kind="presentation" identifier="pushPlaceholder" id="76d-l6-fwO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f0p-ZC-79o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2863" y="549"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="LIU-FH-2n6">
+            <objects>
+                <viewController restorationIdentifier="rootView" storyboardIdentifier="rootView" id="Gol-l4-B8d" customClass="RootViewController" customModule="Flare" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7aI-BJ-IMH"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vj7-AG-U0G"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lVT-fb-QwQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="axg-e3-VPJ" kind="presentation" identifier="pushLogin" id="GLB-Hs-5gU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b2I-Au-nUC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="624" y="549"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="QRf-Wd-5j4">
@@ -152,7 +203,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password:" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="I9s-Rh-Em9">
                                 <rect key="frame" x="20" y="171" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email:" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Okz-bw-GAb">
                                 <rect key="frame" x="20" y="107" width="560" height="30"/>

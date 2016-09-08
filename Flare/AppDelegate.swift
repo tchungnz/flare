@@ -13,11 +13,22 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    var storyboard: UIStoryboard?
+    
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         FIRApp.configure()
+        self.storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let currentUser = FIRAuth.auth()?.currentUser
+        if currentUser != nil
+        {
+            self.window?.rootViewController = self.storyboard?.instantiateViewControllerWithIdentifier("mapView")
+        }
+        else
+        {
+            self.window?.rootViewController = self.storyboard?.instantiateViewControllerWithIdentifier("loginView")
+        }
         return true
     }
 

@@ -23,9 +23,13 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let recognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(CameraViewController.swipeUp(_:)))
+        recognizer.direction = .Up
+        self.view .addGestureRecognizer(recognizer)
 
         // Do any additional setup after loading the view.
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -133,6 +137,14 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func retakeAction(sender: UIButton) {
         didPressTakeAnother()
+    }
+    @IBAction func takePhotoAction(sender: UIButton) {
+        didPressTakePhoto()
+    }
+    
+    
+    func swipeUp(recognizer : UISwipeGestureRecognizer) {
+        self.performSegueWithIdentifier("pushPlaceholder", sender: self)
     }
 //    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
 //        
