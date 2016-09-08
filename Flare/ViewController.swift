@@ -18,10 +18,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     let locationManager = CLLocationManager()
     
+    var flareArray = [Flare]()
+    var databaseRef: FIRDatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-  
         
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -29,28 +30,43 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
         
+        
         // MARK: Create a flare
-        var ref = FIRDatabase.database().reference()
-        let flareRef = ref.childByAppendingPath("flares")
-        let timestamp = FIRServerValue.timestamp()
-        let flare1 = ["title": "Party at Jess' House", "subtitle": "@Jess", "coordinate": "latitude: 51.518691, longitude: -0.079007", "timestamp": timestamp]
-        let flare1Ref = flareRef.childByAutoId()
-        flare1Ref.setValue(flare1)
+//        var ref = FIRDatabase.database().reference()
+//        let flareRef = ref.childByAppendingPath("flares")
+//        let timestamp = FIRServerValue.timestamp()
+//        let flare1 = ["title": "Party at Tim' House", "subtitle": "@Tim", "coordinate": "latitude: 51.518691, longitude: -0.079007", "timestamp": timestamp]
+//        let flare1Ref = flareRef.childByAutoId()
+//        flare1Ref.setValue(flare1)
         
         // MARK: Retrieve flare from database
         
-//        var refHandle: FIRDatabaseHandle?
-//       flareRef.observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
-//            let flareDict = snapshot.value as! [String : AnyObject]
-//        })
         
- 
-//        flareRef.observeEventType(.Value, withBlock: { snapshot in
-//            print(snapshot.value)
-//            }, withCancelBlock: { error in
-//                print(error.description)
-//        })
-//        
+        databaseRef = FIRDatabase.database().reference().child("flares")
+        
+        databaseRef.observeEventType(.Value, withBlock: { (snapshot) in
+            
+            var newItems = [Flare]()
+            
+            for item in snapshot.children {
+                
+                let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
+                newItems.insert(newFlare, atIndex: 0)
+                print("********************")
+                print(newItems)
+            }
+            
+            self.flareArray = newItems
+            
+            })
+        { (error) in
+                print(error.localizedDescription)
+        }
+            print("*********FLAREARRAY***************")
+            print(self.flareArray)
+        
+        
+     
         // MARK: Plots flare on map
         
         
