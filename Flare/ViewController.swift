@@ -29,8 +29,14 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         // MARK: Plots flare on map
         
         mapView.delegate = self
-        let flare = Flare(title: "Party at Jess' house", subtitle: "Fun times", coordinate: CLLocationCoordinate2D(latitude: 51.518691, longitude: -0.079007))
-        mapView.addAnnotation(flare)
+        let flares = [Flare(title: "Party at Jess' house", subtitle: "Fun times", coordinate: CLLocationCoordinate2D(latitude: 51.518691, longitude: -0.079007)), Flare(title: "Party at Tim's house", subtitle: "Groovy times", coordinate: CLLocationCoordinate2D(latitude: 51.5255, longitude: -0.0882))]
+        mapView.addAnnotations(flares)
+        
+//        var annotation = MKPointAnnotation()
+//        annotation.title = flare.title
+//        flare.subtitle = "Has a pool"
+//        flare.coordinate = CLLocationCoordinate2D(latitude: 51.518691, longitude: -0.079007)
+//        mapView.addAnnotation(flare)
         
     }
     
