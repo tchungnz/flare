@@ -11,19 +11,9 @@ import MapKit
 import FirebaseDatabase
 
 class Flare: MKPointAnnotation {
-//    let title: String?
-//    let subtitle: String?
-//    let coordinate: CLLocationCoordinate2D
+
     var latitude: Double?
     var longitude: Double?
-    
-//    init(title: String, subtitle: String, coordinate: CLLocationCoordinate2D) {
-//        super.init()
-//        self.title = snapshot.title
-//        self.title = title
-//        self.subtitle = subtitle
-//        self.coordinate = coordinate
-//    }
     
     init(snapshot: FIRDataSnapshot) {
         super.init()
