@@ -12,6 +12,7 @@ import Firebase
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var userUsername: UITextField!
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
     @IBOutlet weak var logoutButton: UIButton!
@@ -71,7 +72,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func loginAction(sender: AnyObject)
     {
-        if self.userEmail.text == "" || self.userPassword.text == ""
+        if self.userUsername.text == "" || self.userPassword.text == ""
         {
             displayAlertMessage("All fields required")
             return;

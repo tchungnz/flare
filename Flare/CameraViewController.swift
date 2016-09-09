@@ -157,7 +157,6 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     func swipeUp(recognizer : UISwipeGestureRecognizer) {
-
         
         //MARK : Stores image in storage
         var data = NSData()
