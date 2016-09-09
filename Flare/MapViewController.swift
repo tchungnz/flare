@@ -9,6 +9,8 @@
 
 import UIKit
 import MapKit
+import Firebase
+import FirebaseDatabase
 import CoreLocation
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
@@ -16,6 +18,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManager = CLLocationManager()
+    
+    var flareArray = [Flare]()
+    var databaseRef: FIRDatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,18 +31,40 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
         
-        // MARK: Plots flare on map
+        // MARK: Upload an image to storage
+//        let storage = FIRStorage.storage()
+//        let storageRef = storage.reference()
+//        let storageRef = FIRStorage.reference().child("images/file.jpg");
+//        let localFile: NSURL = // get a file;
+//       let uploadTask = storageRef.putFile(localFile, metadata: nil)
         
-        mapView.delegate = self
-        let flares = [Flare(title: "Party at Jess' house", subtitle: "Fun times", coordinate: CLLocationCoordinate2D(latitude: 51.518691, longitude: -0.079007)), Flare(title: "Party at Tim's house", subtitle: "Groovy times", coordinate: CLLocationCoordinate2D(latitude: 51.5255, longitude: -0.0882))]
-        mapView.addAnnotations(flares)
+        // MARK: Create a flare
+        var ref = FIRDatabase.database().reference()
+        let flareRef = ref.childByAppendingPath("flares")
+        let timestamp = FIRServerValue.timestamp()
+        let flare1 = ["title": "Party in Mali's Bed", "subtitle": "@Mali", "latitude": "51.518691", "longitude": "-0.081", "timestamp": timestamp]
+        let flare1Ref = flareRef.childByAutoId()
+        flare1Ref.setValue(flare1)
         
-//        var annotation = MKPointAnnotation()
-//        annotation.title = flare.title
-//        flare.subtitle = "Has a pool"
-//        flare.coordinate = CLLocationCoordinate2D(latitude: 51.518691, longitude: -0.079007)
-//        mapView.addAnnotation(flare)
-        
+        // MARK: Retrieve flare from database
+        databaseRef = FIRDatabase.database().reference().child("flares")
+        databaseRef.observeEventType(.Value, withBlock: { (snapshot) in
+            
+            var newItems = [Flare]()
+            for item in snapshot.children {
+                let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
+                print(newFlare.coordinate)
+                newItems.insert(newFlare, atIndex: 0)
+            }
+            
+            self.flareArray = newItems
+            self.mapView.delegate = self
+            self.mapView.addAnnotations(self.flareArray)
+            
+        })
+        { (error) in
+                print(error.localizedDescription)
+        }
     }
     
     override func didReceiveMemoryWarning() {
