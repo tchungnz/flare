@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var userEmail: UITextField!
@@ -27,12 +27,20 @@ class LoginViewController: UIViewController {
             self.logoutButton.alpha = 0.0
             self.usernameLabel.text =  ""
         }
+        
+        self.userEmail.delegate = self;
+        self.userPassword.delegate = self;
        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     @IBAction func createAccountAction(sender: AnyObject)
