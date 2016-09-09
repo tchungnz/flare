@@ -181,8 +181,8 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         var ref = FIRDatabase.database().reference()
         let flareRef = ref.childByAppendingPath("flares")
         let timestamp = FIRServerValue.timestamp()
-        let user = FIRAuth.auth()?.currentUser
-        let flare1 = ["title": self.flareTitle.text!, "subtitle": user!.email! as String, "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp]
+//        let user = FIRAuth.auth()?.currentUser
+        let flare1 = ["title": self.flareTitle.text!, "subtitle": "@JESS", "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp]
         let flare1Ref = flareRef.childByAutoId()
         flare1Ref.setValue(flare1)
         
@@ -190,7 +190,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
             let location = locations.last
             self.flareLatitude = String(location!.coordinate.latitude)
             self.flareLongitude = String(location!.coordinate.longitude)
-
+//            user!.email!  as String
 
         self.performSegueWithIdentifier("returnMap", sender: self)
         }
