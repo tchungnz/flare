@@ -10,7 +10,8 @@
         <!--Flare-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="mapView" id="BYZ-38-t0r" customClass="MapViewController" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="mapView" id="BYZ-38-t0r" customClass="MapViewController" customModule="Flare" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -51,8 +52,10 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Flare" id="RLF-9A-a7p"/>
+                    <connections>
+                        <outlet property="mapView" destination="GR0-gi-2IK" id="0R0-Hw-i3h"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2171" y="549"/>
         </scene>
@@ -153,6 +156,7 @@
                     </view>
                     <connections>
                         <outlet property="cameraView" destination="Vnx-3Z-MtI" id="lL1-i2-dub"/>
+                        <outlet property="flareTitle" destination="bhx-DR-QUb" id="Mvd-9p-Bgq"/>
                         <outlet property="tempImageView" destination="eMQ-rC-P60" id="L6a-LR-S5N"/>
                         <segue destination="gMe-HM-1Cr" kind="presentation" identifier="pushPlaceholder" id="76d-l6-fwO"/>
                     </connections>

@@ -77,7 +77,6 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
-    
 
     
 //    @IBAction func CameraAction(sender: UIButton) {
@@ -142,8 +141,13 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         didPressTakePhoto()
     }
     
+    @IBOutlet weak var flareTitle: UITextField!
+    
     
     func swipeUp(recognizer : UISwipeGestureRecognizer) {
+        print("***********************")
+        print(self.flareTitle.text)
+        print("***********************")
         self.performSegueWithIdentifier("pushPlaceholder", sender: self)
     }
 //    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

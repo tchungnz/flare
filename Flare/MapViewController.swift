@@ -13,7 +13,7 @@ import Firebase
 import FirebaseDatabase
 import CoreLocation
 
-class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     
@@ -47,13 +47,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         flare1Ref.setValue(flare1)
         
         // MARK: Retrieve flare from database
+        
         databaseRef = FIRDatabase.database().reference().child("flares")
         databaseRef.observeEventType(.Value, withBlock: { (snapshot) in
             
             var newItems = [Flare]()
             for item in snapshot.children {
                 let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
-                print(newFlare.coordinate)
                 newItems.insert(newFlare, atIndex: 0)
             }
             

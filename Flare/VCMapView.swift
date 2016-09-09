@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-extension ViewController {
+extension MapViewController {
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         if !(annotation is MKPointAnnotation) {
