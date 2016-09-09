@@ -8,11 +8,11 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var userUsername: UITextField!
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
     @IBOutlet weak var logoutButton: UIButton!
@@ -44,35 +44,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
-    @IBAction func createAccountAction(sender: AnyObject)
-    {
-        if self.userEmail.text == "" || self.userPassword.text == ""
-        {
-            displayAlertMessage("All fields required")
-            return;
-        } else {
-            FIRAuth.auth()?.createUserWithEmail(self.userEmail.text!, password: self.userPassword.text!, completion: { (user, error) in
-                if error == nil
-                {
-                    self.logoutButton.alpha = 1.0
-                    self.usernameLabel.text = user!.email
-                    self.userEmail.text = ""
-                    self.userPassword.text = ""
-                
-                } else {
-                    self.displayAlertMessage("This is a firebase error")
-                    return;
-                }
-                
-            })
-        }
-        
-        
-    }
+
 
     @IBAction func loginAction(sender: AnyObject)
     {
-        if self.userUsername.text == "" || self.userPassword.text == ""
+        if self.userEmail.text == "" || self.userPassword.text == ""
         {
             displayAlertMessage("All fields required")
             return;
@@ -84,9 +60,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     self.usernameLabel.text = user!.email
                     self.userEmail.text = ""
                     self.userPassword.text = ""
+                    self.performSegueWithIdentifier("TestLoginSeque", sender: self)
                     
                 } else {
-                    self.displayAlertMessage("firebase error")
+                    self.displayAlertMessage("This user does not exist")
                     return;
                 }
             })

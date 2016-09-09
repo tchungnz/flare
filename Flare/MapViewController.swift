@@ -78,5 +78,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         print("Errors: " + error.localizedDescription)
     }
     
+    @IBAction func logOutAction(sender: UIButton) {
+        let user = FIRAuth.auth()?.currentUser
+        try! FIRAuth.auth()?.signOut()
+        self.performSegueWithIdentifier("rootViewSeque", sender: self)
+    }
+    
 }
 

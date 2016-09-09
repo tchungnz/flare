@@ -167,7 +167,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     func swipeUp(recognizer : UISwipeGestureRecognizer) {
-        varref = FIRDatabase.database().reference()
+        var ref = FIRDatabase.database().reference()
         let flareRef = ref.childByAppendingPath("flares")
         let timestamp = FIRServerValue.timestamp()
         let user = FIRAuth.auth()?.currentUser
