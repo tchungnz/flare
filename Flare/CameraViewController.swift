@@ -164,6 +164,23 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         let flare1 = ["title": self.flareTitle.text!, "subtitle": user!.email! as String, "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp]
         let flare1Ref = flareRef.childByAutoId()
         flare1Ref.setValue(flare1)
+        
+        var data = NSData()
+        data = UIImageJPEGRepresentation(self.tempImageView.image!, 0.8)!
+        
+        let storage = FIRStorage.storage()
+        let storageRef = storage.referenceForURL("gs://flare-1ef4b.appspot.com")
+        
+        let imageRef = storageRef.child("images/flares.jpg")
+        
+        let uploadTask = imageRef.putData(data, metadata: nil) { metadata, error in
+            if (error != nil) {
+                puts("Error")
+            }
+            else {
+                let downloadURL = metadata!.downloadURL
+            }
+        }
 
         self.performSegueWithIdentifier("returnMap", sender: self)
     }

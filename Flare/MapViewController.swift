@@ -30,31 +30,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
-        
-        // MARK: Upload an image to storage
-        let storage = FIRStorage.storage()
-        let storageRef = storage.referenceForURL("gs://flare-1ef4b.appspot.com")
-//      let storageRef = storage.reference()
-        let localFile = NSURL(string: "http://www.freedigitalphotos.net/images/img/homepage/87357.jpg")
-        print("*********************")
-        print(localFile)
-        let fileRef = storageRef.child("images/")
-        let uploadTask = fileRef.putFile(localFile!, metadata: nil) { metadata, error in
-            if (error != nil) {
-                print("inside if *********************")
-                print(localFile)
-                
-                // Uh-oh, an error occurred!
-            } else {
-                print("inside else *********************")
-                print(localFile)
-                // Metadata contains file metadata such as size, content-type, and download URL.
-                let downloadURL = metadata!.downloadURL
-            }
-        }
-
-        
-
+    
              
         // MARK: Retrieve flare from database
         
