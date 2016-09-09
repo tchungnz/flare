@@ -37,15 +37,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //        let storageRef = FIRStorage.reference().child("images/file.jpg");
 //        let localFile: NSURL = // get a file;
 //       let uploadTask = storageRef.putFile(localFile, metadata: nil)
-        
-        // MARK: Create a flare
-        var ref = FIRDatabase.database().reference()
-        let flareRef = ref.childByAppendingPath("flares")
-        let timestamp = FIRServerValue.timestamp()
-        let flare1 = ["title": "Party in Mali's Bed", "subtitle": "@Mali", "latitude": "51.518691", "longitude": "-0.081", "timestamp": timestamp]
-        let flare1Ref = flareRef.childByAutoId()
-        flare1Ref.setValue(flare1)
-        
+             
         // MARK: Retrieve flare from database
         
         databaseRef = FIRDatabase.database().reference().child("flares")

@@ -8,14 +8,23 @@
 
 import UIKit
 import AVFoundation
+import MapKit
+import Firebase
+import FirebaseDatabase
+import CoreLocation
 
-class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
 
     var captureSession : AVCaptureSession?
     var stillImageOutput : AVCaptureStillImageOutput?
     var previewLayer : AVCaptureVideoPreviewLayer?
     
+    var flareLatitude : String?
+    var flareLongitude : String?
+    
     @IBOutlet weak var cameraView: UIView!
+    
+    let locationManager = CLLocationManager()
     
 //    @IBOutlet weak var Camera: UIButton!
 //    @IBOutlet weak var ImageDisplay: UIImageView!
@@ -26,6 +35,12 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         let recognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(CameraViewController.swipeUp(_:)))
         recognizer.direction = .Up
         self.view .addGestureRecognizer(recognizer)
+        
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+        
 
         // Do any additional setup after loading the view.
     }
@@ -145,11 +160,26 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     func swipeUp(recognizer : UISwipeGestureRecognizer) {
-        print("***********************")
-        print(self.flareTitle.text)
-        print("***********************")
-        self.performSegueWithIdentifier("pushPlaceholder", sender: self)
+        var ref = FIRDatabase.database().reference()
+        let flareRef = ref.childByAppendingPath("flares")
+        let timestamp = FIRServerValue.timestamp()
+        let user = FIRAuth.auth()?.currentUser
+        let flare1 = ["title": self.flareTitle.text!, "subtitle": user!.email! as String, "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp]
+        let flare1Ref = flareRef.childByAutoId()
+        flare1Ref.setValue(flare1)
+
+        self.performSegueWithIdentifier("returnMap", sender: self)
     }
+    
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last
+        self.flareLatitude = String(location!.coordinate.latitude)
+        self.flareLongitude = String(location!.coordinate.longitude)
+        
+    }
+    
+    
 //    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
 //        
 //    }

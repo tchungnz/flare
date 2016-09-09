@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Gol-l4-B8d">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Gol-l4-B8d">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -10,7 +10,6 @@
         <!--Flare-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="mapView" id="BYZ-38-t0r" customClass="MapViewController" customModule="Flare" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -56,34 +55,9 @@
                         <outlet property="mapView" destination="GR0-gi-2IK" id="0R0-Hw-i3h"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2171" y="549"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="nPK-P6-OlG">
-            <objects>
-                <viewController id="gMe-HM-1Cr" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="arl-je-eAZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="q3a-uY-hLI"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8Tf-5z-qBA">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Placeholder for map view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGA-rC-9k8">
-                                <rect key="frame" x="112" y="130" width="193" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EWw-Pd-9cS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2135" y="1276"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="Vt9-jn-MkL">
@@ -158,7 +132,7 @@
                         <outlet property="cameraView" destination="Vnx-3Z-MtI" id="lL1-i2-dub"/>
                         <outlet property="flareTitle" destination="bhx-DR-QUb" id="Mvd-9p-Bgq"/>
                         <outlet property="tempImageView" destination="eMQ-rC-P60" id="L6a-LR-S5N"/>
-                        <segue destination="gMe-HM-1Cr" kind="presentation" identifier="pushPlaceholder" id="76d-l6-fwO"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="returnMap" id="fAW-4j-zEK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f0p-ZC-79o" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -281,6 +255,6 @@
         <image name="redFlare" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sKj-fg-MOv"/>
+        <segue reference="fAW-4j-zEK"/>
     </inferredMetricsTieBreakers>
 </document>
