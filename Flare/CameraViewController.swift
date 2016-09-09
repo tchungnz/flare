@@ -156,19 +156,6 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBOutlet weak var flareTitle: UITextField!
     
-    
-//    func swipeUp(recognizer : UISwipeGestureRecognizer) {
-//        var ref = FIRDatabase.database().reference()
-//        let flareRef = ref.childByAppendingPath("flares")
-//        let timestamp = FIRServerValue.timestamp()
-//        let user = FIRAuth.auth()?.currentUser
-//        let flare1 = ["title": self.flareTitle.text!, "subtitle": user!.email! as String, "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp]
-//        let flare1Ref = flareRef.childByAutoId()
-//        flare1Ref.setValue(flare1)
-//
-//        self.performSegueWithIdentifier("returnMap", sender: self)
-//    }
-    
     @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
         let translation = recognizer.translationInView(self.view)
         if let view = recognizer.view {
@@ -206,19 +193,40 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
             let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
             
             dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-            var ref = FIRDatabase.database().reference()
-            let flareRef = ref.childByAppendingPath("flares")
-            let timestamp = FIRServerValue.timestamp()
-            let user = FIRAuth.auth()?.currentUser
-            let flare1 = ["title": self.flareTitle.text!, "subtitle": user!.email! as String, "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp]
-            let flare1Ref = flareRef.childByAutoId()
-            flare1Ref.setValue(flare1)
-            
-            self.performSegueWithIdentifier("returnMap", sender: self)
+                // MARK: Upload image to storage
+                var data = NSData()
+                data = UIImageJPEGRepresentation(self.tempImageView.image!, 0.8)!
+                
+                let storage = FIRStorage.storage()
+                let storageRef = storage.referenceForURL("gs://flare-1ef4b.appspot.com")
+                
+                let imageRef = storageRef.child("images/flare\(NSUUID().UUIDString).jpg")
+                
+                let uploadTask = imageRef.putData(data, metadata: nil) { metadata, error in
+                    if (error != nil) {
+                        puts("Error")
+                    }
+                    else {
+                        let downloadURL = metadata!.downloadURL
+                    }
+                }
+                
+                // MARK: Save flare data to database
+                
+                var ref = FIRDatabase.database().reference()
+                let flareRef = ref.childByAppendingPath("flares")
+                let timestamp = FIRServerValue.timestamp()
+                let user = FIRAuth.auth()?.currentUser
+                print(user!.email)
+                // Put a guard on the email code below:
+                let flare1 = ["title": self.flareTitle.text!, "subtitle": user!.email! as String, "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp]
+                let flare1Ref = flareRef.childByAutoId()
+                flare1Ref.setValue(flare1)
+                
+                self.performSegueWithIdentifier("returnMap", sender: self)
             })
         }
-    
-    
+
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last
         self.flareLatitude = String(location!.coordinate.latitude)
