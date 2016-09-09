@@ -30,18 +30,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
-        
-        // MARK: Upload an image to storage
-//        let storage = FIRStorage.storage()
-//        let storageRef = storage.reference()
-//        let storageRef = FIRStorage.reference().child("images/file.jpg");
-//        let localFile: NSURL = // get a file;
-//       let uploadTask = storageRef.putFile(localFile, metadata: nil)
              
         // MARK: Retrieve flare from database
         
         databaseRef = FIRDatabase.database().reference().child("flares")
         databaseRef.observeEventType(.Value, withBlock: { (snapshot) in
+            
+            var currentTime = NSDate().timeIntervalSince1970
+            var timeOneMinAgo = currentTime - 60000
             
             var newItems = [Flare]()
             for item in snapshot.children {
