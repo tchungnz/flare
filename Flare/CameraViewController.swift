@@ -13,7 +13,7 @@ import Firebase
 import FirebaseDatabase
 import CoreLocation
 
-class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
+class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate, UITextFieldDelegate {
 
     var captureSession : AVCaptureSession?
     var stillImageOutput : AVCaptureStillImageOutput?
@@ -41,6 +41,8 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
         
+        
+        self.flareTitle.delegate = self;
 
         // Do any additional setup after loading the view.
     }
@@ -49,6 +51,11 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     override func viewDidAppear(animated: Bool) {
