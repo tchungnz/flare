@@ -157,21 +157,16 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     func swipeUp(recognizer : UISwipeGestureRecognizer) {
-        var ref = FIRDatabase.database().reference()
-        let flareRef = ref.childByAppendingPath("flares")
-        let timestamp = FIRServerValue.timestamp()
-        let user = FIRAuth.auth()?.currentUser
-        let flare1 = ["title": self.flareTitle.text!, "subtitle": user!.email! as String, "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp]
-        let flare1Ref = flareRef.childByAutoId()
-        flare1Ref.setValue(flare1)
+
         
+        //MARK : Stores image in storage
         var data = NSData()
         data = UIImageJPEGRepresentation(self.tempImageView.image!, 0.8)!
         
         let storage = FIRStorage.storage()
         let storageRef = storage.referenceForURL("gs://flare-1ef4b.appspot.com")
         
-        let imageRef = storageRef.child("images/flares.jpg")
+        let imageRef = storageRef.child("images/flare\(NSUUID().UUIDString).jpg")
         
         let uploadTask = imageRef.putData(data, metadata: nil) { metadata, error in
             if (error != nil) {
@@ -181,16 +176,25 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
                 let downloadURL = metadata!.downloadURL
             }
         }
+        
+        //MARK : Stores flare info in database
+        var ref = FIRDatabase.database().reference()
+        let flareRef = ref.childByAppendingPath("flares")
+        let timestamp = FIRServerValue.timestamp()
+        let user = FIRAuth.auth()?.currentUser
+        let flare1 = ["title": self.flareTitle.text!, "subtitle": user!.email! as String, "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp]
+        let flare1Ref = flareRef.childByAutoId()
+        flare1Ref.setValue(flare1)
+        
+        func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            let location = locations.last
+            self.flareLatitude = String(location!.coordinate.latitude)
+            self.flareLongitude = String(location!.coordinate.longitude)
+
 
         self.performSegueWithIdentifier("returnMap", sender: self)
-    }
+        }
     
-    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last
-        self.flareLatitude = String(location!.coordinate.latitude)
-        self.flareLongitude = String(location!.coordinate.longitude)
-        
     }
     
     
