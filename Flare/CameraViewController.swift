@@ -23,6 +23,9 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     var flareLongitude : String?
     
     @IBOutlet weak var cameraView: UIView!
+    @IBOutlet weak var sendFlareButton: UIButton!
+    @IBOutlet weak var takePhotoButton: UIButton!
+    @IBOutlet weak var retakePhotoButton: UIButton!
     
     let locationManager = CLLocationManager()
     
@@ -32,6 +35,9 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.retakePhotoButton.hidden = true
+        self.takePhotoButton.hidden = false
+        self.sendFlareButton.hidden = true
         let recognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(CameraViewController.swipeUp(_:)))
         recognizer.direction = .Up
         self.view .addGestureRecognizer(recognizer)
@@ -94,33 +100,12 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
                 previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
                 cameraView.layer.addSublayer(previewLayer!)
                 captureSession?.startRunning()
-                
             }
         }
     }
-    
-
-    
-//    @IBAction func CameraAction(sender: UIButton) {
-//        
-//        let picker = UIImagePickerController()
-//        picker.delegate = self
-//        
-//        
-//        picker.sourceType = .Camera
-//        
-//        presentViewController(picker, animated: true, completion: nil)
-//        
-//    }
-//    
-//    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-//        ImageDisplay.image = info[UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil)
-//    }
     @IBOutlet weak var tempImageView: UIImageView!
     func didPressTakePhoto() {
-        
         if let videoConnection = stillImageOutput?.connectionWithMediaType(AVMediaTypeVideo) {
-            
             videoConnection.videoOrientation = AVCaptureVideoOrientation.Portrait
             stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: { (sampleBuffer, error) in
                 
@@ -139,16 +124,13 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     var didTakePhoto = Bool()
-    
+
     func didPressTakeAnother() {
         
-        if didTakePhoto == true {
-            
+        if didTakePhoto == false {
             tempImageView.hidden = true
             didTakePhoto = false
-            
         } else {
-            
             captureSession?.startRunning()
             didTakePhoto = true
             didPressTakePhoto()
@@ -157,11 +139,19 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func retakeAction(sender: UIButton) {
+        self.takePhotoButton.hidden = false
+        self.sendFlareButton.hidden = true
+        self.retakePhotoButton.hidden = true
         didPressTakeAnother()
+        
     }
     @IBAction func takePhotoAction(sender: UIButton) {
+        self.takePhotoButton.hidden = true
+        self.sendFlareButton.hidden = false
+        self.retakePhotoButton.hidden = false
         didPressTakePhoto()
     }
+    
     
     @IBOutlet weak var flareTitle: UITextField!
     
@@ -190,4 +180,23 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
 //    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
 //        
 //    }
+    
+    // Old Apple Camera
+    
+    //    @IBAction func CameraAction(sender: UIButton) {
+    //
+    //        let picker = UIImagePickerController()
+    //        picker.delegate = self
+    //
+    //
+    //        picker.sourceType = .Camera
+    //
+    //        presentViewController(picker, animated: true, completion: nil)
+    //
+    //    }
+    //
+    //    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    //        ImageDisplay.image = info[UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil)
+    //    }
+
 }
