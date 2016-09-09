@@ -7,11 +7,18 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var userEmail: UITextField!
+    @IBOutlet weak var userPassword: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.userEmail.delegate = self;
+        self.userPassword.delegate = self;
 
         // Do any additional setup after loading the view.
     }
@@ -19,17 +26,44 @@ class RegisterViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+    }
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func createAccountAction(sender: UIButton) {
+        if self.userEmail.text == "" || self.userPassword.text == ""
+        {
+            displayAlertMessage("All fields required")
+            return;
+        } else {
+            print(self.userEmail.text!)
+            print(self.userPassword.text!)
+            FIRAuth.auth()?.createUserWithEmail(self.userEmail.text!, password: self.userPassword.text!, completion: { (user, error) in
+                if error == nil
+                {
+                    self.userEmail.text = ""
+                    self.userPassword.text = ""
+                    
+                } else {
+                    self.displayAlertMessage("This is a firebase error")
+                    return;
+                }
+                
+            })
+        }
+        
     }
-    */
-
+    
+    func displayAlertMessage(message: String)
+    {
+        let myAlert = UIAlertController(title: "Ooops", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+        myAlert.addAction(okAction)
+        self.presentViewController(myAlert, animated: true, completion: nil)
+    }
+    
 }

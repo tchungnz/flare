@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         else
         {
-            self.window?.rootViewController = self.storyboard?.instantiateViewControllerWithIdentifier("loginView")
+            self.window?.rootViewController = self.storyboard?.instantiateViewControllerWithIdentifier("rootView")
         }
         return true
     }

@@ -156,8 +156,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var flareTitle: UITextField!
     
     
-    func swipeUp(recognizer : UISwipeGestureRecognizer) {
-        
+    func swipeUp(recognizer : UISwipeGestureRecognizer) {        
         //MARK : Stores image in storage
         var data = NSData()
         data = UIImageJPEGRepresentation(self.tempImageView.image!, 0.8)!
@@ -177,6 +176,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
         
         //MARK : Stores flare info in database
+
         var ref = FIRDatabase.database().reference()
         let flareRef = ref.childByAppendingPath("flares")
         let timestamp = FIRServerValue.timestamp()
