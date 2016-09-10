@@ -65,6 +65,7 @@
                     <connections>
                         <outlet property="mapView" destination="GR0-gi-2IK" id="0R0-Hw-i3h"/>
                         <segue destination="Gol-l4-B8d" kind="presentation" identifier="rootViewSeque" id="0Z5-td-Zn0"/>
+                        <segue destination="J6G-JP-XHO" kind="presentation" identifier="flareDetail" id="zHG-rs-YRJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -175,6 +176,46 @@
                 </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3615" y="615"/>
+        </scene>
+        <!--Flare Detail View Controller-->
+        <scene sceneID="UeN-iW-kNT">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qtq-wk-e8L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="flareDetail" id="J6G-JP-XHO" customClass="FlareDetailViewController" customModule="Flare" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="APE-RO-0La"/>
+                        <viewControllerLayoutGuide type="bottom" id="su1-uz-yFW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VuI-VJ-pvH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0E-M0-ZqG">
+                                <rect key="frame" x="20" y="20" width="30" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="ns2-iy-AlJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Flare Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGy-5f-rRT">
+                                <rect key="frame" x="71" y="20" width="509" height="36.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="R0E-M0-ZqG" firstAttribute="top" secondItem="APE-RO-0La" secondAttribute="bottom" id="UsD-bP-e2j"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="R0E-M0-ZqG" secondAttribute="leading" id="VqY-XT-qpc"/>
+                        </constraints>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="3615" y="-157"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="LIU-FH-2n6">
@@ -425,7 +466,7 @@
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fAW-4j-zEK"/>
         <segue reference="0Z5-td-Zn0"/>
+        <segue reference="ns2-iy-AlJ"/>
     </inferredMetricsTieBreakers>
 </document>
