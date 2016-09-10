@@ -200,6 +200,39 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     
     
+    @IBAction func didTouchFlashButton(sender: UIButton) {
+        
+        let avDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        
+        // check if the device has torch
+        if avDevice.hasTorch {
+            // lock your device for configuration
+            do {
+                let abv = try avDevice.lockForConfiguration()
+            } catch {
+                print("aaaa")
+            }
+            
+            // check if your torchMode is on or off. If on turns it off otherwise turns it on
+            if avDevice.torchActive {
+                avDevice.torchMode = AVCaptureTorchMode.Off
+            } else {
+                // sets the torch intensity to 100%
+                do {
+                    let abv = try avDevice.setTorchModeOnWithLevel(1.0)
+                } catch {
+                    print("bbb")
+                }
+                //    avDevice.setTorchModeOnWithLevel(1.0, error: nil)
+            }
+            // unlock your device
+            avDevice.unlockForConfiguration()
+        }
+    }
+    
+    
+    
+    
 //    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
 //        
 //    }
