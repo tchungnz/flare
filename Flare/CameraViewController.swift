@@ -13,7 +13,7 @@ import Firebase
 import FirebaseDatabase
 import CoreLocation
 
-class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate, UITextFieldDelegate {
+class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     var captureSession : AVCaptureSession?
     var stillImageOutput : AVCaptureStillImageOutput?
@@ -26,6 +26,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var sendFlareButton: UIButton!
     @IBOutlet weak var takePhotoButton: UIButton!
     @IBOutlet weak var retakePhotoButton: UIButton!
+    @IBOutlet weak var sendFlareImageButton: UIImageView!
     
     let locationManager = CLLocationManager()
     
@@ -37,10 +38,10 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidLoad()
         self.retakePhotoButton.hidden = true
         self.takePhotoButton.hidden = false
-        self.sendFlareButton.hidden = true
-        let recognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(CameraViewController.swipeUp(_:)))
-        recognizer.direction = .Up
-        self.view .addGestureRecognizer(recognizer)
+        self.sendFlareImageButton.hidden = true
+//        let recognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(CameraViewController.swipeUp(_:)))
+//        recognizer.direction = .Up
+//        self.view .addGestureRecognizer(recognizer)
         
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -140,63 +141,63 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func retakeAction(sender: UIButton) {
         self.takePhotoButton.hidden = false
-        self.sendFlareButton.hidden = true
+        self.sendFlareImageButton.hidden = true
         self.retakePhotoButton.hidden = true
         didPressTakeAnother()
         
     }
     @IBAction func takePhotoAction(sender: UIButton) {
         self.takePhotoButton.hidden = true
-        self.sendFlareButton.hidden = false
+        self.sendFlareImageButton.hidden = false
         self.retakePhotoButton.hidden = false
         didPressTakePhoto()
     }
     
-    
     @IBOutlet weak var flareTitle: UITextField!
     
-    
-    func swipeUp(recognizer : UISwipeGestureRecognizer) {
-        
-        // MARK: Upload image to storage
-        var data = NSData()
-        data = UIImageJPEGRepresentation(self.tempImageView.image!, 0.8)!
-        
-        let storage = FIRStorage.storage()
-        let storageRef = storage.referenceForURL("gs://flare-1ef4b.appspot.com")
-        
-        let imageRef = storageRef.child("images/flare\(NSUUID().UUIDString).jpg")
-        
-        let uploadTask = imageRef.putData(data, metadata: nil) { metadata, error in
-            if (error != nil) {
-                puts("Error")
-            }
-            else {
-                let downloadURL = metadata!.downloadURL
-            }
+    @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
+        let translation = recognizer.translationInView(self.view)
+        if let view = recognizer.view {
+            view.center = CGPoint(x:view.center.x + 0,
+                                  y:view.center.y + translation.y)
         }
-        
-        // MARK: Save flare data to database
-        
-        var ref = FIRDatabase.database().reference()
-        let flareRef = ref.childByAppendingPath("flares")
-        let timestamp = FIRServerValue.timestamp()
-        let user = FIRAuth.auth()?.currentUser
-        print(user!.email)
-        let flare1 = ["title": self.flareTitle.text!, "subtitle": "test@test.com", "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp]
-        let flare1Ref = flareRef.childByAutoId()
-        flare1Ref.setValue(flare1)
-
-        self.performSegueWithIdentifier("returnMap", sender: self)
-    }
-    
-    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last
-        self.flareLatitude = String(location!.coordinate.latitude)
-        self.flareLongitude = String(location!.coordinate.longitude)
-        
-    }
+        recognizer.setTranslation(CGPointZero, inView: self.view)
+        if recognizer.state == UIGestureRecognizerState.Ended {
+            // 1
+            let velocity = recognizer.velocityInView(self.view)
+            let magnitude = sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y))
+            let slideMultiplier = magnitude / 200
+            print("magnitude: \(magnitude), slideMultiplier: \(slideMultiplier)")
+            
+            // 2
+            let slideFactor = 0.1 * slideMultiplier     //Increase for more of a slide
+            // 3
+            var finalPoint = CGPoint(x:recognizer.view!.center.x + (0),
+                                     y:recognizer.view!.center.y + (velocity.y * slideFactor))
+            // 4
+            finalPoint.x = min(max(finalPoint.x, 0), self.view.bounds.size.width)
+            finalPoint.y = min(max(finalPoint.y, 0), self.view.bounds.size.height)
+            
+            // 5
+            UIView.animateWithDuration(Double(slideFactor * 2),
+                                       delay: 0,
+            // 6
+                options: UIViewAnimationOptions.CurveEaseOut,
+                animations: {recognizer.view!.center = finalPoint },
+                completion: nil)
+        }
+            // Need to work out completions callbacks to remove the timer below.
+            let seconds = 0.8
+            let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+            let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            
+            dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                
+                self.onSwipe()
+                
+                self.performSegueWithIdentifier("returnMap", sender: self)
+            })
+        }
     
     
 //    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
