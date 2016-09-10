@@ -11,8 +11,8 @@ import MapKit
 
 extension MapViewController {
     
-    func mapView(mapView: MKMapView, didSelectAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        if !(annotation is MKAnnotation) {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if !(annotation is MKPointAnnotation) {
             return nil
         }
         
@@ -32,9 +32,7 @@ extension MapViewController {
         annotationView!.image = pinImage
         let btn = UIButton(type: .DetailDisclosure)
         annotationView!.rightCalloutAccessoryView = btn
-        
-        self.annotationExport = annotation
-        
+                
         return annotationView
     }
     
@@ -43,7 +41,8 @@ extension MapViewController {
         print("Annotation selected")
         
         if let annotation = view.annotation as? Flare {
-            print("Your annotation title: \(annotation.imageRef)");
+            self.flareExport = annotation
+//            print("Your annotation title: \(annotation.imageRef)");
         }
     }
     
@@ -54,7 +53,7 @@ extension MapViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "flareDetail" {
                 if let ivc = segue.destinationViewController as? FlareDetailViewController {
-                    ivc.aTitle = self.annotationExport
+                    ivc.flareExport = self.flareExport
                 }
         }
     }

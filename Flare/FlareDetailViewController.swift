@@ -9,27 +9,45 @@
 import UIKit
 import Firebase
 import MapKit
+import FirebaseDatabase
 
 
 class FlareDetailViewController: UIViewController {
     
     @IBOutlet weak var flareTitleLabel: UILabel!
     @IBOutlet weak var flareSubtitleLabel: UILabel!
-    var aTitle: MKAnnotation?
+    @IBOutlet weak var flareImage: UIImageView!
+    
+    var flareExport: Flare?
+
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // MARK: How to get image out of storage
+        let storage = FIRStorage.storage()
+        let storageRef = storage.referenceForURL("gs://flare-1ef4b.appspot.com")
+        let islandRef = storageRef.child("images/flare\(flareExport!.imageRef!).jpg")
+        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+            islandRef.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
+                if (error != nil) {
+                    print("Error!")
+                } else {
+                    let islandImage: UIImage! = UIImage(data: data!)
+                    let flareImage = UIImageView(image: islandImage!)
+                    flareImage.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
+                    print(flareImage)
+                    self.view.addSubview(flareImage)
+                    }
+                }
+        
+        
+        
 //        let printTitle = aTitle
-        print("*************")
-        print(aTitle!.title)
-        print(aTitle!.subtitle)
-//        print(aTitle!.latitude)
-//        print(aTitle!.imageRef)
-        flareTitleLabel.text = aTitle!.title!
-        flareSubtitleLabel.text = aTitle!.subtitle!
+        print("*************IMAGEREF**************")
+        print(flareExport!.imageRef)
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
