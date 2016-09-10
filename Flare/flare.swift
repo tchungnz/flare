@@ -14,11 +14,13 @@ class Flare: MKPointAnnotation {
 
     var latitude: Double?
     var longitude: Double?
+    var imageRef: String?
     
     init(snapshot: FIRDataSnapshot) {
         super.init()
         self.title = snapshot.value!["title"] as! String
         self.subtitle = snapshot.value!["subtitle"] as! String
+        self.imageRef = snapshot.value!["imageRef"] as! String
         self.latitude = Double(snapshot.value!["latitude"] as! String)
         self.longitude = Double(snapshot.value!["longitude"] as! String)
         self.coordinate = CLLocationCoordinate2D(latitude: self.latitude! as
