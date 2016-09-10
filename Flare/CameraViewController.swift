@@ -153,7 +153,6 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         didPressTakePhoto()
     }
     
-    
     @IBOutlet weak var flareTitle: UITextField!
     
     @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {

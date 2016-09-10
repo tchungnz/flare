@@ -38,7 +38,6 @@ extension CameraViewController: CLLocationManagerDelegate {
         
         // MARK: Save flare data to database
         
-        
         var ref = FIRDatabase.database().reference()
         let flareRef = ref.childByAppendingPath("flares")
         let timestamp = FIRServerValue.timestamp()
