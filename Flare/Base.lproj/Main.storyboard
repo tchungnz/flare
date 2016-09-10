@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MgA-qe-Vm4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MgA-qe-Vm4">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -33,7 +33,7 @@
                                     <segue destination="d1b-im-btc" kind="presentation" identifier="cameraView" id="a6n-dq-dfg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gof-4K-kUx">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gof-4K-kUx">
                                 <rect key="frame" x="20" y="20" width="48" height="30"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
@@ -45,10 +45,10 @@
                         <constraints>
                             <constraint firstItem="Gof-4K-kUx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="52l-bg-PFB"/>
                             <constraint firstItem="GR0-gi-2IK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ATO-a7-01c"/>
-                            <constraint firstItem="Gof-4K-kUx" firstAttribute="centerY" secondItem="GR0-gi-2IK" secondAttribute="centerY" id="Owo-7w-mUy"/>
-                            <constraint firstItem="Gof-4K-kUx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="265" id="T53-5Q-39s"/>
+                            <constraint firstItem="Gof-4K-kUx" firstAttribute="centerY" secondItem="GR0-gi-2IK" secondAttribute="centerY" constant="-275" id="Owo-7w-mUy"/>
+                            <constraint firstItem="Gof-4K-kUx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="T53-5Q-39s"/>
                             <constraint firstItem="GR0-gi-2IK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XK8-zq-5WL"/>
-                            <constraint firstItem="Gof-4K-kUx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="256" id="aWU-lj-D1K"/>
+                            <constraint firstItem="Gof-4K-kUx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aWU-lj-D1K"/>
                             <constraint firstAttribute="bottom" secondItem="iy2-AK-hv6" secondAttribute="bottom" constant="20" symbolic="YES" id="i8R-oT-vKc"/>
                             <constraint firstAttribute="trailing" secondItem="GR0-gi-2IK" secondAttribute="trailing" id="qsz-Nz-R17"/>
                             <constraint firstItem="iy2-AK-hv6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="506" id="rzd-0K-dUc"/>
@@ -65,7 +65,7 @@
                     <connections>
                         <outlet property="mapView" destination="GR0-gi-2IK" id="0R0-Hw-i3h"/>
                         <segue destination="Gol-l4-B8d" kind="presentation" identifier="rootViewSeque" id="0Z5-td-Zn0"/>
-                        <segue destination="J6G-JP-XHO" kind="presentation" identifier="flareDetail" id="zHG-rs-YRJ"/>
+                        <segue destination="J6G-JP-XHO" kind="show" identifier="flareDetail" id="zHG-rs-YRJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -180,7 +180,6 @@
         <!--Flare Detail View Controller-->
         <scene sceneID="UeN-iW-kNT">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qtq-wk-e8L" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="flareDetail" id="J6G-JP-XHO" customClass="FlareDetailViewController" customModule="Flare" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="APE-RO-0La"/>
@@ -206,6 +205,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Flare Subtitle" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7w-jM-1WI">
+                                <rect key="frame" x="71" y="67" width="509" height="36.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -213,7 +218,12 @@
                             <constraint firstAttribute="leadingMargin" secondItem="R0E-M0-ZqG" secondAttribute="leading" id="VqY-XT-qpc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="flareSubtitleLabel" destination="e7w-jM-1WI" id="dgc-Jh-YXP"/>
+                        <outlet property="flareTitleLabel" destination="qGy-5f-rRT" id="0aO-qb-6qT"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qtq-wk-e8L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3615" y="-157"/>
         </scene>

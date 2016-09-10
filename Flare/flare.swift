@@ -10,14 +10,16 @@ import Foundation
 import MapKit
 import FirebaseDatabase
 
-class Flare: MKPointAnnotation {
+class Flare: NSObject, MKAnnotation {
 
     var latitude: Double?
     var longitude: Double?
     var imageRef: String?
+    var title: String?
+    var subtitle: String?
+    var coordinate: CLLocationCoordinate2D
     
     init(snapshot: FIRDataSnapshot) {
-        super.init()
         self.title = snapshot.value!["title"] as! String
         self.subtitle = snapshot.value!["subtitle"] as! String
         self.imageRef = snapshot.value!["imageRef"] as! String

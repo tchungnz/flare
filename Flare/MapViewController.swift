@@ -21,6 +21,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     var flareArray = [Flare]()
     var databaseRef: FIRDatabaseReference!
+    var annotationExport: MKAnnotation?
     
     override func viewDidLoad() {
         super.viewDidLoad()

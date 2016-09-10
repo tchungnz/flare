@@ -11,8 +11,8 @@ import MapKit
 
 extension MapViewController {
     
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        if !(annotation is MKPointAnnotation) {
+    func mapView(mapView: MKMapView, didSelectAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if !(annotation is MKAnnotation) {
             return nil
         }
         
@@ -28,42 +28,45 @@ extension MapViewController {
             annotationView!.annotation = annotation
         }
         
-        let pinImage = UIImage(named: "flarePin")
+        let pinImage = UIImage(named: "redFlareMapPin")
         annotationView!.image = pinImage
         let btn = UIButton(type: .DetailDisclosure)
         annotationView!.rightCalloutAccessoryView = btn
+        
+        self.annotationExport = annotation
         
         return annotationView
     }
     
     
-    func mapView(mapView: MKMapView!, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        print("Annotation selected")
         
-        if control == annotationView.rightCalloutAccessoryView {
-            performSegueWithIdentifier("flareDetail", sender: annotationView)
+        if let annotation = view.annotation as? Flare {
+            print("Your annotation title: \(annotation.imageRef)");
         }
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if (segue.identifier == "flareDetail") {
-//            if let waypoint = (sender as? MKAnnotationView)?.annotation as? MKAnnotation {
-//                if let ivc = segue.destinationViewController as? FlareDetailViewController {
-//                    ivc.title = waypoint.title
-//                    ivc.subtitle = waypoint.subtitle
-//                }
-//            }
-//        }
-//    }
+    func mapView(mapView: MKMapView!, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+            performSegueWithIdentifier("flareDetail", sender: annotationView)
+    }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "fareDetail") {
-        
-        // Create a variable that you want to send
-        var newTestVariable = "some text"
-        
-        // Create a new variable to store the instance of PlayerTableViewController
-        let destinationVC = segue.destinationViewController as! FlareDetailViewController
-        destinationVC.testVariable = newTestVariable
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "flareDetail" {
+                if let ivc = segue.destinationViewController as? FlareDetailViewController {
+                    ivc.aTitle = self.annotationExport
+                }
         }
-}
+    }
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+//        if (segue.identifier == "fareDetail") {
+//        
+//        // Create a variable that you want to send
+//        var newTestVariable = "some text"
+//        
+//        // Create a new variable to store the instance of PlayerTableViewController
+//        let destinationVC = segue.destinationViewController as! FlareDetailViewController
+//        destinationVC.testVariable = newTestVariable
+//        }
 }
