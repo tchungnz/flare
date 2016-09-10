@@ -10,11 +10,14 @@ import Foundation
 import MapKit
 import FirebaseDatabase
 
-class Flare: MKPointAnnotation {
+class Flare: MKPointAnnotation{
 
     var latitude: Double?
     var longitude: Double?
     var imageRef: String?
+//    var title: String?
+//    var subtitle: String?
+//    var coordinate: CLLocationCoordinate2D
     
     init(snapshot: FIRDataSnapshot) {
         super.init()

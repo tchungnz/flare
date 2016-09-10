@@ -21,6 +21,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     var flareArray = [Flare]()
     var databaseRef: FIRDatabaseReference!
+    var flareExport: Flare?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +34,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
              
         // MARK: Retrieve flare from database
         
+        var currentTimeInMilliseconds = NSDate().timeIntervalSince1970 * 1000
+        print("**************CURRENTIME**************")
+        print(currentTimeInMilliseconds)
+        var timeOneHourAgo = (currentTimeInMilliseconds - 3600000)
+        print("**************TIMEONEMINAGO**************")
+        print(timeOneHourAgo)
+        
         databaseRef = FIRDatabase.database().reference().child("flares")
-        databaseRef.observeEventType(.Value, withBlock: { (snapshot) in
-            
-            var currentTime = NSDate().timeIntervalSince1970
-            var timeOneMinAgo = currentTime - 60000
+        databaseRef.queryOrderedByChild("timestamp").queryStartingAtValue(timeOneHourAgo).observeEventType(.Value, withBlock: { (snapshot) in
+    
             
             var newItems = [Flare]()
             for item in snapshot.children {
