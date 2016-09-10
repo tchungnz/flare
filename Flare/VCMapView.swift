@@ -30,7 +30,19 @@ extension MapViewController {
         
         let pinImage = UIImage(named: "flarePin")
         annotationView!.image = pinImage
+        let btn = UIButton(type: .DetailDisclosure)
+        annotationView!.rightCalloutAccessoryView = btn
+        
         
         return annotationView
     }
+    
+    
+//    func mapView(mapView: MKMapView!, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+//        
+//        if control == annotationView.rightCalloutAccessoryView {
+//            performSegueWithIdentifier("FlareDetail", sender: self)
+//        }
+//    }
+
 }
