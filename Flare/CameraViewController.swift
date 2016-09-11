@@ -22,6 +22,10 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     var flareLatitude : String?
     var flareLongitude : String?
     
+    var toggleState: Int = 1
+    var flashOn: Bool?
+    
+    
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var sendFlareButton: UIButton!
     @IBOutlet weak var takePhotoButton: UIButton!
@@ -147,13 +151,17 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         
     }
     @IBAction func takePhotoAction(sender: UIButton) {
+        if flashOn == true {
         toggleFlash()
         sleep(1)
+        }
         self.takePhotoButton.hidden = true
         self.sendFlareImageButton.hidden = false
         self.retakePhotoButton.hidden = false
         didPressTakePhoto()
+        if flashOn == true {
         toggleFlash()
+        }
     }
     
     @IBOutlet weak var flareTitle: UITextField!
@@ -224,6 +232,20 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
+    @IBAction func changeCameraIconAction(sender: AnyObject) {
+        var flashBtn = sender as! UIButton
+        if toggleState == 1 {
+            toggleState = 2
+            flashBtn.setImage(UIImage(named:"flash.png"),forState:UIControlState.Normal)
+            flashOn = false
+        } else {
+            toggleState = 1
+            flashBtn.setImage(UIImage(named:"flash-off.png"),forState:UIControlState.Normal)
+            flashOn = true
+        }
+        
+        
+    }
     
 //    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
 //        

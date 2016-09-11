@@ -125,6 +125,17 @@
                                     <outletCollection property="gestureRecognizers" destination="Ije-Oy-vdT" appends="YES" id="XrJ-6s-Pk9"/>
                                 </connections>
                             </imageView>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fra-nb-sTF">
+                                <rect key="frame" x="537" y="539" width="43" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="hmB-5i-FPK"/>
+                                    <constraint firstAttribute="height" constant="28" id="zi0-G0-ZWK"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="flash"/>
+                                <connections>
+                                    <action selector="changeCameraIconAction:" destination="d1b-im-btc" eventType="touchUpInside" id="GPC-Eb-6vc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -136,11 +147,13 @@
                             <constraint firstItem="bhx-DR-QUb" firstAttribute="top" secondItem="fbf-fy-9xy" secondAttribute="bottom" constant="16" id="B7O-Hn-QGD"/>
                             <constraint firstItem="Vnx-3Z-MtI" firstAttribute="top" secondItem="fbf-fy-9xy" secondAttribute="bottom" constant="-20" id="Bg7-aj-K0V"/>
                             <constraint firstItem="eMQ-rC-P60" firstAttribute="leading" secondItem="6is-w7-hqv" secondAttribute="leadingMargin" constant="-20" id="E4t-Pg-YLv"/>
+                            <constraint firstItem="fra-nb-sTF" firstAttribute="bottom" secondItem="3bf-he-SZq" secondAttribute="bottom" id="Ei0-k2-DVw"/>
                             <constraint firstItem="Vnx-3Z-MtI" firstAttribute="centerX" secondItem="6is-w7-hqv" secondAttribute="centerX" id="R8Y-5w-HkM"/>
                             <constraint firstAttribute="bottom" secondItem="3bf-he-SZq" secondAttribute="bottom" constant="20" symbolic="YES" id="UTL-dd-C2M"/>
                             <constraint firstItem="eMQ-rC-P60" firstAttribute="centerY" secondItem="6is-w7-hqv" secondAttribute="centerY" id="Zf0-tq-pem"/>
                             <constraint firstItem="Vnx-3Z-MtI" firstAttribute="centerY" secondItem="6is-w7-hqv" secondAttribute="centerY" id="cwQ-ej-dq8"/>
                             <constraint firstItem="bhx-DR-QUb" firstAttribute="centerX" secondItem="Vnx-3Z-MtI" secondAttribute="centerX" id="d8o-M4-vW6"/>
+                            <constraint firstItem="fra-nb-sTF" firstAttribute="trailing" secondItem="bhx-DR-QUb" secondAttribute="trailing" id="euo-I6-QwN"/>
                             <constraint firstItem="Gli-Fp-sNS" firstAttribute="top" secondItem="eMQ-rC-P60" secondAttribute="bottom" id="hs8-68-zLZ"/>
                             <constraint firstItem="eMQ-rC-P60" firstAttribute="centerX" secondItem="6is-w7-hqv" secondAttribute="centerX" id="lmX-E4-DC6"/>
                             <constraint firstItem="5kc-bo-fR1" firstAttribute="centerX" secondItem="bhx-DR-QUb" secondAttribute="centerX" id="oTG-mh-7Bd"/>
@@ -595,12 +608,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="flash" width="512" height="512"/>
         <image name="redFlare" width="512" height="512"/>
         <image name="white-flare" width="512" height="512"/>
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0Z5-td-Zn0"/>
-        <segue reference="ns2-iy-AlJ"/>
+        <segue reference="fAW-4j-zEK"/>
     </inferredMetricsTieBreakers>
 </document>
