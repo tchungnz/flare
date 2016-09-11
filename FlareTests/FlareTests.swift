@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Flare
+//@testable import Flare
 
 class FlareTests: XCTestCase {
     
