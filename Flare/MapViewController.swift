@@ -12,6 +12,7 @@ import MapKit
 import Firebase
 import FirebaseDatabase
 import CoreLocation
+import FBSDKCoreKit
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
@@ -83,7 +84,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBAction func logOutAction(sender: UIButton) {
         let user = FIRAuth.auth()?.currentUser
         try! FIRAuth.auth()?.signOut()
-        self.performSegueWithIdentifier("rootViewSeque", sender: self)
+        FBSDKAccessToken.setCurrentAccessToken(nil)
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
+        let RootViewController: UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("rootView")
+        self.presentViewController(RootViewController, animated: true, completion: nil)
+//        self.performSegueWithIdentifier("rootViewSeque", sender: self)
     }
     
 }
