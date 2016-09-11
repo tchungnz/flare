@@ -412,13 +412,6 @@
                                     <constraint firstAttribute="height" constant="155" id="xI2-Q2-sbh"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGT-mh-Zgg">
-                                <rect key="frame" x="230" y="362" width="141" height="30"/>
-                                <state key="normal" title="Login with Facebook"/>
-                                <connections>
-                                    <action selector="facebookLogin:" destination="Gol-l4-B8d" eventType="touchUpInside" id="KFh-9m-JwM"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.12941176470588237" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>

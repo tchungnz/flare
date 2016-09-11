@@ -9,13 +9,36 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Firebase
 
-class RootViewController: UIViewController {
+class RootViewController: UIViewController, FBSDKLoginButtonDelegate {
+    
+    var loginButton = FBSDKLoginButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.loginButton.hidden = true
+        FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+            if let user = user {
+                // User is signed in.
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
+                let mapViewController: UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("mapView")
+                self.presentViewController(mapViewController, animated: true, completion: nil)
+                
+            } else {
+                // No user is signed in.
+                // Optional: Place the button in the center of your view.
+                self.loginButton.center = self.view.center
+                self.loginButton.readPermissions = ["public_profile", "email", "user_friends"]
+                self.loginButton.delegate = self
+                
+                self.view.addSubview(self.loginButton)
+                self.loginButton.hidden = false
+                
+            }
+        }
+                // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,48 +46,29 @@ class RootViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func facebookLogin(sender: AnyObject) {
-        let myRootRef = Firebase(url: URL("https://flare-1ef4b.firebaseio.com"))
-        let facebookLogin = FBSDKLoginManager()
-        print("Logging In")
-        facebookLogin.logInWithReadPermissions(["email"], fromViewController: self, handler:{(facebookResult, facebookError) -> Void in
-            if facebookError != nil { print("Facebook login failed. Error \(facebookError)")
-            } else if facebookResult.isCancelled { print("Facebook login was cancelled.")
-            } else {
-                print("You’re inz ;)")
-                let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
-                myRootRef.authWith0AuthProvider("facebook", token: accessToken, withCompletionBLock: {error, authData in
-                    if error != nil {
-                        print("Login failed. \(error)")
-                    } else {
-                        print("Logged in! \(authData)")
-                        
-                        let newUser = [
-                        "provider": authData.provider,
-                        "displayName": authData.providerData["dosplayName"] as? NSString as? String,
-                        "email": authData.providerData["email"] as? NSString as? String
-                        ]
-                    }
-                    myRootRef.childByAppendingPath("facebookUsers")
-                        .childByAppendingPath(authData.uid).setValue(newUser)
-                    
-                    let nextView = (self.storyboard?.instantiateInitialViewController("mapView"))! as UIViewController
-                    self.presentViewController(nextView, animated: true, completion: nil)
-                    
-                    })
-            }
-        });
-
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+        print("User Logged In")
+        self.loginButton.hidden = true
+        if(error != nil) {
+            // handle errors here
+            self.loginButton.hidden = false
+        } else if(result.isCancelled) {
+            // handle cancel event here
+            self.loginButton.hidden = false
+        } else {
+        
+        let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
+        
+        FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+            print("User Logged Into Firebase")
+        }
+        }
     }
 
-    /*
-    // MARK: - Navigation
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        print("User Logged Out")
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
 
 }
