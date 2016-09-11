@@ -58,15 +58,13 @@ class FlareDetailViewController: UIViewController {
         flareTimeRemainingCountdown.text = String(flareTimeRemainingInMinutes)
     }
     
-    
-    @IBAction func CityMapperLink(sender: AnyObject) {
-        if let url = NSURL(string: "https://citymapper.com/directions?endcoord=\(flareExport!.latitude!)%2C-\(flareExport!.longitude!)") {
+
+    @IBAction func CityMapperNavigation(sender: AnyObject) {
+        if let url = NSURL(string: "https://citymapper.com/directions?endcoord=\(flareExport!.latitude!)%2C\(flareExport!.longitude!)") {
             UIApplication.sharedApplication().openURL(url)
             print(url)
         }
     }
-    
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

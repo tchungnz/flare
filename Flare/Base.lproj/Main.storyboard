@@ -353,11 +353,11 @@ remaining</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGh-45-Dx4">
-                                <rect key="frame" x="66" y="92" width="80" height="30"/>
-                                <state key="normal" title="CityMapper"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zby-Ud-qVQ">
+                                <rect key="frame" x="66" y="81" width="49" height="47"/>
+                                <state key="normal" title="Button" image="citymapper"/>
                                 <connections>
-                                    <action selector="CityMapperLink:" destination="J6G-JP-XHO" eventType="touchUpInside" id="m3K-se-DyV"/>
+                                    <action selector="CityMapperNavigation:" destination="J6G-JP-XHO" eventType="touchUpInside" id="fOc-zj-E9s"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -688,6 +688,7 @@ remaining</string>
         </scene>
     </scenes>
     <resources>
+        <image name="citymapper" width="300" height="300"/>
         <image name="flash" width="512" height="512"/>
         <image name="redFlare" width="512" height="512"/>
         <image name="white-flare" width="512" height="512"/>
