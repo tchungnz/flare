@@ -18,8 +18,11 @@ class FlareDetailViewController: UIViewController {
     @IBOutlet weak var flareSubtitleLabel: UILabel!
     @IBOutlet weak var flareImage: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var flareTimeRemainingCountdown: UILabel!
     
     var flareExport: Flare?
+    var databaseRef: FIRDatabaseReference!
+
 
     
 
@@ -38,12 +41,21 @@ class FlareDetailViewController: UIViewController {
                 } else {
                     let islandImage: UIImage! = UIImage(data: data!)
                     self.flareImage.image = islandImage
-                    print(islandImage.size)
                     }
                 }
         
                 flareTitleLabel.text = flareExport!.title!
                 flareSubtitleLabel.text = flareExport!.subtitle!
+        
+        
+        // Displaying the time left on a flare:
+        print("**************Time************")
+        print(flareExport!.timestamp!)
+        var currentTimeInMilliseconds = NSDate().timeIntervalSince1970 * 1000
+        var flarePostedTime = Double(flareExport!.timestamp!)
+        var flareTimeRemaining = currentTimeInMilliseconds - flarePostedTime
+        var flareTimeRemainingInMinutes = 60 - Int(flareTimeRemaining / 60 / 1000)
+        flareTimeRemainingCountdown.text = String(flareTimeRemainingInMinutes)
         
     }
 
