@@ -177,7 +177,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
             // 1
             let velocity = recognizer.velocityInView(self.view)
             let magnitude = sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y))
-            let slideMultiplier = magnitude / 200
+            let slideMultiplier = magnitude / 2000
             print("magnitude: \(magnitude), slideMultiplier: \(slideMultiplier)")
             
             // 2
@@ -186,8 +186,8 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
             var finalPoint = CGPoint(x:recognizer.view!.center.x + (0),
                                      y:recognizer.view!.center.y + (velocity.y * slideFactor))
             // 4
-            finalPoint.x = min(max(finalPoint.x, 0), self.view.bounds.size.width)
-            finalPoint.y = min(max(finalPoint.y, 0), self.view.bounds.size.height)
+//            finalPoint.x = min(max(finalPoint.x, 0), self.view.bounds.size.width)
+//            finalPoint.y = min(max(finalPoint.y, 0), self.view.bounds.size.height)
             
             // 5
             UIView.animateWithDuration(Double(slideFactor * 2),
@@ -196,6 +196,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
                 options: UIViewAnimationOptions.CurveEaseOut,
                 animations: {recognizer.view!.center = finalPoint },
                 completion: nil)
+            self.onSwipe()
         }
             // Need to work out completions callbacks to remove the timer below.
             let seconds = 0.8
@@ -203,9 +204,6 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
             let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
             
             dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-                
-                self.onSwipe()
-                
                 self.performSegueWithIdentifier("returnMap", sender: self)
             })
         }

@@ -15,6 +15,7 @@ class Flare: MKPointAnnotation{
     var latitude: Double?
     var longitude: Double?
     var imageRef: String?
+    var timestamp: Int?
 //    var title: String?
 //    var subtitle: String?
 //    var coordinate: CLLocationCoordinate2D
@@ -28,6 +29,7 @@ class Flare: MKPointAnnotation{
         self.longitude = Double(snapshot.value!["longitude"] as! String)
         self.coordinate = CLLocationCoordinate2D(latitude: self.latitude! as
         CLLocationDegrees, longitude: self.longitude! as CLLocationDegrees)
+        self.timestamp = snapshot.value!["timestamp"] as? Int
     }
     
 }
