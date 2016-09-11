@@ -81,15 +81,5 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         print("Errors: " + error.localizedDescription)
     }
     
-    @IBAction func logOutAction(sender: UIButton) {
-        let user = FIRAuth.auth()?.currentUser
-        try! FIRAuth.auth()?.signOut()
-        FBSDKAccessToken.setCurrentAccessToken(nil)
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
-        let RootViewController: UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("rootView")
-        self.presentViewController(RootViewController, animated: true, completion: nil)
-//        self.performSegueWithIdentifier("rootViewSeque", sender: self)
-    }
-    
 }
 

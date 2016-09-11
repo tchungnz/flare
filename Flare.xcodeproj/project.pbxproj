@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08EFE9CF341AC9A8593EF0B9 /* Pods_Flare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C077AF3B95864CEF341C981 /* Pods_Flare.framework */; };
+		246276DA1D85DB0C00D434F5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246276D91D85DB0C00D434F5 /* ProfileViewController.swift */; };
 		24B68D491D8184AB004EE49A /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B68D481D8184AB004EE49A /* CameraViewController.swift */; };
 		378C31308AD144F1C77A72A4 /* Pods_FlareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE71BA334882FB87A15CE562 /* Pods_FlareTests.framework */; };
 		5354CF281D8467BE00D57347 /* FlareDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5354CF271D8467BE00D57347 /* FlareDetailViewController.swift */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		071010AADE24D7DACD9ABDC4 /* Pods-Flare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flare.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flare/Pods-Flare.release.xcconfig"; sourceTree = "<group>"; };
 		1C077AF3B95864CEF341C981 /* Pods_Flare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		246276D91D85DB0C00D434F5 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		24B68D481D8184AB004EE49A /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		5354CF271D8467BE00D57347 /* FlareDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlareDetailViewController.swift; sourceTree = "<group>"; };
 		5354CF2F1D85B35400D57347 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../FacebookSDK/FacebookSDKs-iOS-4.15.1/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				6A7ED8851D7F2E94005FF0A8 /* AppDelegate.swift */,
 				6A7ED8871D7F2E94005FF0A8 /* MapViewController.swift */,
 				6A7ED8891D7F2E94005FF0A8 /* Main.storyboard */,
+				246276D91D85DB0C00D434F5 /* ProfileViewController.swift */,
 				6A7ED88C1D7F2E94005FF0A8 /* Assets.xcassets */,
 				6A7ED88E1D7F2E94005FF0A8 /* LaunchScreen.storyboard */,
 				6A7ED8911D7F2E94005FF0A8 /* Info.plist */,
@@ -481,6 +484,7 @@
 				746DDF451D844570004A27A2 /* SwipeViewController.swift in Sources */,
 				6A7ED8861D7F2E94005FF0A8 /* AppDelegate.swift in Sources */,
 				6AF5581E1D82E21700D37A49 /* RegisterViewController.swift in Sources */,
+				246276DA1D85DB0C00D434F5 /* ProfileViewController.swift in Sources */,
 				826E4E991D81CA6F00CA4493 /* RootViewController.swift in Sources */,
 				82FF4C911D85C26E00B44AF7 /* UITextFieldLimit.m in Sources */,
 				6AF5581A1D81671000D37A49 /* LoginViewController.swift in Sources */,
