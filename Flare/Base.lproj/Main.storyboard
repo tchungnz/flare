@@ -216,7 +216,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flare Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="qGy-5f-rRT">
-                                <rect key="frame" x="66" y="16" width="509" height="37"/>
+                                <rect key="frame" x="66" y="16" width="447" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="MKl-Ae-weg"/>
                                 </constraints>
@@ -283,8 +283,16 @@
                                 </variation>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flare Subtitle" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7w-jM-1WI">
-                                <rect key="frame" x="66" y="47" width="509" height="37"/>
+                                <rect key="frame" x="66" y="47" width="447" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mq-EO-ySW">
+                                <rect key="frame" x="521" y="47" width="59" height="37"/>
+                                <string key="text">mins
+remaining</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -294,14 +302,6 @@
                                     <constraint firstAttribute="width" constant="59" id="m7d-OZ-Qan"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mq-EO-ySW">
-                                <rect key="frame" x="521" y="47" width="59" height="37"/>
-                                <string key="text">mins
-remaining</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -337,7 +337,7 @@ remaining</string>
                             <constraint firstAttribute="bottom" secondItem="381-kp-Qh5" secondAttribute="bottom" id="dRW-Se-xSs"/>
                             <constraint firstItem="381-kp-Qh5" firstAttribute="centerX" secondItem="VuI-VJ-pvH" secondAttribute="centerX" id="f9W-6d-OEj"/>
                             <constraint firstItem="381-kp-Qh5" firstAttribute="width" secondItem="VuI-VJ-pvH" secondAttribute="width" id="fth-hK-pJT"/>
-                            <constraint firstItem="qGy-5f-rRT" firstAttribute="trailing" secondItem="VuI-VJ-pvH" secondAttribute="trailingMargin" constant="-5" id="gVQ-kT-XQR"/>
+                            <constraint firstItem="qGy-5f-rRT" firstAttribute="trailing" secondItem="VuI-VJ-pvH" secondAttribute="trailingMargin" constant="-67" id="gVQ-kT-XQR"/>
                             <constraint firstItem="381-kp-Qh5" firstAttribute="top" secondItem="APE-RO-0La" secondAttribute="bottom" constant="72" id="i3b-yJ-kaK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WAE-Nn-i4d" secondAttribute="trailing" constant="-20" id="kPa-BZ-DSV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WAE-Nn-i4d" secondAttribute="trailing" constant="-20" id="o6I-Ke-bki"/>
@@ -639,7 +639,7 @@ remaining</string>
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fAW-4j-zEK"/>
         <segue reference="0Z5-td-Zn0"/>
+        <segue reference="ns2-iy-AlJ"/>
     </inferredMetricsTieBreakers>
 </document>
