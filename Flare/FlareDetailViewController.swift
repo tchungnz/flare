@@ -9,10 +9,12 @@
 import UIKit
 import Firebase
 import MapKit
+import CoreLocation
 import FirebaseDatabase
 
+//typealias ServiceResponse = (JSON, NSError?) -> Void
 
-class FlareDetailViewController: UIViewController {
+class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var flareTitleLabel: UILabel!
     @IBOutlet weak var flareSubtitleLabel: UILabel!
@@ -22,13 +24,22 @@ class FlareDetailViewController: UIViewController {
     
     var flareExport: Flare?
     var databaseRef: FIRDatabaseReference!
-
-
     
-
+    var userLatitude : Double?
+    var userLongitude : Double?
+    
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scrollView.contentSize = CGSize(width:1080, height: 1920)
+        
+        
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+        
         
         // MARK: How to get image out of storage
         let storage = FIRStorage.storage()
@@ -47,7 +58,7 @@ class FlareDetailViewController: UIViewController {
                 flareTitleLabel.text = flareExport!.title!
                 flareSubtitleLabel.text = flareExport!.subtitle!
         
-        
+
         // Displaying the time left on a flare:
         print("**************Time************")
         print(flareExport!.timestamp!)
@@ -56,6 +67,23 @@ class FlareDetailViewController: UIViewController {
         var flareTimeRemaining = currentTimeInMilliseconds - flarePostedTime
         var flareTimeRemainingInMinutes = 60 - Int(flareTimeRemaining / 60 / 1000)
         flareTimeRemainingCountdown.text = String(flareTimeRemainingInMinutes)
+        
+        // Needs callback so this happens after location manager function:
+        cityMapperCall()
+        
+    }
+    
+    func cityMapperCall() {
+        print("**************coordinates**********")
+        print(self.userLatitude)
+        print(self.userLongitude)
+        
+        
+        let path = "https://developer.citymapper.com/api/1/traveltime/?startcoord=\(self.userLatitude)%2C0.084672&endcoord=\(flareExport!.latitude!)%2C\(flareExport!.longitude!)&time_type=arrival&key=af0adea677e7825d1e38a0a435f12365"
+        
+        let citymap = RestApiManager()
+        citymap.makeHTTPGetRequest(path, onCompletion: { _, _ in })
+
     }
     
 
@@ -65,12 +93,24 @@ class FlareDetailViewController: UIViewController {
             print(url)
         }
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("*******************")
+        print("***************")
+        let location = locations.last
+        self.userLatitude = Double(location!.coordinate.latitude)
+        self.userLongitude = Double(location!.coordinate.longitude)
+        self.locationManager.stopUpdatingLocation()
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("Errors: " + error.localizedDescription)
+    }
 
 }
