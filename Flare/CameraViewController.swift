@@ -147,10 +147,13 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         
     }
     @IBAction func takePhotoAction(sender: UIButton) {
+        toggleFlash()
+        sleep(1)
         self.takePhotoButton.hidden = true
         self.sendFlareImageButton.hidden = false
         self.retakePhotoButton.hidden = false
         didPressTakePhoto()
+        toggleFlash()
     }
     
     @IBOutlet weak var flareTitle: UITextField!
@@ -198,6 +201,28 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
                 self.performSegueWithIdentifier("returnMap", sender: self)
             })
         }
+    
+    
+    func toggleFlash() {
+        let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        if (device.hasTorch) {
+            do {
+                try device.lockForConfiguration()
+                if (device.torchMode == AVCaptureTorchMode.On) {
+                    device.torchMode = AVCaptureTorchMode.Off
+                } else {
+                    do {
+                        try device.setTorchModeOnWithLevel(1.0)
+                    } catch {
+                        print(error)
+                    }
+                }
+                device.unlockForConfiguration()
+            } catch {
+                print(error)
+            }
+        }
+    }
     
     
 //    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
