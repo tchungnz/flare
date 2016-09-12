@@ -19,6 +19,8 @@ class RootViewController: UIViewController, FBSDKLoginButtonDelegate {
         super.viewDidLoad()
         
         self.loginButton.hidden = true
+        loginButton.readPermissions = ["public_profile", "email", "user_friends"]
+        
         FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
             if let user = user {
                 // User is signed in.

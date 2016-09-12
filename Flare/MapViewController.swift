@@ -13,6 +13,7 @@ import Firebase
 import FirebaseDatabase
 import CoreLocation
 import FBSDKCoreKit
+import FBSDKShareKit
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
@@ -26,6 +27,39 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // TESTING FACEBOOK DETAILS
+        let user = FIRAuth.auth()?.currentUser
+        print("*******DisplayName**********")
+        print(user?.displayName)
+        print("*******Email**********")
+        print(user?.email)
+        
+        // let params = ["fields": "friends"]
+        let params = ["fields": "friends{email}"]
+        let graphRequest = FBSDKGraphRequest(graphPath: "10154479520857387", parameters: params)
+        graphRequest.startWithCompletionHandler { [weak self] connection, result, error in
+            if error != nil {
+                print(error.description)
+                return
+            }else{
+                let fbResult = result as! Dictionary<String, AnyObject>
+                print(fbResult)
+            }
+        }
+        
+        graphRequest.startWithCompletionHandler { [weak self] connection, result, error in
+            if error != nil {
+                print(error.description)
+                return
+            }else{
+                let fbResult = result as! Dictionary<String, AnyObject>
+                print(fbResult)
+            }
+        }
+
+
+        
         
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
