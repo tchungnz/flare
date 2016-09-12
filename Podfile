@@ -16,12 +16,20 @@ target 'Flare' do
 
   target 'FlareTests' do
     inherit! :search_paths
-    # Pods for testing
+    use_frameworks!
+    pod 'Firebase'
+    pod 'FirebaseAuth'
+    pod 'Firebase/Database'
+    pod 'Firebase/Storage'
   end
 
   target 'FlareUITests' do
     inherit! :search_paths
-    # Pods for testing
+    use_frameworks!
+    pod 'Firebase'
+    pod 'FirebaseAuth'
+    pod 'Firebase/Database'
+    pod 'Firebase/Storage'
   end
 
 end
