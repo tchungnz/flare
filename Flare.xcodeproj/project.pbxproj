@@ -160,25 +160,15 @@
 		6A7ED8841D7F2E94005FF0A8 /* Flare */ = {
 			isa = PBXGroup;
 			children = (
-				82FF4C8F1D85C26E00B44AF7 /* UITextFieldLimit.h */,
-				82FF4C901D85C26E00B44AF7 /* UITextFieldLimit.m */,
+				8296B41D1D86BFC400F3B1A7 /* Lib */,
 				820E2C0A1D80885D00EC4B1B /* GoogleService-Info.plist */,
 				6A7ED8851D7F2E94005FF0A8 /* AppDelegate.swift */,
-				6A7ED8871D7F2E94005FF0A8 /* MapViewController.swift */,
+				8296B41C1D86BF8900F3B1A7 /* Controllers */,
 				6A7ED8891D7F2E94005FF0A8 /* Main.storyboard */,
-				246276D91D85DB0C00D434F5 /* ProfileViewController.swift */,
 				6A7ED88C1D7F2E94005FF0A8 /* Assets.xcassets */,
 				6A7ED88E1D7F2E94005FF0A8 /* LaunchScreen.storyboard */,
 				6A7ED8911D7F2E94005FF0A8 /* Info.plist */,
-				53C8D1001D80760B00E57400 /* flare.swift */,
-				53C8D1021D80781100E57400 /* VCMapView.swift */,
-				746DDF441D844570004A27A2 /* SwipeViewController.swift */,
-				6AF558191D81671000D37A49 /* LoginViewController.swift */,
-				24B68D481D8184AB004EE49A /* CameraViewController.swift */,
-				826E4E981D81CA6F00CA4493 /* RootViewController.swift */,
-				6AF5581D1D82E21700D37A49 /* RegisterViewController.swift */,
-				5354CF271D8467BE00D57347 /* FlareDetailViewController.swift */,
-				82FF4C8E1D85C26E00B44AF7 /* Flare-Bridging-Header.h */,
+				8296B41E1D86BFD000F3B1A7 /* Models */,
 			);
 			path = Flare;
 			sourceTree = "<group>";
@@ -212,6 +202,40 @@
 				9468DB4A64BFEF5B46BA9417 /* Pods-FlareUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8296B41C1D86BF8900F3B1A7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6A7ED8871D7F2E94005FF0A8 /* MapViewController.swift */,
+				246276D91D85DB0C00D434F5 /* ProfileViewController.swift */,
+				53C8D1021D80781100E57400 /* VCMapView.swift */,
+				746DDF441D844570004A27A2 /* SwipeViewController.swift */,
+				6AF558191D81671000D37A49 /* LoginViewController.swift */,
+				24B68D481D8184AB004EE49A /* CameraViewController.swift */,
+				826E4E981D81CA6F00CA4493 /* RootViewController.swift */,
+				6AF5581D1D82E21700D37A49 /* RegisterViewController.swift */,
+				5354CF271D8467BE00D57347 /* FlareDetailViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		8296B41D1D86BFC400F3B1A7 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				82FF4C8F1D85C26E00B44AF7 /* UITextFieldLimit.h */,
+				82FF4C901D85C26E00B44AF7 /* UITextFieldLimit.m */,
+				82FF4C8E1D85C26E00B44AF7 /* Flare-Bridging-Header.h */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
+		8296B41E1D86BFD000F3B1A7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				53C8D1001D80760B00E57400 /* flare.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
