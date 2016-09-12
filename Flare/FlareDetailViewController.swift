@@ -21,6 +21,7 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var flareImage: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var flareTimeRemainingCountdown: UILabel!
+    @IBOutlet weak var DistanceToFlare: UILabel!
     
     var flareExport: Flare?
     var databaseRef: FIRDatabaseReference!
@@ -92,6 +93,9 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         let path = "https://developer.citymapper.com/api/1/traveltime/?startcoord=\(latitude)%2C\(longitude)&endcoord=\(flareExport!.latitude!)%2C\(flareExport!.longitude!)&time_type=arrival&key=af0adea677e7825d1e38a0a435f12365"
         let citymap = RestApiManager()
         citymap.makeHTTPGetRequest(path, onCompletion: { _, _ in })
+        DistanceToFlare.text = citymap.distance
+        print("Tectonpgae**************")
+        print(citymap.distance)
     }
     
     

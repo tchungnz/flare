@@ -14,14 +14,7 @@ typealias ServiceResponse = (JSON, NSError?) -> Void
 class RestApiManager: NSObject {
     static let sharedInstance = RestApiManager()
     
-//    let baseURL = "http://api.randomuser.me/"
-//    
-//    func getRandomUser(onCompletion: (JSON) -> Void) {
-//        let route = baseURL
-//        makeHTTPGetRequest(route, onCompletion: { json, err in
-//            onCompletion(json as JSON)
-//        })
-//    }
+    var distance : String?
     
     // MARK: Perform a GET Request
     func makeHTTPGetRequest(path: String, onCompletion: ServiceResponse) {
@@ -32,8 +25,11 @@ class RestApiManager: NSObject {
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             if let jsonData = data {
                 let json:JSON = JSON(data: jsonData)
-                print(json)
                 onCompletion(json, error)
+                if let time = json["travel_time_minutes"].int {
+                    self.distance = "\(time) mins away"
+                    print(self.distance)
+                }
             } else {
                 onCompletion(nil, error)
             }
