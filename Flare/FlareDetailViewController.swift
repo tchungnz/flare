@@ -23,38 +23,35 @@ class FlareDetailViewController: UIViewController {
     var flareExport: Flare?
     var databaseRef: FIRDatabaseReference!
 
-
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scrollView.contentSize = CGSize(width:1080, height: 1920)
-        
-        // MARK: How to get image out of storage
+        retrieveFlareImage()
+        flareTitleLabel.text = flareExport!.title!
+        flareSubtitleLabel.text = flareExport!.subtitle!
+        findFlareRemainingTime()
+    }
+    
+    func retrieveFlareImage() {
         let storage = FIRStorage.storage()
         let storageRef = storage.referenceForURL("gs://flare-1ef4b.appspot.com")
         let islandRef = storageRef.child("\(flareExport!.imageRef!)")
         // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-            islandRef.dataWithMaxSize(1 * 1920 * 1080) { (data, error) -> Void in
-                if (error != nil) {
-                    print("Error!")
-                } else {
-                    let islandImage: UIImage! = UIImage(data: data!)
-                    self.flareImage.image = islandImage
-                    }
-                }
-        
-                flareTitleLabel.text = flareExport!.title!
-                flareSubtitleLabel.text = flareExport!.subtitle!
-        
-        
-        // Displaying the time left on a flare:
-        print("**************Time************")
-        print(flareExport!.timestamp!)
-        var currentTimeInMilliseconds = NSDate().timeIntervalSince1970 * 1000
-        var flarePostedTime = Double(flareExport!.timestamp!)
-        var flareTimeRemaining = currentTimeInMilliseconds - flarePostedTime
-        var flareTimeRemainingInMinutes = 60 - Int(flareTimeRemaining / 60 / 1000)
+        islandRef.dataWithMaxSize(1 * 1920 * 1080) { (data, error) -> Void in
+            if (error != nil) {
+                print("Error!")
+            } else {
+                let islandImage: UIImage! = UIImage(data: data!)
+                self.flareImage.image = islandImage
+            }
+        }
+    }
+    
+    func findFlareRemainingTime() {
+        let currentTimeInMilliseconds = NSDate().timeIntervalSince1970 * 1000
+        let flarePostedTime = Double(flareExport!.timestamp!)
+        let flareTimeRemaining = currentTimeInMilliseconds - flarePostedTime
+        let flareTimeRemainingInMinutes = 60 - Int(flareTimeRemaining / 60 / 1000)
         flareTimeRemainingCountdown.text = String(flareTimeRemainingInMinutes)
     }
     

@@ -21,7 +21,6 @@ class ProfileViewController: UIViewController {
     var databaseRef: FIRDatabaseReference!
     var flareArray = [Flare]()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,7 +40,6 @@ class ProfileViewController: UIViewController {
         databaseRef = FIRDatabase.database().reference().child("flares")
         databaseRef.queryOrderedByChild("subtitle").queryStartingAtValue(username.text).queryLimitedToLast(1).observeEventType(.Value, withBlock: { (snapshot) in
             
-            
             var newItems = [Flare]()
             for item in snapshot.children {
                 print(item)
@@ -51,7 +49,6 @@ class ProfileViewController: UIViewController {
             
             self.flareArray = newItems
             self.activeFlareLabel.text = self.flareArray.first!.title
-//            print(self.flareArray)
         
         })
         { (error) in
@@ -71,17 +68,6 @@ class ProfileViewController: UIViewController {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
         let RootViewController: UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("rootView")
         self.presentViewController(RootViewController, animated: true, completion: nil)
-        //        self.performSegueWithIdentifier("rootViewSeque", sender: self)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
