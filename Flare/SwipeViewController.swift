@@ -14,7 +14,12 @@ import CoreLocation
 
 extension CameraViewController: CLLocationManagerDelegate {
     
+    
+    
     func onSwipe() {
+        
+        
+        if self.flareTitle.text != "" {
         
         // MARK: Upload image to storage
         
@@ -47,12 +52,24 @@ extension CameraViewController: CLLocationManagerDelegate {
         let flare1 = ["title": self.flareTitle.text!, "subtitle": user!.email! as String, "imageRef": "images/flare\(imageString).jpg", "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp]
         let flare1Ref = flareRef.childByAutoId()
         flare1Ref.setValue(flare1)
+        } else {
+            self.displayAlertMessage("Please enter a title")
+            return
+        }
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last
         self.flareLatitude = String(location!.coordinate.latitude)
         self.flareLongitude = String(location!.coordinate.longitude)
+    }
+    
+    func displayAlertMessage(message: String)
+    {
+        let myAlert = UIAlertController(title: "Ooops", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+        myAlert.addAction(okAction)
+        self.presentViewController(myAlert, animated: true, completion: nil)
     }
     
     
