@@ -32,17 +32,14 @@ extension MapViewController {
         annotationView!.image = pinImage
         let btn = UIButton(type: .DetailDisclosure)
         annotationView!.rightCalloutAccessoryView = btn
-                
+    
         return annotationView
     }
     
     
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
-        print("Annotation selected")
-        
         if let annotation = view.annotation as? Flare {
             self.flareExport = annotation
-//            print("Your annotation title: \(annotation.imageRef)");
         }
     }
     
@@ -58,14 +55,4 @@ extension MapViewController {
         }
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-//        if (segue.identifier == "fareDetail") {
-//        
-//        // Create a variable that you want to send
-//        var newTestVariable = "some text"
-//        
-//        // Create a new variable to store the instance of PlayerTableViewController
-//        let destinationVC = segue.destinationViewController as! FlareDetailViewController
-//        destinationVC.testVariable = newTestVariable
-//        }
 }

@@ -18,7 +18,7 @@ extension MapViewController {
         self.timeOneHourAgo = (currentTimeInMilliseconds - 3600000)
     }
 
-    func getFlaresFromDatabase(completion:(result: String) -> Void) {
+    func getFlaresFromDatabase(completion: (result: Array<Flare>) -> ()) {
         getTimeOneHourAgo()
         databaseRef = FIRDatabase.database().reference().child("flares")
         databaseRef.queryOrderedByChild("timestamp").queryStartingAtValue(timeOneHourAgo).observeEventType(.Value, withBlock: { (snapshot) in
@@ -28,37 +28,16 @@ extension MapViewController {
             let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
             newItems.insert(newFlare, atIndex: 0)
         }
-            self.flareArray = newItems
-            completion(result: "the callback worked")
+            completion(result: newItems)
             })
         { (error) in
             print(error.localizedDescription)
         }
     }
 
-    func plotFlares() {
+    func plotFlares(flares: Array<Flare>) {
         self.mapView.delegate = self
-        self.mapView.addAnnotations(self.flareArray)
+        self.mapView.addAnnotations(flares)
     }
 
 }
-
-//databaseRef = FIRDatabase.database().reference().child("flares")
-//databaseRef.queryOrderedByChild("timestamp").queryStartingAtValue(timeOneHourAgo).observeEventType(.Value, withBlock: { (snapshot) in
-
-    
-//    var newItems = [Flare]()
-//    for item in snapshot.children {
-//        let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
-//        newItems.insert(newFlare, atIndex: 0)
-//    }
-//    
-//    self.flareArray = newItems
-//    self.mapView.delegate = self
-//    self.mapView.addAnnotations(self.flareArray)
-//    
-//    })
-//{ (error) in
-//    print(error.localizedDescription)
-//}
-//}
