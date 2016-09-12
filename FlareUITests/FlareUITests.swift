@@ -12,7 +12,6 @@ class FlareUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()
-        if
         
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
@@ -33,23 +32,7 @@ class FlareUITests: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
-    
-    func testLogingPageExists() {
-        
-        let app = XCUIApplication()
-        app.buttons["Login"].tap()
-        XCTAssert(app.staticTexts["Log in"].exists)
-    }
-    
-    func testRegisterPageExists() {
-        let app = XCUIApplication()
-        app.buttons["Register"].tap()
-        XCTAssert(app.staticTexts["Register"].exists)
-    }
-    
-    func randomTest() {
 
-    }
     
     
 }
