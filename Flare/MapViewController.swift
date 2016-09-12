@@ -24,64 +24,49 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var flareArray = [Flare]()
     var databaseRef: FIRDatabaseReference!
     var flareExport: Flare?
+    var timeOneHourAgo : Double?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapSetUp()
         
-        self.locationManager.delegate = self
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.startUpdatingLocation()
-        self.mapView.showsUserLocation = true
-             
-        // MARK: Retrieve flare from database
+        getFlaresFromDatabase()
         
-        var currentTimeInMilliseconds = NSDate().timeIntervalSince1970 * 1000
-        print("**************CURRENTIME**************")
-        print(currentTimeInMilliseconds)
-        var timeOneHourAgo = (currentTimeInMilliseconds - 3600000)
-        print("**************TIMEONEMINAGO**************")
-        print(timeOneHourAgo)
         
-        databaseRef = FIRDatabase.database().reference().child("flares")
-        databaseRef.queryOrderedByChild("timestamp").queryStartingAtValue(timeOneHourAgo).observeEventType(.Value, withBlock: { (snapshot) in
+        
+        // MARK: Retrieves flares from database
+        
+        
+//        var currentTimeInMilliseconds = NSDate().timeIntervalSince1970 * 1000
+//        var timeOneHourAgo = (currentTimeInMilliseconds - 3600000)
+//        
+//        databaseRef = FIRDatabase.database().reference().child("flares")
+//        databaseRef.queryOrderedByChild("timestamp").queryStartingAtValue(timeOneHourAgo).observeEventType(.Value, withBlock: { (snapshot) in
+//    
+//            
+//            var newItems = [Flare]()
+//            for item in snapshot.children {
+//                let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
+//                newItems.insert(newFlare, atIndex: 0)
+//            }
+//            
+//            self.flareArray = newItems
+//            self.mapView.delegate = self
+//            self.mapView.addAnnotations(self.flareArray)
+//            
+//        })
+//        { (error) in
+//                print(error.localizedDescription)
+//        }
+//    }
     
-            
-            var newItems = [Flare]()
-            for item in snapshot.children {
-                let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
-                newItems.insert(newFlare, atIndex: 0)
-            }
-            
-            self.flareArray = newItems
-            self.mapView.delegate = self
-            self.mapView.addAnnotations(self.flareArray)
-            
-        })
-        { (error) in
-                print(error.localizedDescription)
-        }
-    }
+}
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // MARK: - Location Delegate Methods
-    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last
-        let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
-        self.mapView.setRegion(region, animated: true)
-        self.locationManager.stopUpdatingLocation()
-    }
 
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("Errors: " + error.localizedDescription)
-    }
-    
 }
 
