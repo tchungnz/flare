@@ -31,6 +31,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var takePhotoButton: UIButton!
     @IBOutlet weak var retakePhotoButton: UIButton!
     @IBOutlet weak var sendFlareImageButton: UIImageView!
+    @IBOutlet weak var backToMapButton: UIButton!
     
     let locationManager = CLLocationManager()
     
@@ -132,6 +133,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     func didPressTakeAnother() {
         
+        backToMapButton.hidden = false
         if didTakePhoto == false {
             tempImageView.hidden = true
             didTakePhoto = false
@@ -156,6 +158,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         sleep(1)
         }
         self.takePhotoButton.hidden = true
+        backToMapButton.hidden = true
         self.sendFlareImageButton.hidden = false
         self.retakePhotoButton.hidden = false
         didPressTakePhoto()
