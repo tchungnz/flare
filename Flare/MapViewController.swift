@@ -6,7 +6,6 @@
 //  Copyright © 2016 appflare. All rights reserved.
 //
 
-
 import UIKit
 import MapKit
 import Firebase
