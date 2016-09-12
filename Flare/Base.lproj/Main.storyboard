@@ -250,17 +250,6 @@
                                     <action selector="takePhotoAction:" destination="d1b-im-btc" eventType="touchUpInside" id="36A-Ge-FTN"/>
                                 </connections>
                             </button>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redFlare" translatesAutoresizingMaskIntoConstraints="NO" id="5kc-bo-fR1">
-                                <rect key="frame" x="225" y="463" width="150" height="150"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="UTr-8a-pWy"/>
-                                    <constraint firstAttribute="height" constant="150" id="zSi-G3-zO6"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Ije-Oy-vdT" appends="YES" id="XrJ-6s-Pk9"/>
-                                </connections>
-                            </imageView>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fra-nb-sTF">
                                 <rect key="frame" x="537" y="539" width="43" height="41"/>
                                 <constraints>
@@ -273,10 +262,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SzE-sB-ACH">
-                                <rect key="frame" x="20" y="526" width="56" height="54"/>
+                                <rect key="frame" x="17" y="534" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="56" id="2Wj-q8-e0k"/>
-                                    <constraint firstAttribute="height" constant="54" id="ptZ-lb-Nuv"/>
+                                    <constraint firstAttribute="width" constant="50" id="2Wj-q8-e0k"/>
+                                    <constraint firstAttribute="height" constant="50" id="ptZ-lb-Nuv"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="map-icon"/>
                                 <connections>
@@ -287,6 +276,17 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redFlare" translatesAutoresizingMaskIntoConstraints="NO" id="5kc-bo-fR1">
+                                <rect key="frame" x="225" y="456" width="150" height="150"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="UTr-8a-pWy"/>
+                                    <constraint firstAttribute="height" constant="150" id="zSi-G3-zO6"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Ije-Oy-vdT" appends="YES" id="XrJ-6s-Pk9"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -297,18 +297,18 @@
                             <constraint firstItem="Vnx-3Z-MtI" firstAttribute="centerX" secondItem="bhx-DR-QUb" secondAttribute="centerX" id="MCS-yb-w1b"/>
                             <constraint firstItem="5kc-bo-fR1" firstAttribute="centerX" secondItem="X9n-uW-Cgh" secondAttribute="centerX" id="SDd-AG-OdL"/>
                             <constraint firstItem="bhx-DR-QUb" firstAttribute="centerX" secondItem="X9n-uW-Cgh" secondAttribute="centerX" id="SSK-jh-V28"/>
-                            <constraint firstItem="SzE-sB-ACH" firstAttribute="leading" secondItem="3bf-he-SZq" secondAttribute="leading" id="URg-Ny-cg5"/>
+                            <constraint firstItem="SzE-sB-ACH" firstAttribute="leading" secondItem="3bf-he-SZq" secondAttribute="leading" constant="-3" id="URg-Ny-cg5"/>
                             <constraint firstItem="Vnx-3Z-MtI" firstAttribute="leading" secondItem="6is-w7-hqv" secondAttribute="leading" id="WoK-xD-e7F"/>
                             <constraint firstAttribute="bottom" secondItem="3bf-he-SZq" secondAttribute="bottom" constant="20" symbolic="YES" id="ccg-m6-ALs"/>
                             <constraint firstItem="eMQ-rC-P60" firstAttribute="bottom" secondItem="Gli-Fp-sNS" secondAttribute="top" id="gPd-wz-OKe"/>
                             <constraint firstItem="bhx-DR-QUb" firstAttribute="top" secondItem="fbf-fy-9xy" secondAttribute="bottom" constant="16" id="iMf-my-lcJ"/>
-                            <constraint firstItem="SzE-sB-ACH" firstAttribute="bottom" secondItem="3bf-he-SZq" secondAttribute="bottom" id="iQF-kK-Zou"/>
+                            <constraint firstItem="SzE-sB-ACH" firstAttribute="bottom" secondItem="3bf-he-SZq" secondAttribute="bottom" constant="4" id="iQF-kK-Zou"/>
                             <constraint firstItem="eMQ-rC-P60" firstAttribute="trailing" secondItem="Vnx-3Z-MtI" secondAttribute="trailing" id="mqu-xL-eMt"/>
                             <constraint firstItem="bhx-DR-QUb" firstAttribute="trailing" secondItem="fra-nb-sTF" secondAttribute="trailing" id="nJk-OB-tFW"/>
                             <constraint firstItem="Gli-Fp-sNS" firstAttribute="top" secondItem="X9n-uW-Cgh" secondAttribute="bottom" constant="25" id="qUg-jN-dNi"/>
                             <constraint firstItem="bhx-DR-QUb" firstAttribute="leading" secondItem="3bf-he-SZq" secondAttribute="leading" id="qr2-iT-aLk"/>
                             <constraint firstItem="Vnx-3Z-MtI" firstAttribute="bottom" secondItem="Gli-Fp-sNS" secondAttribute="top" id="sjr-ii-smk"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="5kc-bo-fR1" secondAttribute="bottom" constant="-13" id="svx-O0-8Je"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="5kc-bo-fR1" secondAttribute="bottom" constant="-6" id="svx-O0-8Je"/>
                             <constraint firstAttribute="trailing" secondItem="Vnx-3Z-MtI" secondAttribute="trailing" id="ugo-6E-Kcc"/>
                             <constraint firstItem="3bf-he-SZq" firstAttribute="bottom" secondItem="fra-nb-sTF" secondAttribute="bottom" id="vRo-0n-zkr"/>
                             <constraint firstItem="Gli-Fp-sNS" firstAttribute="top" secondItem="X9n-uW-Cgh" secondAttribute="bottom" constant="30" id="wFy-ew-f1e"/>

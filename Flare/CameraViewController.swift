@@ -237,11 +237,11 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         var flashBtn = sender as! UIButton
         if toggleState == 1 {
             toggleState = 2
-            flashBtn.setImage(UIImage(named:"flash-off.png"),forState:UIControlState.Normal)
+            flashBtn.setImage(UIImage(named:"flash.png"),forState:UIControlState.Normal)
             flashOn = false
         } else {
             toggleState = 1
-            flashBtn.setImage(UIImage(named:"flash.png"),forState:UIControlState.Normal)
+            flashBtn.setImage(UIImage(named:"flash-off.png"),forState:UIControlState.Normal)
             flashOn = true
         }
         
