@@ -25,9 +25,6 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     var flareExport: Flare?
     var databaseRef: FIRDatabaseReference!
     
-    var userLatitude : Double?
-    var userLongitude : Double?
-    
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -67,25 +64,8 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         var flareTimeRemaining = currentTimeInMilliseconds - flarePostedTime
         var flareTimeRemainingInMinutes = 60 - Int(flareTimeRemaining / 60 / 1000)
         flareTimeRemainingCountdown.text = String(flareTimeRemainingInMinutes)
-        
-        // Needs callback so this happens after location manager function:
-        cityMapperCall()
-        
     }
-    
-    func cityMapperCall() {
-        print("**************coordinates**********")
-        print(self.userLatitude)
-        print(self.userLongitude)
-        
-        
-        let path = "https://developer.citymapper.com/api/1/traveltime/?startcoord=\(self.userLatitude)%2C0.084672&endcoord=\(flareExport!.latitude!)%2C\(flareExport!.longitude!)&time_type=arrival&key=af0adea677e7825d1e38a0a435f12365"
-        
-        let citymap = RestApiManager()
-        citymap.makeHTTPGetRequest(path, onCompletion: { _, _ in })
 
-    }
-    
 
     @IBAction func CityMapperNavigation(sender: AnyObject) {
         if let url = NSURL(string: "https://citymapper.com/directions?endcoord=\(flareExport!.latitude!)%2C\(flareExport!.longitude!)") {
@@ -101,13 +81,19 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("*******************")
-        print("***************")
         let location = locations.last
-        self.userLatitude = Double(location!.coordinate.latitude)
-        self.userLongitude = Double(location!.coordinate.longitude)
+        let userLatitude = Double(location!.coordinate.latitude)
+        let userLongitude = Double(location!.coordinate.longitude)
         self.locationManager.stopUpdatingLocation()
+        cityMapperCall(userLatitude, longitude: userLongitude)
     }
+    
+    func cityMapperCall(latitude: Double, longitude: Double) {
+        let path = "https://developer.citymapper.com/api/1/traveltime/?startcoord=\(latitude)%2C\(longitude)&endcoord=\(flareExport!.latitude!)%2C\(flareExport!.longitude!)&time_type=arrival&key=af0adea677e7825d1e38a0a435f12365"
+        let citymap = RestApiManager()
+        citymap.makeHTTPGetRequest(path, onCompletion: { _, _ in })
+    }
+    
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         print("Errors: " + error.localizedDescription)
