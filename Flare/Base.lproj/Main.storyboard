@@ -137,7 +137,7 @@
                             </mapView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hU9-gQ-Vch">
                                 <rect key="frame" x="10" y="30" width="51" height="31"/>
-                                <color key="onTintColor" red="1" green="0.46071091190000002" blue="0.21149209829999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="toggleMapButton:" destination="BYZ-38-t0r" eventType="valueChanged" id="Que-d2-D5R"/>
                                     <action selector="togglePrivateAction:" destination="d1b-im-btc" eventType="valueChanged" id="Ghc-mi-DLa"/>
@@ -318,7 +318,7 @@
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LFA-kd-SoJ">
                                 <rect key="frame" x="531" y="74" width="51" height="31"/>
-                                <color key="onTintColor" red="1" green="0.46071091190000002" blue="0.21149209829999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="togglePrivateAction:" destination="d1b-im-btc" eventType="valueChanged" id="dF3-UJ-a52"/>
                                 </connections>

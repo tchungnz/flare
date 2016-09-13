@@ -185,7 +185,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
             togglePrivateLabel.text = "Private"
         } else {
             isPublicFlare = true
-            togglePrivateLabel.text = "Public"
+            togglePrivateLabel.text = "Friends"
         }
     }
     
