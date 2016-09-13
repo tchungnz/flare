@@ -16,6 +16,8 @@ import CoreLocation
 class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     var captureSession : AVCaptureSession?
+    var input: AVCaptureDeviceInput?
+    var output: AVCaptureStillImageOutput?
     var stillImageOutput : AVCaptureStillImageOutput?
     var previewLayer : AVCaptureVideoPreviewLayer?
     
@@ -69,6 +71,40 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
+        
+        captureSession = AVCaptureSession()
+        output = AVCaptureStillImageOutput()
+        //captureSession?.sessionPreset = AVCaptureSessionPreset1920x1080
+        
+        let backCamera = getDevice(.Back)
+        
+        //var input = AVCaptureDeviceInput()
+        do {
+            input = try AVCaptureDeviceInput(device: backCamera)
+        } catch let error as NSError {
+            print(error)
+            input = nil
+            error
+        }
+        
+        // var error : NSError?
+        
+        if(captureSession?.canAddInput(input) == true){
+            captureSession?.addInput(input)
+            //output?.outputSettings = [AVVideoCodecKey : AVVideoCodecJPEG]
+            stillImageOutput = AVCaptureStillImageOutput()
+            stillImageOutput?.outputSettings = [AVVideoCodecKey : AVVideoCodecJPEG]
+            
+            if(captureSession?.canAddOutput(stillImageOutput) == true){
+                captureSession?.addOutput(stillImageOutput)
+                previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+                previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+                previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
+                previewLayer?.frame = cameraView.bounds
+                cameraView.layer.addSublayer(previewLayer!)
+                captureSession?.startRunning()
+            }
+        }
 
     }
 
@@ -121,4 +157,73 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
     }
     
-}
+    @IBAction func switchCameraView(sender: AnyObject) {
+        captureSession = AVCaptureSession()
+        output = AVCaptureStillImageOutput()
+        // captureSession?.sessionPreset = AVCaptureSessionPreset1920x1080
+        
+        let frontCamera = getDevice(.Front)
+        
+        //var input = AVCaptureDeviceInput()
+        do {
+            input = try AVCaptureDeviceInput(device: frontCamera)
+        } catch let error as NSError {
+            print(error)
+            input = nil
+            error
+        }
+        // var error : NSError?
+        
+        if(captureSession?.canAddInput(input) == true){
+            captureSession?.addInput(input)
+            stillImageOutput = AVCaptureStillImageOutput()
+            stillImageOutput?.outputSettings = [AVVideoCodecKey : AVVideoCodecJPEG]
+            
+            if(captureSession?.canAddOutput(stillImageOutput) == true){
+                captureSession?.addOutput(stillImageOutput)
+                previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+                previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+                previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
+                previewLayer?.frame = cameraView.bounds
+                cameraView.layer.addSublayer(previewLayer!)
+                captureSession?.startRunning()
+            }
+        }
+        
+    }
+    
+    @IBAction func switchCameraViewBack(sender: AnyObject) {
+        captureSession = AVCaptureSession()
+        output = AVCaptureStillImageOutput()
+        // captureSession?.sessionPreset = AVCaptureSessionPreset1920x1080
+        
+        let backCamera = getDevice(.Back)
+        
+        //var input = AVCaptureDeviceInput()
+        do {
+            input = try AVCaptureDeviceInput(device: backCamera)
+        } catch let error as NSError {
+            print(error)
+            input = nil
+            error
+        }
+        // var error : NSError?
+        
+        if(captureSession?.canAddInput(input) == true){
+            captureSession?.addInput(input)
+            stillImageOutput = AVCaptureStillImageOutput()
+            stillImageOutput?.outputSettings = [AVVideoCodecKey : AVVideoCodecJPEG]
+            
+            if(captureSession?.canAddOutput(stillImageOutput) == true){
+                captureSession?.addOutput(stillImageOutput)
+                previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+                previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+                previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
+                previewLayer?.frame = cameraView.bounds
+                cameraView.layer.addSublayer(previewLayer!)
+                captureSession?.startRunning()
+            }
+        }
+        
+    }
+    }
