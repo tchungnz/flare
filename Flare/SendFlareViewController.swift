@@ -41,17 +41,25 @@ extension FlareViewController: CLLocationManagerDelegate {
             }
         }
     }
+    
+    func getFacebookID() {
+        if let user = FIRAuth.auth()?.currentUser {
+            for profile in user.providerData {
+                self.uid = profile.uid;  // Provider-specific UID
+            }
+        }
+    }
         
     func saveFlareToDatabase(imageString: String) {
+        self.getFacebookID()
         let flareRef = ref.childByAppendingPath("flares")
         let timestamp = FIRServerValue.timestamp()
         
         let user = FIRAuth.auth()?.currentUser
         // Put a guard on the email code below:
-        let flare1 = ["title": self.flareTitle.text!, "subtitle": user!.displayName! as String, "imageRef": "images/flare\(imageString).jpg", "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp, "isPublic": self.isPublicFlare as Bool]
+        let flare1 = ["facebookID": self.uid! as String, "title": self.flareTitle.text!, "subtitle": user!.displayName! as String, "imageRef": "images/flare\(imageString).jpg", "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp, "isPublic": self.isPublicFlare as Bool]
         let flare1Ref = flareRef.childByAutoId()
         flare1Ref.setValue(flare1)
-
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

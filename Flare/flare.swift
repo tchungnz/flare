@@ -12,6 +12,7 @@ import FirebaseDatabase
 
 class Flare: MKPointAnnotation{
 
+    var facebookID: String?
     var latitude: Double?
     var longitude: Double?
     var imageRef: String?
@@ -23,6 +24,7 @@ class Flare: MKPointAnnotation{
     
     init(snapshot: FIRDataSnapshot) {
         super.init()
+        self.facebookID = snapshot.value!["facebookID"] as! String
         self.title = snapshot.value!["title"] as! String
         self.subtitle = snapshot.value!["subtitle"] as! String
         self.imageRef = snapshot.value!["imageRef"] as! String
