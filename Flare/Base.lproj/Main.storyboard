@@ -168,8 +168,8 @@
                                     <segue destination="d1b-im-btc" kind="presentation" identifier="cameraView" id="a6n-dq-dfg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMg-Ov-4VJ">
-                                <rect key="frame" x="545" y="28" width="45" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMg-Ov-4VJ">
+                                <rect key="frame" x="105" y="32" width="45" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DMg-Ov-4VJ" secondAttribute="height" multiplier="1:1" constant="-5" id="gbf-ZS-NXG"/>
                                 </constraints>
@@ -255,7 +255,7 @@
                                     <action selector="retakeAction:" destination="d1b-im-btc" eventType="touchUpInside" id="io4-dd-BYY"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's going on?" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bhx-DR-QUb" customClass="UITextFieldLimit">
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's going on?" textAlignment="natural" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bhx-DR-QUb" customClass="UITextFieldLimit">
                                 <rect key="frame" x="20" y="36" width="560" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
