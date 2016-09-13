@@ -16,12 +16,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var profilePic: UIImageView!
+    @IBOutlet weak var togglePublicLabel: UILabel!
+    @IBOutlet weak var togglePublicView: UISwitch!
     
     let locationManager = CLLocationManager()
     
     var databaseRef: FIRDatabaseReference!
     var flareExport: Flare?
     var timeOneHourAgo : Double?
+    var isPublicView: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,5 +42,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func togglePublicViewAction(sender: UISwitch) {
+        if togglePublicView.on {
+            //Private view
+            isPublicView = false
+            togglePublicLabel.text = "Private"
+        } else {
+            //Public view
+            isPublicView = true
+            togglePublicLabel.text = "Public"
+        }
+    }
 }
 
