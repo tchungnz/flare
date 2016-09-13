@@ -20,9 +20,8 @@ extension MapViewController {
 
     func getFlaresFromDatabase(completion: (result: Array<Flare>) -> ()) {
         getTimeOneHourAgo()
-        if isPublicView == true {
-            databaseRef = FIRDatabase.database().reference().child("flares")
-            databaseRef.queryOrderedByChild("isPublic?").queryOrderedByValue("False").observeEventType(.Value, withBlock: { (snapshot) in
+        databaseRef = FIRDatabase.database().reference().child("flares")
+        databaseRef.queryOrderedByChild("timestamp").queryStartingAtValue(timeOneHourAgo).observeEventType(.Value, withBlock: { (snapshot) in
             
         var newItems = [Flare]()
         for item in snapshot.children {
@@ -35,21 +34,10 @@ extension MapViewController {
             print(error.localizedDescription)
         }
     }
-    }
 
     func plotFlares(flares: Array<Flare>) {
         self.mapView.delegate = self
         self.mapView.addAnnotations(flares)
     }
-    
-    //func getFlaresBasedOnPublicStatus(completion: (result: Array<Flare>) -> ()) {
-      //  databaseRef = FIRDatabase.database().reference().child("flares")
-        //databaseRef.queryOrderedByChild("isPublic?").queryOrderedByValue("False").observeEventType(.Value, //withBlock: { (snapshot) in
-            
-            
-            
-            
-           // )
-    //}
 
 }
