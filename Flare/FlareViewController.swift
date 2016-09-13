@@ -39,7 +39,9 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var sendFlareImageButton: UIImageView!
     @IBOutlet weak var backToMapButton: UIButton!
     @IBOutlet weak var flareTitle: UITextField!
-
+    @IBOutlet weak var flashBtn: UIButton!
+    
+    
     
     let locationManager = CLLocationManager()
     
@@ -67,7 +69,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         setButtons()
         self.flareTitle.delegate = self;
-
+        self.flareTitle.hidden = true
         // Refactor to a separate class
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -119,6 +121,8 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var didTakePhoto = Bool()
 
     func didPressTakeAnother() {
+        self.flashBtn.hidden = false
+        self.flareTitle.hidden = true
         
         if didTakePhoto == false {
             tempImageView.hidden = true

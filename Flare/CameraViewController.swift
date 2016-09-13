@@ -110,6 +110,8 @@ extension FlareViewController {
                     
                     self.tempImageView.image = image
                     self.tempImageView.hidden = false
+                    self.flareTitle.hidden = false
+                    self.flashBtn.hidden = true
                 }
             })
         }
