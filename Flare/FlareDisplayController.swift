@@ -81,9 +81,10 @@ extension MapViewController {
         }
     }
     
-
     func plotFlares(flares: Array<Flare>) {
         self.mapView.delegate = self
+        let allAnnotations = self.mapView.annotations
+        self.mapView.removeAnnotations(allAnnotations)
         self.mapView.addAnnotations(flares)
     }
 
