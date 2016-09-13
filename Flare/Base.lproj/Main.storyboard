@@ -169,7 +169,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMg-Ov-4VJ">
-                                <rect key="frame" x="535" y="30" width="45" height="50"/>
+                                <rect key="frame" x="545" y="28" width="45" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DMg-Ov-4VJ" secondAttribute="height" multiplier="1:1" constant="-5" id="gbf-ZS-NXG"/>
                                 </constraints>
@@ -189,14 +189,14 @@
                             <constraint firstItem="GR0-gi-2IK" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="6ha-oG-hWR"/>
                             <constraint firstItem="hU9-gQ-Vch" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="DWH-eW-CxH"/>
                             <constraint firstItem="H7W-gx-kCV" firstAttribute="top" secondItem="hU9-gQ-Vch" secondAttribute="bottom" constant="2" id="FEb-xW-hwJ"/>
-                            <constraint firstItem="DMg-Ov-4VJ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="HdE-c9-oSF"/>
+                            <constraint firstItem="DMg-Ov-4VJ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="10" id="HdE-c9-oSF"/>
                             <constraint firstAttribute="bottom" secondItem="iy2-AK-hv6" secondAttribute="bottom" constant="20" symbolic="YES" id="IA1-9Z-wgF"/>
-                            <constraint firstItem="DMg-Ov-4VJ" firstAttribute="leading" secondItem="GR0-gi-2IK" secondAttribute="trailing" constant="-65" id="JIn-ju-L38"/>
+                            <constraint firstItem="DMg-Ov-4VJ" firstAttribute="leading" secondItem="GR0-gi-2IK" secondAttribute="trailing" constant="-55" id="JIn-ju-L38"/>
                             <constraint firstItem="H7W-gx-kCV" firstAttribute="centerX" secondItem="hU9-gQ-Vch" secondAttribute="centerX" id="Kkj-jy-zdh"/>
-                            <constraint firstItem="GR0-gi-2IK" firstAttribute="top" secondItem="DMg-Ov-4VJ" secondAttribute="bottom" constant="-60" id="SNB-Sq-n66"/>
+                            <constraint firstItem="GR0-gi-2IK" firstAttribute="top" secondItem="DMg-Ov-4VJ" secondAttribute="bottom" constant="-58" id="SNB-Sq-n66"/>
                             <constraint firstItem="hU9-gQ-Vch" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-3" id="Sdm-NY-rxi"/>
                             <constraint firstItem="iy2-AK-hv6" firstAttribute="centerX" secondItem="GR0-gi-2IK" secondAttribute="centerX" id="U9z-I1-fpX"/>
-                            <constraint firstItem="DMg-Ov-4VJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="dVH-Ll-SaN"/>
+                            <constraint firstItem="DMg-Ov-4VJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="dVH-Ll-SaN"/>
                             <constraint firstAttribute="bottom" secondItem="iy2-AK-hv6" secondAttribute="bottom" constant="20" symbolic="YES" id="pwy-gB-05P"/>
                             <constraint firstItem="GR0-gi-2IK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qDi-xv-DGx"/>
                             <constraint firstItem="GR0-gi-2IK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rNs-ax-0vv"/>
