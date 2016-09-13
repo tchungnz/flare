@@ -24,51 +24,24 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var databaseRef: FIRDatabaseReference!
     var flareExport: Flare?
     var timeOneHourAgo : Double?
+    var friendsArray : Array<String>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mapSetUp()
         
-        getPublicFlaresFromDatabase() {
+        getFacebookFriends()
+        
+        getFriendsFlaresFromDatabase() {
             (result: Array<Flare>) in
             self.plotFlares(result)
         }
-        
-        let params = ["fields": "friends"]
-        let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: params)
-        graphRequest.startWithCompletionHandler { [weak self] connection, result, error in
-            if error != nil {
-                print(error.description)
-                return
-            }else{
-                //                let fbResult = result as! Dictionary<String, AnyObject>
-                let json:JSON = JSON(result)
-                print("*********JSON********")
-                print(json["friends"]["data"])
-                
-                var friendsIdArray = [String]()
-                
-                for item in json["friends"]["data"].arrayValue {
-                    friendsIdArray.insert(item["id"].stringValue, atIndex: 0)
-                }
-                
-                print(friendsIdArray)
-            }
-        }
-        
-        if let user = FIRAuth.auth()?.currentUser {
-            for profile in user.providerData {
-                let providerID = profile.providerID
-                print("*********providerid")
-                print(providerID)
-                let uid = profile.uid;  // Provider-specific UID
-                print("*********uid")
-                print(uid)
-            }
-        } else {
-            // No user is signed in.
-        }
+
+//        getPublicFlaresFromDatabase() {
+//            (result: Array<Flare>) in
+//            self.plotFlares(result)
+//        }
     }
     
     override func didReceiveMemoryWarning() {
