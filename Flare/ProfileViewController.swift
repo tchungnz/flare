@@ -38,18 +38,12 @@ class ProfileViewController: UIViewController {
         }
         
         databaseRef = FIRDatabase.database().reference().child("flares")
-        databaseRef.queryOrderedByChild("subtitle").queryStartingAtValue(username.text).queryLimitedToLast(1).observeEventType(.Value, withBlock: { (snapshot) in
+        databaseRef.queryOrderedByChild("subtitle").queryEqualToValue(name.text).queryLimitedToLast(1).observeEventType(.Value, withBlock: { (snapshot) in
             
-            var newItems = [Flare]()
             for item in snapshot.children {
-                print(item)
                 let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
-                newItems.insert(newFlare, atIndex: 0)
+                self.activeFlareLabel.text = newFlare.title
             }
-            
-            self.flareArray = newItems
-            self.activeFlareLabel.text = self.flareArray.first!.title
-        
         })
         { (error) in
             print(error.localizedDescription)

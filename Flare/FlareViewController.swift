@@ -24,6 +24,8 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var flareLatitude : String?
     var flareLongitude : String?
     
+    var uid : String?
+    
     var cameraToggleState: Int = 1
     var isPublicFlare: Bool = true
     
