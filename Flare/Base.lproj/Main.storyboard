@@ -151,14 +151,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iy2-AK-hv6">
-                                <rect key="frame" x="225" y="430" width="150" height="150"/>
+                                <rect key="frame" x="257.5" y="495" width="85" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="7Sd-OK-wGi"/>
-                                    <constraint firstAttribute="height" constant="150" id="Ehw-vF-FVh"/>
-                                    <constraint firstAttribute="width" constant="150" id="Pqu-j2-ZRA"/>
+                                    <constraint firstAttribute="height" constant="85" id="Ehw-vF-FVh"/>
+                                    <constraint firstAttribute="width" constant="85" id="Pqu-j2-ZRA"/>
                                     <constraint firstAttribute="width" secondItem="iy2-AK-hv6" secondAttribute="height" multiplier="1:1" id="hbr-bB-Vlr"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="redFlare"/>
+                                <state key="normal" title="Button" image="flare-button-2"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="7Sd-OK-wGi"/>
@@ -714,6 +714,11 @@ remaining</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email:" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Okz-bw-GAb">
+                                <rect key="frame" x="20" y="185" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrp-tG-Zr8">
                                 <rect key="frame" x="48" y="43" width="34" height="30"/>
                                 <state key="normal" title="back"/>
@@ -721,11 +726,6 @@ remaining</string>
                                     <segue destination="Gol-l4-B8d" kind="presentation" id="qOH-3N-LeK"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email:" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Okz-bw-GAb">
-                                <rect key="frame" x="20" y="185" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -846,6 +846,7 @@ remaining</string>
     </scenes>
     <resources>
         <image name="citymapper" width="300" height="300"/>
+        <image name="flare-button-2" width="321" height="321"/>
         <image name="flash" width="512" height="512"/>
         <image name="map-icon" width="256" height="256"/>
         <image name="profileIcon" width="128" height="128"/>
@@ -855,8 +856,8 @@ remaining</string>
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="tRH-4X-HMJ"/>
         <segue reference="0Z5-td-Zn0"/>
-        <segue reference="mUN-UL-zRw"/>
         <segue reference="amc-dr-e01"/>
     </inferredMetricsTieBreakers>
 </document>
