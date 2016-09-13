@@ -82,26 +82,27 @@ extension FlareViewController: CLLocationManagerDelegate {
     
     func getFbIDsFromDatabase(completion: (result: Array<Flare>) -> ()) {
         getTimeOneHourAgo()
-        
+        var usersFlares = [Flare]()
+        var allFlares = [Flare]()
         var facebookID = getFacebookID()
         var databaseRef = FIRDatabase.database().reference().child("flares")
         databaseRef.queryOrderedByChild("facebookID").queryEqualToValue(self.uid).observeEventType(.Value, withBlock: { (snapshot) in
             
-            var facebookIdItems = [Flare]()
-            
             for item in snapshot.children {
-//               if (item.value!["isPublic"] as! Bool) {
                     let flare = Flare(snapshot: item as! FIRDataSnapshot)
-                    facebookIdItems.insert(flare, atIndex: 0)
-                    print("***item**")
-                    print(item)
+                        if Double(flare.timestamp!) >= self.timeOneHourAgo! {
+                            usersFlares.insert(flare, atIndex: 0)
+                        }
+                    allFlares.insert(flare, atIndex: 0)
                     print("***array**")
-                    print(facebookIdItems)
-                    print("***array count**")
-                    print(facebookIdItems.count)
+                    print(usersFlares)
+                    print("***all flares count**")
+                    print(allFlares.count)
+                    print("***users flares count**")
+                    print(usersFlares.count)
+                    print(Double(flare.timestamp!) >= self.timeOneHourAgo!)
                 }
-//            }
-            completion(result: facebookIdItems)
+            completion(result: usersFlares)
             })
         { (error) in
             print(error.localizedDescription)
