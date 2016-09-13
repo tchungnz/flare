@@ -22,6 +22,7 @@ class FlareDetailViewController: UIViewController {
     @IBOutlet weak var flareImage: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var flareTimeRemainingCountdown: UILabel!
+    @IBOutlet weak var flareDetailBar: UIView!
     
     let navBar = UINavigationBar()
     var flareExport: Flare?
@@ -77,7 +78,19 @@ class FlareDetailViewController: UIViewController {
     
     func toggle(sender: AnyObject) {
         print("screen tapped")
-        self.navigationController?.hidesBarsOnTap = true
+        if flareDetailBar.hidden == true {
+            UIView.animateWithDuration(0.2, delay: 0, options: [], animations: {
+                self.flareDetailBar.alpha = 1 // Here you will get the animation you want
+                }, completion: { finished in
+                    self.flareDetailBar.hidden = false // Here you hide it when animation done
+            })
+        } else {
+            UIView.animateWithDuration(0.2, delay: 0, options: [], animations: {
+                self.flareDetailBar.alpha = 0 // Here you will get the animation you want
+                }, completion: { finished in
+                    self.flareDetailBar.hidden = true // Here you hide it when animation done
+            })
+        }
     }
     
     override func prefersStatusBarHidden() -> Bool {
