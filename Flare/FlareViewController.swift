@@ -24,6 +24,8 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var flareLatitude : String?
     var flareLongitude : String?
     
+    var cameraToggleState: Int = 1
+    
     var toggleState: Bool?
     var flashOn: Bool?
     let storage = FIRStorage.storage()
@@ -157,73 +159,15 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
     }
     
-    @IBAction func switchCameraView(sender: AnyObject) {
-        captureSession = AVCaptureSession()
-        output = AVCaptureStillImageOutput()
-        // captureSession?.sessionPreset = AVCaptureSessionPreset1920x1080
-        
-        let frontCamera = getDevice(.Front)
-        
-        //var input = AVCaptureDeviceInput()
-        do {
-            input = try AVCaptureDeviceInput(device: frontCamera)
-        } catch let error as NSError {
-            print(error)
-            input = nil
-            error
+    
+    
+    @IBAction func toggleCamerSwitchAction(sender: UIButton) {
+        if cameraToggleState == 1 {
+            switchCameraViewFront()
+        } else {
+            switchCameraViewBack()
         }
-        // var error : NSError?
-        
-        if(captureSession?.canAddInput(input) == true){
-            captureSession?.addInput(input)
-            stillImageOutput = AVCaptureStillImageOutput()
-            stillImageOutput?.outputSettings = [AVVideoCodecKey : AVVideoCodecJPEG]
-            
-            if(captureSession?.canAddOutput(stillImageOutput) == true){
-                captureSession?.addOutput(stillImageOutput)
-                previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-                previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-                previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
-                previewLayer?.frame = cameraView.bounds
-                cameraView.layer.addSublayer(previewLayer!)
-                captureSession?.startRunning()
-            }
-        }
-        
     }
     
-    @IBAction func switchCameraViewBack(sender: AnyObject) {
-        captureSession = AVCaptureSession()
-        output = AVCaptureStillImageOutput()
-        // captureSession?.sessionPreset = AVCaptureSessionPreset1920x1080
-        
-        let backCamera = getDevice(.Back)
-        
-        //var input = AVCaptureDeviceInput()
-        do {
-            input = try AVCaptureDeviceInput(device: backCamera)
-        } catch let error as NSError {
-            print(error)
-            input = nil
-            error
-        }
-        // var error : NSError?
-        
-        if(captureSession?.canAddInput(input) == true){
-            captureSession?.addInput(input)
-            stillImageOutput = AVCaptureStillImageOutput()
-            stillImageOutput?.outputSettings = [AVVideoCodecKey : AVVideoCodecJPEG]
-            
-            if(captureSession?.canAddOutput(stillImageOutput) == true){
-                captureSession?.addOutput(stillImageOutput)
-                previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-                previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-                previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
-                previewLayer?.frame = cameraView.bounds
-                cameraView.layer.addSublayer(previewLayer!)
-                captureSession?.startRunning()
-            }
-        }
-        
-    }
+    
     }

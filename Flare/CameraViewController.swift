@@ -23,10 +23,11 @@ extension FlareViewController {
         
     }
     
-    func switchCameraViewToFront() {
+    func switchCameraViewFront() {
+        cameraToggleState = 2
         captureSession = AVCaptureSession()
         output = AVCaptureStillImageOutput()
-        captureSession?.sessionPreset = AVCaptureSessionPreset1920x1080
+        // captureSession?.sessionPreset = AVCaptureSessionPreset1920x1080
         
         let frontCamera = getDevice(.Front)
         
@@ -38,7 +39,6 @@ extension FlareViewController {
             input = nil
             error
         }
-        
         // var error : NSError?
         
         if(captureSession?.canAddInput(input) == true){
@@ -56,9 +56,45 @@ extension FlareViewController {
                 captureSession?.startRunning()
             }
         }
+        
     }
     
-    
+    func switchCameraViewBack() {
+        cameraToggleState = 1
+        captureSession = AVCaptureSession()
+        output = AVCaptureStillImageOutput()
+        // captureSession?.sessionPreset = AVCaptureSessionPreset1920x1080
+        
+        let backCamera = getDevice(.Back)
+        
+        //var input = AVCaptureDeviceInput()
+        do {
+            input = try AVCaptureDeviceInput(device: backCamera)
+        } catch let error as NSError {
+            print(error)
+            input = nil
+            error
+        }
+        // var error : NSError?
+        
+        if(captureSession?.canAddInput(input) == true){
+            captureSession?.addInput(input)
+            stillImageOutput = AVCaptureStillImageOutput()
+            stillImageOutput?.outputSettings = [AVVideoCodecKey : AVVideoCodecJPEG]
+            
+            if(captureSession?.canAddOutput(stillImageOutput) == true){
+                captureSession?.addOutput(stillImageOutput)
+                previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+                previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+                previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
+                previewLayer?.frame = cameraView.bounds
+                cameraView.layer.addSublayer(previewLayer!)
+                captureSession?.startRunning()
+            }
+        }
+        
+    }
+
     
     func didPressTakePhoto() {
         if let videoConnection = stillImageOutput?.connectionWithMediaType(AVMediaTypeVideo) {

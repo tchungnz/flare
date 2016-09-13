@@ -286,18 +286,15 @@
                                     <outletCollection property="gestureRecognizers" destination="Ije-Oy-vdT" appends="YES" id="XrJ-6s-Pk9"/>
                                 </connections>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lh-RW-GY4">
-                                <rect key="frame" x="465" y="103" width="99" height="30"/>
-                                <state key="normal" title="Swivel to front"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzU-kD-nqP">
+                                <rect key="frame" x="539" y="74" width="41" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="88" id="E1n-Sg-Yq2"/>
+                                    <constraint firstAttribute="height" constant="88" id="vr5-5h-sBS"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="switch-camera"/>
                                 <connections>
-                                    <action selector="switchCameraView:" destination="d1b-im-btc" eventType="touchUpInside" id="YNB-Jp-PkA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8k0-UH-5Jo">
-                                <rect key="frame" x="461" y="141" width="103" height="30"/>
-                                <state key="normal" title="Swivel to back "/>
-                                <connections>
-                                    <action selector="switchCameraViewBack:" destination="d1b-im-btc" eventType="touchUpInside" id="yvA-ld-vMI"/>
+                                    <action selector="toggleCamerSwitchAction:" destination="d1b-im-btc" eventType="touchUpInside" id="ldM-cz-qjc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -305,23 +302,21 @@
                         <constraints>
                             <constraint firstItem="eMQ-rC-P60" firstAttribute="leading" secondItem="6is-w7-hqv" secondAttribute="leading" id="0Vh-Bq-vjE"/>
                             <constraint firstItem="eMQ-rC-P60" firstAttribute="trailing" secondItem="Vnx-3Z-MtI" secondAttribute="trailing" id="17L-ve-gxJ"/>
+                            <constraint firstItem="jzU-kD-nqP" firstAttribute="trailing" secondItem="bhx-DR-QUb" secondAttribute="trailing" id="3x3-cL-J7l"/>
                             <constraint firstItem="bhx-DR-QUb" firstAttribute="top" secondItem="fbf-fy-9xy" secondAttribute="bottom" constant="16" id="5BB-N5-x8G"/>
                             <constraint firstItem="eMQ-rC-P60" firstAttribute="centerX" secondItem="bhx-DR-QUb" secondAttribute="centerX" id="7FG-KQ-OrN"/>
                             <constraint firstItem="bhx-DR-QUb" firstAttribute="leading" secondItem="6is-w7-hqv" secondAttribute="leadingMargin" id="7ff-8v-oZb"/>
                             <constraint firstAttribute="bottom" secondItem="3bf-he-SZq" secondAttribute="bottom" constant="20" symbolic="YES" id="7l8-bO-uOX"/>
                             <constraint firstItem="Vnx-3Z-MtI" firstAttribute="bottom" secondItem="Gli-Fp-sNS" secondAttribute="top" id="BVg-OU-X0N"/>
-                            <constraint firstItem="8k0-UH-5Jo" firstAttribute="top" secondItem="9lh-RW-GY4" secondAttribute="bottom" constant="8" symbolic="YES" id="EHw-Kb-kLH"/>
                             <constraint firstItem="SzE-sB-ACH" firstAttribute="leading" secondItem="6is-w7-hqv" secondAttribute="leadingMargin" constant="-3" id="HVA-UK-bYP"/>
                             <constraint firstItem="bhx-DR-QUb" firstAttribute="trailing" secondItem="fra-nb-sTF" secondAttribute="trailing" id="Htf-BD-pxN"/>
                             <constraint firstItem="SzE-sB-ACH" firstAttribute="centerY" secondItem="fra-nb-sTF" secondAttribute="centerY" id="NVh-XU-hle"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9lh-RW-GY4" secondAttribute="trailing" constant="44" id="O9P-Ao-Al2"/>
+                            <constraint firstItem="jzU-kD-nqP" firstAttribute="top" secondItem="bhx-DR-QUb" secondAttribute="bottom" constant="8" symbolic="YES" id="OHe-lZ-w0s"/>
                             <constraint firstAttribute="trailing" secondItem="Vnx-3Z-MtI" secondAttribute="trailing" id="SHg-e2-8AI"/>
                             <constraint firstItem="bhx-DR-QUb" firstAttribute="centerX" secondItem="X9n-uW-Cgh" secondAttribute="centerX" id="Us3-31-vlR"/>
                             <constraint firstItem="Vnx-3Z-MtI" firstAttribute="top" secondItem="6is-w7-hqv" secondAttribute="top" id="V9J-SF-dQ8"/>
                             <constraint firstItem="bhx-DR-QUb" firstAttribute="leading" secondItem="3bf-he-SZq" secondAttribute="leading" id="Vgt-iX-hwc"/>
-                            <constraint firstItem="9lh-RW-GY4" firstAttribute="top" secondItem="bhx-DR-QUb" secondAttribute="bottom" constant="37" id="WGR-Gu-xfb"/>
                             <constraint firstItem="eMQ-rC-P60" firstAttribute="bottom" secondItem="Gli-Fp-sNS" secondAttribute="top" id="YHB-xN-vRW"/>
-                            <constraint firstItem="8k0-UH-5Jo" firstAttribute="trailing" secondItem="9lh-RW-GY4" secondAttribute="trailing" id="bWj-Fn-HHQ"/>
                             <constraint firstItem="Gli-Fp-sNS" firstAttribute="top" secondItem="SzE-sB-ACH" secondAttribute="bottom" constant="16" id="by7-HR-J45"/>
                             <constraint firstItem="eMQ-rC-P60" firstAttribute="top" secondItem="Vnx-3Z-MtI" secondAttribute="top" id="fRl-fe-Szm"/>
                             <constraint firstItem="3bf-he-SZq" firstAttribute="bottom" secondItem="fra-nb-sTF" secondAttribute="bottom" id="hg8-HX-4sP"/>
@@ -813,6 +808,7 @@ remaining</string>
         <image name="map-icon" width="256" height="256"/>
         <image name="profileIcon" width="289" height="289"/>
         <image name="redFlare" width="512" height="512"/>
+        <image name="switch-camera" width="256" height="256"/>
         <image name="white-flare" width="512" height="512"/>
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
