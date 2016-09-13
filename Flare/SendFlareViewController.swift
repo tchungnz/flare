@@ -14,7 +14,9 @@ import CoreLocation
 
 extension FlareViewController: CLLocationManagerDelegate {
     
+    
     func onSwipe() {
+        
         let imageString = NSUUID().UUIDString
         
         if self.flareTitle.text != "" {
@@ -75,4 +77,41 @@ extension FlareViewController: CLLocationManagerDelegate {
         myAlert.addAction(okAction)
         self.presentViewController(myAlert, animated: true, completion: nil)
     }
+    
+
+    
+    func getFbIDsFromDatabase(completion: (result: Array<Flare>) -> ()) {
+        getTimeOneHourAgo()
+        
+        var facebookID = getFacebookID()
+        var databaseRef = FIRDatabase.database().reference().child("flares")
+        databaseRef.queryOrderedByChild("facebookID").queryEqualToValue(self.uid).observeEventType(.Value, withBlock: { (snapshot) in
+            
+            var facebookIdItems = [Flare]()
+            
+            for item in snapshot.children {
+//               if (item.value!["isPublic"] as! Bool) {
+                    let flare = Flare(snapshot: item as! FIRDataSnapshot)
+                    facebookIdItems.insert(flare, atIndex: 0)
+                    print("***item**")
+                    print(item)
+                    print("***array**")
+                    print(facebookIdItems)
+                    print("***array count**")
+                    print(facebookIdItems.count)
+                }
+//            }
+            completion(result: facebookIdItems)
+            })
+        { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    
+    func getTimeOneHourAgo() {
+        var currentTimeInMilliseconds = NSDate().timeIntervalSince1970 * 1000
+        self.timeOneHourAgo = (currentTimeInMilliseconds - 3600000)
+    }
+    
 }

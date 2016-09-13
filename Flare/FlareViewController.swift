@@ -25,6 +25,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var flareLongitude : String?
     
     var uid : String?
+    var timeOneHourAgo : Double?
     
     var cameraToggleState: Int = 1
     var isPublicFlare: Bool = true
@@ -72,6 +73,12 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getFbIDsFromDatabase() {
+            (result: Array<Flare>) in
+            print(result)
+        }
+        
         
         setButtons()
         self.flareTitle.delegate = self;
