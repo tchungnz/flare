@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MgA-qe-Vm4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MgA-qe-Vm4">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -135,6 +135,20 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GR0-gi-2IK">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </mapView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hU9-gQ-Vch">
+                                <rect key="frame" x="10" y="30" width="51" height="31"/>
+                                <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="toggleMapButton:" destination="BYZ-38-t0r" eventType="valueChanged" id="Que-d2-D5R"/>
+                                    <action selector="togglePrivateAction:" destination="d1b-im-btc" eventType="valueChanged" id="Ghc-mi-DLa"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Public" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7W-gx-kCV">
+                                <rect key="frame" x="10" y="69" width="58" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iy2-AK-hv6">
                                 <rect key="frame" x="225" y="430" width="150" height="150"/>
                                 <constraints>
@@ -172,10 +186,13 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="GR0-gi-2IK" secondAttribute="trailing" id="6AN-Bu-4TK"/>
                             <constraint firstItem="GR0-gi-2IK" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="6ha-oG-hWR"/>
+                            <constraint firstItem="hU9-gQ-Vch" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="DWH-eW-CxH"/>
+                            <constraint firstItem="H7W-gx-kCV" firstAttribute="top" secondItem="hU9-gQ-Vch" secondAttribute="bottom" constant="8" symbolic="YES" id="FEb-xW-hwJ"/>
                             <constraint firstItem="DMg-Ov-4VJ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="HdE-c9-oSF"/>
                             <constraint firstAttribute="bottom" secondItem="iy2-AK-hv6" secondAttribute="bottom" constant="20" symbolic="YES" id="IA1-9Z-wgF"/>
                             <constraint firstItem="DMg-Ov-4VJ" firstAttribute="leading" secondItem="GR0-gi-2IK" secondAttribute="trailing" constant="-65" id="JIn-ju-L38"/>
                             <constraint firstItem="GR0-gi-2IK" firstAttribute="top" secondItem="DMg-Ov-4VJ" secondAttribute="bottom" constant="-58" id="SNB-Sq-n66"/>
+                            <constraint firstItem="hU9-gQ-Vch" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="Sdm-NY-rxi"/>
                             <constraint firstItem="iy2-AK-hv6" firstAttribute="centerX" secondItem="GR0-gi-2IK" secondAttribute="centerX" id="U9z-I1-fpX"/>
                             <constraint firstItem="DMg-Ov-4VJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="dVH-Ll-SaN"/>
                             <constraint firstAttribute="bottom" secondItem="iy2-AK-hv6" secondAttribute="bottom" constant="20" symbolic="YES" id="pwy-gB-05P"/>
@@ -184,6 +201,7 @@
                             <constraint firstItem="iy2-AK-hv6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="410" id="rW4-Hw-3gc"/>
                             <constraint firstItem="iy2-AK-hv6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="506" id="rzd-0K-dUc"/>
                             <constraint firstItem="GR0-gi-2IK" firstAttribute="centerX" secondItem="iy2-AK-hv6" secondAttribute="centerX" id="uWR-v0-xYT"/>
+                            <constraint firstItem="hU9-gQ-Vch" firstAttribute="leading" secondItem="H7W-gx-kCV" secondAttribute="leading" id="z8W-0Y-Z1Z"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -197,6 +215,8 @@
                     <navigationItem key="navigationItem" title="Flare" id="RLF-9A-a7p"/>
                     <connections>
                         <outlet property="mapView" destination="GR0-gi-2IK" id="0R0-Hw-i3h"/>
+                        <outlet property="toggleMapButton" destination="hU9-gQ-Vch" id="vBx-Xe-dxE"/>
+                        <outlet property="toggleMapLabel" destination="H7W-gx-kCV" id="fWo-9C-W8N"/>
                         <segue destination="Gol-l4-B8d" kind="presentation" identifier="rootViewSeque" id="0Z5-td-Zn0"/>
                         <segue destination="J6G-JP-XHO" kind="show" identifier="flareDetail" id="zHG-rs-YRJ"/>
                     </connections>
@@ -298,7 +318,7 @@
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LFA-kd-SoJ">
                                 <rect key="frame" x="531" y="74" width="51" height="31"/>
-                                <color key="onTintColor" red="1" green="0.46071091190000002" blue="0.21149209829999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="togglePrivateAction:" destination="d1b-im-btc" eventType="valueChanged" id="dF3-UJ-a52"/>
                                 </connections>
