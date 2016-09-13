@@ -31,7 +31,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         super.viewDidLoad()
         
         mapSetUp()
-        getPrivate()
+        getPublic()
 
     }
     
@@ -42,8 +42,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     @IBAction func toggleMapButton(sender: UISwitch) {
         if toggleMapButton.on {
-            toggleMapLabel.text = "Private"
-            getPrivate()
+            toggleMapLabel.text = "Friends"
+            getFriends()
             
         } else {
             toggleMapLabel.text = "Public"
@@ -52,7 +52,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     
-    func getPrivate() {
+    func getFriends() {
         getFacebookFriends() {
             (result: Array<String>) in
             self.getFriendsFlaresFromDatabase(result) {
