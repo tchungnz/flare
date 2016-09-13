@@ -41,7 +41,7 @@ extension MapViewController {
     }
     
     
-    func getFriendsFlaresFromDatabase(completion: (result: Array<Flare>) -> ()) {
+    func getFriendsFlaresFromDatabase(friendsArray: Array<String>, completion: (result: Array<Flare>) -> ()) {
         getTimeOneHourAgo()
         databaseRef = FIRDatabase.database().reference().child("flares")
         databaseRef.queryOrderedByChild("timestamp").queryStartingAtValue(timeOneHourAgo).observeEventType(.Value, withBlock: { (snapshot) in
@@ -49,9 +49,7 @@ extension MapViewController {
             var newItems = [Flare]()
             
             for item in snapshot.children {
-                print("********friendsArray*****")
-                print(self.friendsArray)
-                if self.friendsArray!.contains(item.value!["facebookID"] as! String) {
+                if friendsArray.contains(item.value!["facebookID"] as! String) {
                     let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
                     newItems.insert(newFlare, atIndex: 0)
                 }
@@ -64,7 +62,7 @@ extension MapViewController {
     }
     
     
-    func getFacebookFriends() {
+    func getFacebookFriends(completion: (result: Array<String>) -> ())  {
         let params = ["fields": "friends"]
         let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: params)
         graphRequest.startWithCompletionHandler { [weak self] connection, result, error in
@@ -78,9 +76,9 @@ extension MapViewController {
                 tempArray.insert(item["id"].stringValue, atIndex: 0)
             }
         }
-            self!.friendsArray = tempArray
-            print(self!.friendsArray)
-    }
+            completion(result: tempArray)
+
+        }
     }
     
 

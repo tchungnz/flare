@@ -24,20 +24,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var databaseRef: FIRDatabaseReference!
     var flareExport: Flare?
     var timeOneHourAgo : Double?
-    var friendsArray : Array<String>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mapSetUp()
         
-        getFacebookFriends()
-        
-        getFriendsFlaresFromDatabase() {
-            (result: Array<Flare>) in
-            self.plotFlares(result)
+        getFacebookFriends() {
+            (result: Array<String>) in
+            self.getFriendsFlaresFromDatabase(result) {
+                (result: Array<Flare>) in
+                self.plotFlares(result)
+            }
         }
-
+        
 //        getPublicFlaresFromDatabase() {
 //            (result: Array<Flare>) in
 //            self.plotFlares(result)
