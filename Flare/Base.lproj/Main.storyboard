@@ -432,7 +432,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="381-kp-Qh5">
                                 <rect key="frame" x="0.0" y="135" width="600" height="465"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WAE-Nn-i4d">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WAE-Nn-i4d">
                                         <rect key="frame" x="0.0" y="-43" width="600" height="508"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="750" id="58Y-mN-ibW"/>
@@ -856,8 +856,8 @@ remaining</string>
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mUN-UL-zRw"/>
         <segue reference="amc-dr-e01"/>
+        <segue reference="ns2-iy-AlJ"/>
         <segue reference="0Z5-td-Zn0"/>
     </inferredMetricsTieBreakers>
 </document>

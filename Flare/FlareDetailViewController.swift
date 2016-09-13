@@ -12,6 +12,9 @@ import MapKit
 import FirebaseDatabase
 
 
+
+
+
 class FlareDetailViewController: UIViewController {
     
     @IBOutlet weak var flareTitleLabel: UILabel!
@@ -20,11 +23,14 @@ class FlareDetailViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var flareTimeRemainingCountdown: UILabel!
     
+    let navBar = UINavigationBar()
     var flareExport: Flare?
     var databaseRef: FIRDatabaseReference!
-
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(FlareDetailViewController.toggle(_:)))
+        view.userInteractionEnabled = true
+        view.addGestureRecognizer(gesture)
         self.scrollView.contentSize = CGSize(width:1080, height: 1920)
         retrieveFlareImage()
         flareTitleLabel.text = flareExport!.title!
@@ -68,6 +74,19 @@ class FlareDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func toggle(sender: AnyObject) {
+        print("screen tapped")
+        self.navigationController?.hidesBarsOnTap = true
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return navigationController?.navigationBarHidden == true
+    }
+    
+    override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
+        return UIStatusBarAnimation.Slide
+    }
 
 
 }
