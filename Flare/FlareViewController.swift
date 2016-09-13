@@ -25,6 +25,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var flareLongitude : String?
     
     var cameraToggleState: Int = 1
+    var isPublicFlare: Bool = true
     
     var toggleState: Bool?
     var flashOn: Bool?
@@ -40,6 +41,9 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var backToMapButton: UIButton!
     @IBOutlet weak var flareTitle: UITextField!
     @IBOutlet weak var flashBtn: UIButton!
+    @IBOutlet weak var togglePrivateButton: UISwitch!
+    @IBOutlet weak var togglePrivateLabel: UILabel!
+
     
     
     
@@ -173,5 +177,14 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
     }
     
-    
+    @IBAction func togglePrivateAction(sender: UISwitch) {
+        if togglePrivateButton.on {
+            isPublicFlare = false
+            togglePrivateLabel.text = "Private"
+        } else {
+            isPublicFlare = true
+            togglePrivateLabel.text = "Public"
+        }
     }
+    
+}

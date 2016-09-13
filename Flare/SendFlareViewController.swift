@@ -48,7 +48,7 @@ extension FlareViewController: CLLocationManagerDelegate {
         
         let user = FIRAuth.auth()?.currentUser
         // Put a guard on the email code below:
-        let flare1 = ["title": self.flareTitle.text!, "subtitle": user!.displayName! as String, "imageRef": "images/flare\(imageString).jpg", "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp]
+        let flare1 = ["title": self.flareTitle.text!, "subtitle": user!.displayName! as String, "imageRef": "images/flare\(imageString).jpg", "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp, "isPublic?": self.isPublicFlare as Bool]
         let flare1Ref = flareRef.childByAutoId()
         flare1Ref.setValue(flare1)
 
