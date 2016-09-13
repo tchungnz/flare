@@ -18,6 +18,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var profilePic: UIImageView!
+    @IBOutlet weak var toggleMapButton: UISwitch!
+    @IBOutlet weak var toggleMapLabel: UILabel!
     
     let locationManager = CLLocationManager()
     
@@ -29,19 +31,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         super.viewDidLoad()
         
         mapSetUp()
-        
-        getFacebookFriends() {
-            (result: Array<String>) in
-            self.getFriendsFlaresFromDatabase(result) {
-                (result: Array<Flare>) in
-                self.plotFlares(result)
-            }
-        }
-        
-//        getPublicFlaresFromDatabase() {
-//            (result: Array<Flare>) in
-//            self.plotFlares(result)
-//        }
+        getPrivate()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,5 +40,35 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func toggleMapButton(sender: UISwitch) {
+        if toggleMapButton.on {
+            toggleMapLabel.text = "Private"
+            getPrivate()
+            
+        } else {
+            toggleMapLabel.text = "Public"
+            getPublic()
+        }
+    }
+    
+    
+    func getPrivate() {
+        getFacebookFriends() {
+            (result: Array<String>) in
+            self.getFriendsFlaresFromDatabase(result) {
+            (result: Array<Flare>) in
+            self.plotFlares(result)
+            }
+        }
+    }
+    
+    func getPublic() {
+        getPublicFlaresFromDatabase() {
+            (result: Array<Flare>) in
+            self.plotFlares(result)
+        }
+    }
+    
 }
+
 
