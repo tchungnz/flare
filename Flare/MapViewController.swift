@@ -11,6 +11,8 @@ import MapKit
 import Firebase
 import FirebaseDatabase
 import CoreLocation
+import FBSDKLoginKit
+import SwiftyJSON
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
@@ -32,6 +34,44 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             (result: Array<Flare>) in
             self.plotFlares(result)
         }
+        
+        // TESTING FACEBOOK DETAILS
+        
+        let params = ["fields": "friends"]
+        let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: params)
+        graphRequest.startWithCompletionHandler { [weak self] connection, result, error in
+            if error != nil {
+                print(error.description)
+                return
+            }else{
+//                let fbResult = result as! Dictionary<String, AnyObject>
+                let json: JSON = JSON(result)
+                print("*********JSON********")
+                print(json)
+                print(json["data"])
+                print(json["data"].arrayValue)
+
+                for item in json["data"].arrayValue {
+                print(item["id"].stringValue)
+                }
+                }
+            }
+
+        if let user = FIRAuth.auth()?.currentUser {
+            for profile in user.providerData {
+                let providerID = profile.providerID
+                print("*********providerid")
+                print(providerID)
+                let uid = profile.uid;  // Provider-specific UID
+                print("*********uid")
+                print(uid)
+            }
+        } else {
+            // No user is signed in.
+        }
+        
+        
+        
     }
     
     override func didReceiveMemoryWarning() {

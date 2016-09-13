@@ -18,6 +18,7 @@
 		537EB5E71D870B3C00F3E4F6 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537EB5E61D870B3C00F3E4F6 /* CameraViewController.swift */; };
 		537EB5E91D8710C500F3E4F6 /* FlarePhysicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537EB5E81D8710C500F3E4F6 /* FlarePhysicsViewController.swift */; };
 		537EB5ED1D87240C00F3E4F6 /* FlashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537EB5EC1D87240C00F3E4F6 /* FlashViewController.swift */; };
+		537EB5EF1D8754CC00F3E4F6 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 537EB5EE1D8754CC00F3E4F6 /* SwiftyJSON.framework */; };
 		53C8D1011D80760B00E57400 /* flare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C8D1001D80760B00E57400 /* flare.swift */; };
 		53C8D1031D80781100E57400 /* AnnotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C8D1021D80781100E57400 /* AnnotationViewController.swift */; };
 		6A7ED8861D7F2E94005FF0A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7ED8851D7F2E94005FF0A8 /* AppDelegate.swift */; };
@@ -67,6 +68,7 @@
 		537EB5E61D870B3C00F3E4F6 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		537EB5E81D8710C500F3E4F6 /* FlarePhysicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlarePhysicsViewController.swift; sourceTree = "<group>"; };
 		537EB5EC1D87240C00F3E4F6 /* FlashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashViewController.swift; sourceTree = "<group>"; };
+		537EB5EE1D8754CC00F3E4F6 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../Library/Developer/Xcode/DerivedData/Flare-gmtgrpzftvpbhndfdmhdfurddtns/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		53C8D1001D80760B00E57400 /* flare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = flare.swift; sourceTree = "<group>"; };
 		53C8D1021D80781100E57400 /* AnnotationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewController.swift; sourceTree = "<group>"; };
 		6A7ED8821D7F2E94005FF0A8 /* Flare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flare.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				537EB5EF1D8754CC00F3E4F6 /* SwiftyJSON.framework in Frameworks */,
 				5354CF341D85B35400D57347 /* FBSDKShareKit.framework in Frameworks */,
 				08EFE9CF341AC9A8593EF0B9 /* Pods_Flare.framework in Frameworks */,
 				5354CF321D85B35400D57347 /* FBSDKCoreKit.framework in Frameworks */,
@@ -135,6 +138,7 @@
 		4F8610AB8FC603138453277A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				537EB5EE1D8754CC00F3E4F6 /* SwiftyJSON.framework */,
 				5354CF2F1D85B35400D57347 /* FBSDKCoreKit.framework */,
 				5354CF301D85B35400D57347 /* FBSDKLoginKit.framework */,
 				5354CF311D85B35400D57347 /* FBSDKShareKit.framework */,
