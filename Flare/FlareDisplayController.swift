@@ -18,15 +18,19 @@ extension MapViewController {
         self.timeOneHourAgo = (currentTimeInMilliseconds - 3600000)
     }
 
-    func getAllFlaresFromDatabase(completion: (result: Array<Flare>) -> ()) {
+    func getPublicFlaresFromDatabase(completion: (result: Array<Flare>) -> ()) {
         getTimeOneHourAgo()
         databaseRef = FIRDatabase.database().reference().child("flares")
         databaseRef.queryOrderedByChild("timestamp").queryStartingAtValue(timeOneHourAgo).observeEventType(.Value, withBlock: { (snapshot) in
             
         var newItems = [Flare]()
+
         for item in snapshot.children {
-            let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
-            newItems.insert(newFlare, atIndex: 0)
+            print(item.value!["isPublic"] as? Bool)
+            if (item.value!["isPublic"] as! Bool) {
+                let flare = Flare(snapshot: item as! FIRDataSnapshot)
+                newItems.insert(flare, atIndex: 0)
+            }
         }
             completion(result: newItems)
             })
@@ -36,23 +40,23 @@ extension MapViewController {
     }
     
     
-    func getFriendsFlaresFromDatabase() {
-        getTimeOneHourAgo()
-        databaseRef = FIRDatabase.database().reference().child("flares")
-        databaseRef.queryOrderedByChild("timestamp").queryStartingAtValue(timeOneHourAgo).observeEventType(.Value, withBlock: { (snapshot) in
-            
-            var newItems2 = [Flare]()
-            for item in snapshot.children {
-                let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
-                newItems.insert(newFlare, atIndex: 0)
-            }
-            completion(result: newItems2)
-            })
-        { (error) in
-            print(error.localizedDescription)
-        }
-
-    }
+//    func getFriendsFlaresFromDatabase() {
+//        getTimeOneHourAgo()
+//        databaseRef = FIRDatabase.database().reference().child("flares")
+//        databaseRef.queryOrderedByChild("timestamp").queryStartingAtValue(timeOneHourAgo).observeEventType(.Value, withBlock: { (snapshot) in
+//            
+//            var newItems2 = [Flare]()
+//            for item in snapshot.children {
+//                let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
+//                newItems.insert(newFlare, atIndex: 0)
+//            }
+//            completion(result: newItems2)
+//            })
+//        { (error) in
+//            print(error.localizedDescription)
+//        }
+//
+//    }
     
     
 

@@ -30,7 +30,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         mapSetUp()
         
-        getAllFlaresFromDatabase() {
+        getPublicFlaresFromDatabase() {
             (result: Array<Flare>) in
             self.plotFlares(result)
         }
