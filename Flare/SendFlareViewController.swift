@@ -17,16 +17,16 @@ extension FlareViewController: CLLocationManagerDelegate {
     
     func onSwipe() {
         
-        let imageString = NSUUID().UUIDString
-        
-        if self.flareTitle.text != "" {
-        saveFlareToDatabase(imageString)
-        uploadImage(imageString)
+            let imageString = NSUUID().UUIDString
             
-        } else {
-            self.displayAlertMessage("Please enter a title")
-            return
-        }
+            if self.flareTitle.text != "" {
+            saveFlareToDatabase(imageString)
+            uploadImage(imageString)
+                
+            } else {
+                self.displayAlertMessage("Please enter a title")
+                return
+            }
     }
     
     func uploadImage(imageString: String) {
@@ -70,20 +70,11 @@ extension FlareViewController: CLLocationManagerDelegate {
         self.flareLongitude = String(location!.coordinate.longitude)
     }
     
-    func displayAlertMessage(message: String)
-    {
-        let myAlert = UIAlertController(title: "Ooops", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
-        myAlert.addAction(okAction)
-        self.presentViewController(myAlert, animated: true, completion: nil)
-    }
-    
 
     
     func getFbIDsFromDatabase(completion: (result: Array<Flare>) -> ()) {
         getTimeOneHourAgo()
         var usersFlares = [Flare]()
-        var allFlares = [Flare]()
         var facebookID = getFacebookID()
         var databaseRef = FIRDatabase.database().reference().child("flares")
         databaseRef.queryOrderedByChild("facebookID").queryEqualToValue(self.uid).observeEventType(.Value, withBlock: { (snapshot) in
@@ -93,14 +84,11 @@ extension FlareViewController: CLLocationManagerDelegate {
                         if Double(flare.timestamp!) >= self.timeOneHourAgo! {
                             usersFlares.insert(flare, atIndex: 0)
                         }
-                    allFlares.insert(flare, atIndex: 0)
-                    print("***array**")
-                    print(usersFlares)
-                    print("***all flares count**")
-                    print(allFlares.count)
-                    print("***users flares count**")
-                    print(usersFlares.count)
-                    print(Double(flare.timestamp!) >= self.timeOneHourAgo!)
+                if usersFlares.count > 3 { // CHANGE THIS FOR SENDING MULTIPLE FLARES
+                    self.letFlareSave = false
+                } else {
+                    self.letFlareSave = true
+                    }
                 }
             completion(result: usersFlares)
             })
