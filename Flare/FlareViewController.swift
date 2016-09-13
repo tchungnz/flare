@@ -182,10 +182,10 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBAction func togglePrivateAction(sender: UISwitch) {
         if togglePrivateButton.on {
             isPublicFlare = false
-            togglePrivateLabel.text = "Private"
+            togglePrivateLabel.text = "Friends"
         } else {
             isPublicFlare = true
-            togglePrivateLabel.text = "Friends"
+            togglePrivateLabel.text = "Public"
         }
     }
     
