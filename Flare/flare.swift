@@ -12,16 +12,19 @@ import FirebaseDatabase
 
 class Flare: MKPointAnnotation{
 
+    var facebookID: String?
     var latitude: Double?
     var longitude: Double?
     var imageRef: String?
     var timestamp: Int?
+    var isPublic: Bool?
 //    var title: String?
 //    var subtitle: String?
 //    var coordinate: CLLocationCoordinate2D
     
     init(snapshot: FIRDataSnapshot) {
         super.init()
+        self.facebookID = snapshot.value!["facebookID"] as! String
         self.title = snapshot.value!["title"] as! String
         self.subtitle = snapshot.value!["subtitle"] as! String
         self.imageRef = snapshot.value!["imageRef"] as! String
@@ -30,6 +33,7 @@ class Flare: MKPointAnnotation{
         self.coordinate = CLLocationCoordinate2D(latitude: self.latitude! as
         CLLocationDegrees, longitude: self.longitude! as CLLocationDegrees)
         self.timestamp = snapshot.value!["timestamp"] as? Int
+        self.isPublic = snapshot.value!["isPublic"] as? Bool
     }
     
 }

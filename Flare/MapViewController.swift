@@ -11,6 +11,8 @@ import MapKit
 import Firebase
 import FirebaseDatabase
 import CoreLocation
+import FBSDKLoginKit
+import SwiftyJSON
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
@@ -28,10 +30,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         mapSetUp()
         
-        getFlaresFromDatabase() {
-            (result: Array<Flare>) in
-            self.plotFlares(result)
+        getFacebookFriends() {
+            (result: Array<String>) in
+            self.getFriendsFlaresFromDatabase(result) {
+                (result: Array<Flare>) in
+                self.plotFlares(result)
+            }
         }
+        
+//        getPublicFlaresFromDatabase() {
+//            (result: Array<Flare>) in
+//            self.plotFlares(result)
+//        }
     }
     
     override func didReceiveMemoryWarning() {
