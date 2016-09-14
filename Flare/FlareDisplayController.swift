@@ -40,18 +40,19 @@ extension MapViewController {
         }
     }
     
-//    func getFacebookID() {
-//        if let user = FIRAuth.auth()?.currentUser {
-//            for profile in user.providerData {
-//                self.uid = profile.uid;  // Provider-specific UID
-//            }
-//        }
-//    }
+    func getFacebookID() {
+        if let user = FIRAuth.auth()?.currentUser {
+            for profile in user.providerData {
+                self.uid = profile.uid;  // Provider-specific UID
+            }
+        }
+    }
     
-//    || friendsArray.contains(item.value![self.uid!] as! String)
     
     
     func getFriendsFlaresFromDatabase(friendsArray: Array<String>, completion: (result: Array<Flare>) -> ()) {
+        getFacebookID()
+        print(self.uid)
         getTimeOneHourAgo()
         databaseRef = FIRDatabase.database().reference().child("flares")
         databaseRef.queryOrderedByChild("timestamp").queryStartingAtValue(timeOneHourAgo).observeEventType(.Value, withBlock: { (snapshot) in
@@ -59,7 +60,7 @@ extension MapViewController {
             var newItems = [Flare]()
             
             for item in snapshot.children {
-                if friendsArray.contains(item.value!["facebookID"] as! String) {
+                if (friendsArray.contains(item.value!["facebookID"] as! String) || item.value!["facebookID"] as! String == self.uid!) {
                     let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
                     newItems.insert(newFlare, atIndex: 0)
                 }
