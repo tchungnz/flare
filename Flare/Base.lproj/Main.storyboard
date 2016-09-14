@@ -755,8 +755,8 @@ remaining</string>
                                     <constraint firstItem="O3b-I1-oM7" firstAttribute="centerY" secondItem="U5i-fY-NCW" secondAttribute="centerY" id="lbU-EK-Lzb"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="white-flare" highlightedImage="white-flare" translatesAutoresizingMaskIntoConstraints="NO" id="cbf-JI-gGG">
-                                <rect key="frame" x="223" y="118" width="155" height="155"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white-flare" highlightedImage="white-flare" translatesAutoresizingMaskIntoConstraints="NO" id="cbf-JI-gGG">
+                                <rect key="frame" x="223" y="95" width="155" height="155"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="155" id="DbN-qv-BCZ"/>
                                     <constraint firstAttribute="height" constant="155" id="xI2-Q2-sbh"/>
@@ -767,7 +767,7 @@ remaining</string>
                         <constraints>
                             <constraint firstItem="Knw-ni-IVt" firstAttribute="bottom" secondItem="Vj7-AG-U0G" secondAttribute="top" id="1bj-4c-vXp"/>
                             <constraint firstItem="U5i-fY-NCW" firstAttribute="leading" secondItem="Knw-ni-IVt" secondAttribute="leading" id="2JR-96-EOL"/>
-                            <constraint firstItem="cbf-JI-gGG" firstAttribute="top" secondItem="7aI-BJ-IMH" secondAttribute="bottom" constant="122" id="DIJ-eU-uCD"/>
+                            <constraint firstItem="cbf-JI-gGG" firstAttribute="top" secondItem="7aI-BJ-IMH" secondAttribute="bottom" constant="75" id="DIJ-eU-uCD"/>
                             <constraint firstItem="Knw-ni-IVt" firstAttribute="centerY" secondItem="qyS-SI-ihw" secondAttribute="centerY" id="Hkj-Ny-Hhj"/>
                             <constraint firstItem="qyS-SI-ihw" firstAttribute="top" secondItem="U5i-fY-NCW" secondAttribute="bottom" constant="29" id="Ihk-hn-V1e"/>
                             <constraint firstItem="U5i-fY-NCW" firstAttribute="trailing" secondItem="Knw-ni-IVt" secondAttribute="trailing" id="Lx0-Cu-zwG"/>
