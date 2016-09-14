@@ -27,7 +27,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var flareLongitude : String?
     
     var uid : String?
-    var timeOneHourAgo : Double?
+    var timeHalfHourAgo : Double?
     
     var cameraToggleState: Int = 1
     var isPublicFlare: Bool = true

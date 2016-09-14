@@ -73,7 +73,7 @@ extension FlareViewController: CLLocationManagerDelegate {
 
     
     func getFbIDsFromDatabase(completion: (result: Array<Flare>) -> ()) {
-        getTimeOneHourAgo()
+        getTimeHalfHourAgo()
         var usersFlares = [Flare]()
         var facebookID = getFacebookID()
         var databaseRef = FIRDatabase.database().reference().child("flares")
@@ -81,7 +81,7 @@ extension FlareViewController: CLLocationManagerDelegate {
             
             for item in snapshot.children {
                     let flare = Flare(snapshot: item as! FIRDataSnapshot)
-                        if Double(flare.timestamp!) >= self.timeOneHourAgo! {
+                        if Double(flare.timestamp!) >= self.timeHalfHourAgo! {
                             usersFlares.insert(flare, atIndex: 0)
                         }
                 if usersFlares.count > self.maximumSentFlares { // Change this in flareViewController
@@ -98,9 +98,9 @@ extension FlareViewController: CLLocationManagerDelegate {
     }
     
     
-    func getTimeOneHourAgo() {
+    func getTimeHalfHourAgo() {
         var currentTimeInMilliseconds = NSDate().timeIntervalSince1970 * 1000
-        self.timeOneHourAgo = (currentTimeInMilliseconds - 3600000)
+        self.timeHalfHourAgo = (currentTimeInMilliseconds - 1800000)
     }
     
 }

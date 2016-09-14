@@ -25,7 +25,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     var databaseRef: FIRDatabaseReference!
     var flareExport: Flare?
-    var timeOneHourAgo : Double?
+    var timeHalfHourAgo : Double?
     var uid : String?
     
     override func viewDidLoad() {

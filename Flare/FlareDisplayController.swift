@@ -15,15 +15,15 @@ import SwiftyJSON
 
 extension MapViewController {
     
-    func getTimeOneHourAgo() {
+    func getTimeHalfHourAgo() {
         var currentTimeInMilliseconds = NSDate().timeIntervalSince1970 * 1000
-        self.timeOneHourAgo = (currentTimeInMilliseconds - 3600000)
+        self.timeHalfHourAgo = (currentTimeInMilliseconds - 1800000)
     }
 
     func getPublicFlaresFromDatabase(completion: (result: Array<Flare>) -> ()) {
-        getTimeOneHourAgo()
+        getTimeHalfHourAgo()
         databaseRef = FIRDatabase.database().reference().child("flares")
-        databaseRef.queryOrderedByChild("timestamp").queryStartingAtValue(timeOneHourAgo).observeEventType(.Value, withBlock: { (snapshot) in
+        databaseRef.queryOrderedByChild("timestamp").queryStartingAtValue(timeHalfHourAgo).observeEventType(.Value, withBlock: { (snapshot) in
             
         var newItems = [Flare]()
 
@@ -52,9 +52,9 @@ extension MapViewController {
     
     
     func getFriendsFlaresFromDatabase(friendsArray: Array<String>, completion: (result: Array<Flare>) -> ()) {
-        getTimeOneHourAgo()
+        getTimeHalfHourAgo()
         databaseRef = FIRDatabase.database().reference().child("flares")
-        databaseRef.queryOrderedByChild("timestamp").queryStartingAtValue(timeOneHourAgo).observeEventType(.Value, withBlock: { (snapshot) in
+        databaseRef.queryOrderedByChild("timestamp").queryStartingAtValue(timeHalfHourAgo).observeEventType(.Value, withBlock: { (snapshot) in
             
             var newItems = [Flare]()
             

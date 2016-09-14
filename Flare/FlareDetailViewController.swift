@@ -60,7 +60,7 @@ class FlareDetailViewController: UIViewController {
         let currentTimeInMilliseconds = NSDate().timeIntervalSince1970 * 1000
         let flarePostedTime = Double(flareExport!.timestamp!)
         let flareTimeRemaining = currentTimeInMilliseconds - flarePostedTime
-        let flareTimeRemainingInMinutes = 60 - Int(flareTimeRemaining / 60 / 1000)
+        let flareTimeRemainingInMinutes = 30 - Int(flareTimeRemaining / 60 / 1000)
         flareTimeRemainingCountdown.text = String(flareTimeRemainingInMinutes)
     }
     
