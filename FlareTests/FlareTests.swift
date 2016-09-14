@@ -7,13 +7,9 @@
 //
 
 import XCTest
-@testable import Firebase
-@testable import Flare
 
 class FlareTests: XCTestCase {
-    
-    var camera = CameraViewController()
-    
+        
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
