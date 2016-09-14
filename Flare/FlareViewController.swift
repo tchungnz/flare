@@ -60,6 +60,8 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.takePhotoButton.hidden = !self.takePhotoButton.hidden ? true : false
         self.sendFlareImageButton.hidden = !self.sendFlareImageButton.hidden ? true : false
         backToMapButton.hidden = backToMapButton.hidden ? false : true
+        self.togglePrivateLabel.hidden = !self.togglePrivateLabel.hidden ? true : false
+        self.togglePrivateButton.hidden = !self.togglePrivateButton.hidden ? true : false
     }
     
     func setButtons() {
@@ -67,6 +69,10 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.takePhotoButton.hidden = false
         self.sendFlareImageButton.hidden = true
         backToMapButton.hidden = false
+        self.flareTitle.delegate = self;
+        self.flareTitle.hidden = true
+        self.togglePrivateLabel.hidden = true
+        self.togglePrivateButton.hidden = true
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -84,8 +90,6 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         
         setButtons()
-        self.flareTitle.delegate = self;
-        self.flareTitle.hidden = true
         // Refactor to a separate class
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
