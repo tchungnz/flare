@@ -227,13 +227,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iy2-AK-hv6">
-                                <rect key="frame" x="254" y="488" width="92" height="92"/>
+                                <rect key="frame" x="258" y="495" width="85" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="iy2-AK-hv6" secondAttribute="height" multiplier="1:1" id="6Ib-nv-YHU"/>
                                     <constraint firstAttribute="width" constant="150" id="7Sd-OK-wGi"/>
-                                    <constraint firstAttribute="height" constant="92" id="BE9-ng-pYf"/>
+                                    <constraint firstAttribute="height" constant="85" id="BE9-ng-pYf"/>
                                     <constraint firstAttribute="height" constant="92" id="EWS-U4-7pA"/>
-                                    <constraint firstAttribute="width" constant="92" id="cjH-Ru-Wy1"/>
+                                    <constraint firstAttribute="width" constant="85" id="cjH-Ru-Wy1"/>
                                     <constraint firstAttribute="width" secondItem="iy2-AK-hv6" secondAttribute="height" multiplier="1:1" id="eUd-mm-yAy"/>
                                     <constraint firstAttribute="width" constant="92" id="jgk-tm-tRe"/>
                                     <constraint firstAttribute="width" constant="100" id="zHN-dF-ju6"/>
@@ -514,6 +514,7 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WAE-Nn-i4d">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="750" id="58Y-mN-ibW"/>
                                         </constraints>
@@ -522,6 +523,9 @@
                                                 <exclude reference="58Y-mN-ibW"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Fdj-ui-I43" appends="YES" id="1Mv-LX-juz"/>
+                                        </connections>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zby-Ud-qVQ">
                                         <rect key="frame" x="532" y="537" width="49" height="47"/>
@@ -713,6 +717,7 @@ remaining</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qtq-wk-e8L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="Fdj-ui-I43"/>
             </objects>
             <point key="canvasLocation" x="3633" y="-173"/>
         </scene>
@@ -971,7 +976,7 @@ remaining</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dWR-Gp-e75"/>
-        <segue reference="62s-MS-BsB"/>
+        <segue reference="ns2-iy-AlJ"/>
         <segue reference="amc-dr-e01"/>
     </inferredMetricsTieBreakers>
 </document>
