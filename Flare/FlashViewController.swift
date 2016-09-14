@@ -12,7 +12,6 @@ import AVFoundation
 extension FlareViewController {
     
     func toggleFlash() {
-        if flashOn == true {
             let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
             if (device.hasTorch) {
                 do {
@@ -31,7 +30,6 @@ extension FlareViewController {
                     print(error)
                 }
             }
-        }
     }
     
 }
