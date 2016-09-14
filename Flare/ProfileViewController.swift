@@ -50,7 +50,9 @@ class ProfileViewController: UIViewController {
             
             for item in snapshot.children {
                 let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
-                self.activeFlareLabel.text = newFlare.title
+                print("****************************")
+                print(newFlare.title!)
+                self.activeFlareLabel.text = newFlare.title!
             }
         })
         { (error) in

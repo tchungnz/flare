@@ -164,7 +164,6 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         if letFlareSave == true {
             toggleButtons()
             toggleFlash()
-            sleep(1)
             didPressTakePhoto()
             toggleFlash()
         } else {
