@@ -22,12 +22,14 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var friendsListLabel: UITextView!
     var databaseRef: FIRDatabaseReference!
     var flareArray = [Flare]()
+    var facebook = Facebook()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getFacebookFriends() {
+        facebook.getFacebookFriends("name") {
             (result: Array<String>) in
+            print(result)
             self.setLabelText(result)
         }
         
@@ -50,32 +52,11 @@ class ProfileViewController: UIViewController {
             
             for item in snapshot.children {
                 let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
-                print("****************************")
-                print(newFlare.title!)
                 self.activeFlareLabel.text = newFlare.title!
             }
         })
         { (error) in
             print(error.localizedDescription)
-        }
-    }
-    
-    func getFacebookFriends(completion: (result: Array<String>) -> ())  {
-        let params = ["fields": "friends"]
-        let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: params)
-        graphRequest.startWithCompletionHandler { [weak self] connection, result, error in
-            var tempArray = [String]()
-            if error != nil {
-                print(error.description)
-                return
-            } else {
-                let json:JSON = JSON(result)
-                for item in json["friends"]["data"].arrayValue {
-                    tempArray.insert(item["name"].stringValue, atIndex: 0)
-                }
-            }
-            completion(result: tempArray)
-            
         }
     }
     
@@ -88,16 +69,10 @@ class ProfileViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func logOutAction(sender: UIButton) {
-        let user = FIRAuth.auth()?.currentUser
-        try! FIRAuth.auth()?.signOut()
-        FBSDKAccessToken.setCurrentAccessToken(nil)
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
-        let RootViewController: UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("rootView")
-        self.presentViewController(RootViewController, animated: true, completion: nil)
+        logout()
     }
 
 }

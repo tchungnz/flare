@@ -17,7 +17,9 @@ extension MapViewController {
     
     func getTimeHalfHourAgo() {
         var currentTimeInMilliseconds = NSDate().timeIntervalSince1970 * 1000
-        self.timeHalfHourAgo = (currentTimeInMilliseconds - 1800000)
+        let flareTimeLimitInMinutes = 30
+        let flareTimeLimitInMiliseconds = Double(flareTimeLimitInMinutes * 60000)
+        self.timeHalfHourAgo = (currentTimeInMilliseconds - flareTimeLimitInMiliseconds)
     }
 
     func getPublicFlaresFromDatabase(completion: (result: Array<Flare>) -> ()) {
@@ -69,26 +71,6 @@ extension MapViewController {
             })
         { (error) in
             print(error.localizedDescription)
-        }
-    }
-    
-    
-    func getFacebookFriends(completion: (result: Array<String>) -> ())  {
-        let params = ["fields": "friends"]
-        let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: params)
-        graphRequest.startWithCompletionHandler { [weak self] connection, result, error in
-        var tempArray = [String]()
-        if error != nil {
-            print(error.description)
-            return
-        } else {
-            let json:JSON = JSON(result)
-            for item in json["friends"]["data"].arrayValue {
-                tempArray.insert(item["id"].stringValue, atIndex: 0)
-            }
-        }
-            completion(result: tempArray)
-
         }
     }
     
