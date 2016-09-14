@@ -910,8 +910,8 @@ remaining</string>
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4eN-1f-zgq"/>
-        <segue reference="amc-dr-e01"/>
         <segue reference="0Z5-td-Zn0"/>
+        <segue reference="ns2-iy-AlJ"/>
+        <segue reference="amc-dr-e01"/>
     </inferredMetricsTieBreakers>
 </document>
