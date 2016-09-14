@@ -163,9 +163,14 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBAction func takePhotoAction(sender: UIButton) {
         if letFlareSave == true {
             toggleButtons()
-            toggleFlash()
+            if flashOn == true {
+                toggleFlash()
+                sleep(1)
+            }
             didPressTakePhoto()
-            toggleFlash()
+            if flashOn == true {
+                toggleFlash()
+            }
         } else {
             displayAlertMessage("You can only have one active flare")
             return;
