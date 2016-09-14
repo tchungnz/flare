@@ -107,8 +107,11 @@ extension FlareViewController {
                     let cgImageRef = CGImageCreateWithJPEGDataProvider(dataProvider, nil, true, .RenderingIntentDefault)
                     
                     let image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
-                    
-                    self.tempImageView.image = image
+                    if self.self.cameraToggleState == 1 {
+                        self.tempImageView.image = image
+                    } else {
+                        self.tempImageView.image = self.flipImage(image)
+                    }
                     self.tempImageView.hidden = false
                     self.flareTitle.hidden = false
                     self.flareTitle.becomeFirstResponder()
@@ -118,6 +121,18 @@ extension FlareViewController {
         }
     }
     
+    func flipImage(image: UIImage!) -> UIImage! {
+        let imageSize:CGSize = image.size;
+        UIGraphicsBeginImageContextWithOptions(imageSize, true, 1.0);
+        let ctx:CGContextRef = UIGraphicsGetCurrentContext()!;
+        CGContextRotateCTM(ctx, CGFloat(M_PI/2.0));
+        CGContextTranslateCTM(ctx, 0, -imageSize.width);
+        CGContextScaleCTM(ctx, imageSize.height/imageSize.width, imageSize.width/imageSize.height);
+        CGContextDrawImage(ctx, CGRectMake(0.0, 0.0, imageSize.width, imageSize.height), image.CGImage);
+        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return newImage
+    }
     
     
     //Get the device (Front or Back)

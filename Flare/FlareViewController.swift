@@ -14,6 +14,8 @@ import FirebaseDatabase
 import CoreLocation
 
 class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+    
+    let maximumSentFlares: Int = 3
 
     var captureSession : AVCaptureSession?
     var input: AVCaptureDeviceInput?
