@@ -24,14 +24,19 @@ extension FlareViewController {
     }
     
     func switchCameraViewFront() {
-        cameraToggleState = 2
+        backCamera = false
+        cameraSession("front")
+    }
+    
+    func switchCameraViewBack() {
+        backCamera = true
+        cameraSession("back")
+    }
+    
+    func cameraSession(direction: String!) {
         captureSession = AVCaptureSession()
         output = AVCaptureStillImageOutput()
-        // captureSession?.sessionPreset = AVCaptureSessionPreset1920x1080
-        
-        let frontCamera = getDevice(.Front)
-        
-        //var input = AVCaptureDeviceInput()
+        let frontCamera = direction == "back" ? getDevice(.Back) : getDevice(.Front)
         do {
             input = try AVCaptureDeviceInput(device: frontCamera)
         } catch let error as NSError {
@@ -39,44 +44,6 @@ extension FlareViewController {
             input = nil
             error
         }
-        // var error : NSError?
-        
-        if(captureSession?.canAddInput(input) == true){
-            captureSession?.addInput(input)
-            stillImageOutput = AVCaptureStillImageOutput()
-            stillImageOutput?.outputSettings = [AVVideoCodecKey : AVVideoCodecJPEG]
-            
-            if(captureSession?.canAddOutput(stillImageOutput) == true){
-                captureSession?.addOutput(stillImageOutput)
-                previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-                previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-                previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
-                previewLayer?.frame = cameraView.bounds
-                cameraView.layer.addSublayer(previewLayer!)
-                captureSession?.startRunning()
-            }
-        }
-        
-    }
-    
-    func switchCameraViewBack() {
-        cameraToggleState = 1
-        captureSession = AVCaptureSession()
-        output = AVCaptureStillImageOutput()
-        // captureSession?.sessionPreset = AVCaptureSessionPreset1920x1080
-        
-        let backCamera = getDevice(.Back)
-        
-        //var input = AVCaptureDeviceInput()
-        do {
-            input = try AVCaptureDeviceInput(device: backCamera)
-        } catch let error as NSError {
-            print(error)
-            input = nil
-            error
-        }
-        // var error : NSError?
-        
         if(captureSession?.canAddInput(input) == true){
             captureSession?.addInput(input)
             stillImageOutput = AVCaptureStillImageOutput()
@@ -107,7 +74,7 @@ extension FlareViewController {
                     let cgImageRef = CGImageCreateWithJPEGDataProvider(dataProvider, nil, true, .RenderingIntentDefault)
                     
                     let image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
-                    if self.self.cameraToggleState == 1 {
+                    if self.self.backCamera == true {
                         self.tempImageView.image = image
                     } else {
                         self.tempImageView.image = self.flipImage(image)
