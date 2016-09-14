@@ -32,6 +32,7 @@
 		746DDF451D844570004A27A2 /* SendFlareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746DDF441D844570004A27A2 /* SendFlareViewController.swift */; };
 		74F405671D86EA5A00F0A6DC /* MapDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F405661D86EA5A00F0A6DC /* MapDisplayController.swift */; };
 		74F405691D86ECEB00F0A6DC /* FlareDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F405681D86ECEB00F0A6DC /* FlareDisplayController.swift */; };
+		74F8AA591D8955E300AD655B /* CityMapperAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8AA581D8955E300AD655B /* CityMapperAPI.swift */; };
 		820E2C0B1D80885D00EC4B1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 820E2C0A1D80885D00EC4B1B /* GoogleService-Info.plist */; };
 		826E4E991D81CA6F00CA4493 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826E4E981D81CA6F00CA4493 /* RootViewController.swift */; };
 		82FF4C911D85C26E00B44AF7 /* UITextFieldLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FF4C901D85C26E00B44AF7 /* UITextFieldLimit.m */; };
@@ -87,6 +88,7 @@
 		746DDF441D844570004A27A2 /* SendFlareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendFlareViewController.swift; sourceTree = "<group>"; };
 		74F405661D86EA5A00F0A6DC /* MapDisplayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDisplayController.swift; sourceTree = "<group>"; };
 		74F405681D86ECEB00F0A6DC /* FlareDisplayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlareDisplayController.swift; sourceTree = "<group>"; };
+		74F8AA581D8955E300AD655B /* CityMapperAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityMapperAPI.swift; sourceTree = "<group>"; };
 		820E2C0A1D80885D00EC4B1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		826E4E981D81CA6F00CA4493 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		82FF4C8E1D85C26E00B44AF7 /* Flare-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Flare-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				6A7ED88E1D7F2E94005FF0A8 /* LaunchScreen.storyboard */,
 				6A7ED8911D7F2E94005FF0A8 /* Info.plist */,
 				8296B41E1D86BFD000F3B1A7 /* Models */,
+				74F8AA581D8955E300AD655B /* CityMapperAPI.swift */,
 			);
 			path = Flare;
 			sourceTree = "<group>";
@@ -353,7 +356,7 @@
 				TargetAttributes = {
 					6A7ED8811D7F2E94005FF0A8 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = N9H5E9FZM5;
+						DevelopmentTeam = 6L4RNE447X;
 					};
 					6A7ED8951D7F2E94005FF0A8 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -545,6 +548,7 @@
 				74F405691D86ECEB00F0A6DC /* FlareDisplayController.swift in Sources */,
 				6A7ED8881D7F2E94005FF0A8 /* MapViewController.swift in Sources */,
 				5354CF281D8467BE00D57347 /* FlareDetailViewController.swift in Sources */,
+				74F8AA591D8955E300AD655B /* CityMapperAPI.swift in Sources */,
 				746DDF451D844570004A27A2 /* SendFlareViewController.swift in Sources */,
 				6A7ED8861D7F2E94005FF0A8 /* AppDelegate.swift in Sources */,
 				6AF5581E1D82E21700D37A49 /* RegisterViewController.swift in Sources */,

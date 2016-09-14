@@ -10,12 +10,12 @@ import UIKit
 import Firebase
 import MapKit
 import FirebaseDatabase
+import CoreLocation
 
 
 
 
-
-class FlareDetailViewController: UIViewController {
+class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var flareTitleLabel: UILabel!
     @IBOutlet weak var flareSubtitleLabel: UILabel!
@@ -25,10 +25,13 @@ class FlareDetailViewController: UIViewController {
     @IBOutlet weak var flareDetailBar: UIView!
     @IBOutlet weak var cityMapperButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var distanceToFlare: UILabel!
     
     let navBar = UINavigationBar()
     var flareExport: Flare?
     var databaseRef: FIRDatabaseReference!
+    
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(FlareDetailViewController.toggle(_:)))
@@ -38,7 +41,13 @@ class FlareDetailViewController: UIViewController {
         retrieveFlareImage()
         flareTitleLabel.text = flareExport!.title!
         flareSubtitleLabel.text = flareExport!.subtitle!
+        distanceToFlare.text = ""
         findFlareRemainingTime()
+        
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
     }
     
     func retrieveFlareImage() {
@@ -60,7 +69,7 @@ class FlareDetailViewController: UIViewController {
         let currentTimeInMilliseconds = NSDate().timeIntervalSince1970 * 1000
         let flarePostedTime = Double(flareExport!.timestamp!)
         let flareTimeRemaining = currentTimeInMilliseconds - flarePostedTime
-        let flareTimeRemainingInMinutes = 60 - Int(flareTimeRemaining / 60 / 1000)
+        let flareTimeRemainingInMinutes = 30 - Int(flareTimeRemaining / 60 / 1000)
         flareTimeRemainingCountdown.text = String(flareTimeRemainingInMinutes)
     }
     
@@ -110,6 +119,31 @@ class FlareDetailViewController: UIViewController {
     
     override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
         return UIStatusBarAnimation.Slide
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last
+        let userLatitude = Double(location!.coordinate.latitude)
+        let userLongitude = Double(location!.coordinate.longitude)
+        self.locationManager.stopUpdatingLocation()
+        cityMapperCall(userLatitude, longitude: userLongitude)
+    }
+    
+    func cityMapperCall(latitude: Double, longitude: Double) {
+        let path = "https://developer.citymapper.com/api/1/traveltime/?startcoord=\(latitude)%2C\(longitude)&endcoord=\(flareExport!.latitude!)%2C\(flareExport!.longitude!)&time_type=arrival&key=af0adea677e7825d1e38a0a435f12365"
+        let citymap = RestApiManager()
+        citymap.makeHTTPGetRequest(path, flareDetail: self, onCompletion: { _, _ in })
+    }
+    
+    func setDistance(distance: String) {
+        dispatch_async(dispatch_get_main_queue()) {
+            self.distanceToFlare.text = distance
+        }
+    }
+    
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("Errors: " + error.localizedDescription)
     }
 
 

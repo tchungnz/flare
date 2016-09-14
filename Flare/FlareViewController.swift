@@ -15,7 +15,7 @@ import CoreLocation
 
 class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
-    let maximumSentFlares: Int = 3
+    let maximumSentFlares: Int = 10
 
     var captureSession : AVCaptureSession?
     var input: AVCaptureDeviceInput?
@@ -27,7 +27,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var flareLongitude : String?
     
     var uid : String?
-    var timeOneHourAgo : Double?
+    var timeHalfHourAgo : Double?
     
     var cameraToggleState: Int = 1
     var isPublicFlare: Bool = true
@@ -60,6 +60,8 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.takePhotoButton.hidden = !self.takePhotoButton.hidden ? true : false
         self.sendFlareImageButton.hidden = !self.sendFlareImageButton.hidden ? true : false
         backToMapButton.hidden = backToMapButton.hidden ? false : true
+        self.togglePrivateLabel.hidden = !self.togglePrivateLabel.hidden ? true : false
+        self.togglePrivateButton.hidden = !self.togglePrivateButton.hidden ? true : false
     }
     
     func setButtons() {
@@ -67,6 +69,10 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.takePhotoButton.hidden = false
         self.sendFlareImageButton.hidden = true
         backToMapButton.hidden = false
+        self.flareTitle.delegate = self;
+        self.flareTitle.hidden = true
+        self.togglePrivateLabel.hidden = true
+        self.togglePrivateButton.hidden = true
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -84,8 +90,6 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         
         setButtons()
-        self.flareTitle.delegate = self;
-        self.flareTitle.hidden = true
         // Refactor to a separate class
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -189,8 +193,10 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBAction func toggleCamerSwitchAction(sender: UIButton) {
         if cameraToggleState == 1 {
             switchCameraViewFront()
+            flashBtn.hidden = true
         } else {
             switchCameraViewBack()
+            flashBtn.hidden = false
         }
     }
     
