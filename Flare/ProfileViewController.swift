@@ -82,6 +82,7 @@ class ProfileViewController: UIViewController {
     func setLabelText(result: Array<String>) {
         var friendNames = String()
         friendNames = result.joinWithSeparator("\n- ")
+        print(friendNames)
         friendsListLabel.text = String("- " + friendNames)
     }
 
