@@ -23,6 +23,8 @@ class FlareDetailViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var flareTimeRemainingCountdown: UILabel!
     @IBOutlet weak var flareDetailBar: UIView!
+    @IBOutlet weak var cityMapperButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     let navBar = UINavigationBar()
     var flareExport: Flare?
@@ -80,15 +82,24 @@ class FlareDetailViewController: UIViewController {
         print("screen tapped")
         if flareDetailBar.hidden == true {
             UIView.animateWithDuration(0.2, delay: 0, options: [], animations: {
-                self.flareDetailBar.alpha = 1 // Here you will get the animation you want
+                self.flareDetailBar.alpha = 1
+                self.cityMapperButton.alpha = 1
+                self.backButton.alpha = 1// Here you will get the animation you want
                 }, completion: { finished in
-                    self.flareDetailBar.hidden = false // Here you hide it when animation done
+                    self.flareDetailBar.hidden = false
+                    self.cityMapperButton.hidden = false
+                    self.backButton.hidden = false
+                    // Here you hide it when animation done
             })
         } else {
             UIView.animateWithDuration(0.2, delay: 0, options: [], animations: {
-                self.flareDetailBar.alpha = 0 // Here you will get the animation you want
+                self.flareDetailBar.alpha = 0
+                self.cityMapperButton.alpha = 0
+                self.backButton.alpha = 0// Here you will get the animation you want
                 }, completion: { finished in
-                    self.flareDetailBar.hidden = true // Here you hide it when animation done
+                    self.flareDetailBar.hidden = true
+                    self.backButton.hidden = true
+                    self.cityMapperButton.hidden = true// Here you hide it when animation done
             })
         }
     }
