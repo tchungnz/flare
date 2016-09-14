@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FBSDKCoreKit
 import FirebaseDatabase
+import SwiftyJSON
 
 
 class ProfileViewController: UIViewController {
@@ -18,12 +19,19 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var activeFlareLabel: UILabel!
     
+    @IBOutlet weak var friendsListLabel: UITextView!
     var databaseRef: FIRDatabaseReference!
     var flareArray = [Flare]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        getFacebookFriends() {
+            (result: Array<String>) in
+            self.setLabelText(result)
+        }
+        
+            
         if let user = FIRAuth.auth()?.currentUser {
             let profilPicURL = user.photoURL
             
@@ -48,6 +56,31 @@ class ProfileViewController: UIViewController {
         { (error) in
             print(error.localizedDescription)
         }
+    }
+    
+    func getFacebookFriends(completion: (result: Array<String>) -> ())  {
+        let params = ["fields": "friends"]
+        let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: params)
+        graphRequest.startWithCompletionHandler { [weak self] connection, result, error in
+            var tempArray = [String]()
+            if error != nil {
+                print(error.description)
+                return
+            } else {
+                let json:JSON = JSON(result)
+                for item in json["friends"]["data"].arrayValue {
+                    tempArray.insert(item["name"].stringValue, atIndex: 0)
+                }
+            }
+            completion(result: tempArray)
+            
+        }
+    }
+    
+    func setLabelText(result: Array<String>) {
+        var friendNames = String()
+        friendNames = result.joinWithSeparator("\n- ")
+        friendsListLabel.text = String("- " + friendNames)
     }
 
     override func didReceiveMemoryWarning() {
