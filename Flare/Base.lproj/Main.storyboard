@@ -904,16 +904,14 @@ remaining</string>
         <image name="flash" width="512" height="512"/>
         <image name="map-icon" width="256" height="256"/>
         <image name="profileIcon" width="128" height="128"/>
-        <image name="redCircleFlare" width="1024" height="1024"/>
         <image name="redFlare" width="512" height="512"/>
         <image name="switch-camera" width="256" height="256"/>
         <image name="white-flare" width="512" height="512"/>
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ns2-iy-AlJ"/>
         <segue reference="0Z5-td-Zn0"/>
-        <segue reference="4eN-1f-zgq"/>
+        <segue reference="ns2-iy-AlJ"/>
         <segue reference="amc-dr-e01"/>
     </inferredMetricsTieBreakers>
 </document>
