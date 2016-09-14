@@ -48,10 +48,10 @@ extension MapViewController {
     }
     
     
-    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
-        var userLocationView = self.mapView.viewForAnnotation(userLocation)
-        userLocationView!.canShowCallout = false
-    }
+//    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+//        var userLocationView = self.mapView.viewForAnnotation(userLocation)
+//        userLocationView!.canShowCallout = false
+//    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "flareDetail" {
