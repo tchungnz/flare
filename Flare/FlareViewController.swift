@@ -29,7 +29,8 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var uid : String?
     var timeHalfHourAgo : Double?
     
-    var cameraToggleState: Int = 1
+
+    var backCamera: Bool = true
     var isPublicFlare: Bool = true
     var letFlareSave: Bool = true
     
@@ -49,31 +50,8 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var flashBtn: UIButton!
     @IBOutlet weak var togglePrivateButton: UISwitch!
     @IBOutlet weak var togglePrivateLabel: UILabel!
-
-    
-    
     
     let locationManager = CLLocationManager()
-    
-    func toggleButtons() {
-        self.retakePhotoButton.hidden = !self.retakePhotoButton.hidden ? true : false
-        self.takePhotoButton.hidden = !self.takePhotoButton.hidden ? true : false
-        self.sendFlareImageButton.hidden = !self.sendFlareImageButton.hidden ? true : false
-        backToMapButton.hidden = backToMapButton.hidden ? false : true
-        self.togglePrivateLabel.hidden = !self.togglePrivateLabel.hidden ? true : false
-        self.togglePrivateButton.hidden = !self.togglePrivateButton.hidden ? true : false
-    }
-    
-    func setButtons() {
-        self.retakePhotoButton.hidden = true
-        self.takePhotoButton.hidden = false
-        self.sendFlareImageButton.hidden = true
-        backToMapButton.hidden = false
-        self.flareTitle.delegate = self;
-        self.flareTitle.hidden = true
-        self.togglePrivateLabel.hidden = true
-        self.togglePrivateButton.hidden = true
-    }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
@@ -88,7 +66,6 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
             print(result)
         }
         
-        
         setButtons()
         // Refactor to a separate class
         self.locationManager.delegate = self
@@ -96,40 +73,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
         
-        captureSession = AVCaptureSession()
-        output = AVCaptureStillImageOutput()
-        //captureSession?.sessionPreset = AVCaptureSessionPreset1920x1080
-        
-        let backCamera = getDevice(.Back)
-        
-        //var input = AVCaptureDeviceInput()
-        do {
-            input = try AVCaptureDeviceInput(device: backCamera)
-        } catch let error as NSError {
-            print(error)
-            input = nil
-            error
-        }
-        
-        // var error : NSError?
-        
-        if(captureSession?.canAddInput(input) == true){
-            captureSession?.addInput(input)
-            //output?.outputSettings = [AVVideoCodecKey : AVVideoCodecJPEG]
-            stillImageOutput = AVCaptureStillImageOutput()
-            stillImageOutput?.outputSettings = [AVVideoCodecKey : AVVideoCodecJPEG]
-            
-            if(captureSession?.canAddOutput(stillImageOutput) == true){
-                captureSession?.addOutput(stillImageOutput)
-                previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-                previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-                previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
-                previewLayer?.frame = cameraView.bounds
-                cameraView.layer.addSublayer(previewLayer!)
-                captureSession?.startRunning()
-            }
-        }
-
+        cameraSession("back")
     }
 
     override func didReceiveMemoryWarning() {
@@ -195,7 +139,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     
     @IBAction func toggleCamerSwitchAction(sender: UIButton) {
-        if cameraToggleState == 1 {
+        if backCamera == true {
             switchCameraViewFront()
             flashBtn.hidden = true
         } else {
@@ -222,4 +166,21 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.presentViewController(myAlert, animated: true, completion: nil)
     }
     
+    func toggleButtons() {
+        self.retakePhotoButton.hidden = !self.retakePhotoButton.hidden ? true : false
+        self.takePhotoButton.hidden = !self.takePhotoButton.hidden ? true : false
+        self.sendFlareImageButton.hidden = !self.sendFlareImageButton.hidden ? true : false
+        backToMapButton.hidden = backToMapButton.hidden ? false : true
+        self.togglePrivateLabel.hidden = !self.togglePrivateLabel.hidden ? true : false
+        self.togglePrivateButton.hidden = !self.togglePrivateButton.hidden ? true : false
+    }
+    
+    func setButtons() {
+        self.retakePhotoButton.hidden = true
+        self.sendFlareImageButton.hidden = true
+        self.flareTitle.delegate = self;
+        self.flareTitle.hidden = true
+        self.togglePrivateLabel.hidden = true
+        self.togglePrivateButton.hidden = true
+    }
 }
