@@ -917,8 +917,8 @@ remaining</string>
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0Z5-td-Zn0"/>
-        <segue reference="ns2-iy-AlJ"/>
+        <segue reference="mUN-UL-zRw"/>
         <segue reference="amc-dr-e01"/>
+        <segue reference="0Z5-td-Zn0"/>
     </inferredMetricsTieBreakers>
 </document>

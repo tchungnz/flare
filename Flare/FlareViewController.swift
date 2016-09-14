@@ -189,8 +189,10 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBAction func toggleCamerSwitchAction(sender: UIButton) {
         if cameraToggleState == 1 {
             switchCameraViewFront()
+            flashBtn.hidden = true
         } else {
             switchCameraViewBack()
+            flashBtn.hidden = false
         }
     }
     
