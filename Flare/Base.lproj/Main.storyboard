@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MgA-qe-Vm4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MgA-qe-Vm4">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -179,7 +179,7 @@
                                     <constraint firstAttribute="width" constant="92" id="jgk-tm-tRe"/>
                                     <constraint firstAttribute="width" constant="100" id="zHN-dF-ju6"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="flare-button-2"/>
+                                <state key="normal" title="Button" image="flare-button"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="6Ib-nv-YHU"/>
@@ -540,6 +540,12 @@ remaining</string>
                                             <segue destination="BYZ-38-t0r" kind="show" id="ns2-iy-AlJ"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEA-3y-7V3">
+                                        <rect key="frame" x="172" y="550" width="231" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="WAE-Nn-i4d" firstAttribute="leading" secondItem="381-kp-Qh5" secondAttribute="leadingMargin" constant="12" id="4AE-aU-q3r"/>
@@ -638,6 +644,7 @@ remaining</string>
                     <connections>
                         <outlet property="backButton" destination="R0E-M0-ZqG" id="QNN-XI-Evu"/>
                         <outlet property="cityMapperButton" destination="zby-Ud-qVQ" id="y5x-l4-szC"/>
+                        <outlet property="distanceToFlare" destination="xEA-3y-7V3" id="COJ-wK-wR7"/>
                         <outlet property="flareDetailBar" destination="nct-GA-LBe" id="KRi-PD-S9T"/>
                         <outlet property="flareImage" destination="WAE-Nn-i4d" id="8lS-d0-T82"/>
                         <outlet property="flareSubtitleLabel" destination="e7w-jM-1WI" id="dgc-Jh-YXP"/>
@@ -900,20 +907,18 @@ remaining</string>
     <resources>
         <image name="back-button1" width="260" height="260"/>
         <image name="citymapper" width="300" height="300"/>
-        <image name="flare-button-2" width="321" height="321"/>
+        <image name="flare-button" width="321" height="321"/>
         <image name="flash" width="512" height="512"/>
         <image name="map-icon" width="256" height="256"/>
         <image name="profileIcon" width="128" height="128"/>
-        <image name="redCircleFlare" width="1024" height="1024"/>
         <image name="redFlare" width="512" height="512"/>
         <image name="switch-camera" width="256" height="256"/>
         <image name="white-flare" width="512" height="512"/>
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ns2-iy-AlJ"/>
         <segue reference="0Z5-td-Zn0"/>
-        <segue reference="4eN-1f-zgq"/>
+        <segue reference="ns2-iy-AlJ"/>
         <segue reference="amc-dr-e01"/>
     </inferredMetricsTieBreakers>
 </document>
