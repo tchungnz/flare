@@ -27,6 +27,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var flareExport: Flare?
     var timeHalfHourAgo : Double?
     var uid : String?
+    var facebook = Facebook()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,11 +55,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     
     func getFriends() {
-        getFacebookFriends() {
+        facebook.getFacebookFriends("id") {
             (result: Array<String>) in
             self.getFriendsFlaresFromDatabase(result) {
-            (result: Array<Flare>) in
-            self.plotFlares(result)
+                (result: Array<Flare>) in
+                self.plotFlares(result)
             }
         }
     }
