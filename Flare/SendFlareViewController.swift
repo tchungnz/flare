@@ -14,17 +14,19 @@ import CoreLocation
 
 extension FlareViewController: CLLocationManagerDelegate {
     
+    
     func onSwipe() {
-        let imageString = NSUUID().UUIDString
         
-        if self.flareTitle.text != "" {
-        saveFlareToDatabase(imageString)
-        uploadImage(imageString)
+            let imageString = NSUUID().UUIDString
             
-        } else {
-            self.displayAlertMessage("Please enter a title")
-            return
-        }
+            if self.flareTitle.text != "" {
+            saveFlareToDatabase(imageString)
+            uploadImage(imageString)
+                
+            } else {
+                self.displayAlertMessage("Please enter a title")
+                return
+            }
     }
     
     func uploadImage(imageString: String) {
@@ -68,11 +70,37 @@ extension FlareViewController: CLLocationManagerDelegate {
         self.flareLongitude = String(location!.coordinate.longitude)
     }
     
-    func displayAlertMessage(message: String)
-    {
-        let myAlert = UIAlertController(title: "Ooops", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
-        myAlert.addAction(okAction)
-        self.presentViewController(myAlert, animated: true, completion: nil)
+
+    
+    func getFbIDsFromDatabase(completion: (result: Array<Flare>) -> ()) {
+        getTimeOneHourAgo()
+        var usersFlares = [Flare]()
+        var facebookID = getFacebookID()
+        var databaseRef = FIRDatabase.database().reference().child("flares")
+        databaseRef.queryOrderedByChild("facebookID").queryEqualToValue(self.uid).observeEventType(.Value, withBlock: { (snapshot) in
+            
+            for item in snapshot.children {
+                    let flare = Flare(snapshot: item as! FIRDataSnapshot)
+                        if Double(flare.timestamp!) >= self.timeOneHourAgo! {
+                            usersFlares.insert(flare, atIndex: 0)
+                        }
+                if usersFlares.count > self.maximumSentFlares { // Change this in flareViewController
+                    self.letFlareSave = false
+                } else {
+                    self.letFlareSave = true
+                    }
+                }
+            completion(result: usersFlares)
+            })
+        { (error) in
+            print(error.localizedDescription)
+        }
     }
+    
+    
+    func getTimeOneHourAgo() {
+        var currentTimeInMilliseconds = NSDate().timeIntervalSince1970 * 1000
+        self.timeOneHourAgo = (currentTimeInMilliseconds - 3600000)
+    }
+    
 }

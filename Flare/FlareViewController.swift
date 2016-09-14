@@ -14,6 +14,8 @@ import FirebaseDatabase
 import CoreLocation
 
 class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+    
+    let maximumSentFlares: Int = 3
 
     var captureSession : AVCaptureSession?
     var input: AVCaptureDeviceInput?
@@ -25,9 +27,11 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var flareLongitude : String?
     
     var uid : String?
+    var timeOneHourAgo : Double?
     
     var cameraToggleState: Int = 1
     var isPublicFlare: Bool = true
+    var letFlareSave: Bool = true
     
     var toggleState: Bool?
     var flashOn: Bool?
@@ -72,6 +76,12 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getFbIDsFromDatabase() {
+            (result: Array<Flare>) in
+            print(result)
+        }
+        
         
         setButtons()
         self.flareTitle.delegate = self;
@@ -147,11 +157,16 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
     }
     @IBAction func takePhotoAction(sender: UIButton) {
-        toggleButtons()
-        toggleFlash()
-        sleep(1)
-        didPressTakePhoto()
-        toggleFlash()
+        if letFlareSave == true {
+            toggleButtons()
+            toggleFlash()
+            sleep(1)
+            didPressTakePhoto()
+            toggleFlash()
+        } else {
+            displayAlertMessage("You can only have one active flare")
+            return;
+        }
     }
     
 
@@ -187,6 +202,14 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
             isPublicFlare = true
             togglePrivateLabel.text = "Public"
         }
+    }
+    
+    func displayAlertMessage(message: String)
+    {
+        let myAlert = UIAlertController(title: "Ooops", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+        myAlert.addAction(okAction)
+        self.presentViewController(myAlert, animated: true, completion: nil)
     }
     
 }

@@ -13,27 +13,35 @@ import FirebaseDatabase
 import CoreLocation
 
 
+
 class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
+
     
     @IBOutlet weak var flareTitleLabel: UILabel!
     @IBOutlet weak var flareSubtitleLabel: UILabel!
     @IBOutlet weak var flareImage: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var flareTimeRemainingCountdown: UILabel!
-    @IBOutlet weak var citymapperDistance: UILabel!
+    @IBOutlet weak var flareDetailBar: UIView!
+    @IBOutlet weak var cityMapperButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var distanceToFlare: UILabel!
     
+    let navBar = UINavigationBar()
     var flareExport: Flare?
     var databaseRef: FIRDatabaseReference!
-    
+
     let locationManager = CLLocationManager()
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(FlareDetailViewController.toggle(_:)))
+        view.userInteractionEnabled = true
+        view.addGestureRecognizer(gesture)
         self.scrollView.contentSize = CGSize(width:1080, height: 1920)
         retrieveFlareImage()
         flareTitleLabel.text = flareExport!.title!
         flareSubtitleLabel.text = flareExport!.subtitle!
-        citymapperDistance.text = ""
+        distanceToFlare.text = ""
         findFlareRemainingTime()
         
         self.locationManager.delegate = self
@@ -78,6 +86,7 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last
         let userLatitude = Double(location!.coordinate.latitude)
@@ -94,7 +103,7 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     
     func setDistance(distance: String) {
         dispatch_async(dispatch_get_main_queue()) {
-            self.citymapperDistance.text = distance
+            self.distanceToFlare.text = distance
         }
     }
     
@@ -103,6 +112,40 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         print("Errors: " + error.localizedDescription)
     }
     
+    
+    func toggle(sender: AnyObject) {
+        print("screen tapped")
+        if flareDetailBar.hidden == true {
+            UIView.animateWithDuration(0.2, delay: 0, options: [], animations: {
+                self.flareDetailBar.alpha = 1
+                self.cityMapperButton.alpha = 1
+                self.backButton.alpha = 1// Here you will get the animation you want
+                }, completion: { finished in
+                    self.flareDetailBar.hidden = false
+                    self.cityMapperButton.hidden = false
+                    self.backButton.hidden = false
+                    // Here you hide it when animation done
+            })
+        } else {
+            UIView.animateWithDuration(0.2, delay: 0, options: [], animations: {
+                self.flareDetailBar.alpha = 0
+                self.cityMapperButton.alpha = 0
+                self.backButton.alpha = 0// Here you will get the animation you want
+                }, completion: { finished in
+                    self.flareDetailBar.hidden = true
+                    self.backButton.hidden = true
+                    self.cityMapperButton.hidden = true// Here you hide it when animation done
+            })
+        }
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return navigationController?.navigationBarHidden == true
+    }
+    
+    override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
+        return UIStatusBarAnimation.Slide
+    }
 
 
 }

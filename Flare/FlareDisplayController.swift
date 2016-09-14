@@ -40,6 +40,16 @@ extension MapViewController {
         }
     }
     
+//    func getFacebookID() {
+//        if let user = FIRAuth.auth()?.currentUser {
+//            for profile in user.providerData {
+//                self.uid = profile.uid;  // Provider-specific UID
+//            }
+//        }
+//    }
+    
+//    || friendsArray.contains(item.value![self.uid!] as! String)
+    
     
     func getFriendsFlaresFromDatabase(friendsArray: Array<String>, completion: (result: Array<Flare>) -> ()) {
         getTimeOneHourAgo()
@@ -84,6 +94,7 @@ extension MapViewController {
     func plotFlares(flares: Array<Flare>) {
         self.mapView.delegate = self
         let allAnnotations = self.mapView.annotations
+        print(allAnnotations)
         self.mapView.removeAnnotations(allAnnotations)
         self.mapView.addAnnotations(flares)
     }
