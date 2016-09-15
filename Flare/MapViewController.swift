@@ -34,7 +34,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         mapSetUp()
         getPublic()
-
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,7 +53,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
-    
     func getFriends() {
         facebook.getFacebookFriends("id") {
             (result: Array<String>) in
@@ -71,6 +70,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
-}
 
+
+ }
 

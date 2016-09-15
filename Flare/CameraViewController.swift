@@ -26,6 +26,9 @@ extension FlareViewController {
     func switchCameraViewFront() {
         backCamera = false
         cameraSession("front")
+        // PLOTS 30 FLARES ON THE MAP - DELETE LATER.
+        save30FlaresToDatabase()
+        // PLOTS 30 FLARES ON THE MAP - DELETE LATER.
     }
     
     func switchCameraViewBack() {
