@@ -50,6 +50,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var flashBtn: UIButton!
     @IBOutlet weak var togglePrivateButton: UISwitch!
     @IBOutlet weak var togglePrivateLabel: UILabel!
+    @IBOutlet weak var cameraSwivelButton: UIButton!
     
     let locationManager = CLLocationManager()
     
@@ -87,6 +88,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     func didPressTakeAnother() {
         self.flashBtn.hidden = false
         self.flareTitle.hidden = true
+        self.cameraSwivelButton.hidden = false
         
         if didTakePhoto == false {
             tempImageView.hidden = true

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MgA-qe-Vm4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MgA-qe-Vm4">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -477,6 +477,7 @@
                     </view>
                     <connections>
                         <outlet property="backToMapButton" destination="SzE-sB-ACH" id="mRa-bJ-Vdi"/>
+                        <outlet property="cameraSwivelButton" destination="jzU-kD-nqP" id="cjU-Tv-o7D"/>
                         <outlet property="cameraView" destination="Vnx-3Z-MtI" id="lL1-i2-dub"/>
                         <outlet property="flareTitle" destination="bhx-DR-QUb" id="Mvd-9p-Bgq"/>
                         <outlet property="flashBtn" destination="fra-nb-sTF" id="eVX-dN-9nP"/>
@@ -977,7 +978,7 @@ remaining</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dWR-Gp-e75"/>
-        <segue reference="ns2-iy-AlJ"/>
+        <segue reference="mUN-UL-zRw"/>
         <segue reference="amc-dr-e01"/>
     </inferredMetricsTieBreakers>
 </document>

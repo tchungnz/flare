@@ -83,6 +83,7 @@ extension FlareViewController {
                     self.flareTitle.hidden = false
                     self.flareTitle.becomeFirstResponder()
                     self.flashBtn.hidden = true
+                    self.cameraSwivelButton.hidden = true
                 }
             })
         }
