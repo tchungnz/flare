@@ -338,6 +338,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bf-he-SZq">
                                 <rect key="frame" x="20" y="550" width="47" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="retakePhotoButton"/>
                                 <state key="normal" title="Retake">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -356,6 +357,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9n-uW-Cgh" userLabel="Take Photo Button">
                                 <rect key="frame" x="250" y="470" width="100" height="100"/>
+                                <accessibility key="accessibilityConfiguration" identifier="takePhotoButton"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="5fs-Td-V0V"/>
                                     <constraint firstAttribute="width" constant="100" id="Mix-tT-rqU"/>
@@ -367,6 +369,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SzE-sB-ACH">
                                 <rect key="frame" x="17" y="534" width="50" height="50"/>
+                                <accessibility key="accessibilityConfiguration" identifier="backToMapButton"/>
                                 <state key="normal" title="Button" image="map-icon"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="popoverPresentation" popoverAnchorView="SzE-sB-ACH" id="4eN-1f-zgq">
@@ -376,19 +379,9 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redFlare" translatesAutoresizingMaskIntoConstraints="NO" id="5kc-bo-fR1">
-                                <rect key="frame" x="225" y="456" width="150" height="150"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="P4a-L1-cnT"/>
-                                    <constraint firstAttribute="width" constant="150" id="kff-Gh-zm1"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Ije-Oy-vdT" appends="YES" id="XrJ-6s-Pk9"/>
-                                </connections>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzU-kD-nqP">
                                 <rect key="frame" x="539" y="539" width="41" height="41"/>
+                                <accessibility key="accessibilityConfiguration" identifier="cameraFlipButton"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="4Ur-m2-7vq"/>
                                     <constraint firstAttribute="width" constant="41" id="cbh-6X-nMk"/>
@@ -400,6 +393,7 @@
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fra-nb-sTF">
                                 <rect key="frame" x="21" y="30" width="43" height="41"/>
+                                <accessibility key="accessibilityConfiguration" identifier="flashButton"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="43" id="tUe-Yd-yUx"/>
                                 </constraints>
@@ -410,6 +404,7 @@
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LFA-kd-SoJ">
                                 <rect key="frame" x="531" y="74" width="51" height="31"/>
+                                <accessibility key="accessibilityConfiguration" identifier="friendPublicToggle"/>
                                 <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="togglePrivateAction:" destination="d1b-im-btc" eventType="valueChanged" id="dF3-UJ-a52"/>
@@ -417,10 +412,22 @@
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Public" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DgG-UO-BVj">
                                 <rect key="frame" x="531" y="113" width="58" height="21"/>
+                                <accessibility key="accessibilityConfiguration" identifier="toggleLabel"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="redFlare" translatesAutoresizingMaskIntoConstraints="NO" id="5kc-bo-fR1">
+                                <rect key="frame" x="225" y="442" width="150" height="150"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="P4a-L1-cnT"/>
+                                    <constraint firstAttribute="width" constant="150" id="kff-Gh-zm1"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Ije-Oy-vdT" appends="YES" id="XrJ-6s-Pk9"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -964,8 +971,8 @@ remaining</string>
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="62s-MS-BsB"/>
-        <segue reference="amc-dr-e01"/>
         <segue reference="0Z5-td-Zn0"/>
+        <segue reference="fAW-4j-zEK"/>
+        <segue reference="amc-dr-e01"/>
     </inferredMetricsTieBreakers>
 </document>

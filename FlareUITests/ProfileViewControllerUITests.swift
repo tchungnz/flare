@@ -44,5 +44,18 @@ class ProfileViewControllerUITests: XCTestCase {
         XCTAssertEqual(friends, "- Harry Alaceahgbehbd Valtchanovescu\n- Jennifer Alacdhgdfhagj Wisemanescu")
     }
     
+    func testKeyBoardAppears() {
+        let app = XCUIApplication()
+        app.buttons["Button"].tap()
+        app.buttons["whiteCamera"].tap()
+        let textField = app.textFields["What's going on?"]
+        textField.tap()
+        textField.typeText("Daveeeeeee")
+        XCTAssert(app.keyboards.count > 0, "The keyboard is not shown")
+        
+    }
     
+    
+    
+  
 }
