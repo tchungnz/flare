@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MgA-qe-Vm4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MgA-qe-Vm4">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -605,10 +605,10 @@ remaining</string>
                                             <segue destination="BYZ-38-t0r" kind="show" id="ns2-iy-AlJ"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEA-3y-7V3">
-                                        <rect key="frame" x="172" y="550" width="231" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEA-3y-7V3">
+                                        <rect key="frame" x="293" y="550" width="231" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.22352941176470587" green="0.69019607843137254" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -620,6 +620,7 @@ remaining</string>
                                     <constraint firstItem="WAE-Nn-i4d" firstAttribute="centerX" secondItem="381-kp-Qh5" secondAttribute="centerX" id="FUI-cw-wdT"/>
                                     <constraint firstAttribute="bottom" secondItem="WAE-Nn-i4d" secondAttribute="bottom" constant="20" id="GMM-LW-Mcf"/>
                                     <constraint firstAttribute="bottom" secondItem="WAE-Nn-i4d" secondAttribute="bottom" id="HNx-gT-UOj"/>
+                                    <constraint firstItem="xEA-3y-7V3" firstAttribute="centerY" secondItem="zby-Ud-qVQ" secondAttribute="centerY" id="J66-qj-5CM"/>
                                     <constraint firstAttribute="trailing" secondItem="WAE-Nn-i4d" secondAttribute="trailing" constant="20" id="NhJ-7F-j4n"/>
                                     <constraint firstAttribute="bottom" secondItem="WAE-Nn-i4d" secondAttribute="bottom" id="NkO-2O-YVI"/>
                                     <constraint firstItem="WAE-Nn-i4d" firstAttribute="centerY" secondItem="381-kp-Qh5" secondAttribute="centerY" id="OBY-ff-lAL"/>
@@ -632,6 +633,7 @@ remaining</string>
                                     <constraint firstItem="WAE-Nn-i4d" firstAttribute="leading" secondItem="381-kp-Qh5" secondAttribute="leading" constant="20" id="fBn-n4-HAX"/>
                                     <constraint firstItem="R0E-M0-ZqG" firstAttribute="bottom" secondItem="zby-Ud-qVQ" secondAttribute="bottom" id="gF5-ah-gnD"/>
                                     <constraint firstAttribute="trailing" secondItem="WAE-Nn-i4d" secondAttribute="trailing" id="ifm-h5-uEh"/>
+                                    <constraint firstItem="zby-Ud-qVQ" firstAttribute="leading" secondItem="xEA-3y-7V3" secondAttribute="trailing" constant="8" id="ih8-X9-TMx"/>
                                     <constraint firstItem="nct-GA-LBe" firstAttribute="centerX" secondItem="381-kp-Qh5" secondAttribute="centerX" id="j8L-6I-gm8"/>
                                     <constraint firstItem="WAE-Nn-i4d" firstAttribute="leading" secondItem="381-kp-Qh5" secondAttribute="leading" id="kPi-OQ-6vY"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="WAE-Nn-i4d" secondAttribute="bottom" constant="12" id="lty-pn-0Va"/>
@@ -977,8 +979,8 @@ remaining</string>
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dWR-Gp-e75"/>
-        <segue reference="mUN-UL-zRw"/>
         <segue reference="amc-dr-e01"/>
+        <segue reference="ns2-iy-AlJ"/>
+        <segue reference="dWR-Gp-e75"/>
     </inferredMetricsTieBreakers>
 </document>

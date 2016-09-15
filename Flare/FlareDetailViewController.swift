@@ -98,6 +98,7 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
                     self.flareDetailBar.hidden = false
                     self.cityMapperButton.hidden = false
                     self.backButton.hidden = false
+                    self.distanceToFlare.hidden = false
                     // Here you hide it when animation done
             })
         } else {
@@ -109,6 +110,7 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
                     self.flareDetailBar.hidden = true
                     self.backButton.hidden = true
                     self.cityMapperButton.hidden = true// Here you hide it when animation done
+                    self.distanceToFlare.hidden = true
             })
         }
     }
@@ -130,7 +132,7 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func cityMapperCall(latitude: Double, longitude: Double) {
-        let path = "https://developer.citymapper.com/api/1/traveltime/?startcoord=\(latitude)%2C\(longitude)&endcoord=\(flareExport!.latitude!)%2C\(flareExport!.longitude!)&time_type=arrival&key=af0adea677e7825d1e38a0a435f12365"
+        let path = "https://developer.citymapper.com/api/1/traveltime/?startcoord=\(latitude)%2C\(longitude)&endcoord=\(flareExport!.latitude!)%2C\(flareExport!.longitude!)&time_type=arrival&key=6984b374d454cc120949773ebf04442c"
         let citymap = RestApiManager()
         citymap.makeHTTPGetRequest(path, flareDetail: self, onCompletion: { _, _ in })
     }
