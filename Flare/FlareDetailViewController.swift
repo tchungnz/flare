@@ -93,7 +93,9 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
             UIView.animateWithDuration(0.2, delay: 0, options: [], animations: {
                 self.flareDetailBar.alpha = 1
                 self.cityMapperButton.alpha = 1
-                self.backButton.alpha = 1// Here you will get the animation you want
+                self.backButton.alpha = 1
+                self.distanceToFlare.alpha = 1
+                // Here you will get the animation you want
                 }, completion: { finished in
                     self.flareDetailBar.hidden = false
                     self.cityMapperButton.hidden = false
@@ -105,7 +107,8 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
             UIView.animateWithDuration(0.2, delay: 0, options: [], animations: {
                 self.flareDetailBar.alpha = 0
                 self.cityMapperButton.alpha = 0
-                self.backButton.alpha = 0// Here you will get the animation you want
+                self.backButton.alpha = 0
+                self.distanceToFlare.alpha = 0// Here you will get the animation you want
                 }, completion: { finished in
                     self.flareDetailBar.hidden = true
                     self.backButton.hidden = true
