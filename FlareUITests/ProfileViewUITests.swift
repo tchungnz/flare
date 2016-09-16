@@ -1,18 +1,21 @@
 //
-//  FlareUITests.swift
-//  FlareUITests
+//  ProfileViewUITests.swift
+//  Flare
 //
-//  Created by Georgia Mills on 06/09/2016.
+//  Created by Tim Chung on 16/09/2016.
 //  Copyright © 2016 appflare. All rights reserved.
 //
 
 import XCTest
 
-class ProfileViewControllerUITests: XCTestCase {
-        
+class ProfileViewUITests: XCTestCase {
+    
     override func setUp() {
         super.setUp()
+       
+        // Put setup code here. This method is called before the invocation of each test method in the class.
         
+        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         XCUIApplication().launch()
@@ -24,7 +27,7 @@ class ProfileViewControllerUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+
     func testProfilePageHasUserName() {
         let app = XCUIApplication()
         app.buttons["profileIcon"].tap()
@@ -40,9 +43,8 @@ class ProfileViewControllerUITests: XCTestCase {
     func testProfilePageHasFriends() {
         let app = XCUIApplication()
         app.buttons["profileIcon"].tap()
-        let friends = app.scrollViews.textViews.element.value as? String
+        let friends = app.scrollViews.childrenMatchingType(.TextView).element.value as? String
         XCTAssertEqual(friends, "- Harry Alaceahgbehbd Valtchanovescu\n- Jennifer Alacdhgdfhagj Wisemanescu")
     }
-    
-    
+
 }

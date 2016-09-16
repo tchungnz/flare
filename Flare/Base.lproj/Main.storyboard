@@ -205,6 +205,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMg-Ov-4VJ">
                                 <rect key="frame" x="10" y="28" width="45" height="50"/>
+                                <accessibility key="accessibilityConfiguration" identifier="profileIcon"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DMg-Ov-4VJ" secondAttribute="height" multiplier="9:10" id="IRN-AE-Sq1"/>
                                     <constraint firstAttribute="width" constant="45" id="PvP-4Z-ctA"/>
@@ -229,6 +230,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iy2-AK-hv6">
                                 <rect key="frame" x="258" y="495" width="85" height="85"/>
+                                <accessibility key="accessibilityConfiguration" identifier="flareButton"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="iy2-AK-hv6" secondAttribute="height" multiplier="1:1" id="6Ib-nv-YHU"/>
                                     <constraint firstAttribute="width" constant="150" id="7Sd-OK-wGi"/>
@@ -361,6 +363,7 @@
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's going on?" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="bhx-DR-QUb" customClass="UITextFieldLimit">
                                 <rect key="frame" x="20" y="36" width="560" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="flareTitleText"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="OUH-J5-Wwf"/>
                                 </constraints>
@@ -979,8 +982,8 @@ remaining</string>
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="mUN-UL-zRw"/>
+        <segue reference="0Z5-td-Zn0"/>
         <segue reference="amc-dr-e01"/>
-        <segue reference="62s-MS-BsB"/>
-        <segue reference="dWR-Gp-e75"/>
     </inferredMetricsTieBreakers>
 </document>
