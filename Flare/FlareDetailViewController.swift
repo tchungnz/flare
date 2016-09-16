@@ -31,7 +31,7 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     var flareExport: Flare?
     var databaseRef: FIRDatabaseReference!
     
-    let locationManager = CLLocationManager()
+//    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(FlareDetailViewController.toggle(_:)))
@@ -44,10 +44,10 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         distanceToFlare.text = ""
         findFlareRemainingTime()
         
-        self.locationManager.delegate = self
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.startUpdatingLocation()
+//        self.locationManager.delegate = self
+//        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        self.locationManager.requestWhenInUseAuthorization()
+//        self.locationManager.startUpdatingLocation()
     }
     
     func retrieveFlareImage() {
@@ -126,30 +126,30 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         return UIStatusBarAnimation.Slide
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last
-        let userLatitude = Double(location!.coordinate.latitude)
-        let userLongitude = Double(location!.coordinate.longitude)
-        self.locationManager.stopUpdatingLocation()
-        cityMapperCall(userLatitude, longitude: userLongitude)
-    }
+//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        let location = locations.last
+//        let userLatitude = Double(location!.coordinate.latitude)
+//        let userLongitude = Double(location!.coordinate.longitude)
+//        self.locationManager.stopUpdatingLocation()
+//        cityMapperCall(userLatitude, longitude: userLongitude)
+//    }
     
-    func cityMapperCall(latitude: Double, longitude: Double) {
-        let path = "https://developer.citymapper.com/api/1/traveltime/?startcoord=\(latitude)%2C\(longitude)&endcoord=\(flareExport!.latitude!)%2C\(flareExport!.longitude!)&time_type=arrival&key=6984b374d454cc120949773ebf04442c"
-        let citymap = RestApiManager()
-        citymap.makeHTTPGetRequest(path, flareDetail: self, onCompletion: { _, _ in })
-    }
-    
-    func setDistance(distance: String) {
-        dispatch_async(dispatch_get_main_queue()) {
-            self.distanceToFlare.text = distance
-        }
-    }
-    
-    
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("Errors: " + error.localizedDescription)
-    }
+//    func cityMapperCall(latitude: Double, longitude: Double) {
+//        let path = "https://developer.citymapper.com/api/1/traveltime/?startcoord=\(latitude)%2C\(longitude)&endcoord=\(flareExport!.latitude!)%2C\(flareExport!.longitude!)&time_type=arrival&key=6984b374d454cc120949773ebf04442c"
+//        let citymap = RestApiManager()
+//        citymap.makeHTTPGetRequest(path, flareDetail: self, onCompletion: { _, _ in })
+//    }
+//    
+//    func setDistance(distance: String) {
+//        dispatch_async(dispatch_get_main_queue()) {
+//            self.distanceToFlare.text = distance
+//        }
+//    }
+//    
+//    
+//    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+//        print("Errors: " + error.localizedDescription)
+//    }
 
 
 }
