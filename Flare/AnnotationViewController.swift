@@ -21,7 +21,6 @@ extension MapViewController {
         
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
-
             annotationView!.canShowCallout = true
         }
         else {
@@ -32,7 +31,6 @@ extension MapViewController {
         annotationView!.image = pinImage
         let btn = UIButton(type: .DetailDisclosure)
         annotationView!.rightCalloutAccessoryView = btn
-    
         return annotationView
     }
     
@@ -47,17 +45,11 @@ extension MapViewController {
             performSegueWithIdentifier("flareDetail", sender: annotationView)
     }
     
-    
-//    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
-//        var userLocationView = self.mapView.viewForAnnotation(userLocation)
-//        userLocationView!.canShowCallout = false
-//    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "flareDetail" {
-                if let ivc = segue.destinationViewController as? FlareDetailViewController {
-                    ivc.flareExport = self.flareExport
-                }
+            if let ivc = segue.destinationViewController as? FlareDetailViewController {
+                ivc.flareExport = self.flareExport
+            }
         }
     }
     

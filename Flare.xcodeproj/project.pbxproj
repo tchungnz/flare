@@ -236,6 +236,7 @@
 		74F4056A1D87019800F0A6DC /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				5354CF271D8467BE00D57347 /* FlareDetailViewController.swift */,
 				53C8D1021D80781100E57400 /* AnnotationViewController.swift */,
 				6A7ED8871D7F2E94005FF0A8 /* MapViewController.swift */,
 				74F405681D86ECEB00F0A6DC /* FlareDisplayController.swift */,
@@ -273,7 +274,6 @@
 				74F4056A1D87019800F0A6DC /* Map */,
 				8273F3021D899D7400E62350 /* Profile */,
 				537EB5EB1D871B0300F3E4F6 /* User */,
-				5354CF271D8467BE00D57347 /* FlareDetailViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

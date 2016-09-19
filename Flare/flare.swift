@@ -18,9 +18,6 @@ class Flare: MKPointAnnotation{
     var imageRef: String?
     var timestamp: Int?
     var isPublic: Bool?
-//    var title: String?
-//    var subtitle: String?
-//    var coordinate: CLLocationCoordinate2D
     
     init(snapshot: FIRDataSnapshot) {
         super.init()

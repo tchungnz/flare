@@ -13,8 +13,6 @@ import FirebaseDatabase
 import CoreLocation
 
 
-
-
 class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var flareTitleLabel: UILabel!
@@ -34,16 +32,35 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
+        setupTapToSendFlareGesture()
+        setupLocationManager()
+        setupScrollView()
+        setupLabels()
+        populateFlares()
+    }
+    
+    func setupLabels() {
+        flareTitleLabel.text = flareExport!.title!
+        flareSubtitleLabel.text = flareExport!.subtitle!
+    }
+    
+    func populateFlares() {
+        retrieveFlareImage()
+        distanceToFlare.text = ""
+        findFlareRemainingTime()
+    }
+    
+    func setupScrollView() {
+        self.scrollView.contentSize = CGSize(width:1080, height: 1920)
+    }
+    
+    func setupTapToSendFlareGesture() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(FlareDetailViewController.toggle(_:)))
         view.userInteractionEnabled = true
         view.addGestureRecognizer(gesture)
-        self.scrollView.contentSize = CGSize(width:1080, height: 1920)
-        retrieveFlareImage()
-        flareTitleLabel.text = flareExport!.title!
-        flareSubtitleLabel.text = flareExport!.subtitle!
-        distanceToFlare.text = ""
-        findFlareRemainingTime()
-        
+    }
+    
+    func setupLocationManager() {
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
@@ -54,7 +71,6 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         let storage = FIRStorage.storage()
         let storageRef = storage.referenceForURL("gs://flare-1ef4b.appspot.com")
         let islandRef = storageRef.child("\(flareExport!.imageRef!)")
-        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
         islandRef.dataWithMaxSize(1 * 1920 * 1080) { (data, error) -> Void in
             if (error != nil) {
                 print("Error!")
@@ -77,13 +93,11 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func CityMapperNavigation(sender: AnyObject) {
         if let url = NSURL(string: "https://citymapper.com/directions?endcoord=\(flareExport!.latitude!)%2C\(flareExport!.longitude!)") {
             UIApplication.sharedApplication().openURL(url)
-            print(url)
         }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
@@ -95,24 +109,22 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
                 self.cityMapperButton.alpha = 1
                 self.backButton.alpha = 1
                 self.distanceToFlare.alpha = 1
-                // Here you will get the animation you want
                 }, completion: { finished in
                     self.flareDetailBar.hidden = false
                     self.cityMapperButton.hidden = false
                     self.backButton.hidden = false
                     self.distanceToFlare.hidden = false
-                    // Here you hide it when animation done
             })
         } else {
             UIView.animateWithDuration(0.2, delay: 0, options: [], animations: {
                 self.flareDetailBar.alpha = 0
                 self.cityMapperButton.alpha = 0
                 self.backButton.alpha = 0
-                self.distanceToFlare.alpha = 0// Here you will get the animation you want
+                self.distanceToFlare.alpha = 0
                 }, completion: { finished in
                     self.flareDetailBar.hidden = true
                     self.backButton.hidden = true
-                    self.cityMapperButton.hidden = true// Here you hide it when animation done
+                    self.cityMapperButton.hidden = true
                     self.distanceToFlare.hidden = true
             })
         }
@@ -145,7 +157,6 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
             self.distanceToFlare.text = distance
         }
     }
-    
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         print("Errors: " + error.localizedDescription)

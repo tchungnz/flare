@@ -20,7 +20,6 @@ extension FlareViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
     }
     
     func switchCameraViewFront() {
@@ -59,7 +58,6 @@ extension FlareViewController {
                 captureSession?.startRunning()
             }
         }
-        
     }
 
     
@@ -102,8 +100,7 @@ extension FlareViewController {
         return newImage
     }
     
-    
-    //Get the device (Front or Back)
+   
     func getDevice(position: AVCaptureDevicePosition) -> AVCaptureDevice? {
         let devices: NSArray = AVCaptureDevice.devices();
         for de in devices {

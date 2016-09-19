@@ -19,19 +19,15 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.userEmail.delegate = self;
         self.userPassword.delegate = self;
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        
     }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
-
     }
     
     @IBAction func createAccountAction(sender: UIButton) {
@@ -40,8 +36,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             displayAlertMessage("All fields required")
             return;
         } else {
-            print(self.userEmail.text!)
-            print(self.userPassword.text!)
             FIRAuth.auth()?.createUserWithEmail(self.userEmail.text!, password: self.userPassword.text!, completion: { (user, error) in
                 if error == nil
                 {
@@ -55,11 +49,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 
             })
         }
-        
     }
     
-    func displayAlertMessage(message: String)
-    {
+    func displayAlertMessage(message: String) {
         let myAlert = UIAlertController(title: "Ooops", message: message, preferredStyle: UIAlertControllerStyle.Alert)
         let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
         myAlert.addAction(okAction)

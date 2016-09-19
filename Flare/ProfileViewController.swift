@@ -29,14 +29,11 @@ class ProfileViewController: UIViewController {
         
         facebook.getFacebookFriends("name") {
             (result: Array<String>) in
-            print(result)
             self.setLabelText(result)
         }
-        
             
         if let user = FIRAuth.auth()?.currentUser {
             let profilPicURL = user.photoURL
-            
             let data = NSData(contentsOfURL: profilPicURL!)
             let profilePicUI = UIImage(data: data!)
             self.profilePic.layer.cornerRadius = self.profilePic.frame.size.width/2
@@ -44,7 +41,6 @@ class ProfileViewController: UIViewController {
             self.profilePic.image = profilePicUI
             name.text = user.displayName
             username.text = user.email
-            
         }
         
         databaseRef = FIRDatabase.database().reference().child("flares")
@@ -63,7 +59,6 @@ class ProfileViewController: UIViewController {
     func setLabelText(result: Array<String>) {
         var friendNames = String()
         friendNames = result.joinWithSeparator("\n- ")
-        print(friendNames)
         friendsListLabel.text = String("- " + friendNames)
     }
 

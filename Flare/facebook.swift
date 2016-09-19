@@ -25,12 +25,9 @@ class Facebook: NSObject{
                 let json:JSON = JSON(result)
                 for item in json["friends"]["data"].arrayValue {
                     tempArray.insert(item[requestedData!].stringValue, atIndex: 0)
-                    print(tempArray)
                 }
             }
             completion(result: tempArray)
-            
         }
     }
-    
 }
