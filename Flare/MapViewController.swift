@@ -31,15 +31,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         mapSetUp()
         getPublic()
-
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func toggleMapButton(sender: UISwitch) {
@@ -52,7 +49,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             getPublic()
         }
     }
-    
     
     func getFriends() {
         facebook.getFacebookFriends("id") {

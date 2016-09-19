@@ -79,9 +79,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
       
     var didTakePhoto = Bool()
 
@@ -98,7 +96,6 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
             didTakePhoto = true
             didPressTakePhoto()
         }
-        
     }
     
     @IBAction func retakeAction(sender: UIButton) {
@@ -123,7 +120,6 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
     }
     
-
     
     @IBAction func changeCameraIconAction(sender: AnyObject) {
         var flashBtn = sender as! UIButton
@@ -137,7 +133,6 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
             flashOn = true
         }
     }
-    
     
     
     @IBAction func toggleCamerSwitchAction(sender: UIButton) {

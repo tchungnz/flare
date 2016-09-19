@@ -26,9 +26,7 @@ extension MapViewController {
         getTimeHalfHourAgo()
         databaseRef = FIRDatabase.database().reference().child("flares")
         databaseRef.queryOrderedByChild("timestamp").queryStartingAtValue(timeHalfHourAgo).observeEventType(.Value, withBlock: { (snapshot) in
-            
         var newItems = [Flare]()
-
         for item in snapshot.children {
             if (item.value!["isPublic"] as! Bool) {
                 let flare = Flare(snapshot: item as! FIRDataSnapshot)
@@ -50,17 +48,13 @@ extension MapViewController {
         }
     }
     
-    
-    
     func getFriendsFlaresFromDatabase(friendsArray: Array<String>, completion: (result: Array<Flare>) -> ()) {
         getTimeHalfHourAgo()
         getFacebookID()
         print(self.uid)
         databaseRef = FIRDatabase.database().reference().child("flares")
         databaseRef.queryOrderedByChild("timestamp").queryStartingAtValue(timeHalfHourAgo).observeEventType(.Value, withBlock: { (snapshot) in
-            
             var newItems = [Flare]()
-            
             for item in snapshot.children {
                 if (friendsArray.contains(item.value!["facebookID"] as! String) || item.value!["facebookID"] as! String == self.uid!) {
                     let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
@@ -77,7 +71,6 @@ extension MapViewController {
     func plotFlares(flares: Array<Flare>) {
         self.mapView.delegate = self
         let allAnnotations = self.mapView.annotations
-        print(allAnnotations)
         self.mapView.removeAnnotations(allAnnotations)
         self.mapView.addAnnotations(flares)
     }

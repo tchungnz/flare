@@ -14,25 +14,20 @@ import CoreLocation
 
 extension FlareViewController: CLLocationManagerDelegate {
     
-    
     func onSwipe() {
-        
-            let imageString = NSUUID().UUIDString
-            
-            if self.flareTitle.text != "" {
+        let imageString = NSUUID().UUIDString
+        if self.flareTitle.text != "" {
             saveFlareToDatabase(imageString)
             uploadImage(imageString)
-                
-            } else {
-                self.displayAlertMessage("Please enter a title")
-                return
-            }
+        } else {
+            self.displayAlertMessage("Please enter a title")
+            return
+        }
     }
     
     func uploadImage(imageString: String) {
         var data = NSData()
         data = UIImageJPEGRepresentation(self.tempImageView.image!, 0.8)!
-        
         let storageRef = storage.referenceForURL("gs://flare-1ef4b.appspot.com")
         let imageRef = storageRef.child("images/flare\(imageString).jpg")
         let uploadTask = imageRef.putData(data, metadata: nil) { metadata, error in
@@ -47,7 +42,7 @@ extension FlareViewController: CLLocationManagerDelegate {
     func getFacebookID() {
         if let user = FIRAuth.auth()?.currentUser {
             for profile in user.providerData {
-                self.uid = profile.uid;  // Provider-specific UID
+                self.uid = profile.uid;
             }
         }
     }
@@ -56,9 +51,7 @@ extension FlareViewController: CLLocationManagerDelegate {
         self.getFacebookID()
         let flareRef = ref.childByAppendingPath("flares")
         let timestamp = FIRServerValue.timestamp()
-        
         let user = FIRAuth.auth()?.currentUser
-        // Put a guard on the email code below:
         let flare1 = ["facebookID": self.uid! as String, "title": self.flareTitle.text!, "subtitle": user!.displayName! as String, "imageRef": "images/flare\(imageString).jpg", "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp, "isPublic": self.isPublicFlare as Bool]
         let flare1Ref = flareRef.childByAutoId()
         flare1Ref.setValue(flare1)
@@ -70,7 +63,6 @@ extension FlareViewController: CLLocationManagerDelegate {
         self.flareLongitude = String(location!.coordinate.longitude)
     }
     
-
     
     func getFbIDsFromDatabase(completion: (result: Array<Flare>) -> ()) {
         getTimeHalfHourAgo()
@@ -84,7 +76,7 @@ extension FlareViewController: CLLocationManagerDelegate {
                         if Double(flare.timestamp!) >= self.timeHalfHourAgo! {
                             usersFlares.insert(flare, atIndex: 0)
                         }
-                if usersFlares.count > self.maximumSentFlares { // Change this in flareViewController
+                if usersFlares.count > self.maximumSentFlares {
                     self.letFlareSave = false
                 } else {
                     self.letFlareSave = true
