@@ -7,6 +7,8 @@ Users can create flares by taking a photo, adding a caption, choosing to send pu
 
 Other users can see these flares on a map, click to see further details and directions and choose whether to come or not. Flares only last for 30 minutes and users can only have one active flare at a time.
 
+Check out the app in action [here](https://www.youtube.com/watch?v=1hvx8iv2YgY&feature=youtu.be)!
+
 *Built in Swift in 10 days for the Makers Academy final project by [Georgia Mills](https://github.com/grmillsy1), [Jess Astbury](https://github.com/JAstbury), [Mali Michael](https://github.com/malimichael), [Tim Chung](https://github.com/tchungnz) and [Tommy Williams](https://github.com/twilliams1988).*
 
 ![Screenshot](http://i.imgur.com/tcj3HCv.jpg)
