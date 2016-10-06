@@ -34,8 +34,8 @@ class ProfileViewController: UIViewController {
             
         if let user = FIRAuth.auth()?.currentUser {
             let profilPicURL = user.photoURL
-            let data = NSData(contentsOfURL: profilPicURL!)
-            let profilePicUI = UIImage(data: data!)
+            let data = try! Data(contentsOf: profilPicURL!)
+            let profilePicUI = UIImage(data: data as Data)
             self.profilePic.layer.cornerRadius = self.profilePic.frame.size.width/2
             self.profilePic.clipsToBounds = true
             self.profilePic.image = profilePicUI
@@ -44,7 +44,7 @@ class ProfileViewController: UIViewController {
         }
         
         databaseRef = FIRDatabase.database().reference().child("flares")
-        databaseRef.queryOrderedByChild("subtitle").queryEqualToValue(name.text).queryLimitedToLast(1).observeEventType(.Value, withBlock: { (snapshot) in
+        databaseRef.queryOrdered(byChild: "subtitle").queryEqual(toValue: name.text).queryLimited(toLast: 1).observe(.value, with: { (snapshot) in
             
             for item in snapshot.children {
                 let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
@@ -56,9 +56,9 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    func setLabelText(result: Array<String>) {
+    func setLabelText(_ result: Array<String>) {
         var friendNames = String()
-        friendNames = result.joinWithSeparator("\n- ")
+        friendNames = result.joined(separator: "\n- ")
         friendsListLabel.text = String("- " + friendNames)
     }
 
@@ -66,7 +66,7 @@ class ProfileViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func logOutAction(sender: UIButton) {
+    @IBAction func logOutAction(_ sender: UIButton) {
         logout()
     }
 

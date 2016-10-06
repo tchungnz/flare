@@ -11,13 +11,13 @@ import MapKit
 
 extension MapViewController {
     
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    @objc(mapView:viewForAnnotation:) func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if !(annotation is MKPointAnnotation) {
             return nil
         }
         
         let annotationIdentifier = "AnnotationIdentifier"
-        var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(annotationIdentifier)
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
         
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
@@ -29,25 +29,25 @@ extension MapViewController {
         
         let pinImage = UIImage(named: "redFlareMapPin")
         annotationView!.image = pinImage
-        let btn = UIButton(type: .DetailDisclosure)
+        let btn = UIButton(type: .detailDisclosure)
         annotationView!.rightCalloutAccessoryView = btn
         return annotationView
     }
     
     
-    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+    @objc(mapView:didSelectAnnotationView:) func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let annotation = view.annotation as? Flare {
             self.flareExport = annotation
         }
     }
     
-    func mapView(mapView: MKMapView!, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-            performSegueWithIdentifier("flareDetail", sender: annotationView)
+    func mapView(_ mapView: MKMapView!, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+            performSegue(withIdentifier: "flareDetail", sender: annotationView)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "flareDetail" {
-            if let ivc = segue.destinationViewController as? FlareDetailViewController {
+            if let ivc = segue.destination as? FlareDetailViewController {
                 ivc.flareExport = self.flareExport
             }
         }

@@ -16,9 +16,9 @@ extension ProfileViewController {
     func logout() {
         let user = FIRAuth.auth()?.currentUser
         try! FIRAuth.auth()?.signOut()
-        FBSDKAccessToken.setCurrentAccessToken(nil)
+        FBSDKAccessToken.setCurrent(nil)
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
-        let RootViewController: UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("rootView")
-        self.presentViewController(RootViewController, animated: true, completion: nil)
+        let RootViewController: UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "rootView")
+        self.present(RootViewController, animated: true, completion: nil)
     }
 }

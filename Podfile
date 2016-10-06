@@ -13,7 +13,7 @@ target 'Flare' do
   pod 'FirebaseAuth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
-  pod 'SwiftyJSON'
+  pod 'SwiftyJSON', '3.0.0'
 
   target 'FlareTests' do
     inherit! :search_paths

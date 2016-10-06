@@ -17,21 +17,21 @@ class RestApiManager: NSObject {
     var distance : String?
     
     // MARK: Perform a GET Request
-    func makeHTTPGetRequest(path: String, flareDetail: FlareDetailViewController, onCompletion: ServiceResponse) {
-        let request = NSMutableURLRequest(URL: NSURL(string: path)!)
+    func makeHTTPGetRequest(_ path: String, flareDetail: FlareDetailViewController, onCompletion: @escaping ServiceResponse) {
+        let request = NSMutableURLRequest(url: URL(string: path)! as URL)
         
-        let session = NSURLSession.sharedSession()
+        let session = URLSession.shared
         
-        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+        let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
             if let jsonData = data {
                 let json:JSON = JSON(data: jsonData)
-                onCompletion(json, error)
+                onCompletion(json, error as NSError?)
                 if let time = json["travel_time_minutes"].int {
                     self.distance = "\(time) mins away"
                     flareDetail.setDistance(self.distance!)
                 }
             } else {
-                onCompletion(nil, error)
+                onCompletion(nil, error as NSError?)
             }
         })
         task.resume()

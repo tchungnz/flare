@@ -54,7 +54,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     let locationManager = CLLocationManager()
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
@@ -84,12 +84,12 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var didTakePhoto = Bool()
 
     func didPressTakeAnother() {
-        self.flashBtn.hidden = false
-        self.flareTitle.hidden = true
-        self.cameraSwivelButton.hidden = false
+        self.flashBtn.isHidden = false
+        self.flareTitle.isHidden = true
+        self.cameraSwivelButton.isHidden = false
         
         if didTakePhoto == false {
-            tempImageView.hidden = true
+            tempImageView.isHidden = true
             didTakePhoto = false
         } else {
             captureSession?.startRunning()
@@ -98,12 +98,12 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
     }
     
-    @IBAction func retakeAction(sender: UIButton) {
+    @IBAction func retakeAction(_ sender: UIButton) {
         toggleButtons()
         didPressTakeAnother()
         
     }
-    @IBAction func takePhotoAction(sender: UIButton) {
+    @IBAction func takePhotoAction(_ sender: UIButton) {
         if letFlareSave == true {
             toggleButtons()
             if flashOn == true {
@@ -121,32 +121,32 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     
-    @IBAction func changeCameraIconAction(sender: AnyObject) {
-        var flashBtn = sender as! UIButton
+    @IBAction func changeCameraIconAction(_ sender: AnyObject) {
+        let flashBtn = sender as! UIButton
         if toggleState == true {
             toggleState = false
-            flashBtn.setImage(UIImage(named:"flash.png"),forState:UIControlState.Normal)
+            flashBtn.setImage(UIImage(named:"flash.png"),for:UIControlState())
             flashOn = false
         } else {
             toggleState = true
-            flashBtn.setImage(UIImage(named:"flash-off.png"),forState:UIControlState.Normal)
+            flashBtn.setImage(UIImage(named:"flash-off.png"),for:UIControlState())
             flashOn = true
         }
     }
     
     
-    @IBAction func toggleCamerSwitchAction(sender: UIButton) {
+    @IBAction func toggleCamerSwitchAction(_ sender: UIButton) {
         if backCamera == true {
             switchCameraViewFront()
-            flashBtn.hidden = true
+            flashBtn.isHidden = true
         } else {
             switchCameraViewBack()
-            flashBtn.hidden = false
+            flashBtn.isHidden = false
         }
     }
     
-    @IBAction func togglePrivateAction(sender: UISwitch) {
-        if togglePrivateButton.on {
+    @IBAction func togglePrivateAction(_ sender: UISwitch) {
+        if togglePrivateButton.isOn {
             isPublicFlare = false
             togglePrivateLabel.text = "Friends"
         } else {
@@ -155,29 +155,29 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
     }
     
-    func displayAlertMessage(message: String)
+    func displayAlertMessage(_ message: String)
     {
-        let myAlert = UIAlertController(title: "Ooops", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+        let myAlert = UIAlertController(title: "Ooops", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
         myAlert.addAction(okAction)
-        self.presentViewController(myAlert, animated: true, completion: nil)
+        self.present(myAlert, animated: true, completion: nil)
     }
     
     func toggleButtons() {
-        self.retakePhotoButton.hidden = !self.retakePhotoButton.hidden ? true : false
-        self.takePhotoButton.hidden = !self.takePhotoButton.hidden ? true : false
-        self.sendFlareImageButton.hidden = !self.sendFlareImageButton.hidden ? true : false
-        backToMapButton.hidden = backToMapButton.hidden ? false : true
-        self.togglePrivateLabel.hidden = !self.togglePrivateLabel.hidden ? true : false
-        self.togglePrivateButton.hidden = !self.togglePrivateButton.hidden ? true : false
+        self.retakePhotoButton.isHidden = !self.retakePhotoButton.isHidden ? true : false
+        self.takePhotoButton.isHidden = !self.takePhotoButton.isHidden ? true : false
+        self.sendFlareImageButton.isHidden = !self.sendFlareImageButton.isHidden ? true : false
+        backToMapButton.isHidden = backToMapButton.isHidden ? false : true
+        self.togglePrivateLabel.isHidden = !self.togglePrivateLabel.isHidden ? true : false
+        self.togglePrivateButton.isHidden = !self.togglePrivateButton.isHidden ? true : false
     }
     
     func setButtons() {
-        self.retakePhotoButton.hidden = true
-        self.sendFlareImageButton.hidden = true
+        self.retakePhotoButton.isHidden = true
+        self.sendFlareImageButton.isHidden = true
         self.flareTitle.delegate = self;
-        self.flareTitle.hidden = true
-        self.togglePrivateLabel.hidden = true
-        self.togglePrivateButton.hidden = true
+        self.flareTitle.isHidden = true
+        self.togglePrivateLabel.isHidden = true
+        self.togglePrivateButton.isHidden = true
     }
 }

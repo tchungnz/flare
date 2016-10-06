@@ -13,21 +13,21 @@ import SwiftyJSON
 class Facebook: NSObject{
 
     // Pass the parameter of the item of data you want from Faceook e.g. "id", "name"
-    func getFacebookFriends(requestedData: String?, completion: (result: Array<String>) -> ())  {
+    func getFacebookFriends(_ requestedData: String?, completion: @escaping (_ result: Array<String>) -> ())  {
         let params = ["fields": "friends"]
         let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: params)
-        graphRequest.startWithCompletionHandler { [weak self] connection, result, error in
+        graphRequest?.start { [weak self] connection, result, error in
             var tempArray = [String]()
             if error != nil {
-                print(error.description)
+                print(error.debugDescription)
                 return
             } else {
                 let json:JSON = JSON(result)
                 for item in json["friends"]["data"].arrayValue {
-                    tempArray.insert(item[requestedData!].stringValue, atIndex: 0)
+                    tempArray.insert(item[requestedData!].stringValue, at: 0)
                 }
             }
-            completion(result: tempArray)
+            completion(tempArray)
         }
     }
 }

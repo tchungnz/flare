@@ -16,24 +16,28 @@ import SwiftyJSON
 extension MapViewController {
     
     func getTimeHalfHourAgo() {
-        var currentTimeInMilliseconds = NSDate().timeIntervalSince1970 * 1000
+        let currentTimeInMilliseconds = Date().timeIntervalSince1970 * 1000
         let flareTimeLimitInMinutes = 30
         let flareTimeLimitInMiliseconds = Double(flareTimeLimitInMinutes * 60000)
         self.timeHalfHourAgo = (currentTimeInMilliseconds - flareTimeLimitInMiliseconds)
     }
 
-    func getPublicFlaresFromDatabase(completion: (result: Array<Flare>) -> ()) {
+    func getPublicFlaresFromDatabase(_ completion: @escaping (_ result: Array<Flare>) -> ()) {
         getTimeHalfHourAgo()
         databaseRef = FIRDatabase.database().reference().child("flares")
-        databaseRef.queryOrderedByChild("timestamp").queryStartingAtValue(timeHalfHourAgo).observeEventType(.Value, withBlock: { (snapshot) in
+        databaseRef.queryOrdered(byChild: "timestamp").queryStarting(atValue: timeHalfHourAgo).observe(.value, with: { (snapshot) in
         var newItems = [Flare]()
+        
         for item in snapshot.children {
-            if (item.value!["isPublic"] as! Bool) {
+            
+            let data = (item as! FIRDataSnapshot).value! as! NSDictionary
+            
+            if (data["isPublic"] as! Bool) {
                 let flare = Flare(snapshot: item as! FIRDataSnapshot)
-                newItems.insert(flare, atIndex: 0)
+                newItems.insert(flare, at: 0)
             }
         }
-            completion(result: newItems)
+            completion(newItems)
             })
         { (error) in
             print(error.localizedDescription)
@@ -48,27 +52,28 @@ extension MapViewController {
         }
     }
     
-    func getFriendsFlaresFromDatabase(friendsArray: Array<String>, completion: (result: Array<Flare>) -> ()) {
+    func getFriendsFlaresFromDatabase(_ friendsArray: Array<String>, completion: @escaping (_ result: Array<Flare>) -> ()) {
         getTimeHalfHourAgo()
         getFacebookID()
         print(self.uid)
         databaseRef = FIRDatabase.database().reference().child("flares")
-        databaseRef.queryOrderedByChild("timestamp").queryStartingAtValue(timeHalfHourAgo).observeEventType(.Value, withBlock: { (snapshot) in
+        databaseRef.queryOrdered(byChild: "timestamp").queryStarting(atValue: timeHalfHourAgo).observe(.value, with: { (snapshot) in
             var newItems = [Flare]()
             for item in snapshot.children {
-                if (friendsArray.contains(item.value!["facebookID"] as! String) || item.value!["facebookID"] as! String == self.uid!) {
+                let data = (item as! FIRDataSnapshot).value! as! NSDictionary
+                if (friendsArray.contains(data["facebookID"] as! String) || data["facebookID"] as! String == self.uid!) {
                     let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
-                    newItems.insert(newFlare, atIndex: 0)
+                    newItems.insert(newFlare, at: 0)
                 }
             }
-            completion(result: newItems)
+            completion(newItems)
             })
         { (error) in
             print(error.localizedDescription)
         }
     }
     
-    func plotFlares(flares: Array<Flare>) {
+    func plotFlares(_ flares: Array<Flare>) {
         self.mapView.delegate = self
         let allAnnotations = self.mapView.annotations
         self.mapView.removeAnnotations(allAnnotations)

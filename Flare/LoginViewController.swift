@@ -40,28 +40,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
     
 
 
-    @IBAction func loginAction(sender: AnyObject)
+    @IBAction func loginAction(_ sender: AnyObject)
     {
         if self.userEmail.text == "" || self.userPassword.text == ""
         {
             displayAlertMessage("All fields required")
             return;
         } else {
-            FIRAuth.auth()?.signInWithEmail(self.userEmail.text!, password: self.userPassword.text!, completion: { (user, error) in
+            FIRAuth.auth()?.signIn(withEmail: self.userEmail.text!, password: self.userPassword.text!, completion: { (user, error) in
                 if error == nil
                 {
                     self.logoutButton.alpha = 1.0
                     self.usernameLabel.text = user!.email
                     self.userEmail.text = ""
                     self.userPassword.text = ""
-                    self.performSegueWithIdentifier("TestLoginSeque", sender: self)
+                    self.performSegue(withIdentifier: "TestLoginSeque", sender: self)
                     
                 } else {
                     self.displayAlertMessage("This user does not exist")
@@ -71,7 +71,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func logoutAction(sender: AnyObject)
+    @IBAction func logoutAction(_ sender: AnyObject)
     {
         try! FIRAuth.auth()?.signOut()
         self.usernameLabel.text = ""
@@ -80,12 +80,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.userPassword.text = ""
     }
     
-    func displayAlertMessage(message: String)
+    func displayAlertMessage(_ message: String)
     {
-        let myAlert = UIAlertController(title: "Ooops", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+        let myAlert = UIAlertController(title: "Ooops", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
         myAlert.addAction(okAction)
-        self.presentViewController(myAlert, animated: true, completion: nil)
+        self.present(myAlert, animated: true, completion: nil)
     }
     
 }
