@@ -33,12 +33,18 @@ class ProfileViewController: UIViewController {
         }
             
         if let user = FIRAuth.auth()?.currentUser {
-            let profilPicURL = user.photoURL
-            let data = try! Data(contentsOf: profilPicURL!)
-            let profilePicUI = UIImage(data: data as Data)
+            let profilePicURL = user.photoURL
+            print("1")
+            print(profilePicURL)
+            let data = try! Data(contentsOf: profilePicURL!)
+            let profilePicUI = (UIImage(data: data as Data))!
+            print("2")
+            print(profilePicUI)
             self.profilePic.layer.cornerRadius = self.profilePic.frame.size.width/2
             self.profilePic.clipsToBounds = true
             self.profilePic.image = profilePicUI
+            print("3")
+            print(self.profilePic.image)
             name.text = user.displayName
             username.text = user.email
         }

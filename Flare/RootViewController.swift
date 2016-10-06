@@ -42,7 +42,6 @@ class RootViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        print("User Logged In")
         self.loginButton.isHidden = true
         if(error != nil) {
             self.loginButton.isHidden = false
@@ -53,14 +52,12 @@ class RootViewController: UIViewController, FBSDKLoginButtonDelegate {
         let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
         
         FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-            print("User Logged Into Firebase")
         }
         }
     }
 
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print("User Logged Out")
 
     }
 
