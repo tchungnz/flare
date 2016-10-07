@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 import Firebase
+import FirebaseInstanceID
+import FirebaseMessaging
 import FirebaseDatabase
 import CoreLocation
 import FBSDKLoginKit
@@ -33,6 +35,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         super.viewDidLoad()
         mapSetUp()
         getPublic()
+        FIRMessaging.messaging().subscribe(toTopic: "/topics/flares")
     }
     
     override func didReceiveMemoryWarning() {

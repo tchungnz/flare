@@ -8,8 +8,9 @@ target 'Flare' do
 #  use_frameworks!
 
   # Pods for Flare
-
+  pod 'Firebase/Core'
   pod 'Firebase'
+  pod 'Firebase/Messaging'
   pod 'FirebaseAuth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
@@ -18,7 +19,9 @@ target 'Flare' do
   target 'FlareTests' do
     inherit! :search_paths
     use_frameworks!
+    pod 'Firebase/Core'
     pod 'Firebase'
+    pod 'Firebase/Messaging'
     pod 'FirebaseAuth'
     pod 'Firebase/Database'
     pod 'Firebase/Storage'
@@ -27,7 +30,9 @@ target 'Flare' do
   target 'FlareUITests' do
     inherit! :search_paths
     use_frameworks!
+    pod 'Firebase/Core'
     pod 'Firebase'
+    pod 'Firebase/Messaging'
     pod 'FirebaseAuth'
     pod 'Firebase/Database'
     pod 'Firebase/Storage'

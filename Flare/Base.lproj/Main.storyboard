@@ -147,6 +147,9 @@
                             <mask key="constraints">
                                 <exclude reference="3P2-dC-b6K"/>
                                 <exclude reference="Esx-Gg-Lff"/>
+                                <exclude reference="HQe-Gw-igs"/>
+                                <exclude reference="I5y-Gh-hRV"/>
+                                <exclude reference="hKX-J8-ngc"/>
                                 <exclude reference="6Q2-7x-SH5"/>
                                 <exclude reference="9na-kb-ULT"/>
                                 <exclude reference="DYx-DX-Qrc"/>
@@ -155,9 +158,6 @@
                                 <exclude reference="xNg-yB-Mhb"/>
                                 <exclude reference="xHC-VN-SXy"/>
                                 <exclude reference="zN0-PT-g7W"/>
-                                <exclude reference="HQe-Gw-igs"/>
-                                <exclude reference="I5y-Gh-hRV"/>
-                                <exclude reference="hKX-J8-ngc"/>
                             </mask>
                         </variation>
                     </view>
@@ -171,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3g2-7h-hOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2923" y="-157"/>
+            <point key="canvasLocation" x="2803" y="-203"/>
         </scene>
         <!--Flare-->
         <scene sceneID="tne-QT-ifu">
@@ -288,11 +288,11 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="G40-Z4-u7r"/>
-                                <exclude reference="uWR-v0-xYT"/>
                                 <exclude reference="RaK-iP-o8f"/>
                                 <exclude reference="UKk-pG-Fda"/>
                                 <exclude reference="Ux5-0H-Wzh"/>
+                                <exclude reference="G40-Z4-u7r"/>
+                                <exclude reference="uWR-v0-xYT"/>
                                 <exclude reference="BzZ-by-a3f"/>
                                 <exclude reference="WfW-bA-MSq"/>
                                 <exclude reference="ewe-LG-kpu"/>
@@ -971,8 +971,8 @@ remaining</string>
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="dWR-Gp-e75"/>
         <segue reference="amc-dr-e01"/>
         <segue reference="62s-MS-BsB"/>
-        <segue reference="dWR-Gp-e75"/>
     </inferredMetricsTieBreakers>
 </document>
