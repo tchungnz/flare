@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Sending a flare needs your camera</string>
 	<key>CFBundleDisplayName</key>
 	<string>Flare</string>
 	<key>CFBundleExecutable</key>
@@ -72,7 +74,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>App needs location to send your flares</string>
+	<string>Sending a flare needs your location</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
