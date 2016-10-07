@@ -25,18 +25,18 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
     
-    @IBAction func createAccountAction(sender: UIButton) {
+    @IBAction func createAccountAction(_ sender: UIButton) {
         if self.userEmail.text == "" || self.userPassword.text == ""
         {
             displayAlertMessage("All fields required")
             return;
         } else {
-            FIRAuth.auth()?.createUserWithEmail(self.userEmail.text!, password: self.userPassword.text!, completion: { (user, error) in
+            FIRAuth.auth()?.createUser(withEmail: self.userEmail.text!, password: self.userPassword.text!, completion: { (user, error) in
                 if error == nil
                 {
                     self.userEmail.text = ""
@@ -51,11 +51,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func displayAlertMessage(message: String) {
-        let myAlert = UIAlertController(title: "Ooops", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+    func displayAlertMessage(_ message: String) {
+        let myAlert = UIAlertController(title: "Ooops", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
         myAlert.addAction(okAction)
-        self.presentViewController(myAlert, animated: true, completion: nil)
+        self.present(myAlert, animated: true, completion: nil)
     }
     
 }

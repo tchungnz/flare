@@ -19,7 +19,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var activeFlareLabel: UILabel!
     
-    @IBOutlet weak var friendsListLabel: UITextView!
+    @IBOutlet weak var friendsListTextView: UITextView!
     var databaseRef: FIRDatabaseReference!
     var flareArray = [Flare]()
     var facebook = Facebook()
@@ -33,18 +33,24 @@ class ProfileViewController: UIViewController {
         }
             
         if let user = FIRAuth.auth()?.currentUser {
-            let profilPicURL = user.photoURL
-            let data = NSData(contentsOfURL: profilPicURL!)
-            let profilePicUI = UIImage(data: data!)
+            let profilePicURL = user.photoURL
+            print("1")
+            print(profilePicURL)
+            let data = try! Data(contentsOf: profilePicURL!)
+            let profilePicUI = (UIImage(data: data as Data))!
+            print("2")
+            print(profilePicUI)
             self.profilePic.layer.cornerRadius = self.profilePic.frame.size.width/2
             self.profilePic.clipsToBounds = true
             self.profilePic.image = profilePicUI
+            print("3")
+            print(self.profilePic.image)
             name.text = user.displayName
             username.text = user.email
         }
         
         databaseRef = FIRDatabase.database().reference().child("flares")
-        databaseRef.queryOrderedByChild("subtitle").queryEqualToValue(name.text).queryLimitedToLast(1).observeEventType(.Value, withBlock: { (snapshot) in
+        databaseRef.queryOrdered(byChild: "subtitle").queryEqual(toValue: name.text).queryLimited(toLast: 1).observe(.value, with: { (snapshot) in
             
             for item in snapshot.children {
                 let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
@@ -56,17 +62,17 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    func setLabelText(result: Array<String>) {
+    func setLabelText(_ result: Array<String>) {
         var friendNames = String()
-        friendNames = result.joinWithSeparator("\n- ")
-        friendsListLabel.text = String("- " + friendNames)
+        friendNames = result.joined(separator: "\n- ")
+        friendsListTextView.text = String("- " + friendNames)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func logOutAction(sender: UIButton) {
+    @IBAction func logOutAction(_ sender: UIButton) {
         logout()
     }
 

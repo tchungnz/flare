@@ -56,7 +56,7 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     
     func setupTapToSendFlareGesture() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(FlareDetailViewController.toggle(_:)))
-        view.userInteractionEnabled = true
+        view.isUserInteractionEnabled = true
         view.addGestureRecognizer(gesture)
     }
     
@@ -69,9 +69,9 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     
     func retrieveFlareImage() {
         let storage = FIRStorage.storage()
-        let storageRef = storage.referenceForURL("gs://flare-1ef4b.appspot.com")
+        let storageRef = storage.reference(forURL: "gs://flare-1ef4b.appspot.com")
         let islandRef = storageRef.child("\(flareExport!.imageRef!)")
-        islandRef.dataWithMaxSize(1 * 1920 * 1080) { (data, error) -> Void in
+        islandRef.data(withMaxSize: 1 * 1920 * 1080) { (data, error) -> Void in
             if (error != nil) {
                 print("Error!")
             } else {
@@ -82,7 +82,7 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func findFlareRemainingTime() {
-        let currentTimeInMilliseconds = NSDate().timeIntervalSince1970 * 1000
+        let currentTimeInMilliseconds = Date().timeIntervalSince1970 * 1000
         let flarePostedTime = Double(flareExport!.timestamp!)
         let flareTimeRemaining = currentTimeInMilliseconds - flarePostedTime
         let flareTimeRemainingInMinutes = 30 - Int(flareTimeRemaining / 60 / 1000)
@@ -90,9 +90,9 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     }
     
 
-    @IBAction func CityMapperNavigation(sender: AnyObject) {
-        if let url = NSURL(string: "https://citymapper.com/directions?endcoord=\(flareExport!.latitude!)%2C\(flareExport!.longitude!)") {
-            UIApplication.sharedApplication().openURL(url)
+    @IBAction func CityMapperNavigation(_ sender: AnyObject) {
+        if let url = URL(string: "https://citymapper.com/directions?endcoord=\(flareExport!.latitude!)%2C\(flareExport!.longitude!)") {
+            UIApplication.shared.openURL(url as URL)
         }
     }
 
@@ -100,45 +100,46 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    
-    func toggle(sender: AnyObject) {
+    func toggle(_ sender: AnyObject) {
         print("screen tapped")
-        if flareDetailBar.hidden == true {
-            UIView.animateWithDuration(0.2, delay: 0, options: [], animations: {
+        if flareDetailBar.isHidden == true {
+            UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
                 self.flareDetailBar.alpha = 1
                 self.cityMapperButton.alpha = 1
                 self.backButton.alpha = 1
                 self.distanceToFlare.alpha = 1
                 }, completion: { finished in
-                    self.flareDetailBar.hidden = false
-                    self.cityMapperButton.hidden = false
-                    self.backButton.hidden = false
-                    self.distanceToFlare.hidden = false
+                    self.flareDetailBar.isHidden = false
+                    self.cityMapperButton.isHidden = false
+                    self.backButton.isHidden = false
+                    self.distanceToFlare.isHidden = false
             })
         } else {
-            UIView.animateWithDuration(0.2, delay: 0, options: [], animations: {
+            UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
                 self.flareDetailBar.alpha = 0
                 self.cityMapperButton.alpha = 0
                 self.backButton.alpha = 0
                 self.distanceToFlare.alpha = 0
                 }, completion: { finished in
-                    self.flareDetailBar.hidden = true
-                    self.backButton.hidden = true
-                    self.cityMapperButton.hidden = true
-                    self.distanceToFlare.hidden = true
+                    self.flareDetailBar.isHidden = true
+                    self.backButton.isHidden = true
+                    self.cityMapperButton.isHidden = true
+                    self.distanceToFlare.isHidden = true
             })
         }
     }
     
-    override func prefersStatusBarHidden() -> Bool {
-        return navigationController?.navigationBarHidden == true
+    override var prefersStatusBarHidden: Bool {
+        get {
+        return navigationController?.isNavigationBarHidden == true
+        }
     }
     
-    override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
-        return UIStatusBarAnimation.Slide
-    }
+//    override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
+//        return UIStatusBarAnimation.slide
+//    }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last
         let userLatitude = Double(location!.coordinate.latitude)
         let userLongitude = Double(location!.coordinate.longitude)
@@ -146,19 +147,19 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         cityMapperCall(userLatitude, longitude: userLongitude)
     }
     
-    func cityMapperCall(latitude: Double, longitude: Double) {
+    func cityMapperCall(_ latitude: Double, longitude: Double) {
         let path = "https://developer.citymapper.com/api/1/traveltime/?startcoord=\(latitude)%2C\(longitude)&endcoord=\(flareExport!.latitude!)%2C\(flareExport!.longitude!)&time_type=arrival&key=6984b374d454cc120949773ebf04442c"
         let citymap = RestApiManager()
         citymap.makeHTTPGetRequest(path, flareDetail: self, onCompletion: { _, _ in })
     }
     
-    func setDistance(distance: String) {
-        dispatch_async(dispatch_get_main_queue()) {
+    func setDistance(_ distance: String) {
+        DispatchQueue.main.async {
             self.distanceToFlare.text = distance
         }
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Errors: " + error.localizedDescription)
     }
 

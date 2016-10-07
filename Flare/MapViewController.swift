@@ -39,8 +39,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         super.didReceiveMemoryWarning()
     }
 
-    @IBAction func toggleMapButton(sender: UISwitch) {
-        if toggleMapButton.on {
+    @IBAction func toggleMapButton(_ sender: UISwitch) {
+        if toggleMapButton.isOn {
             toggleMapLabel.text = "Friends"
             getFriends()
             

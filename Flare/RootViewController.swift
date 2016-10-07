@@ -18,12 +18,12 @@ class RootViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.loginButton.hidden = true
-        FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+        self.loginButton.isHidden = true
+        FIRAuth.auth()?.addStateDidChangeListener { auth, user in
             if let user = user {
                 let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
-                let mapViewController: UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("mapView")
-                self.presentViewController(mapViewController, animated: true, completion: nil)
+                let mapViewController: UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "mapView")
+                self.present(mapViewController, animated: true, completion: nil)
                 
             } else {
                 self.loginButton.center = self.view.center
@@ -31,7 +31,7 @@ class RootViewController: UIViewController, FBSDKLoginButtonDelegate {
                 self.loginButton.delegate = self
                 
                 self.view.addSubview(self.loginButton)
-                self.loginButton.hidden = false
+                self.loginButton.isHidden = false
                 
             }
         }
@@ -41,26 +41,23 @@ class RootViewController: UIViewController, FBSDKLoginButtonDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        print("User Logged In")
-        self.loginButton.hidden = true
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        self.loginButton.isHidden = true
         if(error != nil) {
-            self.loginButton.hidden = false
+            self.loginButton.isHidden = false
         } else if(result.isCancelled) {
-            self.loginButton.hidden = false
+            self.loginButton.isHidden = false
         } else {
         
-        let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
+        let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
         
-        FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
-            print("User Logged Into Firebase")
+        FIRAuth.auth()?.signIn(with: credential) { (user, error) in
         }
         }
     }
 
     
-    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        print("User Logged Out")
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
 
     }
 

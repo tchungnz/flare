@@ -12,20 +12,20 @@ import AVFoundation
 extension FlareViewController {
     
     func toggleFlash() {
-            let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
-            if (device.hasTorch) {
+            let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+            if (device?.hasTorch)! {
                 do {
-                    try device.lockForConfiguration()
-                    if (device.torchMode == AVCaptureTorchMode.On) {
-                        device.torchMode = AVCaptureTorchMode.Off
+                    try device?.lockForConfiguration()
+                    if (device?.torchMode == AVCaptureTorchMode.on) {
+                        device?.torchMode = AVCaptureTorchMode.off
                     } else {
                         do {
-                            try device.setTorchModeOnWithLevel(1.0)
+                            try device?.setTorchModeOnWithLevel(1.0)
                         } catch {
                             print(error)
                         }
                     }
-                    device.unlockForConfiguration()
+                    device?.unlockForConfiguration()
                 } catch {
                     print(error)
                 }

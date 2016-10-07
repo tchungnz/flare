@@ -21,16 +21,17 @@ class Flare: MKPointAnnotation{
     
     init(snapshot: FIRDataSnapshot) {
         super.init()
-        self.facebookID = snapshot.value!["facebookID"] as! String
-        self.title = snapshot.value!["title"] as! String
-        self.subtitle = snapshot.value!["subtitle"] as! String
-        self.imageRef = snapshot.value!["imageRef"] as! String
-        self.latitude = Double(snapshot.value!["latitude"] as! String)
-        self.longitude = Double(snapshot.value!["longitude"] as! String)
+        let snapshotValue = snapshot.value as? NSDictionary
+        self.facebookID = (snapshotValue?["facebookID"] as? String?)!
+        self.title = (snapshotValue?["title"] as? String?)!
+        self.subtitle = (snapshotValue?["subtitle"] as? String?)!
+        self.imageRef = (snapshotValue?["imageRef"] as? String?)!
+        self.latitude = Double((snapshotValue?["latitude"] as? String?)!!)
+        self.longitude = Double((snapshotValue?["longitude"] as? String?)!!)
         self.coordinate = CLLocationCoordinate2D(latitude: self.latitude! as
         CLLocationDegrees, longitude: self.longitude! as CLLocationDegrees)
-        self.timestamp = snapshot.value!["timestamp"] as? Int
-        self.isPublic = snapshot.value!["isPublic"] as? Bool
+        self.timestamp = (snapshotValue?["timestamp"] as? Int?)!
+        self.isPublic = (snapshotValue?["isPublic"] as? Bool?)!
     }
     
 }

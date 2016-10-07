@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>1031183019465-76004tbacc2p0rc9lfmc8qcut5fc9nib.apps.googleusercontent.com</string>
+	<string>1031183019465-ng7g8mjq6ojdvbk5qin7vag3s9ads7d1.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1031183019465-76004tbacc2p0rc9lfmc8qcut5fc9nib</string>
+	<string>com.googleusercontent.apps.1031183019465-ng7g8mjq6ojdvbk5qin7vag3s9ads7d1</string>
 	<key>API_KEY</key>
 	<string>AIzaSyA4lNeWc9o_VWACO5zNuhDXOzCrZ5rkkOQ</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.appflare.Flare</string>
+	<string>earth.flare.Flare</string>
 	<key>PROJECT_ID</key>
 	<string>flare-1ef4b</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1031183019465:ios:3420356c8a848cf7</string>
+	<string>1:1031183019465:ios:fb30cd7f950dfe4f</string>
 	<key>DATABASE_URL</key>
 	<string>https://flare-1ef4b.firebaseio.com</string>
 </dict>

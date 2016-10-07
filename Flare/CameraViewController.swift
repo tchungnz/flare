@@ -13,12 +13,12 @@ import AVFoundation
 extension FlareViewController {
 
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         previewLayer?.frame = cameraView.bounds
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
@@ -32,10 +32,10 @@ extension FlareViewController {
         cameraSession("back")
     }
     
-    func cameraSession(direction: String!) {
+    func cameraSession(_ direction: String!) {
         captureSession = AVCaptureSession()
         output = AVCaptureStillImageOutput()
-        let frontCamera = direction == "back" ? getDevice(.Back) : getDevice(.Front)
+        let frontCamera = direction == "back" ? getDevice(.back) : getDevice(.front)
         do {
             input = try AVCaptureDeviceInput(device: frontCamera)
         } catch let error as NSError {
@@ -52,7 +52,7 @@ extension FlareViewController {
                 captureSession?.addOutput(stillImageOutput)
                 previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
                 previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-                previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
+                previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.portrait
                 previewLayer?.frame = cameraView.bounds
                 cameraView.layer.addSublayer(previewLayer!)
                 captureSession?.startRunning()
@@ -62,47 +62,47 @@ extension FlareViewController {
 
     
     func didPressTakePhoto() {
-        if let videoConnection = stillImageOutput?.connectionWithMediaType(AVMediaTypeVideo) {
-            videoConnection.videoOrientation = AVCaptureVideoOrientation.Portrait
-            stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: { (sampleBuffer, error) in
+        if let videoConnection = stillImageOutput?.connection(withMediaType: AVMediaTypeVideo) {
+            videoConnection.videoOrientation = AVCaptureVideoOrientation.portrait
+            stillImageOutput?.captureStillImageAsynchronously(from: videoConnection, completionHandler: { (sampleBuffer, error) in
                 
                 if sampleBuffer != nil {
                     let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
-                    let dataProvider = CGDataProviderCreateWithCFData(imageData)
-                    let cgImageRef = CGImageCreateWithJPEGDataProvider(dataProvider, nil, true, .RenderingIntentDefault)
+                    let dataProvider = CGDataProvider(data: imageData as! CFData)
+                    let cgImageRef = CGImage(jpegDataProviderSource: dataProvider!, decode: nil, shouldInterpolate: true, intent: .defaultIntent)
                     
-                    let image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
+                    let image = UIImage(cgImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.right)
                     if self.self.backCamera == true {
                         self.tempImageView.image = image
                     } else {
                         self.tempImageView.image = self.flipImage(image)
                     }
-                    self.tempImageView.hidden = false
-                    self.flareTitle.hidden = false
+                    self.tempImageView.isHidden = false
+                    self.flareTitle.isHidden = false
                     self.flareTitle.becomeFirstResponder()
-                    self.flashBtn.hidden = true
-                    self.cameraSwivelButton.hidden = true
+                    self.flashBtn.isHidden = true
+                    self.cameraSwivelButton.isHidden = true
                 }
             })
         }
     }
     
-    func flipImage(image: UIImage!) -> UIImage! {
+    func flipImage(_ image: UIImage!) -> UIImage! {
         let imageSize:CGSize = image.size;
         UIGraphicsBeginImageContextWithOptions(imageSize, true, 1.0);
-        let ctx:CGContextRef = UIGraphicsGetCurrentContext()!;
-        CGContextRotateCTM(ctx, CGFloat(M_PI/2.0));
-        CGContextTranslateCTM(ctx, 0, -imageSize.width);
-        CGContextScaleCTM(ctx, imageSize.height/imageSize.width, imageSize.width/imageSize.height);
-        CGContextDrawImage(ctx, CGRectMake(0.0, 0.0, imageSize.width, imageSize.height), image.CGImage);
-        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext();
+        let ctx:CGContext = UIGraphicsGetCurrentContext()!;
+        ctx.rotate(by: CGFloat(M_PI/2.0));
+        ctx.translateBy(x: 0, y: -imageSize.width);
+        ctx.scaleBy(x: imageSize.height/imageSize.width, y: imageSize.width/imageSize.height);
+        ctx.draw(image.cgImage!, in: CGRect(x: 0.0, y: 0.0, width: imageSize.width, height: imageSize.height));
+        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!;
         UIGraphicsEndImageContext();
         return newImage
     }
     
    
-    func getDevice(position: AVCaptureDevicePosition) -> AVCaptureDevice? {
-        let devices: NSArray = AVCaptureDevice.devices();
+    func getDevice(_ position: AVCaptureDevicePosition) -> AVCaptureDevice? {
+        let devices: NSArray = AVCaptureDevice.devices() as NSArray;
         for de in devices {
             let deviceConverted = de as! AVCaptureDevice
             if(deviceConverted.position == position){
