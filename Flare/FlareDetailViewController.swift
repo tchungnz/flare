@@ -32,9 +32,9 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
-//        setupTapToSendFlareGesture()
+        setupTapToSendFlareGesture()
         setupLocationManager()
-//        setupScrollView()
+        setupScrollView()
         setupLabels()
         populateFlares()
     }
@@ -50,15 +50,15 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         findFlareRemainingTime()
     }
     
-//    func setupScrollView() {
-//        self.scrollView.contentSize = CGSize(width:1080, height: 1920)
-//    }
-//    
-//    func setupTapToSendFlareGesture() {
-//        let gesture = UITapGestureRecognizer(target: self, action: #selector(FlareDetailViewController.toggle(_:)))
-//        view.isUserInteractionEnabled = true
-//        view.addGestureRecognizer(gesture)
-//    }
+    func setupScrollView() {
+        self.scrollView.contentSize = CGSize(width:1080, height: 1920)
+    }
+    
+    func setupTapToSendFlareGesture() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(FlareDetailViewController.toggle(_:)))
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(gesture)
+    }
     
     func setupLocationManager() {
         self.locationManager.delegate = self

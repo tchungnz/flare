@@ -19,7 +19,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var activeFlareLabel: UILabel!
     
-    @IBOutlet weak var friendsListLabel: UITextView!
+    @IBOutlet weak var friendsListTextView: UITextView!
     var databaseRef: FIRDatabaseReference!
     var flareArray = [Flare]()
     var facebook = Facebook()
@@ -65,7 +65,7 @@ class ProfileViewController: UIViewController {
     func setLabelText(_ result: Array<String>) {
         var friendNames = String()
         friendNames = result.joined(separator: "\n- ")
-        friendsListLabel.text = String("- " + friendNames)
+        friendsListTextView.text = String("- " + friendNames)
     }
 
     override func didReceiveMemoryWarning() {
