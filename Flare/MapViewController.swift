@@ -30,6 +30,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var timeHalfHourAgo : Double?
     var uid : String?
     var facebook = Facebook()
+    var exitMapView: MKCoordinateRegion?
     
     override func viewDidLoad() {
         super.viewDidLoad()

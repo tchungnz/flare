@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -2595,6 +2596,8 @@
 </dict>
 </plist>
 =======
+=======
+>>>>>>> zoom-map
 // !$*UTF8*$!
 {
 	archiveVersion = 1;
@@ -3264,6 +3267,7 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+<<<<<<< HEAD
 		101F25FB718164BA9BC637B18A7D7F2C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 042D8D97CB5C85DFD0D58D22D7E93C3F /* Pods-Flare.debug.xcconfig */;
@@ -3271,6 +3275,13 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+=======
+		10D35E615984523ACD7FF5358E87376D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4AF3B6426286B95A985F5074C171688 /* SwiftyJSON.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+>>>>>>> zoom-map
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -3279,28 +3290,112 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+<<<<<<< HEAD
 				INFOPLIST_FILE = "Target Support Files/Pods-Flare/Info.plist";
+=======
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Flare/Pods-Flare.modulemap";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Flare;
+				PRODUCT_NAME = SwiftyJSON;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
+		26CA75542FE3574208A809F17760B5B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7461393456B3EC22033FB8264D433252 /* Pods-FlareTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-FlareTests/Info.plist";
+>>>>>>> zoom-map
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+<<<<<<< HEAD
+				MODULEMAP_FILE = "Target Support Files/Pods-Flare/Pods-Flare.modulemap";
+=======
+				MODULEMAP_FILE = "Target Support Files/Pods-FlareTests/Pods-FlareTests.modulemap";
+>>>>>>> zoom-map
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+<<<<<<< HEAD
+				PRODUCT_NAME = Pods_Flare;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+=======
+				PRODUCT_NAME = Pods_FlareTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+>>>>>>> zoom-map
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+<<<<<<< HEAD
 		12914D756594D15C6F2CA12FE5F89F1B /* Debug */ = {
+=======
+		2E39554777A748611CF5845A20EFE4F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A14DEBB280259E2488C600F860C1A3D /* Pods-FlareUITests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-FlareUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FlareUITests/Pods-FlareUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_FlareUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		42287DDF97330524BA3EF220F0276DA6 /* Release */ = {
+>>>>>>> zoom-map
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -3318,6 +3413,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+<<<<<<< HEAD
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_TESTABILITY = YES;
@@ -3330,6 +3426,15 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+=======
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+>>>>>>> zoom-map
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -3337,6 +3442,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+<<<<<<< HEAD
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
@@ -3384,6 +3490,19 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+=======
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6FC1254087D0683CB2A4869E12880428 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA02864F5791FB4BCBBEEA2A523D2A1F /* Pods-Flare.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+>>>>>>> zoom-map
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
@@ -3406,12 +3525,17 @@
 				PRODUCT_NAME = Pods_Flare;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+<<<<<<< HEAD
+=======
+				SWIFT_VERSION = 3.0;
+>>>>>>> zoom-map
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
+<<<<<<< HEAD
 		4A22C9D6891FD6D2E27E086BADFEEEDB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7461393456B3EC22033FB8264D433252 /* Pods-FlareTests.debug.xcconfig */;
@@ -3419,6 +3543,13 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+=======
+		70B21F3A00CCCC43B95CBADFB3773978 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 042D8D97CB5C85DFD0D58D22D7E93C3F /* Pods-Flare.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+>>>>>>> zoom-map
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -3427,26 +3558,43 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+<<<<<<< HEAD
 				INFOPLIST_FILE = "Target Support Files/Pods-FlareTests/Info.plist";
+=======
+				INFOPLIST_FILE = "Target Support Files/Pods-Flare/Info.plist";
+>>>>>>> zoom-map
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
+<<<<<<< HEAD
 				MODULEMAP_FILE = "Target Support Files/Pods-FlareTests/Pods-FlareTests.modulemap";
+=======
+				MODULEMAP_FILE = "Target Support Files/Pods-Flare/Pods-Flare.modulemap";
+>>>>>>> zoom-map
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+<<<<<<< HEAD
 				PRODUCT_NAME = Pods_FlareTests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+=======
+				PRODUCT_NAME = Pods_Flare;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+>>>>>>> zoom-map
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
+<<<<<<< HEAD
 		5947B686CCC14280CEE997BF8DAF95A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A14DEBB280259E2488C600F860C1A3D /* Pods-FlareUITests.debug.xcconfig */;
@@ -3456,30 +3604,56 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+=======
+		849FA007891F230B93E9460A4FA6D291 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22CE6FF57CDB1E414445B098AED6B593 /* Pods-FlareTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+>>>>>>> zoom-map
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+<<<<<<< HEAD
 				INFOPLIST_FILE = "Target Support Files/Pods-FlareUITests/Info.plist";
+=======
+				INFOPLIST_FILE = "Target Support Files/Pods-FlareTests/Info.plist";
+>>>>>>> zoom-map
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
+<<<<<<< HEAD
 				MODULEMAP_FILE = "Target Support Files/Pods-FlareUITests/Pods-FlareUITests.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
+=======
+				MODULEMAP_FILE = "Target Support Files/Pods-FlareTests/Pods-FlareTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+>>>>>>> zoom-map
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+<<<<<<< HEAD
 				PRODUCT_NAME = Pods_FlareUITests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+=======
+				PRODUCT_NAME = Pods_FlareTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+>>>>>>> zoom-map
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
+<<<<<<< HEAD
 			name = Debug;
 		};
 		5B945A1CBCF72A21A4ECAAD3F6D5286D /* Release */ = {
@@ -3489,6 +3663,15 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+=======
+			name = Release;
+		};
+		886B05A8EB22B1C39D92A9AD6A183D8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4AF3B6426286B95A985F5074C171688 /* SwiftyJSON.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+>>>>>>> zoom-map
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
@@ -3514,6 +3697,7 @@
 			};
 			name = Release;
 		};
+<<<<<<< HEAD
 		790A7C3037D67FB08EACE9339B8A16BF /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 22CE6FF57CDB1E414445B098AED6B593 /* Pods-FlareTests.release.xcconfig */;
@@ -3556,6 +3740,13 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+=======
+		A7BA7BC51508530672F54E4C28146A5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27BBE48EE97FF6199B34B5893AA84844 /* Pods-FlareUITests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+>>>>>>> zoom-map
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
@@ -3578,13 +3769,21 @@
 				PRODUCT_NAME = Pods_FlareUITests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+<<<<<<< HEAD
+=======
+				SWIFT_VERSION = 3.0;
+>>>>>>> zoom-map
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
+<<<<<<< HEAD
 		E72E7977875C2D251FC62736BBDDC389 /* Release */ = {
+=======
+		AE9439C22469D35336242DD983DB5C5F /* Debug */ = {
+>>>>>>> zoom-map
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -3602,6 +3801,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+<<<<<<< HEAD
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -3610,6 +3810,19 @@
 					"POD_CONFIGURATION_RELEASE=1",
 					"$(inherited)",
 				);
+=======
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+>>>>>>> zoom-map
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -3617,12 +3830,20 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+<<<<<<< HEAD
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
+=======
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+>>>>>>> zoom-map
 		};
 /* End XCBuildConfiguration section */
 
@@ -3630,8 +3851,13 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
+<<<<<<< HEAD
 				12914D756594D15C6F2CA12FE5F89F1B /* Debug */,
 				E72E7977875C2D251FC62736BBDDC389 /* Release */,
+=======
+				AE9439C22469D35336242DD983DB5C5F /* Debug */,
+				42287DDF97330524BA3EF220F0276DA6 /* Release */,
+>>>>>>> zoom-map
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3639,8 +3865,13 @@
 		35C6BD73DDB945E53188BA0A7F90ED3F /* Build configuration list for PBXNativeTarget "SwiftyJSON" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
+<<<<<<< HEAD
 				39DE84AC5E394A139C4B56F65B91B003 /* Debug */,
 				5B945A1CBCF72A21A4ECAAD3F6D5286D /* Release */,
+=======
+				10D35E615984523ACD7FF5358E87376D /* Debug */,
+				886B05A8EB22B1C39D92A9AD6A183D8E /* Release */,
+>>>>>>> zoom-map
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3648,8 +3879,13 @@
 		37A45EC75F1E26D89DD3930A3C2796CD /* Build configuration list for PBXNativeTarget "Pods-FlareTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
+<<<<<<< HEAD
 				4A22C9D6891FD6D2E27E086BADFEEEDB /* Debug */,
 				790A7C3037D67FB08EACE9339B8A16BF /* Release */,
+=======
+				26CA75542FE3574208A809F17760B5B4 /* Debug */,
+				849FA007891F230B93E9460A4FA6D291 /* Release */,
+>>>>>>> zoom-map
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3657,8 +3893,13 @@
 		422B74B393C1C4BBA39A99A3B576ACEA /* Build configuration list for PBXNativeTarget "Pods-FlareUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
+<<<<<<< HEAD
 				5947B686CCC14280CEE997BF8DAF95A6 /* Debug */,
 				93F3B4AB2A3FC50FEEBC8408942AA4BF /* Release */,
+=======
+				2E39554777A748611CF5845A20EFE4F1 /* Debug */,
+				A7BA7BC51508530672F54E4C28146A5E /* Release */,
+>>>>>>> zoom-map
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3666,8 +3907,13 @@
 		4C2493CBD149AA17FB365456FA6CD518 /* Build configuration list for PBXNativeTarget "Pods-Flare" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
+<<<<<<< HEAD
 				101F25FB718164BA9BC637B18A7D7F2C /* Debug */,
 				3F94C7819E6AFF6DF3162AEC4A107155 /* Release */,
+=======
+				70B21F3A00CCCC43B95CBADFB3773978 /* Debug */,
+				6FC1254087D0683CB2A4869E12880428 /* Release */,
+>>>>>>> zoom-map
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3676,4 +3922,7 @@
 	};
 	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 }
+<<<<<<< HEAD
 >>>>>>> newlogo
+=======
+>>>>>>> zoom-map
