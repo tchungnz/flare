@@ -24,15 +24,12 @@ class RootViewController: UIViewController, FBSDKLoginButtonDelegate {
                 let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
                 let mapViewController: UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "mapView")
                 self.present(mapViewController, animated: true, completion: nil)
-                
             } else {
                 self.loginButton.center = self.view.center
                 self.loginButton.readPermissions = ["public_profile", "email", "user_friends"]
                 self.loginButton.delegate = self
-                
                 self.view.addSubview(self.loginButton)
                 self.loginButton.isHidden = false
-                
             }
         }
     }
