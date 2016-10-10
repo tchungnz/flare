@@ -42,13 +42,14 @@ extension MapViewController {
     }
     
     func mapView(_ mapView: MKMapView!, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-            performSegue(withIdentifier: "flareDetail", sender: annotationView)
+        performSegue(withIdentifier: "flareDetail", sender: annotationView)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "flareDetail" {
             if let ivc = segue.destination as? FlareDetailViewController {
                 ivc.flareExport = self.flareExport
+                ivc.exitMapView = self.mapView.region
             }
         }
     }

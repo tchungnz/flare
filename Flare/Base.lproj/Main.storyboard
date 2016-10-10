@@ -112,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3g2-7h-hOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2922.4000000000001" y="-157.87106446776613"/>
+            <point key="canvasLocation" x="2922" y="-173"/>
         </scene>
         <!--Flare-->
         <scene sceneID="tne-QT-ifu">
@@ -505,7 +505,7 @@ remaining</string>
                                             <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="ns2-iy-AlJ"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="returnToMap" id="ns2-iy-AlJ"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEA-3y-7V3">
@@ -885,6 +885,6 @@ remaining</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0Z5-td-Zn0"/>
-        <segue reference="ToR-kJ-yvd"/>
+        <segue reference="ns2-iy-AlJ"/>
     </inferredMetricsTieBreakers>
 </document>

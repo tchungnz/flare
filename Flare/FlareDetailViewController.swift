@@ -28,6 +28,7 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     let navBar = UINavigationBar()
     var flareExport: Flare?
     var databaseRef: FIRDatabaseReference!
+    var exitMapView: MKCoordinateRegion?
     
     let locationManager = CLLocationManager()
     
@@ -161,6 +162,14 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Errors: " + error.localizedDescription)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "returnToMap" {
+            if let ivc = segue.destination as? MapViewController {
+                ivc.exitMapView = self.exitMapView
+            }
+        }
     }
 
 
