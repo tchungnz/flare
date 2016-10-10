@@ -12,18 +12,18 @@ import FBSDKCoreKit
 import FirebaseDatabase
 import SwiftyJSON
 
-
 class ProfileViewController: UIViewController {
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var activeFlareLabel: UILabel!
-    
+    @IBOutlet weak var feedbackLink: UIButton!
     @IBOutlet weak var friendsListTextView: UITextView!
+    
     var databaseRef: FIRDatabaseReference!
     var flareArray = [Flare]()
     var facebook = Facebook()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,6 +68,10 @@ class ProfileViewController: UIViewController {
     
     @IBAction func logOutAction(_ sender: UIButton) {
         logout()
+    }
+    
+    @IBAction func feedbackLink(_ sender: AnyObject) {
+        UIApplication.shared.openURL(URL(string: "https://flarefeedback.typeform.com/to/Bq5Sah")!)
     }
 
 }
