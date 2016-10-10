@@ -23,8 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMM-my-hQ3">
-                                <frame key="frameInset" minX="309" minY="617" width="50" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMM-my-hQ3">
                                 <state key="normal" title="Logout">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -639,61 +638,29 @@ remaining</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Knw-ni-IVt">
-                                <frame key="frameInset" minY="511" width="600" height="89"/>
-                                <color key="backgroundColor" red="1" green="0.3219392136584025" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qyS-SI-ihw">
-                                <frame key="frameInset" minX="272" minY="541" width="57" height="30"/>
-                                <state key="normal" title="Register">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U5i-fY-NCW">
-                                <frame key="frameInset" minY="423" width="600" height="89"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3b-I1-oM7">
-                                        <frame key="frameInset" minX="281" minY="30" width="38" height="30"/>
-                                        <state key="normal" title="Login">
-                                            <color key="titleColor" red="1" green="0.1775650433" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="O3b-I1-oM7" firstAttribute="centerX" secondItem="U5i-fY-NCW" secondAttribute="centerX" id="1P8-G8-8Ak"/>
-                                    <constraint firstItem="O3b-I1-oM7" firstAttribute="top" secondItem="U5i-fY-NCW" secondAttribute="top" constant="30" id="G3Q-iF-zGA"/>
-                                    <constraint firstItem="O3b-I1-oM7" firstAttribute="centerY" secondItem="U5i-fY-NCW" secondAttribute="centerY" id="lbU-EK-Lzb"/>
-                                </constraints>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="white-flare" highlightedImage="white-flare" translatesAutoresizingMaskIntoConstraints="NO" id="cbf-JI-gGG">
-                                <frame key="frameInset" minX="223" minY="95" width="155" height="155"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="155" id="DbN-qv-BCZ"/>
-                                    <constraint firstAttribute="height" constant="155" id="xI2-Q2-sbh"/>
-                                </constraints>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FLAREBACKGROUND" translatesAutoresizingMaskIntoConstraints="NO" id="1RG-US-DAI"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NEWFLARELOGOWHITE" translatesAutoresizingMaskIntoConstraints="NO" id="9CA-a3-Bj5"/>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.12941176470588237" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Knw-ni-IVt" firstAttribute="bottom" secondItem="Vj7-AG-U0G" secondAttribute="top" id="1bj-4c-vXp"/>
-                            <constraint firstItem="U5i-fY-NCW" firstAttribute="leading" secondItem="Knw-ni-IVt" secondAttribute="leading" id="2JR-96-EOL"/>
-                            <constraint firstItem="cbf-JI-gGG" firstAttribute="top" secondItem="7aI-BJ-IMH" secondAttribute="bottom" constant="75" id="DIJ-eU-uCD"/>
-                            <constraint firstItem="Knw-ni-IVt" firstAttribute="centerY" secondItem="qyS-SI-ihw" secondAttribute="centerY" id="Hkj-Ny-Hhj"/>
-                            <constraint firstItem="qyS-SI-ihw" firstAttribute="top" secondItem="U5i-fY-NCW" secondAttribute="bottom" constant="29" id="Ihk-hn-V1e"/>
-                            <constraint firstItem="U5i-fY-NCW" firstAttribute="trailing" secondItem="Knw-ni-IVt" secondAttribute="trailing" id="Lx0-Cu-zwG"/>
-                            <constraint firstItem="Knw-ni-IVt" firstAttribute="centerX" secondItem="qyS-SI-ihw" secondAttribute="centerX" id="UFP-XQ-GRi"/>
-                            <constraint firstItem="Vj7-AG-U0G" firstAttribute="top" secondItem="qyS-SI-ihw" secondAttribute="bottom" constant="29" id="fEo-tL-Xi8"/>
-                            <constraint firstAttribute="trailing" secondItem="U5i-fY-NCW" secondAttribute="trailing" id="kNI-yR-ft9"/>
-                            <constraint firstItem="cbf-JI-gGG" firstAttribute="centerX" secondItem="U5i-fY-NCW" secondAttribute="centerX" id="n4R-rv-hy5"/>
-                            <constraint firstItem="U5i-fY-NCW" firstAttribute="leading" secondItem="lVT-fb-QwQ" secondAttribute="leading" id="rSa-ae-tpX"/>
+                            <constraint firstItem="9CA-a3-Bj5" firstAttribute="centerX" secondItem="1RG-US-DAI" secondAttribute="centerX" id="6j2-mV-ZrY"/>
+                            <constraint firstItem="1RG-US-DAI" firstAttribute="top" secondItem="lVT-fb-QwQ" secondAttribute="top" id="8JI-lP-Ud3"/>
+                            <constraint firstItem="1RG-US-DAI" firstAttribute="leading" secondItem="lVT-fb-QwQ" secondAttribute="leading" id="EeP-KD-Xi0"/>
+                            <constraint firstItem="9CA-a3-Bj5" firstAttribute="top" secondItem="7aI-BJ-IMH" secondAttribute="bottom" constant="104" id="OZr-DD-vDh"/>
+                            <constraint firstItem="1RG-US-DAI" firstAttribute="leading" secondItem="lVT-fb-QwQ" secondAttribute="leading" id="U6q-4d-NeZ"/>
+                            <constraint firstAttribute="trailing" secondItem="1RG-US-DAI" secondAttribute="trailing" id="e3O-pg-EdX"/>
+                            <constraint firstItem="Vj7-AG-U0G" firstAttribute="top" secondItem="9CA-a3-Bj5" secondAttribute="bottom" constant="398" id="gQ1-Ye-5SE"/>
+                            <constraint firstItem="1RG-US-DAI" firstAttribute="top" secondItem="lVT-fb-QwQ" secondAttribute="top" id="gXc-1u-zFN"/>
+                            <constraint firstItem="9CA-a3-Bj5" firstAttribute="leading" secondItem="lVT-fb-QwQ" secondAttribute="leadingMargin" constant="99" id="jI4-Lf-9qL"/>
+                            <constraint firstItem="Vj7-AG-U0G" firstAttribute="top" secondItem="1RG-US-DAI" secondAttribute="bottom" id="vLI-lB-oVG"/>
+                            <constraint firstItem="Vj7-AG-U0G" firstAttribute="top" secondItem="1RG-US-DAI" secondAttribute="bottom" id="xSn-Sw-OwP"/>
+                            <constraint firstAttribute="trailing" secondItem="1RG-US-DAI" secondAttribute="trailing" id="xtl-o3-pLe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fHo-gY-uNo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2I-Au-nUC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1432" y="1041"/>
+            <point key="canvasLocation" x="1431.2" y="1040.3298350824589"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="QRf-Wd-5j4">
@@ -871,6 +838,8 @@ remaining</string>
         </scene>
     </scenes>
     <resources>
+        <image name="FLAREBACKGROUND" width="509" height="906"/>
+        <image name="NEWFLARELOGOWHITE" width="177" height="195"/>
         <image name="back-button1" width="260" height="260"/>
         <image name="citymapper" width="300" height="300"/>
         <image name="flare-button" width="321" height="321"/>
@@ -880,7 +849,6 @@ remaining</string>
         <image name="redCamera" width="1024" height="1024"/>
         <image name="redFlare" width="512" height="512"/>
         <image name="switch-camera" width="256" height="256"/>
-        <image name="white-flare" width="512" height="512"/>
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
