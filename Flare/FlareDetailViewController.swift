@@ -86,9 +86,9 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         let currentTimeInMilliseconds = Date().timeIntervalSince1970 * 1000
         let flarePostedTime = Double(flareExport!.timestamp!)
         let flareTimeRemaining = currentTimeInMilliseconds - flarePostedTime
-        let flareTimeRemainingInMinutes = 30 - Int(flareTimeRemaining / 60 / 1000)
-        flareTimeRemainingCountdown.text = String(flareTimeRemainingInMinutes)
-    }
+        let flareTimeRemainingInMinutes = 120 - Int(flareTimeRemaining / 60 / 1000)
+        flareTimeRemainingInMinutes <= 0 ? (flareTimeRemainingCountdown.text = "0") : (flareTimeRemainingCountdown.text = String(flareTimeRemainingInMinutes))
+            }
     
 
     @IBAction func CityMapperNavigation(_ sender: AnyObject) {
