@@ -77,12 +77,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-<<<<<<< HEAD
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="redCamera" translatesAutoresizingMaskIntoConstraints="NO" id="NEg-Zd-yHU">
                                 <frame key="frameInset" minX="119" minY="108" width="137" height="137"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-=======
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q47-cd-UyB">
                                 <frame key="frameInset" minX="154" minY="617" width="76" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -93,7 +91,6 @@
                                     <action selector="feedbackLink:" destination="UKo-9T-1TW" eventType="touchUpInside" id="z4X-4P-XAI"/>
                                 </connections>
                             </button>
->>>>>>> 02b269bbd942f39a1d300571dfaf8de101418e8a
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
