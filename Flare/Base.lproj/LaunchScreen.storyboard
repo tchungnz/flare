@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,37 +15,29 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="155" placeholderIntrinsicHeight="155" image="white-flare" translatesAutoresizingMaskIntoConstraints="NO" id="8jr-vO-lbo">
-                                <rect key="frame" x="222" y="222" width="155" height="155"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NEWFLARELOGOWHITE" highlightedImage="NEWFLARELOGOWHITE" translatesAutoresizingMaskIntoConstraints="NO" id="uhr-YO-fsn">
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="8jr-vO-lbo" secondAttribute="height" multiplier="1:1" id="1Bg-mf-Ftf"/>
-                                    <constraint firstAttribute="height" constant="155" id="Nx4-eh-CjP"/>
-                                    <constraint firstAttribute="width" constant="155" id="aqv-wI-ekX"/>
-                                    <constraint firstAttribute="width" secondItem="8jr-vO-lbo" secondAttribute="height" multiplier="1:1" id="b5g-Aq-Pfx"/>
+                                    <constraint firstAttribute="width" constant="110" id="LIN-y4-Cwp"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="1Bg-mf-Ftf"/>
-                                    </mask>
-                                </variation>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="8jr-vO-lbo" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="9Oe-SN-nXc"/>
-                            <constraint firstItem="8jr-vO-lbo" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="VKT-04-RBf"/>
+                            <constraint firstItem="uhr-YO-fsn" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Iwb-1n-b6b"/>
+                            <constraint firstItem="uhr-YO-fsn" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="MQW-li-s9k"/>
+                            <constraint firstItem="uhr-YO-fsn" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="251" id="THo-E8-76i"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
     <resources>
-        <image name="white-flare" width="512" height="512"/>
+        <image name="NEWFLARELOGOWHITE" width="177" height="195"/>
     </resources>
 </document>
