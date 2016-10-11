@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var storyboard: UIStoryboard?
-    
+       
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -34,7 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         FIRApp.configure()
-        
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.tokenRefreshNotification(notification:)), name: NSNotification.Name.firInstanceIDTokenRefresh, object: nil)
         
@@ -69,7 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         FIRMessaging.messaging().disconnect()
-        
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -89,9 +87,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func tokenRefreshNotification(notification: NSNotification) {
         let refreshedToken = FIRInstanceID.instanceID().token()
         print("instanceID token: \(refreshedToken)")
-        
         connectToFCM()
     }
+    
     func connectToFCM() {
         FIRMessaging.messaging().connect { (error) in
             if (error != nil) {
@@ -100,9 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Connected to FCM")
             }
         }
-        
-        
-        
     }
+    
 }
 

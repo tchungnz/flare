@@ -9,8 +9,12 @@
 import Foundation
 import FBSDKLoginKit
 import SwiftyJSON
+import Firebase
+import FirebaseDatabase
 
 class Facebook: NSObject{
+    
+    var uid : String?
 
     // Pass the parameter of the item of data you want from Faceook e.g. "id", "name"
     func getFacebookFriends(_ requestedData: String?, completion: @escaping (_ result: Array<String>) -> ())  {
@@ -28,6 +32,14 @@ class Facebook: NSObject{
                 }
             }
             completion(tempArray)
+        }
+    }
+    
+    func getFacebookID() {
+        if let user = FIRAuth.auth()?.currentUser {
+            for profile in user.providerData {
+                self.uid = profile.uid
+            }
         }
     }
 }
