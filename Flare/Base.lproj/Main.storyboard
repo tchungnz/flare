@@ -176,7 +176,7 @@
                                     <constraint firstAttribute="width" constant="92" id="jgk-tm-tRe"/>
                                     <constraint firstAttribute="width" constant="100" id="zHN-dF-ju6"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="takeFlareButton"/>
+                                <state key="normal" title="Button" image="Group"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="6Ib-nv-YHU"/>
@@ -312,7 +312,7 @@
                                 <state key="normal" title="Button" image="map-icon"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="popoverPresentation" popoverAnchorView="SzE-sB-ACH" id="4eN-1f-zgq">
-                                        <segue key="commit" inheritsFrom="parent" id="m8d-SZ-z6H"/>
+                                        <segue key="commit" destination="BYZ-38-t0r" kind="presentation" id="m8d-SZ-z6H"/>
                                         <segue key="preview" inheritsFrom="commit" id="mUN-UL-zRw"/>
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
@@ -696,6 +696,7 @@ remaining</string>
     </scenes>
     <resources>
         <image name="FLAREBACKGROUND" width="509" height="906"/>
+        <image name="Group" width="512" height="512"/>
         <image name="NEWFLARELOGOWHITE" width="177" height="195"/>
         <image name="back-button1" width="260" height="260"/>
         <image name="citymapper" width="300" height="300"/>
@@ -704,12 +705,11 @@ remaining</string>
         <image name="profileIcon" width="128" height="128"/>
         <image name="redCamera" width="1024" height="1024"/>
         <image name="switch-camera" width="256" height="256"/>
-        <image name="takeFlareButton" width="415" height="415"/>
         <image name="uprightLogo" width="250" height="431"/>
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ToR-kJ-yvd"/>
+        <segue reference="4eN-1f-zgq"/>
         <segue reference="0Z5-td-Zn0"/>
     </inferredMetricsTieBreakers>
 </document>
