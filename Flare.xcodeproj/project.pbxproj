@@ -1,919 +1,2109 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		08EFE9CF341AC9A8593EF0B9 /* Pods_Flare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C077AF3B95864CEF341C981 /* Pods_Flare.framework */; };
-		246276DA1D85DB0C00D434F5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246276D91D85DB0C00D434F5 /* ProfileViewController.swift */; };
-		24B68D491D8184AB004EE49A /* FlareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B68D481D8184AB004EE49A /* FlareViewController.swift */; };
-		378C31308AD144F1C77A72A4 /* Pods_FlareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE71BA334882FB87A15CE562 /* Pods_FlareTests.framework */; };
-		531D01CD1D89BF7600AA7D1C /* CameraViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531D01CC1D89BF7600AA7D1C /* CameraViewControllerUITests.swift */; };
-		5354CF281D8467BE00D57347 /* FlareDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5354CF271D8467BE00D57347 /* FlareDetailViewController.swift */; };
-		5354CF321D85B35400D57347 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5354CF2F1D85B35400D57347 /* FBSDKCoreKit.framework */; };
-		5354CF331D85B35400D57347 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5354CF301D85B35400D57347 /* FBSDKLoginKit.framework */; };
-		5354CF341D85B35400D57347 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5354CF311D85B35400D57347 /* FBSDKShareKit.framework */; };
-		537EB5E71D870B3C00F3E4F6 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537EB5E61D870B3C00F3E4F6 /* CameraViewController.swift */; };
-		537EB5E91D8710C500F3E4F6 /* FlarePhysicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537EB5E81D8710C500F3E4F6 /* FlarePhysicsViewController.swift */; };
-		537EB5ED1D87240C00F3E4F6 /* FlashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537EB5EC1D87240C00F3E4F6 /* FlashViewController.swift */; };
-		53C8D1011D80760B00E57400 /* flare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C8D1001D80760B00E57400 /* flare.swift */; };
-		53C8D1031D80781100E57400 /* AnnotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C8D1021D80781100E57400 /* AnnotationViewController.swift */; };
-		6A7ED8861D7F2E94005FF0A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7ED8851D7F2E94005FF0A8 /* AppDelegate.swift */; };
-		6A7ED8881D7F2E94005FF0A8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7ED8871D7F2E94005FF0A8 /* MapViewController.swift */; };
-		6A7ED88B1D7F2E94005FF0A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A7ED8891D7F2E94005FF0A8 /* Main.storyboard */; };
-		6A7ED88D1D7F2E94005FF0A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A7ED88C1D7F2E94005FF0A8 /* Assets.xcassets */; };
-		6A7ED8901D7F2E94005FF0A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A7ED88E1D7F2E94005FF0A8 /* LaunchScreen.storyboard */; };
-		6A7ED89B1D7F2E94005FF0A8 /* FlareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7ED89A1D7F2E94005FF0A8 /* FlareTests.swift */; };
-		6A7ED8A61D7F2E94005FF0A8 /* ProfileViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7ED8A51D7F2E94005FF0A8 /* ProfileViewControllerUITests.swift */; };
-		746DDF451D844570004A27A2 /* SendFlareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746DDF441D844570004A27A2 /* SendFlareViewController.swift */; };
-		74F405671D86EA5A00F0A6DC /* MapDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F405661D86EA5A00F0A6DC /* MapDisplayController.swift */; };
-		74F405691D86ECEB00F0A6DC /* FlareDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F405681D86ECEB00F0A6DC /* FlareDisplayController.swift */; };
-		74F8AA591D8955E300AD655B /* CityMapperAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8AA581D8955E300AD655B /* CityMapperAPI.swift */; };
-		8248830A1DA7C7F300CDD162 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 824883091DA7C7F300CDD162 /* GoogleService-Info.plist */; };
-		826E4E991D81CA6F00CA4493 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826E4E981D81CA6F00CA4493 /* RootViewController.swift */; };
-		8273F3041D899D9100E62350 /* LogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8273F3031D899D9100E62350 /* LogOutViewController.swift */; };
-		8273F3061D899F1200E62350 /* facebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8273F3051D899F1200E62350 /* facebook.swift */; };
-		82FF4C911D85C26E00B44AF7 /* UITextFieldLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FF4C901D85C26E00B44AF7 /* UITextFieldLimit.m */; };
-		95AE2C2BC14BA5C74112A589 /* Pods_FlareUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD03648C552D55E0A8937BA /* Pods_FlareUITests.framework */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		6A7ED8971D7F2E94005FF0A8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6A7ED87A1D7F2E94005FF0A8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6A7ED8811D7F2E94005FF0A8;
-			remoteInfo = Flare;
-		};
-		6A7ED8A21D7F2E94005FF0A8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6A7ED87A1D7F2E94005FF0A8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6A7ED8811D7F2E94005FF0A8;
-			remoteInfo = Flare;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		071010AADE24D7DACD9ABDC4 /* Pods-Flare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flare.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flare/Pods-Flare.release.xcconfig"; sourceTree = "<group>"; };
-		08D1BDDF1DA6A853007EF1A0 /* Flare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flare.entitlements; sourceTree = "<group>"; };
-		1C077AF3B95864CEF341C981 /* Pods_Flare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		246276D91D85DB0C00D434F5 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		24B68D481D8184AB004EE49A /* FlareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlareViewController.swift; sourceTree = "<group>"; };
-		531D01CC1D89BF7600AA7D1C /* CameraViewControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewControllerUITests.swift; sourceTree = "<group>"; };
-		5354CF271D8467BE00D57347 /* FlareDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlareDetailViewController.swift; sourceTree = "<group>"; };
-		5354CF2F1D85B35400D57347 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../FacebookSDK/FacebookSDKs-iOS-4.15.1/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
-		5354CF301D85B35400D57347 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../FacebookSDK/FacebookSDKs-iOS-4.15.1/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
-		5354CF311D85B35400D57347 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../FacebookSDK/FacebookSDKs-iOS-4.15.1/FBSDKShareKit.framework"; sourceTree = "<group>"; };
-		537EB5E61D870B3C00F3E4F6 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		537EB5E81D8710C500F3E4F6 /* FlarePhysicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlarePhysicsViewController.swift; sourceTree = "<group>"; };
-		537EB5EC1D87240C00F3E4F6 /* FlashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashViewController.swift; sourceTree = "<group>"; };
-		53C8D1001D80760B00E57400 /* flare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = flare.swift; sourceTree = "<group>"; };
-		53C8D1021D80781100E57400 /* AnnotationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewController.swift; sourceTree = "<group>"; };
-		6A7ED8821D7F2E94005FF0A8 /* Flare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flare.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A7ED8851D7F2E94005FF0A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6A7ED8871D7F2E94005FF0A8 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		6A7ED88A1D7F2E94005FF0A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6A7ED88C1D7F2E94005FF0A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6A7ED88F1D7F2E94005FF0A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		6A7ED8911D7F2E94005FF0A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6A7ED8961D7F2E94005FF0A8 /* FlareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A7ED89A1D7F2E94005FF0A8 /* FlareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlareTests.swift; sourceTree = "<group>"; };
-		6A7ED89C1D7F2E94005FF0A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6A7ED8A11D7F2E94005FF0A8 /* FlareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A7ED8A51D7F2E94005FF0A8 /* ProfileViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewControllerUITests.swift; sourceTree = "<group>"; };
-		6A7ED8A71D7F2E94005FF0A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		746DDF441D844570004A27A2 /* SendFlareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendFlareViewController.swift; sourceTree = "<group>"; };
-		74F405661D86EA5A00F0A6DC /* MapDisplayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDisplayController.swift; sourceTree = "<group>"; };
-		74F405681D86ECEB00F0A6DC /* FlareDisplayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlareDisplayController.swift; sourceTree = "<group>"; };
-		74F8AA581D8955E300AD655B /* CityMapperAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityMapperAPI.swift; sourceTree = "<group>"; };
-		824883091DA7C7F300CDD162 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		826E4E981D81CA6F00CA4493 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		8273F3031D899D9100E62350 /* LogOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogOutViewController.swift; sourceTree = "<group>"; };
-		8273F3051D899F1200E62350 /* facebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = facebook.swift; sourceTree = "<group>"; };
-		82FF4C8E1D85C26E00B44AF7 /* Flare-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Flare-Bridging-Header.h"; sourceTree = "<group>"; };
-		82FF4C8F1D85C26E00B44AF7 /* UITextFieldLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldLimit.h; sourceTree = "<group>"; };
-		82FF4C901D85C26E00B44AF7 /* UITextFieldLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldLimit.m; sourceTree = "<group>"; };
-		8CF49AC8D149AC8424F23C4C /* Pods-Flare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flare/Pods-Flare.debug.xcconfig"; sourceTree = "<group>"; };
-		9468DB4A64BFEF5B46BA9417 /* Pods-FlareUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlareUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlareUITests/Pods-FlareUITests.release.xcconfig"; sourceTree = "<group>"; };
-		9B49188567C4D013DC7E3CA7 /* Pods-FlareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlareTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlareTests/Pods-FlareTests.release.xcconfig"; sourceTree = "<group>"; };
-		AE71BA334882FB87A15CE562 /* Pods_FlareTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlareTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D7A48B4D7E5C123EFE716A4B /* Pods-FlareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlareTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlareTests/Pods-FlareTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F56223919A06BBF6FEA40B04 /* Pods-FlareUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlareUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlareUITests/Pods-FlareUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		FDD03648C552D55E0A8937BA /* Pods_FlareUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlareUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		6A7ED87F1D7F2E94005FF0A8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5354CF341D85B35400D57347 /* FBSDKShareKit.framework in Frameworks */,
-				08EFE9CF341AC9A8593EF0B9 /* Pods_Flare.framework in Frameworks */,
-				5354CF321D85B35400D57347 /* FBSDKCoreKit.framework in Frameworks */,
-				5354CF331D85B35400D57347 /* FBSDKLoginKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6A7ED8931D7F2E94005FF0A8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				378C31308AD144F1C77A72A4 /* Pods_FlareTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6A7ED89E1D7F2E94005FF0A8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				95AE2C2BC14BA5C74112A589 /* Pods_FlareUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		4F8610AB8FC603138453277A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5354CF2F1D85B35400D57347 /* FBSDKCoreKit.framework */,
-				5354CF301D85B35400D57347 /* FBSDKLoginKit.framework */,
-				5354CF311D85B35400D57347 /* FBSDKShareKit.framework */,
-				1C077AF3B95864CEF341C981 /* Pods_Flare.framework */,
-				AE71BA334882FB87A15CE562 /* Pods_FlareTests.framework */,
-				FDD03648C552D55E0A8937BA /* Pods_FlareUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		537EB5EA1D8717C200F3E4F6 /* Flare */ = {
-			isa = PBXGroup;
-			children = (
-				746DDF441D844570004A27A2 /* SendFlareViewController.swift */,
-				537EB5E81D8710C500F3E4F6 /* FlarePhysicsViewController.swift */,
-				537EB5E61D870B3C00F3E4F6 /* CameraViewController.swift */,
-				24B68D481D8184AB004EE49A /* FlareViewController.swift */,
-				537EB5EC1D87240C00F3E4F6 /* FlashViewController.swift */,
-			);
-			name = Flare;
-			sourceTree = "<group>";
-		};
-		537EB5EB1D871B0300F3E4F6 /* User */ = {
-			isa = PBXGroup;
-			children = (
-				826E4E981D81CA6F00CA4493 /* RootViewController.swift */,
-			);
-			name = User;
-			sourceTree = "<group>";
-		};
-		6A7ED8791D7F2E94005FF0A8 = {
-			isa = PBXGroup;
-			children = (
-				6A7ED8841D7F2E94005FF0A8 /* Flare */,
-				6A7ED8991D7F2E94005FF0A8 /* FlareTests */,
-				6A7ED8A41D7F2E94005FF0A8 /* FlareUITests */,
-				6A7ED8831D7F2E94005FF0A8 /* Products */,
-				74F569AC45CA15300FCACCF0 /* Pods */,
-				4F8610AB8FC603138453277A /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		6A7ED8831D7F2E94005FF0A8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6A7ED8821D7F2E94005FF0A8 /* Flare.app */,
-				6A7ED8961D7F2E94005FF0A8 /* FlareTests.xctest */,
-				6A7ED8A11D7F2E94005FF0A8 /* FlareUITests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		6A7ED8841D7F2E94005FF0A8 /* Flare */ = {
-			isa = PBXGroup;
-			children = (
-				08D1BDDF1DA6A853007EF1A0 /* Flare.entitlements */,
-				8296B41D1D86BFC400F3B1A7 /* Lib */,
-				6A7ED8851D7F2E94005FF0A8 /* AppDelegate.swift */,
-				824883091DA7C7F300CDD162 /* GoogleService-Info.plist */,
-				8296B41C1D86BF8900F3B1A7 /* Controllers */,
-				6A7ED8891D7F2E94005FF0A8 /* Main.storyboard */,
-				6A7ED88C1D7F2E94005FF0A8 /* Assets.xcassets */,
-				6A7ED88E1D7F2E94005FF0A8 /* LaunchScreen.storyboard */,
-				6A7ED8911D7F2E94005FF0A8 /* Info.plist */,
-				8296B41E1D86BFD000F3B1A7 /* Models */,
-				74F8AA581D8955E300AD655B /* CityMapperAPI.swift */,
-			);
-			path = Flare;
-			sourceTree = "<group>";
-		};
-		6A7ED8991D7F2E94005FF0A8 /* FlareTests */ = {
-			isa = PBXGroup;
-			children = (
-				6A7ED89A1D7F2E94005FF0A8 /* FlareTests.swift */,
-				6A7ED89C1D7F2E94005FF0A8 /* Info.plist */,
-			);
-			path = FlareTests;
-			sourceTree = "<group>";
-		};
-		6A7ED8A41D7F2E94005FF0A8 /* FlareUITests */ = {
-			isa = PBXGroup;
-			children = (
-				6A7ED8A51D7F2E94005FF0A8 /* ProfileViewControllerUITests.swift */,
-				6A7ED8A71D7F2E94005FF0A8 /* Info.plist */,
-				531D01CC1D89BF7600AA7D1C /* CameraViewControllerUITests.swift */,
-			);
-			path = FlareUITests;
-			sourceTree = "<group>";
-		};
-		74F4056A1D87019800F0A6DC /* Map */ = {
-			isa = PBXGroup;
-			children = (
-				5354CF271D8467BE00D57347 /* FlareDetailViewController.swift */,
-				53C8D1021D80781100E57400 /* AnnotationViewController.swift */,
-				6A7ED8871D7F2E94005FF0A8 /* MapViewController.swift */,
-				74F405681D86ECEB00F0A6DC /* FlareDisplayController.swift */,
-				74F405661D86EA5A00F0A6DC /* MapDisplayController.swift */,
-			);
-			name = Map;
-			sourceTree = "<group>";
-		};
-		74F569AC45CA15300FCACCF0 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8CF49AC8D149AC8424F23C4C /* Pods-Flare.debug.xcconfig */,
-				071010AADE24D7DACD9ABDC4 /* Pods-Flare.release.xcconfig */,
-				D7A48B4D7E5C123EFE716A4B /* Pods-FlareTests.debug.xcconfig */,
-				9B49188567C4D013DC7E3CA7 /* Pods-FlareTests.release.xcconfig */,
-				F56223919A06BBF6FEA40B04 /* Pods-FlareUITests.debug.xcconfig */,
-				9468DB4A64BFEF5B46BA9417 /* Pods-FlareUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		8273F3021D899D7400E62350 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				246276D91D85DB0C00D434F5 /* ProfileViewController.swift */,
-				8273F3031D899D9100E62350 /* LogOutViewController.swift */,
-			);
-			name = Profile;
-			sourceTree = "<group>";
-		};
-		8296B41C1D86BF8900F3B1A7 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				537EB5EA1D8717C200F3E4F6 /* Flare */,
-				74F4056A1D87019800F0A6DC /* Map */,
-				8273F3021D899D7400E62350 /* Profile */,
-				537EB5EB1D871B0300F3E4F6 /* User */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		8296B41D1D86BFC400F3B1A7 /* Lib */ = {
-			isa = PBXGroup;
-			children = (
-				82FF4C8F1D85C26E00B44AF7 /* UITextFieldLimit.h */,
-				82FF4C901D85C26E00B44AF7 /* UITextFieldLimit.m */,
-				82FF4C8E1D85C26E00B44AF7 /* Flare-Bridging-Header.h */,
-			);
-			name = Lib;
-			sourceTree = "<group>";
-		};
-		8296B41E1D86BFD000F3B1A7 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				53C8D1001D80760B00E57400 /* flare.swift */,
-				8273F3051D899F1200E62350 /* facebook.swift */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		6A7ED8811D7F2E94005FF0A8 /* Flare */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6A7ED8AA1D7F2E94005FF0A8 /* Build configuration list for PBXNativeTarget "Flare" */;
-			buildPhases = (
-				5384FB5CF102A015F732C635 /* [CP] Check Pods Manifest.lock */,
-				6A7ED87E1D7F2E94005FF0A8 /* Sources */,
-				6A7ED87F1D7F2E94005FF0A8 /* Frameworks */,
-				6A7ED8801D7F2E94005FF0A8 /* Resources */,
-				B65706A02893B244F48CD2E5 /* [CP] Embed Pods Frameworks */,
-				0B882E35E889C73A58434E65 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Flare;
-			productName = Flare;
-			productReference = 6A7ED8821D7F2E94005FF0A8 /* Flare.app */;
-			productType = "com.apple.product-type.application";
-		};
-		6A7ED8951D7F2E94005FF0A8 /* FlareTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6A7ED8AD1D7F2E94005FF0A8 /* Build configuration list for PBXNativeTarget "FlareTests" */;
-			buildPhases = (
-				0BAE5FD29CCD38F240EFC544 /* [CP] Check Pods Manifest.lock */,
-				6A7ED8921D7F2E94005FF0A8 /* Sources */,
-				6A7ED8931D7F2E94005FF0A8 /* Frameworks */,
-				6A7ED8941D7F2E94005FF0A8 /* Resources */,
-				5ED52350C79EF2CAD3E02849 /* [CP] Embed Pods Frameworks */,
-				03FC727A9A17B95179E48EE1 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6A7ED8981D7F2E94005FF0A8 /* PBXTargetDependency */,
-			);
-			name = FlareTests;
-			productName = FlareTests;
-			productReference = 6A7ED8961D7F2E94005FF0A8 /* FlareTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		6A7ED8A01D7F2E94005FF0A8 /* FlareUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6A7ED8B01D7F2E94005FF0A8 /* Build configuration list for PBXNativeTarget "FlareUITests" */;
-			buildPhases = (
-				D2834523E9DCC59ECC71A495 /* [CP] Check Pods Manifest.lock */,
-				6A7ED89D1D7F2E94005FF0A8 /* Sources */,
-				6A7ED89E1D7F2E94005FF0A8 /* Frameworks */,
-				6A7ED89F1D7F2E94005FF0A8 /* Resources */,
-				BF4BFEBCB48866B879C9542E /* [CP] Copy Pods Resources */,
-				8562494B68CEA92A70932FBB /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6A7ED8A31D7F2E94005FF0A8 /* PBXTargetDependency */,
-			);
-			name = FlareUITests;
-			productName = FlareUITests;
-			productReference = 6A7ED8A11D7F2E94005FF0A8 /* FlareUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		6A7ED87A1D7F2E94005FF0A8 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = appflare;
-				TargetAttributes = {
-					6A7ED8811D7F2E94005FF0A8 = {
-						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 6L4RNE447X;
-						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
-						SystemCapabilities = {
-							com.apple.Keychain = {
-								enabled = 1;
-							};
-							com.apple.Push = {
-								enabled = 1;
-							};
-						};
-					};
-					6A7ED8951D7F2E94005FF0A8 = {
-						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0800;
-						TestTargetID = 6A7ED8811D7F2E94005FF0A8;
-					};
-					6A7ED8A01D7F2E94005FF0A8 = {
-						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0800;
-						TestTargetID = 6A7ED8811D7F2E94005FF0A8;
-					};
-				};
-			};
-			buildConfigurationList = 6A7ED87D1D7F2E94005FF0A8 /* Build configuration list for PBXProject "Flare" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = 6A7ED8791D7F2E94005FF0A8;
-			productRefGroup = 6A7ED8831D7F2E94005FF0A8 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				6A7ED8811D7F2E94005FF0A8 /* Flare */,
-				6A7ED8951D7F2E94005FF0A8 /* FlareTests */,
-				6A7ED8A01D7F2E94005FF0A8 /* FlareUITests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		6A7ED8801D7F2E94005FF0A8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6A7ED8901D7F2E94005FF0A8 /* LaunchScreen.storyboard in Resources */,
-				8248830A1DA7C7F300CDD162 /* GoogleService-Info.plist in Resources */,
-				6A7ED88D1D7F2E94005FF0A8 /* Assets.xcassets in Resources */,
-				6A7ED88B1D7F2E94005FF0A8 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6A7ED8941D7F2E94005FF0A8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6A7ED89F1D7F2E94005FF0A8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		03FC727A9A17B95179E48EE1 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlareTests/Pods-FlareTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0B882E35E889C73A58434E65 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Flare/Pods-Flare-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0BAE5FD29CCD38F240EFC544 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		5384FB5CF102A015F732C635 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		5ED52350C79EF2CAD3E02849 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlareTests/Pods-FlareTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8562494B68CEA92A70932FBB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlareUITests/Pods-FlareUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B65706A02893B244F48CD2E5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Flare/Pods-Flare-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BF4BFEBCB48866B879C9542E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlareUITests/Pods-FlareUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D2834523E9DCC59ECC71A495 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		6A7ED87E1D7F2E94005FF0A8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				53C8D1031D80781100E57400 /* AnnotationViewController.swift in Sources */,
-				74F405691D86ECEB00F0A6DC /* FlareDisplayController.swift in Sources */,
-				6A7ED8881D7F2E94005FF0A8 /* MapViewController.swift in Sources */,
-				5354CF281D8467BE00D57347 /* FlareDetailViewController.swift in Sources */,
-				74F8AA591D8955E300AD655B /* CityMapperAPI.swift in Sources */,
-				746DDF451D844570004A27A2 /* SendFlareViewController.swift in Sources */,
-				6A7ED8861D7F2E94005FF0A8 /* AppDelegate.swift in Sources */,
-				8273F3061D899F1200E62350 /* facebook.swift in Sources */,
-				246276DA1D85DB0C00D434F5 /* ProfileViewController.swift in Sources */,
-				537EB5ED1D87240C00F3E4F6 /* FlashViewController.swift in Sources */,
-				74F405671D86EA5A00F0A6DC /* MapDisplayController.swift in Sources */,
-				826E4E991D81CA6F00CA4493 /* RootViewController.swift in Sources */,
-				82FF4C911D85C26E00B44AF7 /* UITextFieldLimit.m in Sources */,
-				537EB5E71D870B3C00F3E4F6 /* CameraViewController.swift in Sources */,
-				53C8D1011D80760B00E57400 /* flare.swift in Sources */,
-				537EB5E91D8710C500F3E4F6 /* FlarePhysicsViewController.swift in Sources */,
-				8273F3041D899D9100E62350 /* LogOutViewController.swift in Sources */,
-				24B68D491D8184AB004EE49A /* FlareViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6A7ED8921D7F2E94005FF0A8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6A7ED89B1D7F2E94005FF0A8 /* FlareTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6A7ED89D1D7F2E94005FF0A8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6A7ED8A61D7F2E94005FF0A8 /* ProfileViewControllerUITests.swift in Sources */,
-				531D01CD1D89BF7600AA7D1C /* CameraViewControllerUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		6A7ED8981D7F2E94005FF0A8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6A7ED8811D7F2E94005FF0A8 /* Flare */;
-			targetProxy = 6A7ED8971D7F2E94005FF0A8 /* PBXContainerItemProxy */;
-		};
-		6A7ED8A31D7F2E94005FF0A8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6A7ED8811D7F2E94005FF0A8 /* Flare */;
-			targetProxy = 6A7ED8A21D7F2E94005FF0A8 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		6A7ED8891D7F2E94005FF0A8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6A7ED88A1D7F2E94005FF0A8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		6A7ED88E1D7F2E94005FF0A8 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6A7ED88F1D7F2E94005FF0A8 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		6A7ED8A81D7F2E94005FF0A8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		6A7ED8A91D7F2E94005FF0A8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		6A7ED8AB1D7F2E94005FF0A8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8CF49AC8D149AC8424F23C4C /* Pods-Flare.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
-				CLANG_ENABLE_MODULES = NO;
-				CODE_SIGN_ENTITLEMENTS = Flare/Flare.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 6L4RNE447X;
-				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks/frameworks\"",
-					"\"${PODS_ROOT}/FirebaseAuth/Frameworks/frameworks\"",
-					"\"${PODS_ROOT}/FirebaseDatabase/Frameworks\"",
-					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks/frameworks\"",
-					"\"${PODS_ROOT}/FirebaseStorage/Frameworks/frameworks\"",
-					"\"${PODS_ROOT}/GoogleInterchangeUtilities/Frameworks\"",
-					"\"${PODS_ROOT}/GoogleNetworkingUtilities/Frameworks\"",
-					"\"${PODS_ROOT}/GoogleParsingUtilities/Frameworks\"",
-					"\"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks\"",
-					"\"${PODS_ROOT}/GoogleUtilities/Frameworks\"",
-					"\"~/Documents/FacebookSDKs-iOS-4.15.1\"",
-				);
-				INFOPLIST_FILE = Flare/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = earth.flare.Flare;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Flare/Flare-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		6A7ED8AC1D7F2E94005FF0A8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 071010AADE24D7DACD9ABDC4 /* Pods-Flare.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
-				CLANG_ENABLE_MODULES = NO;
-				CODE_SIGN_ENTITLEMENTS = Flare/Flare.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 6L4RNE447X;
-				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks/frameworks\"",
-					"\"${PODS_ROOT}/FirebaseAuth/Frameworks/frameworks\"",
-					"\"${PODS_ROOT}/FirebaseDatabase/Frameworks\"",
-					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks/frameworks\"",
-					"\"${PODS_ROOT}/FirebaseStorage/Frameworks/frameworks\"",
-					"\"${PODS_ROOT}/GoogleInterchangeUtilities/Frameworks\"",
-					"\"${PODS_ROOT}/GoogleNetworkingUtilities/Frameworks\"",
-					"\"${PODS_ROOT}/GoogleParsingUtilities/Frameworks\"",
-					"\"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks\"",
-					"\"${PODS_ROOT}/GoogleUtilities/Frameworks\"",
-					"\"~/Documents/FacebookSDKs-iOS-4.15.1\"",
-				);
-				INFOPLIST_FILE = Flare/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = earth.flare.Flare;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Flare/Flare-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		6A7ED8AE1D7F2E94005FF0A8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D7A48B4D7E5C123EFE716A4B /* Pods-FlareTests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = FlareTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appflare.FlareTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flare.app/Flare";
-			};
-			name = Debug;
-		};
-		6A7ED8AF1D7F2E94005FF0A8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9B49188567C4D013DC7E3CA7 /* Pods-FlareTests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = FlareTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appflare.FlareTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flare.app/Flare";
-			};
-			name = Release;
-		};
-		6A7ED8B11D7F2E94005FF0A8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F56223919A06BBF6FEA40B04 /* Pods-FlareUITests.debug.xcconfig */;
-			buildSettings = {
-				INFOPLIST_FILE = FlareUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appflare.FlareUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Flare;
-			};
-			name = Debug;
-		};
-		6A7ED8B21D7F2E94005FF0A8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9468DB4A64BFEF5B46BA9417 /* Pods-FlareUITests.release.xcconfig */;
-			buildSettings = {
-				INFOPLIST_FILE = FlareUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appflare.FlareUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Flare;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		6A7ED87D1D7F2E94005FF0A8 /* Build configuration list for PBXProject "Flare" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6A7ED8A81D7F2E94005FF0A8 /* Debug */,
-				6A7ED8A91D7F2E94005FF0A8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6A7ED8AA1D7F2E94005FF0A8 /* Build configuration list for PBXNativeTarget "Flare" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6A7ED8AB1D7F2E94005FF0A8 /* Debug */,
-				6A7ED8AC1D7F2E94005FF0A8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6A7ED8AD1D7F2E94005FF0A8 /* Build configuration list for PBXNativeTarget "FlareTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6A7ED8AE1D7F2E94005FF0A8 /* Debug */,
-				6A7ED8AF1D7F2E94005FF0A8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6A7ED8B01D7F2E94005FF0A8 /* Build configuration list for PBXNativeTarget "FlareUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6A7ED8B11D7F2E94005FF0A8 /* Debug */,
-				6A7ED8B21D7F2E94005FF0A8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 6A7ED87A1D7F2E94005FF0A8 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>03FC727A9A17B95179E48EE1</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-FlareTests/Pods-FlareTests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>071010AADE24D7DACD9ABDC4</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Flare.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Flare/Pods-Flare.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>08D1BDDF1DA6A853007EF1A0</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.entitlements</string>
+			<key>path</key>
+			<string>Flare.entitlements</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>08EFE9CF341AC9A8593EF0B9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1C077AF3B95864CEF341C981</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0B882E35E889C73A58434E65</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Flare/Pods-Flare-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>0BAE5FD29CCD38F240EFC544</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>1C077AF3B95864CEF341C981</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_Flare.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>246276D91D85DB0C00D434F5</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ProfileViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>246276DA1D85DB0C00D434F5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>246276D91D85DB0C00D434F5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>24B68D481D8184AB004EE49A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>FlareViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>24B68D491D8184AB004EE49A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>24B68D481D8184AB004EE49A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>378C31308AD144F1C77A72A4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AE71BA334882FB87A15CE562</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4F8610AB8FC603138453277A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>5354CF2F1D85B35400D57347</string>
+				<string>5354CF301D85B35400D57347</string>
+				<string>5354CF311D85B35400D57347</string>
+				<string>1C077AF3B95864CEF341C981</string>
+				<string>AE71BA334882FB87A15CE562</string>
+				<string>FDD03648C552D55E0A8937BA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>531D01CC1D89BF7600AA7D1C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>CameraViewControllerUITests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>531D01CD1D89BF7600AA7D1C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>531D01CC1D89BF7600AA7D1C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5354CF271D8467BE00D57347</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>FlareDetailViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5354CF281D8467BE00D57347</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5354CF271D8467BE00D57347</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5354CF2F1D85B35400D57347</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>FBSDKCoreKit.framework</string>
+			<key>path</key>
+			<string>../../FacebookSDK/FacebookSDKs-iOS-4.15.1/FBSDKCoreKit.framework</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5354CF301D85B35400D57347</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>FBSDKLoginKit.framework</string>
+			<key>path</key>
+			<string>../../FacebookSDK/FacebookSDKs-iOS-4.15.1/FBSDKLoginKit.framework</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5354CF311D85B35400D57347</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>FBSDKShareKit.framework</string>
+			<key>path</key>
+			<string>../../FacebookSDK/FacebookSDKs-iOS-4.15.1/FBSDKShareKit.framework</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5354CF321D85B35400D57347</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5354CF2F1D85B35400D57347</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5354CF331D85B35400D57347</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5354CF301D85B35400D57347</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5354CF341D85B35400D57347</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5354CF311D85B35400D57347</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>537EB5E61D870B3C00F3E4F6</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>CameraViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>537EB5E71D870B3C00F3E4F6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>537EB5E61D870B3C00F3E4F6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>537EB5E81D8710C500F3E4F6</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>FlarePhysicsViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>537EB5E91D8710C500F3E4F6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>537EB5E81D8710C500F3E4F6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>537EB5EA1D8717C200F3E4F6</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>746DDF441D844570004A27A2</string>
+				<string>537EB5E81D8710C500F3E4F6</string>
+				<string>537EB5E61D870B3C00F3E4F6</string>
+				<string>24B68D481D8184AB004EE49A</string>
+				<string>537EB5EC1D87240C00F3E4F6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Flare</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>537EB5EB1D871B0300F3E4F6</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>826E4E981D81CA6F00CA4493</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>User</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>537EB5EC1D87240C00F3E4F6</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>FlashViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>537EB5ED1D87240C00F3E4F6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>537EB5EC1D87240C00F3E4F6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5384FB5CF102A015F732C635</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>53C8D1001D80760B00E57400</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>flare.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>53C8D1011D80760B00E57400</key>
+		<dict>
+			<key>fileRef</key>
+			<string>53C8D1001D80760B00E57400</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>53C8D1021D80781100E57400</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AnnotationViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>53C8D1031D80781100E57400</key>
+		<dict>
+			<key>fileRef</key>
+			<string>53C8D1021D80781100E57400</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5ED52350C79EF2CAD3E02849</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-FlareTests/Pods-FlareTests-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>6A7ED8791D7F2E94005FF0A8</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>6A7ED8841D7F2E94005FF0A8</string>
+				<string>6A7ED8991D7F2E94005FF0A8</string>
+				<string>6A7ED8A41D7F2E94005FF0A8</string>
+				<string>6A7ED8831D7F2E94005FF0A8</string>
+				<string>74F569AC45CA15300FCACCF0</string>
+				<string>4F8610AB8FC603138453277A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6A7ED87A1D7F2E94005FF0A8</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastSwiftUpdateCheck</key>
+				<string>0730</string>
+				<key>LastUpgradeCheck</key>
+				<string>0730</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>appflare</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>6A7ED8811D7F2E94005FF0A8</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.3.1</string>
+						<key>DevelopmentTeam</key>
+						<string>6L4RNE447X</string>
+						<key>LastSwiftMigration</key>
+						<string>0800</string>
+						<key>ProvisioningStyle</key>
+						<string>Automatic</string>
+						<key>SystemCapabilities</key>
+						<dict>
+							<key>com.apple.Keychain</key>
+							<dict>
+								<key>enabled</key>
+								<string>1</string>
+							</dict>
+							<key>com.apple.Push</key>
+							<dict>
+								<key>enabled</key>
+								<string>1</string>
+							</dict>
+						</dict>
+					</dict>
+					<key>6A7ED8951D7F2E94005FF0A8</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.3.1</string>
+						<key>LastSwiftMigration</key>
+						<string>0800</string>
+						<key>TestTargetID</key>
+						<string>6A7ED8811D7F2E94005FF0A8</string>
+					</dict>
+					<key>6A7ED8A01D7F2E94005FF0A8</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.3.1</string>
+						<key>LastSwiftMigration</key>
+						<string>0800</string>
+						<key>TestTargetID</key>
+						<string>6A7ED8811D7F2E94005FF0A8</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>6A7ED87D1D7F2E94005FF0A8</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>6A7ED8791D7F2E94005FF0A8</string>
+			<key>productRefGroup</key>
+			<string>6A7ED8831D7F2E94005FF0A8</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>6A7ED8811D7F2E94005FF0A8</string>
+				<string>6A7ED8951D7F2E94005FF0A8</string>
+				<string>6A7ED8A01D7F2E94005FF0A8</string>
+			</array>
+		</dict>
+		<key>6A7ED87D1D7F2E94005FF0A8</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>6A7ED8A81D7F2E94005FF0A8</string>
+				<string>6A7ED8A91D7F2E94005FF0A8</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>6A7ED87E1D7F2E94005FF0A8</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>53C8D1031D80781100E57400</string>
+				<string>74F405691D86ECEB00F0A6DC</string>
+				<string>6A7ED8881D7F2E94005FF0A8</string>
+				<string>5354CF281D8467BE00D57347</string>
+				<string>74F8AA591D8955E300AD655B</string>
+				<string>746DDF451D844570004A27A2</string>
+				<string>6A7ED8861D7F2E94005FF0A8</string>
+				<string>8273F3061D899F1200E62350</string>
+				<string>246276DA1D85DB0C00D434F5</string>
+				<string>537EB5ED1D87240C00F3E4F6</string>
+				<string>74F405671D86EA5A00F0A6DC</string>
+				<string>826E4E991D81CA6F00CA4493</string>
+				<string>82FF4C911D85C26E00B44AF7</string>
+				<string>537EB5E71D870B3C00F3E4F6</string>
+				<string>53C8D1011D80760B00E57400</string>
+				<string>537EB5E91D8710C500F3E4F6</string>
+				<string>8273F3041D899D9100E62350</string>
+				<string>24B68D491D8184AB004EE49A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>6A7ED87F1D7F2E94005FF0A8</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>5354CF341D85B35400D57347</string>
+				<string>08EFE9CF341AC9A8593EF0B9</string>
+				<string>5354CF321D85B35400D57347</string>
+				<string>5354CF331D85B35400D57347</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>6A7ED8801D7F2E94005FF0A8</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>6A7ED8901D7F2E94005FF0A8</string>
+				<string>8248830A1DA7C7F300CDD162</string>
+				<string>6A7ED88D1D7F2E94005FF0A8</string>
+				<string>6A7ED88B1D7F2E94005FF0A8</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>6A7ED8811D7F2E94005FF0A8</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>6A7ED8AA1D7F2E94005FF0A8</string>
+			<key>buildPhases</key>
+			<array>
+				<string>5384FB5CF102A015F732C635</string>
+				<string>6A7ED87E1D7F2E94005FF0A8</string>
+				<string>6A7ED87F1D7F2E94005FF0A8</string>
+				<string>6A7ED8801D7F2E94005FF0A8</string>
+				<string>B65706A02893B244F48CD2E5</string>
+				<string>0B882E35E889C73A58434E65</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Flare</string>
+			<key>productName</key>
+			<string>Flare</string>
+			<key>productReference</key>
+			<string>6A7ED8821D7F2E94005FF0A8</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>6A7ED8821D7F2E94005FF0A8</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Flare.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>6A7ED8831D7F2E94005FF0A8</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>6A7ED8821D7F2E94005FF0A8</string>
+				<string>6A7ED8961D7F2E94005FF0A8</string>
+				<string>6A7ED8A11D7F2E94005FF0A8</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6A7ED8841D7F2E94005FF0A8</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>08D1BDDF1DA6A853007EF1A0</string>
+				<string>8296B41D1D86BFC400F3B1A7</string>
+				<string>6A7ED8851D7F2E94005FF0A8</string>
+				<string>824883091DA7C7F300CDD162</string>
+				<string>8296B41C1D86BF8900F3B1A7</string>
+				<string>6A7ED8891D7F2E94005FF0A8</string>
+				<string>6A7ED88C1D7F2E94005FF0A8</string>
+				<string>6A7ED88E1D7F2E94005FF0A8</string>
+				<string>6A7ED8911D7F2E94005FF0A8</string>
+				<string>8296B41E1D86BFD000F3B1A7</string>
+				<string>74F8AA581D8955E300AD655B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Flare</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6A7ED8851D7F2E94005FF0A8</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AppDelegate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6A7ED8861D7F2E94005FF0A8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>6A7ED8851D7F2E94005FF0A8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>6A7ED8871D7F2E94005FF0A8</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>MapViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6A7ED8881D7F2E94005FF0A8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>6A7ED8871D7F2E94005FF0A8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>6A7ED8891D7F2E94005FF0A8</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>6A7ED88A1D7F2E94005FF0A8</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6A7ED88A1D7F2E94005FF0A8</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6A7ED88B1D7F2E94005FF0A8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>6A7ED8891D7F2E94005FF0A8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>6A7ED88C1D7F2E94005FF0A8</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Assets.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6A7ED88D1D7F2E94005FF0A8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>6A7ED88C1D7F2E94005FF0A8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>6A7ED88E1D7F2E94005FF0A8</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>6A7ED88F1D7F2E94005FF0A8</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6A7ED88F1D7F2E94005FF0A8</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6A7ED8901D7F2E94005FF0A8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>6A7ED88E1D7F2E94005FF0A8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>6A7ED8911D7F2E94005FF0A8</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6A7ED8921D7F2E94005FF0A8</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>6A7ED89B1D7F2E94005FF0A8</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>6A7ED8931D7F2E94005FF0A8</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>378C31308AD144F1C77A72A4</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>6A7ED8941D7F2E94005FF0A8</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>6A7ED8951D7F2E94005FF0A8</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>6A7ED8AD1D7F2E94005FF0A8</string>
+			<key>buildPhases</key>
+			<array>
+				<string>0BAE5FD29CCD38F240EFC544</string>
+				<string>6A7ED8921D7F2E94005FF0A8</string>
+				<string>6A7ED8931D7F2E94005FF0A8</string>
+				<string>6A7ED8941D7F2E94005FF0A8</string>
+				<string>5ED52350C79EF2CAD3E02849</string>
+				<string>03FC727A9A17B95179E48EE1</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>6A7ED8981D7F2E94005FF0A8</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>FlareTests</string>
+			<key>productName</key>
+			<string>FlareTests</string>
+			<key>productReference</key>
+			<string>6A7ED8961D7F2E94005FF0A8</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>6A7ED8961D7F2E94005FF0A8</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>FlareTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>6A7ED8971D7F2E94005FF0A8</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>6A7ED87A1D7F2E94005FF0A8</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>6A7ED8811D7F2E94005FF0A8</string>
+			<key>remoteInfo</key>
+			<string>Flare</string>
+		</dict>
+		<key>6A7ED8981D7F2E94005FF0A8</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>6A7ED8811D7F2E94005FF0A8</string>
+			<key>targetProxy</key>
+			<string>6A7ED8971D7F2E94005FF0A8</string>
+		</dict>
+		<key>6A7ED8991D7F2E94005FF0A8</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>6A7ED89A1D7F2E94005FF0A8</string>
+				<string>6A7ED89C1D7F2E94005FF0A8</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>FlareTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6A7ED89A1D7F2E94005FF0A8</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>FlareTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6A7ED89B1D7F2E94005FF0A8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>6A7ED89A1D7F2E94005FF0A8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>6A7ED89C1D7F2E94005FF0A8</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6A7ED89D1D7F2E94005FF0A8</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>6A7ED8A61D7F2E94005FF0A8</string>
+				<string>531D01CD1D89BF7600AA7D1C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>6A7ED89E1D7F2E94005FF0A8</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>95AE2C2BC14BA5C74112A589</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>6A7ED89F1D7F2E94005FF0A8</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>6A7ED8A01D7F2E94005FF0A8</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>6A7ED8B01D7F2E94005FF0A8</string>
+			<key>buildPhases</key>
+			<array>
+				<string>D2834523E9DCC59ECC71A495</string>
+				<string>6A7ED89D1D7F2E94005FF0A8</string>
+				<string>6A7ED89E1D7F2E94005FF0A8</string>
+				<string>6A7ED89F1D7F2E94005FF0A8</string>
+				<string>BF4BFEBCB48866B879C9542E</string>
+				<string>8562494B68CEA92A70932FBB</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>6A7ED8A31D7F2E94005FF0A8</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>FlareUITests</string>
+			<key>productName</key>
+			<string>FlareUITests</string>
+			<key>productReference</key>
+			<string>6A7ED8A11D7F2E94005FF0A8</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.ui-testing</string>
+		</dict>
+		<key>6A7ED8A11D7F2E94005FF0A8</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>FlareUITests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>6A7ED8A21D7F2E94005FF0A8</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>6A7ED87A1D7F2E94005FF0A8</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>6A7ED8811D7F2E94005FF0A8</string>
+			<key>remoteInfo</key>
+			<string>Flare</string>
+		</dict>
+		<key>6A7ED8A31D7F2E94005FF0A8</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>6A7ED8811D7F2E94005FF0A8</string>
+			<key>targetProxy</key>
+			<string>6A7ED8A21D7F2E94005FF0A8</string>
+		</dict>
+		<key>6A7ED8A41D7F2E94005FF0A8</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>6A7ED8A51D7F2E94005FF0A8</string>
+				<string>6A7ED8A71D7F2E94005FF0A8</string>
+				<string>531D01CC1D89BF7600AA7D1C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>FlareUITests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6A7ED8A51D7F2E94005FF0A8</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ProfileViewControllerUITests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6A7ED8A61D7F2E94005FF0A8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>6A7ED8A51D7F2E94005FF0A8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>6A7ED8A71D7F2E94005FF0A8</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6A7ED8A81D7F2E94005FF0A8</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>ENABLE_TESTABILITY</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>6A7ED8A91D7F2E94005FF0A8</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>6A7ED8AA1D7F2E94005FF0A8</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>6A7ED8AB1D7F2E94005FF0A8</string>
+				<string>6A7ED8AC1D7F2E94005FF0A8</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>6A7ED8AB1D7F2E94005FF0A8</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>8CF49AC8D149AC8424F23C4C</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>NO</string>
+				<key>CODE_SIGN_ENTITLEMENTS</key>
+				<string>Flare/Flare.entitlements</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>DEVELOPMENT_TEAM</key>
+				<string>6L4RNE447X</string>
+				<key>ENABLE_TESTABILITY</key>
+				<string>YES</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>"${PODS_ROOT}/FirebaseAnalytics/Frameworks/frameworks"</string>
+					<string>"${PODS_ROOT}/FirebaseAuth/Frameworks/frameworks"</string>
+					<string>"${PODS_ROOT}/FirebaseDatabase/Frameworks"</string>
+					<string>"${PODS_ROOT}/FirebaseInstanceID/Frameworks/frameworks"</string>
+					<string>"${PODS_ROOT}/FirebaseStorage/Frameworks/frameworks"</string>
+					<string>"${PODS_ROOT}/GoogleInterchangeUtilities/Frameworks"</string>
+					<string>"${PODS_ROOT}/GoogleNetworkingUtilities/Frameworks"</string>
+					<string>"${PODS_ROOT}/GoogleParsingUtilities/Frameworks"</string>
+					<string>"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks"</string>
+					<string>"${PODS_ROOT}/GoogleUtilities/Frameworks"</string>
+					<string>"~/Documents/FacebookSDKs-iOS-4.15.1"</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>Flare/Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>10.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>earth.flare.Flare</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE</key>
+				<string></string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string>Flare/Flare-Bridging-Header.h</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>6A7ED8AC1D7F2E94005FF0A8</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>071010AADE24D7DACD9ABDC4</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>NO</string>
+				<key>CODE_SIGN_ENTITLEMENTS</key>
+				<string>Flare/Flare.entitlements</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>DEVELOPMENT_TEAM</key>
+				<string>6L4RNE447X</string>
+				<key>ENABLE_TESTABILITY</key>
+				<string>YES</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>"${PODS_ROOT}/FirebaseAnalytics/Frameworks/frameworks"</string>
+					<string>"${PODS_ROOT}/FirebaseAuth/Frameworks/frameworks"</string>
+					<string>"${PODS_ROOT}/FirebaseDatabase/Frameworks"</string>
+					<string>"${PODS_ROOT}/FirebaseInstanceID/Frameworks/frameworks"</string>
+					<string>"${PODS_ROOT}/FirebaseStorage/Frameworks/frameworks"</string>
+					<string>"${PODS_ROOT}/GoogleInterchangeUtilities/Frameworks"</string>
+					<string>"${PODS_ROOT}/GoogleNetworkingUtilities/Frameworks"</string>
+					<string>"${PODS_ROOT}/GoogleParsingUtilities/Frameworks"</string>
+					<string>"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks"</string>
+					<string>"${PODS_ROOT}/GoogleUtilities/Frameworks"</string>
+					<string>"~/Documents/FacebookSDKs-iOS-4.15.1"</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>Flare/Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>10.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>earth.flare.Flare</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE</key>
+				<string></string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string>Flare/Flare-Bridging-Header.h</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>6A7ED8AD1D7F2E94005FF0A8</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>6A7ED8AE1D7F2E94005FF0A8</string>
+				<string>6A7ED8AF1D7F2E94005FF0A8</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>6A7ED8AE1D7F2E94005FF0A8</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>D7A48B4D7E5C123EFE716A4B</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>INFOPLIST_FILE</key>
+				<string>FlareTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.appflare.FlareTests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/Flare.app/Flare</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>6A7ED8AF1D7F2E94005FF0A8</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>9B49188567C4D013DC7E3CA7</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>INFOPLIST_FILE</key>
+				<string>FlareTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.appflare.FlareTests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/Flare.app/Flare</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>6A7ED8B01D7F2E94005FF0A8</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>6A7ED8B11D7F2E94005FF0A8</string>
+				<string>6A7ED8B21D7F2E94005FF0A8</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>6A7ED8B11D7F2E94005FF0A8</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>F56223919A06BBF6FEA40B04</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>INFOPLIST_FILE</key>
+				<string>FlareUITests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.appflare.FlareUITests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_TARGET_NAME</key>
+				<string>Flare</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>6A7ED8B21D7F2E94005FF0A8</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>9468DB4A64BFEF5B46BA9417</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>INFOPLIST_FILE</key>
+				<string>FlareUITests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.appflare.FlareUITests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_TARGET_NAME</key>
+				<string>Flare</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>746DDF441D844570004A27A2</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SendFlareViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>746DDF451D844570004A27A2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>746DDF441D844570004A27A2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>74F405661D86EA5A00F0A6DC</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>MapDisplayController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>74F405671D86EA5A00F0A6DC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>74F405661D86EA5A00F0A6DC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>74F405681D86ECEB00F0A6DC</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>FlareDisplayController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>74F405691D86ECEB00F0A6DC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>74F405681D86ECEB00F0A6DC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>74F4056A1D87019800F0A6DC</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>5354CF271D8467BE00D57347</string>
+				<string>53C8D1021D80781100E57400</string>
+				<string>6A7ED8871D7F2E94005FF0A8</string>
+				<string>74F405681D86ECEB00F0A6DC</string>
+				<string>74F405661D86EA5A00F0A6DC</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Map</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>74F569AC45CA15300FCACCF0</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8CF49AC8D149AC8424F23C4C</string>
+				<string>071010AADE24D7DACD9ABDC4</string>
+				<string>D7A48B4D7E5C123EFE716A4B</string>
+				<string>9B49188567C4D013DC7E3CA7</string>
+				<string>F56223919A06BBF6FEA40B04</string>
+				<string>9468DB4A64BFEF5B46BA9417</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>74F8AA581D8955E300AD655B</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>CityMapperAPI.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>74F8AA591D8955E300AD655B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>74F8AA581D8955E300AD655B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>824883091DA7C7F300CDD162</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>GoogleService-Info.plist</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>8248830A1DA7C7F300CDD162</key>
+		<dict>
+			<key>fileRef</key>
+			<string>824883091DA7C7F300CDD162</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>826E4E981D81CA6F00CA4493</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>RootViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>826E4E991D81CA6F00CA4493</key>
+		<dict>
+			<key>fileRef</key>
+			<string>826E4E981D81CA6F00CA4493</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8273F3021D899D7400E62350</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>246276D91D85DB0C00D434F5</string>
+				<string>8273F3031D899D9100E62350</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Profile</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8273F3031D899D9100E62350</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>LogOutViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8273F3041D899D9100E62350</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8273F3031D899D9100E62350</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8273F3051D899F1200E62350</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>facebook.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8273F3061D899F1200E62350</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8273F3051D899F1200E62350</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8296B41C1D86BF8900F3B1A7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>537EB5EA1D8717C200F3E4F6</string>
+				<string>74F4056A1D87019800F0A6DC</string>
+				<string>8273F3021D899D7400E62350</string>
+				<string>537EB5EB1D871B0300F3E4F6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Controllers</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8296B41D1D86BFC400F3B1A7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>82FF4C8F1D85C26E00B44AF7</string>
+				<string>82FF4C901D85C26E00B44AF7</string>
+				<string>82FF4C8E1D85C26E00B44AF7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Lib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8296B41E1D86BFD000F3B1A7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>53C8D1001D80760B00E57400</string>
+				<string>8273F3051D899F1200E62350</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Models</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>82FF4C8E1D85C26E00B44AF7</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Flare-Bridging-Header.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>82FF4C8F1D85C26E00B44AF7</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>UITextFieldLimit.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>82FF4C901D85C26E00B44AF7</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>UITextFieldLimit.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>82FF4C911D85C26E00B44AF7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>82FF4C901D85C26E00B44AF7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8562494B68CEA92A70932FBB</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-FlareUITests/Pods-FlareUITests-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>8CF49AC8D149AC8424F23C4C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Flare.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Flare/Pods-Flare.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9468DB4A64BFEF5B46BA9417</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-FlareUITests.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-FlareUITests/Pods-FlareUITests.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>95AE2C2BC14BA5C74112A589</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FDD03648C552D55E0A8937BA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>9B49188567C4D013DC7E3CA7</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-FlareTests.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-FlareTests/Pods-FlareTests.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE71BA334882FB87A15CE562</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_FlareTests.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>B65706A02893B244F48CD2E5</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Flare/Pods-Flare-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>BF4BFEBCB48866B879C9542E</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-FlareUITests/Pods-FlareUITests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>D2834523E9DCC59ECC71A495</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>D7A48B4D7E5C123EFE716A4B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-FlareTests.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-FlareTests/Pods-FlareTests.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F56223919A06BBF6FEA40B04</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-FlareUITests.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-FlareUITests/Pods-FlareUITests.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FDD03648C552D55E0A8937BA</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_FlareUITests.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>6A7ED87A1D7F2E94005FF0A8</string>
+</dict>
+</plist>

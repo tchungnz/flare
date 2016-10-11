@@ -15,6 +15,7 @@ import FirebaseDatabase
 import CoreLocation
 import FBSDKLoginKit
 import SwiftyJSON
+import Alamofire
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
@@ -37,6 +38,34 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapSetUp()
         getPublic()
         FIRMessaging.messaging().subscribe(toTopic: "/topics/flares")
+        
+        
+        // make http request to firebase
+        
+//        let headers: HTTPHeaders = [
+//            "Content-Type": "application/json",
+//            "Accept": "AIzaSyBcuFKYiXaoiZ-BQvJS8XWhjRfz-vNofQs"
+//        ]
+//      
+//        let parameters: Parameters = [
+//            "notifications": [
+//                "title": "Notification Title",
+//                "text": "The Text of the notification."
+//            ],
+//            "project_id": "flare-1ef4b",
+//        "to":"cL_9lsV06v8:APA91bETyeotWHeBBB_mxLU0O0AImJ2YrOc8hueRtucFB7hyvJhJH9bRYtaKDmJASX9ICNyxMdIn39xo_KBRRnox6eywde1ZSiLweb_OjRqFBIIw-al6Atmm1PHzr2w0HF2hE0zsf-TB"
+//        ]
+//        
+//        print(parameters)
+//        let urlstring = "https://fcm.googleapis.com/fcm/send"
+//        
+//        Alamofire.request("https://fcm.googleapis.com/fcm/send", headers: headers, method:).responseJSON { response in
+//            debugPrint(response)
+//        }
+//        
+//        Alamofire.request("https://fcm.googleapis.com/fcm/send", headers: headers, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
