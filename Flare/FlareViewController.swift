@@ -38,6 +38,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var flashOn: Bool?
     let storage = FIRStorage.storage()
     var ref = FIRDatabase.database().reference()
+    var facebook = Facebook()
     
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var tempImageView: UIImageView!

@@ -31,12 +31,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var uid : String?
     var facebook = Facebook()
     var exitMapView: MKCoordinateRegion?
+    var ref = FIRDatabase.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapSetUp()
         getPublic()
         FIRMessaging.messaging().subscribe(toTopic: "/topics/flares")
+        waitBeforeDatabaseQuery()
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,7 +49,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if toggleMapButton.isOn {
             toggleMapLabel.text = "Friends"
             getFriends()
-            
         } else {
             toggleMapLabel.text = "Public"
             getPublic()
@@ -69,6 +70,26 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             (result: Array<Flare>) in
             self.plotFlares(result)
         }
+    }
+    
+    func waitBeforeDatabaseQuery() {
+        let seconds = 3.0
+        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+        let dispatchTime = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
+        
+        DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
+            self.saveFCMTokenToDatabase()
+        })
+    }
+    
+    
+    func saveFCMTokenToDatabase() {
+        facebook.getFacebookID()
+        let token = FIRInstanceID.instanceID().token()
+        let tokenRef = ref.child(byAppendingPath: "tokens")
+        let facebookTokenIDs = ["tokenID": token! as String] as [String : Any]
+        let tokenRef1 = tokenRef.child(facebook.uid!)
+        tokenRef1.setValue(facebookTokenIDs)
     }
     
 }

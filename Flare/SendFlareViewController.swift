@@ -39,21 +39,22 @@ extension FlareViewController: CLLocationManagerDelegate {
         }
     }
     
-    func getFacebookID() {
-        if let user = FIRAuth.auth()?.currentUser {
-            for profile in user.providerData {
-                self.uid = profile.uid;
-            }
-        }
-    }
-        
+//    func getFacebookID() {
+//        if let user = FIRAuth.auth()?.currentUser {
+//            for profile in user.providerData {
+//                self.uid = profile.uid;
+//            }
+//        }
+//    }
+    
     func saveFlareToDatabase(_ imageString: String) {
-        self.getFacebookID()
+        facebook.getFacebookID()
         let flareRef = ref.child(byAppendingPath: "flares")
         let timestamp = FIRServerValue.timestamp()
         let user = FIRAuth.auth()?.currentUser
-        let flare1 = ["facebookID": self.uid! as String, "title": self.flareTitle.text!, "subtitle": user!.displayName! as String, "imageRef": "images/flare\(imageString).jpg", "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp, "isPublic": self.isPublicFlare as Bool] as [String : Any]
+        let flare1 = ["facebookID": facebook.uid! as String, "title": self.flareTitle.text!, "subtitle": user!.displayName! as String, "imageRef": "images/flare\(imageString).jpg", "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp, "isPublic": self.isPublicFlare as Bool] as [String : Any]
         let flare1Ref = flareRef.childByAutoId()
+        print(flare1Ref)
         flare1Ref.setValue(flare1)
     }
     
@@ -67,9 +68,9 @@ extension FlareViewController: CLLocationManagerDelegate {
     func getFbIDsFromDatabase(_ completion: @escaping (_ result: Array<Flare>) -> ()) {
         getTimeHalfHourAgo()
         var usersFlares = [Flare]()
-        var facebookID = getFacebookID()
+        facebook.getFacebookID()
         let databaseRef = FIRDatabase.database().reference().child("flares")
-        databaseRef.queryOrdered(byChild: "facebookID").queryEqual(toValue: self.uid).observe(.value, with: { (snapshot) in
+        databaseRef.queryOrdered(byChild: "facebookID").queryEqual(toValue: facebook.uid).observe(.value, with: { (snapshot) in
             
             for item in snapshot.children {
                     let flare = Flare(snapshot: item as! FIRDataSnapshot)
