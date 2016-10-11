@@ -39,23 +39,17 @@ extension FlareViewController: CLLocationManagerDelegate {
         }
     }
     
-//    func getFacebookID() {
-//        if let user = FIRAuth.auth()?.currentUser {
-//            for profile in user.providerData {
-//                self.uid = profile.uid;
-//            }
-//        }
-//    }
-    
     func saveFlareToDatabase(_ imageString: String) {
         facebook.getFacebookID()
         let flareRef = ref.child(byAppendingPath: "flares")
         let timestamp = FIRServerValue.timestamp()
         let user = FIRAuth.auth()?.currentUser
-        let flare1 = ["facebookID": facebook.uid! as String, "title": self.flareTitle.text!, "subtitle": user!.displayName! as String, "imageRef": "images/flare\(imageString).jpg", "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp, "isPublic": self.isPublicFlare as Bool] as [String : Any]
-        let flare1Ref = flareRef.childByAutoId()
-        print(flare1Ref)
-        flare1Ref.setValue(flare1)
+        let newFlare = ["facebookID": facebook.uid! as String, "title": self.flareTitle.text!, "subtitle": user!.displayName! as String, "imageRef": "images/flare\(imageString).jpg", "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp, "isPublic": self.isPublicFlare as Bool] as [String : Any]
+        let flareUniqueRef = flareRef.childByAutoId()
+        flareUniqueRef.setValue(newFlare)
+        if self.isPublicFlare == false {
+         self.saveNotifications(flareRef: String(describing: flareUniqueRef))
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -94,6 +88,20 @@ extension FlareViewController: CLLocationManagerDelegate {
     func getTimeHalfHourAgo() {
         let currentTimeInMilliseconds = Date().timeIntervalSince1970 * 1000
         self.timeHalfHourAgo = (currentTimeInMilliseconds - 1800000)
+    }
+    
+    func saveNotifications(flareRef: String) {
+        var facebook = Facebook()
+        facebook.getFacebookFriends("id") {
+            (result: [String]) in
+            self.saveNotificationsToDatabase(friendsArray: result, flareRef: flareRef)
+        }
+    }
+    
+    func saveNotificationsToDatabase(friendsArray: [String], flareRef: String) {
+        let notificationsRef = ref.child(byAppendingPath: "notifications").childByAutoId()
+        let newNotification = ["friendsFacebookIds": friendsArray as Array, "flareId": flareRef as String] as [String : Any]
+        notificationsRef.setValue(newNotification)
     }
     
 }

@@ -57,9 +57,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func getFriends() {
         facebook.getFacebookFriends("id") {
-            (result: Array<String>) in
+            (result: [String]) in
             self.getFriendsFlaresFromDatabase(result) {
-                (result: Array<Flare>) in
+                (result: [Flare]) in
                 self.plotFlares(result)
             }
         }
@@ -67,7 +67,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func getPublic() {
         getPublicFlaresFromDatabase() {
-            (result: Array<Flare>) in
+            (result: [Flare]) in
             self.plotFlares(result)
         }
     }
@@ -87,7 +87,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         facebook.getFacebookID()
         let token = FIRInstanceID.instanceID().token()
         let tokenRef = ref.child(byAppendingPath: "tokens")
-        let facebookTokenIDs = ["tokenID": token! as String] as [String : Any]
+        let facebookTokenIDs = ["tokenId": token! as String] as [String : Any]
         let tokenRef1 = tokenRef.child(facebook.uid!)
         tokenRef1.setValue(facebookTokenIDs)
     }

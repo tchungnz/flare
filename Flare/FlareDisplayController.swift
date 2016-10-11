@@ -55,7 +55,6 @@ extension MapViewController {
     func getFriendsFlaresFromDatabase(_ friendsArray: Array<String>, completion: @escaping (_ result: Array<Flare>) -> ()) {
         getTimeHalfHourAgo()
         getFacebookID()
-        print(self.uid)
         databaseRef = FIRDatabase.database().reference().child("flares")
         databaseRef.queryOrdered(byChild: "timestamp").queryStarting(atValue: timeHalfHourAgo).observe(.value, with: { (snapshot) in
             var newItems = [Flare]()
