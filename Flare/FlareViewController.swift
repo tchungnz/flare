@@ -63,11 +63,6 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        getFbIDsFromDatabase() {
-//            (result: Array<Flare>) in
-//            print(result)
-//        }
-        
         setButtons()
         // Refactor to a separate class
         self.locationManager.delegate = self
