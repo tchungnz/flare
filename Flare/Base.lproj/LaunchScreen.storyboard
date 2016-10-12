@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NEWFLARELOGOWHITE" highlightedImage="NEWFLARELOGOWHITE" translatesAutoresizingMaskIntoConstraints="NO" id="uhr-YO-fsn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FLARELOGOUP" highlightedImage="NEWFLARELOGOWHITE" translatesAutoresizingMaskIntoConstraints="NO" id="uhr-YO-fsn">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="LIN-y4-Cwp"/>
                                 </constraints>
@@ -38,6 +38,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="FLARELOGOUP" width="88" height="152"/>
         <image name="NEWFLARELOGOWHITE" width="177" height="195"/>
     </resources>
 </document>
