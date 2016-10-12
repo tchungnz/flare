@@ -15,10 +15,13 @@ import SwiftyJSON
 class ProfileViewController: UIViewController {
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var username: UILabel!
     @IBOutlet weak var activeFlareLabel: UILabel!
     @IBOutlet weak var feedbackLink: UIButton!
     @IBOutlet weak var friendsListTextView: UITextView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var inviteFriendLink: UIButton!
+    @IBOutlet weak var shareFriendLink: UIButton!
+    @IBOutlet weak var friendEmailText: UITextField!
     
     var databaseRef: FIRDatabaseReference!
     var flareArray = [Flare]()
@@ -27,11 +30,13 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        scrollView.contentSize.height = 1000
+        
         facebook.getFacebookFriends("name") {
             (result: Array<String>) in
             self.setLabelText(result)
         }
-            
+        
         if let user = FIRAuth.auth()?.currentUser {
             let profilePicURL = user.photoURL
             let data = try! Data(contentsOf: profilePicURL!)
@@ -40,7 +45,6 @@ class ProfileViewController: UIViewController {
             self.profilePic.clipsToBounds = true
             self.profilePic.image = profilePicUI
             name.text = user.displayName
-            username.text = user.email
         }
         
         databaseRef = FIRDatabase.database().reference().child("flares")
