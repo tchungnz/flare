@@ -25,13 +25,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     let locationManager = CLLocationManager()
     
-    var databaseRef: FIRDatabaseReference!
     var flareExport: Flare?
     var timeHalfHourAgo : Double?
     var uid : String?
     var facebook = Facebook()
     var exitMapView: MKCoordinateRegion?
-    var ref = FIRDatabase.database().reference()
+    var firebase = Firebase()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,10 +85,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func saveFCMTokenToDatabase() {
         facebook.getFacebookID()
         let token = FIRInstanceID.instanceID().token()
-        let tokenRef = ref.child(byAppendingPath: "tokens")
-        let facebookTokenIDs = ["tokenId": token! as String] as [String : Any]
-        let tokenRef1 = tokenRef.child(facebook.uid!)
-        tokenRef1.setValue(facebookTokenIDs)
+        firebase.saveToDatabaseWithoutUniqueId(appendingPath: "tokens", value: ["tokenId": token! as String] as NSDictionary, databaseId: facebook.uid!)
     }
     
 }

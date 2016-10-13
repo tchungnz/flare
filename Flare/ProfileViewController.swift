@@ -23,10 +23,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var friendsListText: UILabel!
     @IBOutlet weak var friendEmailAddress: UITextField!
     
-    var databaseRef: FIRDatabaseReference!
     var flareArray = [Flare]()
     var facebook = Facebook()
     var ref = FIRDatabase.database().reference()
+    var firebase = Firebase()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
     
     func setActiveFlare() {
-        databaseRef = FIRDatabase.database().reference().child("flares")
+        let databaseRef = ref.child("flares")
         databaseRef.queryOrdered(byChild: "subtitle").queryEqual(toValue: name.text).queryLimited(toLast: 1).observe(.value, with: { (snapshot) in
             
             for item in snapshot.children {
@@ -54,7 +54,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
     
     func setProfilePhotoAndName() {
-        if let user = FIRAuth.auth()?.currentUser {
+        if let user = firebase.user {
             let profilePicURL = user.photoURL
             let data = try! Data(contentsOf: profilePicURL!)
             let profilePicUI = (UIImage(data: data as Data))!
@@ -98,19 +98,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func inviteLink(_ sender: AnyObject) {
             if self.friendEmailAddress.text != "" {
-                saveEmailToDatabase()
+                firebase.saveToDatabaseWithUniqueId(appendingPath: "email invites", value: ["email": self.friendEmailAddress.text! as String])
             } else {
                 self.displayAlertMessage("Please enter an email address")
                 return
             }
         }
-
-    func saveEmailToDatabase() {
-        let emailInviteRef = ref.child(byAppendingPath: "email invites").childByAutoId()
-        let newEmailInvite = ["email": self.friendEmailAddress.text! as String]
-        emailInviteRef.setValue(newEmailInvite)
-        
-    }
     
     // refactor into separate class (duplicate in flareview)
     func displayAlertMessage(_ message: String)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08EC63031DAEB9FE002B0BDC /* firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC63021DAEB9FE002B0BDC /* firebase.swift */; };
 		08EFE9CF341AC9A8593EF0B9 /* Pods_Flare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C077AF3B95864CEF341C981 /* Pods_Flare.framework */; };
 		246276DA1D85DB0C00D434F5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246276D91D85DB0C00D434F5 /* ProfileViewController.swift */; };
 		24B68D491D8184AB004EE49A /* FlareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B68D481D8184AB004EE49A /* FlareViewController.swift */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		071010AADE24D7DACD9ABDC4 /* Pods-Flare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flare.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flare/Pods-Flare.release.xcconfig"; sourceTree = "<group>"; };
 		08D1BDDF1DA6A853007EF1A0 /* Flare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flare.entitlements; sourceTree = "<group>"; };
+		08EC63021DAEB9FE002B0BDC /* firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = firebase.swift; sourceTree = "<group>"; };
 		1C077AF3B95864CEF341C981 /* Pods_Flare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		246276D91D85DB0C00D434F5 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		24B68D481D8184AB004EE49A /* FlareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlareViewController.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 			children = (
 				53C8D1001D80760B00E57400 /* flare.swift */,
 				8273F3051D899F1200E62350 /* facebook.swift */,
+				08EC63021DAEB9FE002B0BDC /* firebase.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 				6A7ED8881D7F2E94005FF0A8 /* MapViewController.swift in Sources */,
 				5354CF281D8467BE00D57347 /* FlareDetailViewController.swift in Sources */,
 				74F8AA591D8955E300AD655B /* CityMapperAPI.swift in Sources */,
+				08EC63031DAEB9FE002B0BDC /* firebase.swift in Sources */,
 				746DDF451D844570004A27A2 /* SendFlareViewController.swift in Sources */,
 				6A7ED8861D7F2E94005FF0A8 /* AppDelegate.swift in Sources */,
 				8273F3061D899F1200E62350 /* facebook.swift in Sources */,

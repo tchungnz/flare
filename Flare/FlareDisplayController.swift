@@ -24,7 +24,7 @@ extension MapViewController {
 
     func getPublicFlaresFromDatabase(_ completion: @escaping (_ result: Array<Flare>) -> ()) {
         getTimeHalfHourAgo()
-        databaseRef = FIRDatabase.database().reference().child("flares")
+        let databaseRef = FIRDatabase.database().reference().child("flares")
         databaseRef.queryOrdered(byChild: "timestamp").queryStarting(atValue: timeHalfHourAgo).observe(.value, with: { (snapshot) in
         var newItems = [Flare]()
         
@@ -55,7 +55,7 @@ extension MapViewController {
     func getFriendsFlaresFromDatabase(_ friendsArray: Array<String>, completion: @escaping (_ result: Array<Flare>) -> ()) {
         getTimeHalfHourAgo()
         getFacebookID()
-        databaseRef = FIRDatabase.database().reference().child("flares")
+        let databaseRef = FIRDatabase.database().reference().child("flares")
         databaseRef.queryOrdered(byChild: "timestamp").queryStarting(atValue: timeHalfHourAgo).observe(.value, with: { (snapshot) in
             var newItems = [Flare]()
             for item in snapshot.children {
