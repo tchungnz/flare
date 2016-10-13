@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MgA-qe-Vm4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MgA-qe-Vm4">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -72,7 +72,7 @@
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aUh-Sc-Vpc">
                                                 <frame key="frameInset" minX="18" minY="147" width="335" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="340" id="e4W-a3-XHI"/>
+                                                    <constraint firstAttribute="width" constant="275" id="e4W-a3-XHI"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -82,7 +82,7 @@
                                                 <frame key="frameInset" minX="20" minY="185" width="338" height="29"/>
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="340" id="HFG-i9-Dhb"/>
+                                                    <constraint firstAttribute="width" constant="275" id="HFG-i9-Dhb"/>
                                                 </constraints>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Invite Friend"/>
@@ -94,8 +94,7 @@
                                                 <frame key="frameInset" minX="18" minY="238" width="340" height="30"/>
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="340" id="9Bg-R3-MvZ"/>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="340" id="HJq-b1-7mP"/>
+                                                    <constraint firstAttribute="width" constant="275" id="HJq-b1-7mP"/>
                                                 </constraints>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Share"/>
@@ -107,8 +106,7 @@
                                                 <frame key="frameInset" minX="17" minY="291" width="341" height="30"/>
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="341" id="Gbz-MX-1Zm"/>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="340" id="XA9-ho-GA6"/>
+                                                    <constraint firstAttribute="width" constant="275" id="XA9-ho-GA6"/>
                                                 </constraints>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Send Feedback">
@@ -133,7 +131,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMM-my-hQ3">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMM-my-hQ3">
                                                 <frame key="frameInset" minY="612" width="375" height="30"/>
                                                 <state key="normal" title="Log Out">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -145,7 +143,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="AxT-UP-MTK" firstAttribute="top" secondItem="grT-iD-bPW" secondAttribute="bottom" constant="25" id="3dJ-IC-BoK"/>
+                                            <constraint firstItem="AxT-UP-MTK" firstAttribute="top" secondItem="grT-iD-bPW" secondAttribute="bottom" constant="20" id="3dJ-IC-BoK"/>
                                             <constraint firstItem="I7i-XN-ACq" firstAttribute="leading" secondItem="0Fs-ET-2bv" secondAttribute="leading" constant="20" id="86A-vQ-zMZ"/>
                                             <constraint firstItem="xzJ-ul-mp3" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="9Y3-qP-Dvr"/>
                                             <constraint firstItem="I7i-XN-ACq" firstAttribute="top" secondItem="SQj-FE-i3f" secondAttribute="bottom" constant="5" id="B0E-hk-OQY"/>
@@ -157,7 +155,7 @@
                                             <constraint firstItem="SQj-FE-i3f" firstAttribute="leading" secondItem="0Fs-ET-2bv" secondAttribute="leading" constant="20" id="Hbw-Df-Y2h"/>
                                             <constraint firstItem="NEg-Zd-yHU" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="I3V-gW-EIY"/>
                                             <constraint firstItem="VMM-my-hQ3" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="JEz-OD-KXn"/>
-                                            <constraint firstItem="q47-cd-UyB" firstAttribute="top" secondItem="AxT-UP-MTK" secondAttribute="bottom" constant="25" id="Jcy-Fj-jwf"/>
+                                            <constraint firstItem="q47-cd-UyB" firstAttribute="top" secondItem="AxT-UP-MTK" secondAttribute="bottom" constant="20" id="Jcy-Fj-jwf"/>
                                             <constraint firstItem="q47-cd-UyB" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="Joz-xI-dAU"/>
                                             <constraint firstItem="grT-iD-bPW" firstAttribute="top" secondItem="aUh-Sc-Vpc" secondAttribute="bottom" constant="5" id="PRz-mq-jOU"/>
                                             <constraint firstAttribute="trailing" secondItem="VMM-my-hQ3" secondAttribute="trailing" id="REg-g4-o6d"/>
@@ -171,7 +169,7 @@
                                             <constraint firstItem="xzJ-ul-mp3" firstAttribute="top" secondItem="NEg-Zd-yHU" secondAttribute="bottom" constant="10" id="k9f-zp-L35"/>
                                             <constraint firstItem="nD3-cg-QAm" firstAttribute="top" secondItem="GUs-Au-oX2" secondAttribute="bottom" constant="5" id="lG5-H4-iOL"/>
                                             <constraint firstItem="GUs-Au-oX2" firstAttribute="top" secondItem="I7i-XN-ACq" secondAttribute="bottom" constant="25" id="oeL-oM-d0u"/>
-                                            <constraint firstItem="SQj-FE-i3f" firstAttribute="top" secondItem="q47-cd-UyB" secondAttribute="bottom" constant="25" id="z6E-wP-mhe"/>
+                                            <constraint firstItem="SQj-FE-i3f" firstAttribute="top" secondItem="q47-cd-UyB" secondAttribute="bottom" constant="30" id="z6E-wP-mhe"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -219,7 +217,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GR0-gi-2IK"/>
@@ -359,7 +357,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Gli-Fp-sNS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6is-w7-hqv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vnx-3Z-MtI">
@@ -516,7 +514,7 @@
                         <viewControllerLayoutGuide type="bottom" id="su1-uz-yFW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VuI-VJ-pvH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="381-kp-Qh5">
@@ -732,7 +730,7 @@ remaining</string>
                         <viewControllerLayoutGuide type="bottom" id="Vj7-AG-U0G"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lVT-fb-QwQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FLAREBACKGROUND" translatesAutoresizingMaskIntoConstraints="NO" id="1RG-US-DAI"/>

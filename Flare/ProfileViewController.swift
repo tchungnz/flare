@@ -80,8 +80,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     func setLabelText(_ result: [String]) {
         var friendNames = String()
         print(friendNames)
-        friendNames = result.joined(separator: "\n- ")
-        friendsListText.text = String("- " + friendNames)
+        friendNames = result.joined(separator: "\n")
+        friendsListText.text = String(friendNames)
     }
 
     override func didReceiveMemoryWarning() {
