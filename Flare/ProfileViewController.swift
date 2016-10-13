@@ -129,7 +129,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func shareLink(_ sender: AnyObject) {
         // text to share
-        let text = "Hi! Come join me on Flare by signing up to the iOS beta: www.flare.earth."
+        let text = "Hi! Come join me on Flare by signing up to the iOS beta: https://flarebeta.typeform.com/to/PTAVlO"
         
         // set up activity view controller
         let objectsToShare: [AnyObject] = [ text as AnyObject ]
