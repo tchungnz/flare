@@ -11,6 +11,7 @@ import FirebaseAuth
 import FBSDKCoreKit
 import FirebaseDatabase
 import SwiftyJSON
+import Firebase
 
 class ProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var profilePic: UIImageView!
@@ -25,7 +26,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     var flareArray = [Flare]()
     var facebook = Facebook()
-    var ref = FIRDatabase.database().reference()
     var firebase = Firebase()
     
     override func viewDidLoad() {
@@ -34,26 +34,21 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         roundButtons()
         enableKeyboardDisappear()
         retrieveAndSetFacebookFriends()
-        setProfilePhotoAndName()
+        setProfilePhoto()
+        setProfileName()
         setActiveFlare()
     
     }
     
     func setActiveFlare() {
-        let databaseRef = ref.child("flares")
-        databaseRef.queryOrdered(byChild: "subtitle").queryEqual(toValue: name.text).queryLimited(toLast: 1).observe(.value, with: { (snapshot) in
-            
-            for item in snapshot.children {
-                let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
+        firebase.retrieveSingleValue(appendingPath: "flares", orderedByChild: "subtitle", queryEqualToValue: name.text!) {
+            (result: FIRDataSnapshot) in
+                let newFlare = Flare(snapshot: result)
                 self.activeFlareLabel.text = newFlare.title!
-            }
-            })
-        { (error) in
-            print(error.localizedDescription)
         }
     }
     
-    func setProfilePhotoAndName() {
+    func setProfilePhoto() {
         if let user = firebase.user {
             let profilePicURL = user.photoURL
             let data = try! Data(contentsOf: profilePicURL!)
@@ -61,6 +56,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             self.profilePic.layer.cornerRadius = self.profilePic.frame.size.width/2
             self.profilePic.clipsToBounds = true
             self.profilePic.image = profilePicUI
+        }
+    }
+    
+    func setProfileName() {
+        if let user = firebase.user {
             name.text = user.displayName
         }
     }
