@@ -1,14 +1,9 @@
 Flare
 =================
+Flare, the love child of Snapchat and Pokemon Go lures, is a social mobile app for sharing spontaneous moments based on where you are.
 
-Flare is a social app for sharing spontanous moments around you.
+Imagine you're having an awesome time at a house party, found a great pop-up restaurant or you've just stumbled across Lady Gaga playing a surprise gig in a local bar. Our app allows you to capture that moment as a photo or video and send it up as a time-limited flare. These flares can then be viewed instantly on a map by friends or other nearby users who can then come and join in.
 
-Users can create flares by taking a photo, adding a caption, choosing to send publicly or just to friends before sending their flare into the sky.
-
-Other users can see these flares on a map, click to see further details and directions and choose whether to come or not. Flares only last for 30 minutes and users can only have one active flare at a time.
-
-Check out the app in action [here](https://www.youtube.com/watch?v=1hvx8iv2YgY&feature=youtu.be)!
-
-*Built in Swift in 10 days for the Makers Academy final project by [Georgia Mills](https://github.com/grmillsy1), [Jess Astbury](https://github.com/JAstbury), [Mali Michael](https://github.com/malimichael), [Tim Chung](https://github.com/tchungnz) and [Tommy Williams](https://github.com/twilliams1988).*
+Check out the app in action [here](https://youtu.be/_-rFqjy-g0s)!
 
 ![Screenshot](http://i.imgur.com/tcj3HCv.jpg)
