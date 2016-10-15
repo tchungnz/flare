@@ -217,10 +217,12 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GR0-gi-2IK"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GR0-gi-2IK">
+                                <frame key="frameInset" width="1000" height="1000"/>
+                            </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Public" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7W-gx-kCV">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -247,7 +249,8 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iy2-AK-hv6">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iy2-AK-hv6">
+                                <frame key="frameInset" width="1000" height="1000"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="iy2-AK-hv6" secondAttribute="height" multiplier="1:1" id="6Ib-nv-YHU"/>
                                     <constraint firstAttribute="width" constant="150" id="7Sd-OK-wGi"/>
@@ -357,7 +360,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Gli-Fp-sNS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6is-w7-hqv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vnx-3Z-MtI">
@@ -514,7 +517,7 @@
                         <viewControllerLayoutGuide type="bottom" id="su1-uz-yFW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VuI-VJ-pvH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="381-kp-Qh5">
@@ -730,22 +733,27 @@ remaining</string>
                         <viewControllerLayoutGuide type="bottom" id="Vj7-AG-U0G"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lVT-fb-QwQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FLAREBACKGROUND" translatesAutoresizingMaskIntoConstraints="NO" id="1RG-US-DAI"/>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FLARELOGOUP" translatesAutoresizingMaskIntoConstraints="NO" id="9CA-a3-Bj5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FLARELOGOUP" translatesAutoresizingMaskIntoConstraints="NO" id="5Dz-0n-Ulu">
+                                <accessibility key="accessibilityConfiguration" identifier="flareLogo">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="5Dz-0n-Ulu" secondAttribute="height" multiplier="1:1" id="7qr-SG-bo0"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="9CA-a3-Bj5" firstAttribute="centerX" secondItem="1RG-US-DAI" secondAttribute="centerX" id="6j2-mV-ZrY"/>
                             <constraint firstItem="1RG-US-DAI" firstAttribute="top" secondItem="lVT-fb-QwQ" secondAttribute="top" id="8JI-lP-Ud3"/>
                             <constraint firstItem="1RG-US-DAI" firstAttribute="leading" secondItem="lVT-fb-QwQ" secondAttribute="leading" id="EeP-KD-Xi0"/>
-                            <constraint firstItem="9CA-a3-Bj5" firstAttribute="top" secondItem="7aI-BJ-IMH" secondAttribute="bottom" constant="113" id="OZr-DD-vDh"/>
                             <constraint firstItem="1RG-US-DAI" firstAttribute="leading" secondItem="lVT-fb-QwQ" secondAttribute="leading" id="U6q-4d-NeZ"/>
+                            <constraint firstItem="5Dz-0n-Ulu" firstAttribute="centerX" secondItem="1RG-US-DAI" secondAttribute="centerX" id="Us9-90-RVh"/>
+                            <constraint firstItem="5Dz-0n-Ulu" firstAttribute="top" secondItem="7aI-BJ-IMH" secondAttribute="bottom" constant="80" id="bRH-m4-7Dr"/>
                             <constraint firstAttribute="trailing" secondItem="1RG-US-DAI" secondAttribute="trailing" id="e3O-pg-EdX"/>
-                            <constraint firstItem="Vj7-AG-U0G" firstAttribute="top" secondItem="9CA-a3-Bj5" secondAttribute="bottom" constant="422" id="gQ1-Ye-5SE"/>
                             <constraint firstItem="1RG-US-DAI" firstAttribute="top" secondItem="lVT-fb-QwQ" secondAttribute="top" id="gXc-1u-zFN"/>
-                            <constraint firstItem="9CA-a3-Bj5" firstAttribute="leading" secondItem="lVT-fb-QwQ" secondAttribute="leadingMargin" constant="130" id="jI4-Lf-9qL"/>
                             <constraint firstItem="Vj7-AG-U0G" firstAttribute="top" secondItem="1RG-US-DAI" secondAttribute="bottom" id="vLI-lB-oVG"/>
                             <constraint firstItem="Vj7-AG-U0G" firstAttribute="top" secondItem="1RG-US-DAI" secondAttribute="bottom" id="xSn-Sw-OwP"/>
                             <constraint firstAttribute="trailing" secondItem="1RG-US-DAI" secondAttribute="trailing" id="xtl-o3-pLe"/>
@@ -755,7 +763,7 @@ remaining</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2I-Au-nUC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1431.2" y="1040.3298350824589"/>
+            <point key="canvasLocation" x="1429.5999999999999" y="1039.4302848575712"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="p0y-pI-mNl">
