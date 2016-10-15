@@ -14,7 +14,7 @@ import Firebase
 class RootViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     var loginButton = FBSDKLoginButton()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,7 +53,6 @@ class RootViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
     }
 
-    
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
 
     }

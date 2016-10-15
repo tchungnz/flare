@@ -102,7 +102,6 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func toggle(_ sender: AnyObject) {
-        print("screen tapped")
         if flareDetailBar.isHidden == true {
             UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
                 self.flareDetailBar.alpha = 1
