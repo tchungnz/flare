@@ -71,6 +71,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.locationManager.startUpdatingLocation()
         
         cameraSession("back")
+        activeFlareCheck()
     }
 
     override func didReceiveMemoryWarning() {
@@ -111,7 +112,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 toggleFlash()
             }
         } else {
-            displayAlertMessage("You can only have one active flare")
+            displayAlertMessage("You can only have five active flares")
             return;
         }
     }

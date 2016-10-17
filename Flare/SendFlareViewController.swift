@@ -58,8 +58,8 @@ extension FlareViewController: CLLocationManagerDelegate {
         self.flareLongitude = String(location!.coordinate.longitude)
     }
     
-    
-    func getFbIDsFromDatabase(_ completion: @escaping (_ result: Array<Flare>) -> ()) {
+
+    func activeFlareCheck() {
         getTimeHalfHourAgo()
         var usersFlares = [Flare]()
         facebook.getFacebookID()
@@ -67,23 +67,18 @@ extension FlareViewController: CLLocationManagerDelegate {
         databaseRef.queryOrdered(byChild: "facebookID").queryEqual(toValue: facebook.uid).observe(.value, with: { (snapshot) in
             
             for item in snapshot.children {
-                    let flare = Flare(snapshot: item as! FIRDataSnapshot)
-                        if Double(flare.timestamp!) >= self.timeHalfHourAgo! {
-                            usersFlares.insert(flare, at: 0)
-                        }
+                let flare = Flare(snapshot: item as! FIRDataSnapshot)
+                if Double(flare.timestamp!) >= self.timeHalfHourAgo! {
+                    usersFlares.insert(flare, at: 0)
+                }
                 if usersFlares.count > self.maximumSentFlares {
                     self.letFlareSave = false
                 } else {
                     self.letFlareSave = true
-                    }
                 }
-            completion(usersFlares)
-            })
-        { (error) in
-            print(error.localizedDescription)
-        }
+            }
+        })
     }
-    
     
     func getTimeHalfHourAgo() {
         let currentTimeInMilliseconds = Date().timeIntervalSince1970 * 1000
