@@ -107,10 +107,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         }
 
     func saveEmailToDatabase() {
+        if let user = FIRAuth.auth()?.currentUser {
         let emailInviteRef = ref.child(byAppendingPath: "email invites").childByAutoId()
-        let newEmailInvite = ["email": self.friendEmailAddress.text! as String]
+        let newEmailInvite = ["inviter": user.email! as String, "invitee": self.friendEmailAddress.text! as String]
         emailInviteRef.setValue(newEmailInvite)
-        
+        }
     }
     
     // refactor into separate class (duplicate in flareview)
