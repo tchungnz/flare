@@ -11,6 +11,12 @@ import UIKit
 import AVFoundation
 
 extension FlareViewController {
+    
+    override var prefersStatusBarHidden: Bool {
+        get {
+            return true
+        }  
+    }
 
     
     override func viewDidAppear(_ animated: Bool) {
