@@ -17,7 +17,7 @@ extension MapViewController {
     
     func getTimeHalfHourAgo() {
         let currentTimeInMilliseconds = Date().timeIntervalSince1970 * 1000
-        let flareTimeLimitInMinutes = 1440
+        let flareTimeLimitInMinutes = 120
         let flareTimeLimitInMiliseconds = Double(flareTimeLimitInMinutes * 60000)
         self.timeHalfHourAgo = (currentTimeInMilliseconds - flareTimeLimitInMiliseconds)
     }

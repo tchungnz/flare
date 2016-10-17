@@ -15,7 +15,7 @@ import CoreLocation
 
 class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
-    let maximumSentFlares: Int = 10
+    let maximumSentFlares: Int = 5
 
     var captureSession : AVCaptureSession?
     var input: AVCaptureDeviceInput?
