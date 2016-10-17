@@ -153,7 +153,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     func displayAlertMessage(_ message: String)
     {
-        let myAlert = UIAlertController(title: "Ooops", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let myAlert = UIAlertController(title: "Ooos", message: message, preferredStyle: UIAlertControllerStyle.alert)
         let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
         myAlert.addAction(okAction)
         self.present(myAlert, animated: true, completion: nil)
