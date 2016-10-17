@@ -97,10 +97,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func inviteLink(_ sender: AnyObject) {
-            if self.friendEmailAddress.text != "" {
+        if self.friendEmailAddress.text != "" && self.validateEmail(email: self.friendEmailAddress.text!) {
                 saveEmailToDatabase()
+                self.friendEmailAddress.text = ""
             } else {
-                self.displayAlertMessage("Please enter an email address")
+                self.displayAlertMessage("Please enter a valid email address")
                 return
             }
         }
@@ -115,7 +116,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     // refactor into separate class (duplicate in flareview)
     func displayAlertMessage(_ message: String)
     {
-        let myAlert = UIAlertController(title: "Ooops", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let myAlert = UIAlertController(title: "Oops", message: message, preferredStyle: UIAlertControllerStyle.alert)
         let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
         myAlert.addAction(okAction)
         self.present(myAlert, animated: true, completion: nil)
@@ -152,6 +153,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     func dismissKeyboard() {
         friendEmailAddress.resignFirstResponder()
+    }
+    
+    func validateEmail(email: String) -> Bool {
+    let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
+    return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email)
     }
 
 }
