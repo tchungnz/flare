@@ -86,7 +86,7 @@ extension FlareViewController: CLLocationManagerDelegate {
     }
     
     func saveNotifications(flareRef: String) {
-        var facebook = Facebook()
+        let facebook = Facebook()
         facebook.getFacebookFriends("id") {
             (result: [String]) in
             self.saveNotificationsToDatabase(friendsArray: result, flareRef: flareRef)
