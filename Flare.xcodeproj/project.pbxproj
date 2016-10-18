@@ -233,9 +233,9 @@
 			isa = PBXGroup;
 			children = (
 				5354CF271D8467BE00D57347 /* FlareDetailViewController.swift */,
-				53C8D1021D80781100E57400 /* AnnotationViewController.swift */,
 				6A7ED8871D7F2E94005FF0A8 /* MapViewController.swift */,
 				74F405681D86ECEB00F0A6DC /* FlareDisplayController.swift */,
+				53C8D1021D80781100E57400 /* AnnotationViewController.swift */,
 				74F405661D86EA5A00F0A6DC /* MapDisplayController.swift */,
 			);
 			name = Map;

@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var storyboard: UIStoryboard?
+    var notificationData: [NSObject : AnyObject]?
        
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -50,8 +51,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         {
             self.window?.rootViewController = self.storyboard?.instantiateViewController(withIdentifier: "rootView")
         }
+        
         return true
     }
+    
     
 //    func application(_ application: UIApplication,
 //                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
@@ -104,6 +107,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Connected to FCM")
             }
         }
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification data: [AnyHashable : Any]) {
+        // Print notification payload data
+        print("Push notification received: \(data)")
     }
     
 }

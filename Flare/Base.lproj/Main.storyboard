@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MgA-qe-Vm4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MgA-qe-Vm4">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -220,9 +220,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GR0-gi-2IK">
-                                <frame key="frameInset" width="1000" height="1000"/>
-                            </mapView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GR0-gi-2IK"/>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Public" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7W-gx-kCV">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -249,8 +247,7 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iy2-AK-hv6">
-                                <frame key="frameInset" width="1000" height="1000"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iy2-AK-hv6">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="iy2-AK-hv6" secondAttribute="height" multiplier="1:1" id="6Ib-nv-YHU"/>
                                     <constraint firstAttribute="width" constant="150" id="7Sd-OK-wGi"/>
@@ -284,6 +281,13 @@
                                     <action selector="togglePrivateAction:" destination="d1b-im-btc" eventType="valueChanged" id="Ghc-mi-DLa"/>
                                 </connections>
                             </switch>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RqD-Xv-VYf">
+                                <frame key="frameInset" minX="328" minY="589" width="30" height="30"/>
+                                <state key="normal" backgroundImage="centerButton"/>
+                                <connections>
+                                    <action selector="pressCentreLocationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FFD-0J-hfk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -291,6 +295,7 @@
                             <constraint firstItem="GR0-gi-2IK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="1A8-rg-fYZ"/>
                             <constraint firstItem="hU9-gQ-Vch" firstAttribute="trailing" secondItem="GR0-gi-2IK" secondAttribute="trailing" constant="-17" id="2rn-17-xLA"/>
                             <constraint firstItem="iy2-AK-hv6" firstAttribute="centerX" secondItem="GR0-gi-2IK" secondAttribute="centerX" id="3FR-4c-LKq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RqD-Xv-VYf" secondAttribute="trailing" constant="10" id="6Q4-Nm-foZ"/>
                             <constraint firstItem="GR0-gi-2IK" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="7NA-eg-IQd"/>
                             <constraint firstItem="H7W-gx-kCV" firstAttribute="centerX" secondItem="hU9-gQ-Vch" secondAttribute="centerX" id="7Rw-D3-IL7"/>
                             <constraint firstItem="iy2-AK-hv6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="460" id="7Wg-vh-SlS"/>
@@ -307,6 +312,7 @@
                             <constraint firstItem="hU9-gQ-Vch" firstAttribute="trailing" secondItem="GR0-gi-2IK" secondAttribute="trailing" id="WfW-bA-MSq"/>
                             <constraint firstItem="H7W-gx-kCV" firstAttribute="top" secondItem="hU9-gQ-Vch" secondAttribute="bottom" constant="2" id="b6Y-2g-two"/>
                             <constraint firstItem="hU9-gQ-Vch" firstAttribute="top" secondItem="GR0-gi-2IK" secondAttribute="top" id="ewe-LG-kpu"/>
+                            <constraint firstItem="RqD-Xv-VYf" firstAttribute="centerY" secondItem="iy2-AK-hv6" secondAttribute="centerY" id="gc8-gy-KhV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hU9-gQ-Vch" secondAttribute="trailing" constant="-3" id="imT-Qk-tJu"/>
                             <constraint firstItem="hU9-gQ-Vch" firstAttribute="top" secondItem="GR0-gi-2IK" secondAttribute="top" constant="8" id="pJJ-c6-1s7"/>
                             <constraint firstAttribute="bottom" secondItem="iy2-AK-hv6" secondAttribute="bottom" constant="20" symbolic="YES" id="pSl-wA-nNL"/>
@@ -319,11 +325,11 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="G40-Z4-u7r"/>
+                                <exclude reference="uWR-v0-xYT"/>
                                 <exclude reference="RaK-iP-o8f"/>
                                 <exclude reference="UKk-pG-Fda"/>
                                 <exclude reference="Ux5-0H-Wzh"/>
-                                <exclude reference="G40-Z4-u7r"/>
-                                <exclude reference="uWR-v0-xYT"/>
                                 <exclude reference="BzZ-by-a3f"/>
                                 <exclude reference="WfW-bA-MSq"/>
                                 <exclude reference="ewe-LG-kpu"/>
@@ -340,6 +346,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Flare" id="RLF-9A-a7p"/>
                     <connections>
+                        <outlet property="centreLocationButton" destination="RqD-Xv-VYf" id="hxp-zj-Zpm"/>
                         <outlet property="mapView" destination="GR0-gi-2IK" id="0R0-Hw-i3h"/>
                         <outlet property="toggleMapButton" destination="hU9-gQ-Vch" id="vBx-Xe-dxE"/>
                         <outlet property="toggleMapLabel" destination="H7W-gx-kCV" id="fWo-9C-W8N"/>
@@ -349,7 +356,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2923" y="615"/>
+            <point key="canvasLocation" x="2922.4000000000001" y="614.84257871064472"/>
         </scene>
         <!--Flare View Controller-->
         <scene sceneID="Vt9-jn-MkL">
@@ -789,6 +796,7 @@ remaining</string>
         <image name="FLARELOGOUP" width="88" height="152"/>
         <image name="Group" width="512" height="512"/>
         <image name="back-button1" width="260" height="260"/>
+        <image name="centerButton" width="40" height="40"/>
         <image name="citymapper" width="300" height="300"/>
         <image name="flash" width="200" height="200"/>
         <image name="map-icon" width="256" height="256"/>
@@ -799,7 +807,7 @@ remaining</string>
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ns2-iy-AlJ"/>
+        <segue reference="ToR-kJ-yvd"/>
         <segue reference="0Z5-td-Zn0"/>
     </inferredMetricsTieBreakers>
 </document>

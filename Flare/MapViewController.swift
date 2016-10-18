@@ -22,6 +22,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var toggleMapButton: UISwitch!
     @IBOutlet weak var toggleMapLabel: UILabel!
+    @IBOutlet weak var centreLocationButton: UIButton!
     
     let locationManager = CLLocationManager()
     
@@ -82,7 +83,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         })
     }
     
-    
     func saveFCMTokenToDatabase() {
         facebook.getFacebookID()
         let token = FIRInstanceID.instanceID().token()
@@ -92,6 +92,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         tokenRef1.setValue(facebookTokenIDs)
     }
     
+    @IBAction func pressCentreLocationButton(_ sender: AnyObject) {
+        mapSetUp()
+    }
 }
 
 
