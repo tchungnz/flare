@@ -57,6 +57,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
+    func toggleMapPublicFriends() {
+        if toggleMapButton.isOn == false {
+            self.toggleMapButton.setOn(true, animated: true)
+            self.toggleMapLabel.text = "Friends"
+            self.getFriends()
+        } else {
+            self.toggleMapButton.setOn(false, animated: true)
+            self.toggleMapLabel.text = "Public"
+            self.getPublic()
+        }
+    }
+    
     func getFriends() {
         facebook.getFacebookFriends("id") {
             (result: [String]) in
