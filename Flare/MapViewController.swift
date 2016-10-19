@@ -106,6 +106,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     @IBAction func pressCentreLocationButton(_ sender: AnyObject) {
+        self.notificationFlareId = nil
+        self.exitMapView = nil
         mapSetUp()
     }
 }

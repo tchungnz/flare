@@ -132,21 +132,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (_ result: UIBackgroundFetchResult) -> Void) {
         
         if application.applicationState == .inactive {
-            print("Inactive")
             notificationFlareId = userInfo["flare"] as! String?
             currentUserView2()
             UIApplication.shared.applicationIconBadgeNumber = 0
             completionHandler(.newData)
 
         } else if application.applicationState == .background {
-            print("Background")
             notificationFlareId = userInfo["flare"] as! String?
             currentUserView2()
             UIApplication.shared.applicationIconBadgeNumber = 0
             completionHandler(.newData)
 
         } else {
-            print("Active")
             //Show an in-app banner
             completionHandler(.newData)
 

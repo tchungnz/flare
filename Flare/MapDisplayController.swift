@@ -26,36 +26,11 @@ extension MapViewController {
         setDefinedRegion()
     }
     
-//    func defineRegion(flare: [Flare], completion: @escaping (_ result: MKCoordinateRegion) -> ()) {
-//        var definedRegion: MKCoordinateRegion!
-//        var definedCenter: CLLocationCoordinate2D?
-//        if exitMapView != nil {
-//            print("EXIT MAP VIEW IS NOT NIL")
-//            definedRegion = exitMapView!
-//        } else if notificationFlareId != nil {
-//            print("NOTIFICATION ID IS NOT NIL")
-//            print(notificationFlareId)
-//            retrieveFlareAttributes(flareId: "-KUSgm-qUzCvBQDEA3Lz") {
-//                (result: [Flare]) in
-//                print("*******define region call back thingy********")
-//                print(result[0].latitude)
-//                print(result[0].longitude)
-//                definedCenter = CLLocationCoordinate2D(latitude: result[0].latitude!, longitude: result[0].longitude!)
-//                definedRegion = MKCoordinateRegion(center: definedCenter!, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
-//            }
-//        } else {
-//            print("NORMAL OPEN")
-//            definedCenter = CLLocationCoordinate2D(latitude: self.location!.coordinate.latitude, longitude: self.location!.coordinate.longitude)
-//            definedRegion = MKCoordinateRegion(center: definedCenter!, span: MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08))
-//        }
-//        completion(definedRegion)
-//    }
-    
     func setDefinedRegion() {
         if notificationFlareId != nil {
             retrieveFlareAttributes(flareId: notificationFlareId!) {
                 (result: [Flare]) in
-                var definedCenter = CLLocationCoordinate2D(latitude: result[0].longitude!, longitude: result[0].latitude!)
+                var definedCenter = CLLocationCoordinate2D(latitude: result[0].latitude!, longitude: result[0].longitude!)
                 var definedRegion = MKCoordinateRegion(center: definedCenter, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
                 self.setRegion(animated: true, region: definedRegion)
                 self.toggleMapPublicFriends()
@@ -86,9 +61,6 @@ extension MapViewController {
             for item in snapshot.children {
                 let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
                 newFlares.insert(newFlare, at: 0)
-                print("*******retrieveFlareAttributes********")
-                print(newFlares[0].latitude)
-                print(newFlares[0].longitude)
             }
             completion(newFlares)
             })
