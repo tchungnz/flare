@@ -133,7 +133,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if application.applicationState == .inactive {
             print("Inactive")
-            print(userInfo["flare"])
             notificationFlareId = userInfo["flare"] as! String?
             currentUserView2()
             UIApplication.shared.applicationIconBadgeNumber = 0
@@ -141,7 +140,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         } else if application.applicationState == .background {
             print("Background")
-            print(userInfo["flare"])
             notificationFlareId = userInfo["flare"] as! String?
             currentUserView2()
             UIApplication.shared.applicationIconBadgeNumber = 0

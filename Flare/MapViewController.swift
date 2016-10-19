@@ -34,6 +34,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var exitMapView: MKCoordinateRegion?
     var ref = FIRDatabase.database().reference()
     var notificationFlareId: String?
+    var location: CLLocation?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +78,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func waitBeforeDatabaseQuery() {
         let seconds = 3.0
-        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+        let delay = seconds * Double(NSEC_PER_SEC)
         let dispatchTime = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
         
         DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
