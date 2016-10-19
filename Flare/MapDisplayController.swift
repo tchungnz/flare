@@ -31,7 +31,7 @@ extension MapViewController {
             retrieveFlareAttributes(flareId: notificationFlareId!) {
                 (result: [Flare]) in
                 var definedCenter = CLLocationCoordinate2D(latitude: result[0].latitude!, longitude: result[0].longitude!)
-                var definedRegion = MKCoordinateRegion(center: definedCenter, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+                var definedRegion = MKCoordinateRegion(center: definedCenter, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
                 self.setRegion(animated: true, region: definedRegion)
                 self.toggleMapPublicFriends()
             }
