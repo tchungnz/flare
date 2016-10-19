@@ -33,12 +33,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var facebook = Facebook()
     var exitMapView: MKCoordinateRegion?
     var ref = FIRDatabase.database().reference()
+    var notificationFlareId: String?
+    var location: CLLocation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapSetUp()
         getPublic()
-        FIRMessaging.messaging().subscribe(toTopic: "/topics/flares")
         waitBeforeDatabaseQuery()
     }
     
@@ -53,6 +54,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         } else {
             toggleMapLabel.text = "Public"
             getPublic()
+        }
+    }
+    
+    func toggleMapPublicFriends() {
+        if toggleMapButton.isOn == false {
+            self.toggleMapButton.setOn(true, animated: true)
+            self.toggleMapLabel.text = "Friends"
+            self.getFriends()
+        } else {
+            self.toggleMapButton.setOn(false, animated: true)
+            self.toggleMapLabel.text = "Public"
+            self.getPublic()
         }
     }
     
@@ -75,7 +88,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func waitBeforeDatabaseQuery() {
         let seconds = 3.0
-        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+        let delay = seconds * Double(NSEC_PER_SEC)
         let dispatchTime = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
         
         DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
@@ -93,6 +106,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     @IBAction func pressCentreLocationButton(_ sender: AnyObject) {
+        self.notificationFlareId = nil
+        self.exitMapView = nil
         mapSetUp()
     }
 }

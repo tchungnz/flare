@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 import MapKit
+import Firebase
 
 extension MapViewController {
     
@@ -21,21 +22,52 @@ extension MapViewController {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if exitMapView == nil {
-            let location = locations.last
-            let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
-            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08))
-            self.mapView.setRegion(region, animated: true)
-            self.locationManager.stopUpdatingLocation()
+        self.location = locations.last
+        setDefinedRegion()
+    }
+    
+    func setDefinedRegion() {
+        if notificationFlareId != nil {
+            retrieveFlareAttributes(flareId: notificationFlareId!) {
+                (result: [Flare]) in
+                var definedCenter = CLLocationCoordinate2D(latitude: result[0].latitude!, longitude: result[0].longitude!)
+                var definedRegion = MKCoordinateRegion(center: definedCenter, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+                self.setRegion(animated: true, region: definedRegion)
+                self.toggleMapPublicFriends()
+            }
+        } else if exitMapView != nil {
+            var definedRegion = exitMapView!
+            setRegion(animated: false, region: definedRegion)
         } else {
-            self.mapView.setRegion(exitMapView!, animated: false)
-            self.locationManager.stopUpdatingLocation()
-                }
+            var definedCenter = CLLocationCoordinate2D(latitude: self.location!.coordinate.latitude, longitude: self.location!.coordinate.longitude)
+            var definedRegion = MKCoordinateRegion(center: definedCenter, span: MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08))
+            self.setRegion(animated: true, region: definedRegion)
+        }
+    }
+    
+    func setRegion(animated: Bool, region: MKCoordinateRegion) {
+        self.mapView.setRegion(region, animated: animated)
+        self.locationManager.stopUpdatingLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Errors: " + error.localizedDescription)
     }
-
-
+    
+    func retrieveFlareAttributes(flareId: String, completion: @escaping (_ result: [Flare]) -> ())  {
+        let newRef = ref.child("flares")
+        newRef.queryOrderedByKey().queryEqual(toValue: flareId).observe(.value, with: { (snapshot) in
+            var newFlares = [Flare]()
+            for item in snapshot.children {
+                let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
+                newFlares.insert(newFlare, at: 0)
+            }
+            completion(newFlares)
+            })
+        { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    
 }
