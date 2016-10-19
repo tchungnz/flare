@@ -30,7 +30,7 @@ extension MapViewController {
         } else {
             self.mapView.setRegion(exitMapView!, animated: false)
             self.locationManager.stopUpdatingLocation()
-                }
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

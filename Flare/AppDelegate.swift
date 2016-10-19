@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var storyboard: UIStoryboard?
-    var notificationData: [NSObject : AnyObject]?
+    var notificationFlareId: String?
        
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -42,15 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         self.storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let currentUser = FIRAuth.auth()?.currentUser
-        if currentUser != nil
-        {
-            self.window?.rootViewController = self.storyboard?.instantiateViewController(withIdentifier: "mapView")
-        }
-        else
-        {
-            self.window?.rootViewController = self.storyboard?.instantiateViewController(withIdentifier: "rootView")
-        }
+        currentUserView()
         
         return true
     }
@@ -61,6 +53,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //    {
 //        FIRInstanceID.instanceID().setAPNSToken(deviceToken as Data, type: FIRInstanceIDAPNSTokenType.prod)
 //    }
+    
+    func currentUserView() {
+        let currentUser = FIRAuth.auth()?.currentUser
+        if currentUser != nil
+        {
+            self.window?.rootViewController = self.storyboard?.instantiateViewController(withIdentifier: "mapView")
+        }
+        else
+        {
+            self.window?.rootViewController = self.storyboard?.instantiateViewController(withIdentifier: "rootView")
+        }
+    }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         let handled = FBSDKApplicationDelegate.sharedInstance().application(application, open: url as URL!, sourceApplication: sourceApplication, annotation: annotation)
@@ -109,10 +113,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func application(_ application: UIApplication, didReceiveRemoteNotification data: [AnyHashable : Any]) {
-        // Print notification payload data
-        print("Push notification received: \(data)")
+    func currentUserView2() {
+        let currentUser = FIRAuth.auth()?.currentUser
+        if currentUser != nil
+        {
+            var controller = storyboard?.instantiateViewController(withIdentifier: "mapView") as! MapViewController
+            
+            controller.notificationFlareId = notificationFlareId
+            
+            self.window?.rootViewController = controller
+        }
+        else
+        {
+            self.window?.rootViewController = self.storyboard?.instantiateViewController(withIdentifier: "rootView")
+        }
     }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (_ result: UIBackgroundFetchResult) -> Void) {
+        
+        if application.applicationState == .inactive {
+            print("Inactive")
+            print(userInfo["flare"])
+            notificationFlareId = userInfo["flare"] as! String?
+            currentUserView2()
+            UIApplication.shared.applicationIconBadgeNumber = 0
+            completionHandler(.newData)
+
+        } else if application.applicationState == .background {
+            print("Background")
+            print(userInfo["flare"])
+            notificationFlareId = userInfo["flare"] as! String?
+            currentUserView2()
+            UIApplication.shared.applicationIconBadgeNumber = 0
+            completionHandler(.newData)
+
+        } else {
+            print("Active")
+            //Show an in-app banner
+            completionHandler(.newData)
+
+        }
+    }
+    
     
 }
 

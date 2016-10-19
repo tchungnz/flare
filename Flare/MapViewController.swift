@@ -33,12 +33,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var facebook = Facebook()
     var exitMapView: MKCoordinateRegion?
     var ref = FIRDatabase.database().reference()
+    var notificationFlareId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapSetUp()
         getPublic()
-        FIRMessaging.messaging().subscribe(toTopic: "/topics/flares")
+//        FIRMessaging.messaging().subscribe(toTopic: "/topics/flares")
         waitBeforeDatabaseQuery()
     }
     
