@@ -36,12 +36,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var notificationFlareId: String?
     var location: CLLocation?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapSetUp()
         getPublic()
-//        FIRMessaging.messaging().subscribe(toTopic: "/topics/flares")
         waitBeforeDatabaseQuery()
     }
     
