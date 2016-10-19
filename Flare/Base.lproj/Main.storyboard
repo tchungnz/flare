@@ -283,6 +283,11 @@
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RqD-Xv-VYf">
                                 <frame key="frameInset" minX="328" minY="589" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="RqD-Xv-VYf" secondAttribute="height" multiplier="1:1" id="DJX-hA-0Ku"/>
+                                    <constraint firstAttribute="width" constant="30" id="SiK-ur-JRx"/>
+                                    <constraint firstAttribute="height" constant="30" id="j31-j5-8ez"/>
+                                </constraints>
                                 <state key="normal" backgroundImage="centerButton"/>
                                 <connections>
                                     <action selector="pressCentreLocationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FFD-0J-hfk"/>
@@ -325,11 +330,11 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="G40-Z4-u7r"/>
-                                <exclude reference="uWR-v0-xYT"/>
                                 <exclude reference="RaK-iP-o8f"/>
                                 <exclude reference="UKk-pG-Fda"/>
                                 <exclude reference="Ux5-0H-Wzh"/>
+                                <exclude reference="G40-Z4-u7r"/>
+                                <exclude reference="uWR-v0-xYT"/>
                                 <exclude reference="BzZ-by-a3f"/>
                                 <exclude reference="WfW-bA-MSq"/>
                                 <exclude reference="ewe-LG-kpu"/>
@@ -796,7 +801,7 @@ remaining</string>
         <image name="FLARELOGOUP" width="88" height="152"/>
         <image name="Group" width="512" height="512"/>
         <image name="back-button1" width="260" height="260"/>
-        <image name="centerButton" width="40" height="40"/>
+        <image name="centerButton" width="512" height="512"/>
         <image name="citymapper" width="300" height="300"/>
         <image name="flash" width="200" height="200"/>
         <image name="map-icon" width="256" height="256"/>
