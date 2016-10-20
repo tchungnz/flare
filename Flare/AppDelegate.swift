@@ -32,17 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             notificationFlareId = notification["flare"] as! String?
         }
         
-        // Register for notifications
-//        if #available(iOS 8.0, *) {
-//            let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-//            application.registerUserNotificationSettings(settings)
-//            application.registerForRemoteNotifications()
-//        } else {
-//            let types: UIRemoteNotificationType = [.alert, .badge, .sound]
-//            application.registerForRemoteNotifications(matching: types)
-//        }
-        
-        
         // [START register_for_notifications]
         if #available(iOS 10.0, *) {
             let authOptions : UNAuthorizationOptions = [.alert, .badge, .sound]
