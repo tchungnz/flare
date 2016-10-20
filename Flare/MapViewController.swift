@@ -96,11 +96,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func saveFCMTokenToDatabase() {
         facebook.getFacebookID()
-        let token = FIRInstanceID.instanceID().token()
+        if let token = FIRInstanceID.instanceID().token() {
         let tokenRef = ref.child(byAppendingPath: "tokens")
-        let facebookTokenIDs = ["tokenId": token! as String] as [String : Any]
+        let facebookTokenIDs = ["tokenId": token]
         let tokenRef1 = tokenRef.child(facebook.uid!)
         tokenRef1.setValue(facebookTokenIDs)
+        }
     }
     
     @IBAction func pressCentreLocationButton(_ sender: AnyObject) {
