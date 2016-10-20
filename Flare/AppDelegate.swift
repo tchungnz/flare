@@ -24,6 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // Remove badge when app is launched
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        
+        // Check if launched from notification
+        if let notification = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [AnyHashable: Any] {
+            notificationFlareId = notification["flare"] as! String?
+        }
+        
         // Register for notifications
         if #available(iOS 8.0, *) {
             let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
@@ -38,12 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.tokenRefreshNotification(notification:)), name: NSNotification.Name.firInstanceIDTokenRefresh, object: nil)
         
-        
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        
-        self.storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        currentUserView()
-        
+        determineAndSetView()
         return true
     }
     
@@ -54,17 +58,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        FIRInstanceID.instanceID().setAPNSToken(deviceToken as Data, type: FIRInstanceIDAPNSTokenType.prod)
 //    }
     
-    func currentUserView() {
-        let currentUser = FIRAuth.auth()?.currentUser
-        if currentUser != nil
-        {
-            self.window?.rootViewController = self.storyboard?.instantiateViewController(withIdentifier: "mapView")
-        }
-        else
-        {
-            self.window?.rootViewController = self.storyboard?.instantiateViewController(withIdentifier: "rootView")
-        }
-    }
+//    func currentUserView() {
+//        self.storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//        let currentUser = FIRAuth.auth()?.currentUser
+//        if currentUser != nil {
+//            self.window?.rootViewController = self.storyboard?.instantiateViewController(withIdentifier: "mapView")
+//        } else {
+//            self.window?.rootViewController = self.storyboard?.instantiateViewController(withIdentifier: "rootView")
+//        }
+//    }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         let handled = FBSDKApplicationDelegate.sharedInstance().application(application, open: url as URL!, sourceApplication: sourceApplication, annotation: annotation)
@@ -113,38 +115,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func currentUserView2() {
+    func determineAndSetView() {
+        self.storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let currentUser = FIRAuth.auth()?.currentUser
-        if currentUser != nil
-        {
-            var controller = storyboard?.instantiateViewController(withIdentifier: "mapView") as! MapViewController
-            
-            controller.notificationFlareId = notificationFlareId
-            
+        if currentUser != nil {
+            let controller = storyboard?.instantiateViewController(withIdentifier: "mapView") as! MapViewController
+            if notificationFlareId != nil {
+              controller.notificationFlareId = notificationFlareId
+            }
             self.window?.rootViewController = controller
-        }
-        else
-        {
+        } else {
             self.window?.rootViewController = self.storyboard?.instantiateViewController(withIdentifier: "rootView")
         }
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (_ result: UIBackgroundFetchResult) -> Void) {
         
-        if application.applicationState == .inactive {
+        print("RECEIVED NOTIFICATION")
+        let state = application.applicationState
+        
+        if state == .background || state == .inactive {
+            print("Background or Inactive State")
             notificationFlareId = userInfo["flare"] as! String?
-            currentUserView2()
-            UIApplication.shared.applicationIconBadgeNumber = 0
-            completionHandler(.newData)
-
-        } else if application.applicationState == .background {
-            notificationFlareId = userInfo["flare"] as! String?
-            currentUserView2()
+            determineAndSetView()
             UIApplication.shared.applicationIconBadgeNumber = 0
             completionHandler(.newData)
 
         } else {
             //Show an in-app banner
+            print("Active State")
             completionHandler(.newData)
 
         }

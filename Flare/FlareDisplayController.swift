@@ -60,7 +60,7 @@ extension MapViewController {
             var newItems = [Flare]()
             for item in snapshot.children {
                 let data = (item as! FIRDataSnapshot).value! as! NSDictionary
-                if (friendsArray.contains(data["facebookID"] as! String) || data["facebookID"] as! String == self.uid!) {
+                if !(data["isPublic"] as! Bool) && ((friendsArray.contains(data["facebookID"] as! String) || data["facebookID"] as! String == self.uid!)) {
                     let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
                     newItems.insert(newFlare, at: 0)
                 }

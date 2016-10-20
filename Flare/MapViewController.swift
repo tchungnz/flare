@@ -39,8 +39,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidLoad() {
         super.viewDidLoad()
         mapSetUp()
-        getPublic()
+        publicOrFriendsOnLoad()
         waitBeforeDatabaseQuery()
+    }
+    
+    func publicOrFriendsOnLoad() {
+        if notificationFlareId == nil {
+            getPublic()
+        } else {
+            getFriends()
+            self.toggleMapButton.setOn(true, animated: true)
+            self.toggleMapLabel.text = "Friends"
+        }
     }
     
     override func didReceiveMemoryWarning() {

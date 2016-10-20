@@ -30,17 +30,17 @@ extension MapViewController {
         if notificationFlareId != nil {
             retrieveFlareAttributes(flareId: notificationFlareId!) {
                 (result: [Flare]) in
-                var definedCenter = CLLocationCoordinate2D(latitude: result[0].latitude!, longitude: result[0].longitude!)
-                var definedRegion = MKCoordinateRegion(center: definedCenter, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+                let definedCenter = CLLocationCoordinate2D(latitude: result[0].latitude!, longitude: result[0].longitude!)
+                let definedRegion = MKCoordinateRegion(center: definedCenter, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
                 self.setRegion(animated: true, region: definedRegion)
-                self.toggleMapPublicFriends()
+//                self.toggleMapPublicFriends()
             }
         } else if exitMapView != nil {
-            var definedRegion = exitMapView!
+            let definedRegion = exitMapView!
             setRegion(animated: false, region: definedRegion)
         } else {
-            var definedCenter = CLLocationCoordinate2D(latitude: self.location!.coordinate.latitude, longitude: self.location!.coordinate.longitude)
-            var definedRegion = MKCoordinateRegion(center: definedCenter, span: MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08))
+            let definedCenter = CLLocationCoordinate2D(latitude: self.location!.coordinate.latitude, longitude: self.location!.coordinate.longitude)
+            let definedRegion = MKCoordinateRegion(center: definedCenter, span: MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08))
             self.setRegion(animated: true, region: definedRegion)
         }
     }
