@@ -35,8 +35,6 @@
 	<string>1585370808435847</string>
 	<key>FacebookDisplayName</key>
 	<string>Flare</string>
-	<key>FirebaseAppDelegateProxyEnabled</key>
-	<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>

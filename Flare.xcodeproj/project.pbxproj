@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08033D5C1DB93B660092E45E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08033D5B1DB93B660092E45E /* GoogleService-Info.plist */; };
 		08EFE9CF341AC9A8593EF0B9 /* Pods_Flare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C077AF3B95864CEF341C981 /* Pods_Flare.framework */; };
 		246276DA1D85DB0C00D434F5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246276D91D85DB0C00D434F5 /* ProfileViewController.swift */; };
 		24B68D491D8184AB004EE49A /* FlareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B68D481D8184AB004EE49A /* FlareViewController.swift */; };
@@ -32,7 +33,6 @@
 		74F405671D86EA5A00F0A6DC /* MapDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F405661D86EA5A00F0A6DC /* MapDisplayController.swift */; };
 		74F405691D86ECEB00F0A6DC /* FlareDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F405681D86ECEB00F0A6DC /* FlareDisplayController.swift */; };
 		74F8AA591D8955E300AD655B /* CityMapperAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8AA581D8955E300AD655B /* CityMapperAPI.swift */; };
-		8248830A1DA7C7F300CDD162 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 824883091DA7C7F300CDD162 /* GoogleService-Info.plist */; };
 		826E4E991D81CA6F00CA4493 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826E4E981D81CA6F00CA4493 /* RootViewController.swift */; };
 		8273F3041D899D9100E62350 /* LogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8273F3031D899D9100E62350 /* LogOutViewController.swift */; };
 		8273F3061D899F1200E62350 /* facebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8273F3051D899F1200E62350 /* facebook.swift */; };
@@ -59,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		071010AADE24D7DACD9ABDC4 /* Pods-Flare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flare.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flare/Pods-Flare.release.xcconfig"; sourceTree = "<group>"; };
+		08033D5B1DB93B660092E45E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		08D1BDDF1DA6A853007EF1A0 /* Flare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flare.entitlements; sourceTree = "<group>"; };
 		1C077AF3B95864CEF341C981 /* Pods_Flare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		246276D91D85DB0C00D434F5 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -90,7 +91,6 @@
 		74F405661D86EA5A00F0A6DC /* MapDisplayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDisplayController.swift; sourceTree = "<group>"; };
 		74F405681D86ECEB00F0A6DC /* FlareDisplayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlareDisplayController.swift; sourceTree = "<group>"; };
 		74F8AA581D8955E300AD655B /* CityMapperAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityMapperAPI.swift; sourceTree = "<group>"; };
-		824883091DA7C7F300CDD162 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		826E4E981D81CA6F00CA4493 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		8273F3031D899D9100E62350 /* LogOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogOutViewController.swift; sourceTree = "<group>"; };
 		8273F3051D899F1200E62350 /* facebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = facebook.swift; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 				08D1BDDF1DA6A853007EF1A0 /* Flare.entitlements */,
 				8296B41D1D86BFC400F3B1A7 /* Lib */,
 				6A7ED8851D7F2E94005FF0A8 /* AppDelegate.swift */,
-				824883091DA7C7F300CDD162 /* GoogleService-Info.plist */,
+				08033D5B1DB93B660092E45E /* GoogleService-Info.plist */,
 				8296B41C1D86BF8900F3B1A7 /* Controllers */,
 				6A7ED8891D7F2E94005FF0A8 /* Main.storyboard */,
 				6A7ED88C1D7F2E94005FF0A8 /* Assets.xcassets */,
@@ -423,7 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A7ED8901D7F2E94005FF0A8 /* LaunchScreen.storyboard in Resources */,
-				8248830A1DA7C7F300CDD162 /* GoogleService-Info.plist in Resources */,
+				08033D5C1DB93B660092E45E /* GoogleService-Info.plist in Resources */,
 				6A7ED88D1D7F2E94005FF0A8 /* Assets.xcassets in Resources */,
 				6A7ED88B1D7F2E94005FF0A8 /* Main.storyboard in Resources */,
 			);
