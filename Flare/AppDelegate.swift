@@ -129,7 +129,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (_ result: UIBackgroundFetchResult) -> Void) {
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         
         print("RECEIVED NOTIFICATION")
         let state = application.applicationState
@@ -137,18 +137,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if state == .background || state == .inactive {
             print("Background or Inactive State")
             notificationFlareId = userInfo["flare"] as! String?
+            print(notificationFlareId)
             determineAndSetView()
             UIApplication.shared.applicationIconBadgeNumber = 0
-            completionHandler(.newData)
-
+            
         } else {
             //Show an in-app banner
             print("Active State")
-            completionHandler(.newData)
-
+            
         }
     }
-    
     
 }
 
