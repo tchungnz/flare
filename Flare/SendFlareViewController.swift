@@ -71,7 +71,7 @@ extension FlareViewController: CLLocationManagerDelegate {
                 if Double(flare.timestamp!) >= self.timeHalfHourAgo! {
                     usersFlares.insert(flare, at: 0)
                 }
-                if usersFlares.count > self.maximumSentFlares {
+                if usersFlares.count >= self.maximumSentFlares {
                     self.letFlareSave = false
                 } else {
                     self.letFlareSave = true
