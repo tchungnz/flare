@@ -18,7 +18,8 @@ class RootViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.loginButton.isHidden = true
+        self.loginButton.isHidden = false
+ 
         FIRAuth.auth()?.addStateDidChangeListener { auth, user in
             if let user = user {
                 let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
@@ -32,6 +33,7 @@ class RootViewController: UIViewController, FBSDKLoginButtonDelegate {
                 self.loginButton.isHidden = false
             }
         }
+    
     }
 
     override func didReceiveMemoryWarning() {

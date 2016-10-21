@@ -44,12 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FIRApp.configure()
         
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.tokenRefreshNotification(notification:)), name: NSNotification.Name.firInstanceIDTokenRefresh, object: nil)
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        print("*****************")
-        print(FIRInstanceID.instanceID().token())
         determineAndSetView()
         return true
     }
@@ -109,7 +106,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func determineAndSetView() {
         self.storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let currentUser = FIRAuth.auth()?.currentUser
-        if currentUser != nil {
+        var accessToken = FBSDKAccessToken.current()
+        if accessToken == nil {
+            try! FIRAuth.auth()!.signOut()
+            let currentUser = FIRAuth.auth()?.currentUser
+        }
+        if currentUser != nil && accessToken != nil {
             let controller = storyboard?.instantiateViewController(withIdentifier: "mapView") as! MapViewController
             if notificationFlareId != nil {
               controller.notificationFlareId = notificationFlareId
