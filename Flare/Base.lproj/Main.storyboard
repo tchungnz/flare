@@ -29,8 +29,7 @@
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Fs-ET-2bv">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVz-lK-OEt">
-                                                <frame key="frameInset" minX="8" minY="11" width="44" height="44"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVz-lK-OEt">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="44" id="DJJ-sq-SaE"/>
                                                     <constraint firstAttribute="height" constant="44" id="Lh3-tQ-Rm8"/>
@@ -43,67 +42,41 @@
                                                     <segue destination="BYZ-38-t0r" kind="presentation" id="ToR-kJ-yvd"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No active flare" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="I7i-XN-ACq" userLabel="activeFlareLabel">
-                                                <frame key="frameInset" minX="18" minY="376" width="116" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Current Flare:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQj-FE-i3f">
-                                                <frame key="frameInset" minX="17" minY="344" width="128" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="redCamera" translatesAutoresizingMaskIntoConstraints="NO" id="NEg-Zd-yHU">
-                                                <frame key="frameInset" minX="151" minY="11" width="75" height="75"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redCamera" translatesAutoresizingMaskIntoConstraints="NO" id="NEg-Zd-yHU">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="75" id="4ql-LR-6wi"/>
                                                     <constraint firstAttribute="width" constant="75" id="pPg-nY-Fmx"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="xzJ-ul-mp3" userLabel="Name">
-                                                <frame key="frameInset" minX="20" minY="89" width="335" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="xzJ-ul-mp3" userLabel="Name">
                                                 <accessibility key="accessibilityConfiguration" identifier="nameLabel"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aUh-Sc-Vpc">
-                                                <frame key="frameInset" minX="18" minY="147" width="335" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="275" id="e4W-a3-XHI"/>
-                                                </constraints>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done"/>
-                                            </textField>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grT-iD-bPW">
-                                                <frame key="frameInset" minX="20" minY="185" width="338" height="29"/>
-                                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grT-iD-bPW">
+                                                <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="275" id="HFG-i9-Dhb"/>
                                                 </constraints>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Invite Friend"/>
+                                                <state key="normal" title="Invite Facebook Friends"/>
                                                 <connections>
                                                     <action selector="inviteLink:" destination="UKo-9T-1TW" eventType="touchUpInside" id="0Ma-9N-q6F"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxT-UP-MTK">
-                                                <frame key="frameInset" minX="18" minY="238" width="340" height="30"/>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxT-UP-MTK">
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="275" id="HJq-b1-7mP"/>
                                                 </constraints>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Share"/>
+                                                <state key="normal" title="Invite Contact"/>
                                                 <connections>
                                                     <action selector="shareLink:" destination="UKo-9T-1TW" eventType="touchUpInside" id="JFj-yh-Rek"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q47-cd-UyB">
-                                                <frame key="frameInset" minX="17" minY="291" width="341" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q47-cd-UyB">
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="275" id="XA9-ho-GA6"/>
@@ -116,23 +89,12 @@
                                                     <action selector="feedbackLink:" destination="UKo-9T-1TW" eventType="touchUpInside" id="z4X-4P-XAI"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Friends Using Flare:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUs-Au-oX2">
-                                                <frame key="frameInset" minX="17" minY="418" width="185.5" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="None" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nD3-cg-QAm">
-                                                <frame key="frameInset" minX="19" minY="450" width="338" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="340" id="bCv-qS-xEQ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMM-my-hQ3">
-                                                <frame key="frameInset" minY="612" width="375" height="30"/>
+                                                <frame key="frameInset" minX="110" minY="612" width="159" height="30"/>
+                                                <color key="backgroundColor" white="0.88821308724832215" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="pL2-sv-npx"/>
+                                                </constraints>
                                                 <state key="normal" title="Log Out">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -140,36 +102,43 @@
                                                     <action selector="logOutAction:" destination="UKo-9T-1TW" eventType="touchUpInside" id="Ecq-js-9XQ"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Facebook Friends On Flare:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUs-Au-oX2">
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="customcell" rowHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="dmL-PX-dR0">
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dmL-PX-dR0" id="t1r-OT-LHv">
+                                                    <frame key="frameInset" width="320" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="375" id="KDH-eC-9xy"/>
+                                                </constraints>
+                                            </tableViewCell>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="AxT-UP-MTK" firstAttribute="top" secondItem="grT-iD-bPW" secondAttribute="bottom" constant="20" id="3dJ-IC-BoK"/>
-                                            <constraint firstItem="I7i-XN-ACq" firstAttribute="leading" secondItem="0Fs-ET-2bv" secondAttribute="leading" constant="20" id="86A-vQ-zMZ"/>
                                             <constraint firstItem="xzJ-ul-mp3" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="9Y3-qP-Dvr"/>
-                                            <constraint firstItem="I7i-XN-ACq" firstAttribute="top" secondItem="SQj-FE-i3f" secondAttribute="bottom" constant="5" id="B0E-hk-OQY"/>
-                                            <constraint firstItem="aUh-Sc-Vpc" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="Bt4-m4-R8L"/>
+                                            <constraint firstItem="dmL-PX-dR0" firstAttribute="top" secondItem="GUs-Au-oX2" secondAttribute="bottom" constant="10" id="A5t-9Y-fiI"/>
                                             <constraint firstItem="TVz-lK-OEt" firstAttribute="leading" secondItem="0Fs-ET-2bv" secondAttribute="leading" constant="15" id="CWZ-AS-5XD"/>
-                                            <constraint firstItem="VMM-my-hQ3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="nD3-cg-QAm" secondAttribute="bottom" constant="141" id="DdP-dv-JmJ"/>
+                                            <constraint firstItem="grT-iD-bPW" firstAttribute="top" secondItem="xzJ-ul-mp3" secondAttribute="bottom" constant="50" id="DCJ-DR-WhQ"/>
                                             <constraint firstItem="VMM-my-hQ3" firstAttribute="leading" secondItem="0Fs-ET-2bv" secondAttribute="leading" id="ES1-f4-HyP"/>
                                             <constraint firstItem="GUs-Au-oX2" firstAttribute="leading" secondItem="0Fs-ET-2bv" secondAttribute="leading" constant="20" id="HE1-yF-4Ss"/>
-                                            <constraint firstItem="SQj-FE-i3f" firstAttribute="leading" secondItem="0Fs-ET-2bv" secondAttribute="leading" constant="20" id="Hbw-Df-Y2h"/>
                                             <constraint firstItem="NEg-Zd-yHU" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="I3V-gW-EIY"/>
                                             <constraint firstItem="VMM-my-hQ3" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="JEz-OD-KXn"/>
                                             <constraint firstItem="q47-cd-UyB" firstAttribute="top" secondItem="AxT-UP-MTK" secondAttribute="bottom" constant="20" id="Jcy-Fj-jwf"/>
                                             <constraint firstItem="q47-cd-UyB" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="Joz-xI-dAU"/>
-                                            <constraint firstItem="grT-iD-bPW" firstAttribute="top" secondItem="aUh-Sc-Vpc" secondAttribute="bottom" constant="5" id="PRz-mq-jOU"/>
+                                            <constraint firstItem="GUs-Au-oX2" firstAttribute="top" secondItem="q47-cd-UyB" secondAttribute="bottom" constant="30" id="MgQ-Mf-NgQ"/>
                                             <constraint firstAttribute="trailing" secondItem="VMM-my-hQ3" secondAttribute="trailing" id="REg-g4-o6d"/>
                                             <constraint firstItem="NEg-Zd-yHU" firstAttribute="top" secondItem="0Fs-ET-2bv" secondAttribute="top" constant="25" id="Rdv-vn-Qst"/>
                                             <constraint firstItem="grT-iD-bPW" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="YtW-a7-NXi"/>
                                             <constraint firstItem="TVz-lK-OEt" firstAttribute="top" secondItem="0Fs-ET-2bv" secondAttribute="top" constant="25" id="cnc-U7-2de"/>
-                                            <constraint firstItem="aUh-Sc-Vpc" firstAttribute="top" secondItem="xzJ-ul-mp3" secondAttribute="bottom" constant="30" id="gnd-4a-Wvg"/>
-                                            <constraint firstItem="nD3-cg-QAm" firstAttribute="leading" secondItem="0Fs-ET-2bv" secondAttribute="leading" constant="20" id="goO-jS-ozq"/>
                                             <constraint firstItem="AxT-UP-MTK" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="h8f-hm-Auk"/>
                                             <constraint firstAttribute="bottom" secondItem="VMM-my-hQ3" secondAttribute="bottom" constant="15" id="hkq-ey-siM"/>
                                             <constraint firstItem="xzJ-ul-mp3" firstAttribute="top" secondItem="NEg-Zd-yHU" secondAttribute="bottom" constant="10" id="k9f-zp-L35"/>
-                                            <constraint firstItem="nD3-cg-QAm" firstAttribute="top" secondItem="GUs-Au-oX2" secondAttribute="bottom" constant="5" id="lG5-H4-iOL"/>
-                                            <constraint firstItem="GUs-Au-oX2" firstAttribute="top" secondItem="I7i-XN-ACq" secondAttribute="bottom" constant="25" id="oeL-oM-d0u"/>
-                                            <constraint firstItem="SQj-FE-i3f" firstAttribute="top" secondItem="q47-cd-UyB" secondAttribute="bottom" constant="30" id="z6E-wP-mhe"/>
+                                            <constraint firstItem="dmL-PX-dR0" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="rX7-1K-pIk"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -193,11 +162,10 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="activeFlareLabel" destination="I7i-XN-ACq" id="kob-Me-lpN"/>
+                        <outlet property="facebookFriends" destination="dmL-PX-dR0" id="VGZ-dL-9Ou"/>
                         <outlet property="feedbackLink" destination="q47-cd-UyB" id="RAU-eM-WXS"/>
-                        <outlet property="friendEmailAddress" destination="aUh-Sc-Vpc" id="A6F-L1-jZU"/>
-                        <outlet property="friendsListText" destination="nD3-cg-QAm" id="hlt-R7-ahP"/>
                         <outlet property="inviteFriendLink" destination="grT-iD-bPW" id="iTF-Ov-IKS"/>
+                        <outlet property="logOutButton" destination="VMM-my-hQ3" id="OXu-Xo-rjd"/>
                         <outlet property="name" destination="xzJ-ul-mp3" id="ZiG-b5-iXs"/>
                         <outlet property="profilePic" destination="NEg-Zd-yHU" id="Hpe-dy-S33"/>
                         <outlet property="scrollView" destination="OTk-fM-qe6" id="pg4-Pu-NaA"/>

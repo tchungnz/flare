@@ -11,17 +11,19 @@ import FirebaseAuth
 import FBSDKCoreKit
 import FirebaseDatabase
 import SwiftyJSON
+import FBSDKShareKit
 
-class ProfileViewController: UIViewController, UITextFieldDelegate {
+class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate {
+    
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var activeFlareLabel: UILabel!
     @IBOutlet weak var feedbackLink: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var inviteFriendLink: UIButton!
     @IBOutlet weak var shareFriendLink: UIButton!
-    @IBOutlet weak var friendsListText: UILabel!
-    @IBOutlet weak var friendEmailAddress: UITextField!
+//    @IBOutlet weak var friendsListText: UILabel!
+    @IBOutlet weak var logOutButton: UIButton!
+    @IBOutlet weak var facebookFriendsList: UITableView!
     
     var databaseRef: FIRDatabaseReference!
     var flareArray = [Flare]()
@@ -32,25 +34,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         roundButtons()
-        enableKeyboardDisappear()
-        retrieveAndSetFacebookFriends()
+//        retrieveAndSetFacebookFriends()
         setProfilePhotoAndName()
-        setActiveFlare()
-    
-    }
-    
-    func setActiveFlare() {
-        databaseRef = FIRDatabase.database().reference().child("flares")
-        databaseRef.queryOrdered(byChild: "subtitle").queryEqual(toValue: name.text).queryLimited(toLast: 1).observe(.value, with: { (snapshot) in
-            
-            for item in snapshot.children {
-                let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
-                self.activeFlareLabel.text = newFlare.title!
-            }
-            })
-        { (error) in
-            print(error.localizedDescription)
-        }
     }
     
     func setProfilePhotoAndName() {
@@ -65,24 +50,19 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func retrieveAndSetFacebookFriends() {
-        facebook.getFacebookFriends("name") {
-            (result: [String]) in
-            self.setLabelText(result)
-        }
-    }
-    
-    func enableKeyboardDisappear() {
-        self.friendEmailAddress.delegate = self
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("dismissKeyboard")))
-    }
-    
-    func setLabelText(_ result: [String]) {
-        var friendNames = String()
-        print(friendNames)
-        friendNames = result.joined(separator: "\n")
-        friendsListText.text = String(friendNames)
-    }
+//    func retrieveAndSetFacebookFriends() {
+//        facebook.getFacebookFriends("name") {
+//            (result: [String]) in
+//            self.setLabelText(result)
+//        }
+//    }
+//    
+//    func setLabelText(_ result: [String]) {
+//        var friendNames = String()
+//        print(friendNames)
+//        friendNames = result.joined(separator: "\n")
+//        friendsListText.text = String(friendNames)
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -96,42 +76,24 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         UIApplication.shared.openURL(URL(string: "https://flarefeedback.typeform.com/to/Bq5Sah")!)
     }
     
-    @IBAction func inviteLink(_ sender: AnyObject) {
-        if self.friendEmailAddress.text != "" && self.validateEmail(email: self.friendEmailAddress.text!) {
-                saveEmailToDatabase()
-                self.friendEmailAddress.text = ""
-            } else {
-                self.displayAlertMessage("Please enter a valid email address")
-                return
-            }
-        }
-
-    func saveEmailToDatabase() {
-        if let user = FIRAuth.auth()?.currentUser {
-        let emailInviteRef = ref.child(byAppendingPath: "email invites").childByAutoId()
-        let newEmailInvite = ["inviter": user.email! as String, "invitee": self.friendEmailAddress.text! as String]
-        emailInviteRef.setValue(newEmailInvite)
-        }
-    }
+    // refactor into separate class (duplicate in flareview)
+//    func displayAlertMessage(_ message: String)
+//    {
+//        let myAlert = UIAlertController(title: "Oops", message: message, preferredStyle: UIAlertControllerStyle.alert)
+//        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
+//        myAlert.addAction(okAction)
+//        self.present(myAlert, animated: true, completion: nil)
+//    }
     
     // refactor into separate class (duplicate in flareview)
-    func displayAlertMessage(_ message: String)
-    {
-        let myAlert = UIAlertController(title: "Oops", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
-        myAlert.addAction(okAction)
-        self.present(myAlert, animated: true, completion: nil)
-    }
-    
-    // refactor into separate class (duplicate in flareview)
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        self.view.endEditing(true)
+//        return false
+//    }
     
     @IBAction func shareLink(_ sender: AnyObject) {
         // text to share
-        let text = "Hi! Come join me on Flare by signing up to the iOS beta: https://flarebeta.typeform.com/to/PTAVlO"
+        let text = "Hi! Come join me on Flare, it lets you share and discover spontaneous moments: https://itunes.apple.com/us/app/flare-share-discover-spontaneous/id1166173727?ls=1&mt=8"
         
         // set up activity view controller
         let objectsToShare: [AnyObject] = [ text as AnyObject ]
@@ -150,15 +112,18 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         self.feedbackLink.layer.cornerRadius = 10;
         self.inviteFriendLink.layer.cornerRadius = 10;
         self.shareFriendLink.layer.cornerRadius = 10;
+        self.logOutButton.layer.cornerRadius = 10;
     }
     
-    func dismissKeyboard() {
-        friendEmailAddress.resignFirstResponder()
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
     }
     
-    func validateEmail(email: String) -> Bool {
-    let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
-    return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customcell", for: indexPath as IndexPath) 
+        cell.textLabel?.text = "test"
+        return cell
     }
+    
 
 }

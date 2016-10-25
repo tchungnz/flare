@@ -23,8 +23,11 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.earth.flare</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>flare</string>
 				<string>fb1585370808435847</string>
 			</array>
 		</dict>
