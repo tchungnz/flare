@@ -10,10 +10,12 @@ import Foundation
 import FirebaseAuth
 import FBSDKCoreKit
 import FirebaseDatabase
+import Firebase
 
 extension ProfileViewController {
     
     func logout() {
+        FIRAnalytics.logEvent(withName: "user_logged_out", parameters: nil)
         let user = FIRAuth.auth()?.currentUser
         try! FIRAuth.auth()?.signOut()
         FBSDKAccessToken.setCurrent(nil)

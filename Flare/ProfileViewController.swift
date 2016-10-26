@@ -12,6 +12,8 @@ import FBSDKCoreKit
 import FirebaseDatabase
 import SwiftyJSON
 import MessageUI
+import Firebase
+
 
 class ProfileViewController: UIViewController, UITextFieldDelegate, MFMessageComposeViewControllerDelegate {
     
@@ -37,6 +39,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, MFMessageCom
         roundButtons()
         setProfilePhotoAndName()
         retrieveAndSetFacebookFriends()
+        FIRAnalytics.logEvent(withName: "profile_view", parameters: nil)
         
     }
     
@@ -76,6 +79,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, MFMessageCom
     
     @IBAction func feedbackLink(_ sender: AnyObject) {
         UIApplication.shared.openURL(URL(string: "https://flarefeedback.typeform.com/to/Bq5Sah")!)
+        FIRAnalytics.logEvent(withName: "feedback_link", parameters: nil)
+
     }
     
     // refactor into separate class (duplicate in flareview)
@@ -107,6 +112,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, MFMessageCom
         
         // present the view controller
         self.present(activityViewController, animated: true, completion: nil)
+        FIRAnalytics.logEvent(withName: "share_link", parameters: nil)
+
     }
 
     @IBAction func textCEO(_ sender: AnyObject) {
@@ -117,6 +124,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, MFMessageCom
         messageVC.messageComposeDelegate = self;
         
         self.present(messageVC, animated: false, completion: nil)
+        FIRAnalytics.logEvent(withName: "text_ceo", parameters: nil)
+
     }
     
     

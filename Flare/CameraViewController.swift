@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import AVFoundation
+import Firebase
 
 extension FlareViewController {
     
@@ -80,8 +81,10 @@ extension FlareViewController {
                     let image = UIImage(cgImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.right)
                     if self.self.backCamera == true {
                         self.tempImageView.image = image
+                        FIRAnalytics.logEvent(withName: "back_camera_flare", parameters: nil)
                     } else {
                         self.tempImageView.image = self.flipImage(image)
+                        FIRAnalytics.logEvent(withName: "front_camera_flare", parameters: nil)
                     }
                     self.tempImageView.isHidden = false
                     self.flareTitle.isHidden = false

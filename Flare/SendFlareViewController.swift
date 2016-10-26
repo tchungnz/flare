@@ -19,6 +19,7 @@ extension FlareViewController: CLLocationManagerDelegate {
         if self.flareTitle.text != "" {
             saveFlareToDatabase(imageString)
             uploadImage(imageString)
+            FIRAnalytics.logEvent(withName: "flare_sent", parameters: nil)
         } else {
             self.displayAlertMessage("Please enter a title")
             return
@@ -48,7 +49,10 @@ extension FlareViewController: CLLocationManagerDelegate {
         let flareUniqueRef = flareRef.childByAutoId()
         flareUniqueRef.setValue(newFlare)
         if self.isPublicFlare == false {
-         self.saveNotifications(flareRef: String(describing: flareUniqueRef))
+            FIRAnalytics.logEvent(withName: "public_flare_sent", parameters: nil)
+            self.saveNotifications(flareRef: String(describing: flareUniqueRef))
+        } else {
+            FIRAnalytics.logEvent(withName: "friends_flare_sent", parameters: nil)
         }
     }
     

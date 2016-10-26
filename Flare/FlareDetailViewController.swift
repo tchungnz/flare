@@ -40,6 +40,7 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         setupScrollView()
         setupLabels()
         populateFlares()
+        FIRAnalytics.logEvent(withName: "flare_detail_view", parameters: nil)
     }
     
     func setupLabels() {
@@ -104,15 +105,16 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         let report = ["reporter": user!.email! as String, "flareID": (self.flareExport?.flareId!)! as String, "focus": focus as String ] as [String : Any]
         let reportUniqueRef = reportRef.childByAutoId()
         reportUniqueRef.setValue(report)
+        FIRAnalytics.logEvent(withName: "flare_reported", parameters: nil)
     }
     
     
     @IBAction func reportFlareAction(_ sender: AnyObject) {
-        var reportActionSheet = UIAlertController(title: "Report?", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-        let reportFlareButtonAction = UIAlertAction(title: "Flare", style: UIAlertActionStyle.default) { (ACTION) in
+        var reportActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let reportFlareButtonAction = UIAlertAction(title: "Report Innapropriate Flare", style: UIAlertActionStyle.default) { (ACTION) in
             self.sendReportToDatabase(focus: "flare")
         }
-        let reportUserButtonAction = UIAlertAction(title: "User", style: UIAlertActionStyle.default) { (ACTION) in
+        let reportUserButtonAction = UIAlertAction(title: "Report Innapropriate User", style: UIAlertActionStyle.default) { (ACTION) in
             self.sendReportToDatabase(focus: "user")
         }
         let cancelReportButtonAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { (ACTION) in
@@ -123,13 +125,12 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         reportActionSheet.addAction(cancelReportButtonAction)
         
         present(reportActionSheet, animated: true, completion: nil)
-        
-        print(flareExport)
     }
 
     @IBAction func CityMapperNavigation(_ sender: AnyObject) {
         if let url = URL(string: "https://citymapper.com/directions?endcoord=\(flareExport!.latitude!)%2C\(flareExport!.longitude!)") {
             UIApplication.shared.openURL(url as URL)
+            FIRAnalytics.logEvent(withName: "directions_selected", parameters: nil)
         }
     }
 
@@ -138,6 +139,7 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func toggle(_ sender: AnyObject) {
+        FIRAnalytics.logEvent(withName: "flare_detail_bar_toggle", parameters: nil)
         if flareDetailBar.isHidden == true {
             UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
                 self.flareDetailBar.alpha = 1

@@ -59,6 +59,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
 
     @IBAction func toggleMapButton(_ sender: UISwitch) {
+        FIRAnalytics.logEvent(withName: "toggle_map_public_friends", parameters: nil)
         if toggleMapButton.isOn {
             toggleMapLabel.text = "Friends"
             getFriends()
@@ -106,6 +107,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     @IBAction func pressCentreLocationButton(_ sender: AnyObject) {
+        FIRAnalytics.logEvent(withName: "centre_location", parameters: nil)
         self.notificationFlareId = nil
         self.exitMapView = nil
         mapSetUp()
