@@ -35,6 +35,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var ref = FIRDatabase.database().reference()
     var notificationFlareId: String?
     var location: CLLocation?
+    var flareId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()

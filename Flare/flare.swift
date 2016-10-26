@@ -18,6 +18,7 @@ class Flare: MKPointAnnotation{
     var imageRef: String?
     var timestamp: Int?
     var isPublic: Bool?
+    var flareId: String?
     
     init(snapshot: FIRDataSnapshot) {
         super.init()
@@ -32,6 +33,7 @@ class Flare: MKPointAnnotation{
         CLLocationDegrees, longitude: self.longitude! as CLLocationDegrees)
         self.timestamp = (snapshotValue?["timestamp"] as? Int?)!
         self.isPublic = (snapshotValue?["isPublic"] as? Bool?)!
+        self.flareId = snapshot.key
     }
     
 }

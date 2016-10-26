@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MgA-qe-Vm4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MgA-qe-Vm4">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -586,24 +586,38 @@ remaining</string>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fK-9b-Liz">
+                                                <frame key="frameInset" minX="302" minY="76" width="46" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="Report">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="reportFlareAction:" destination="J6G-JP-XHO" eventType="touchUpInside" id="Mbq-xC-yrf"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="3a0-QX-8qU" firstAttribute="leading" secondItem="7mq-EO-ySW" secondAttribute="leading" id="2bA-1Z-Xpw"/>
-                                            <constraint firstItem="qGy-5f-rRT" firstAttribute="baseline" secondItem="7mq-EO-ySW" secondAttribute="firstBaseline" id="3wK-s3-ODB"/>
+                                            <constraint firstItem="qGy-5f-rRT" firstAttribute="baseline" secondItem="7mq-EO-ySW" secondAttribute="firstBaseline" constant="30" id="3wK-s3-ODB"/>
                                             <constraint firstItem="qGy-5f-rRT" firstAttribute="leading" secondItem="e7w-jM-1WI" secondAttribute="leading" id="402-ih-cuo"/>
+                                            <constraint firstItem="2fK-9b-Liz" firstAttribute="top" secondItem="nct-GA-LBe" secondAttribute="top" constant="76" id="7vI-vD-E5A"/>
                                             <constraint firstItem="e7w-jM-1WI" firstAttribute="top" secondItem="nct-GA-LBe" secondAttribute="top" constant="72" id="D6F-41-agY"/>
-                                            <constraint firstItem="e7w-jM-1WI" firstAttribute="baseline" secondItem="7mq-EO-ySW" secondAttribute="baseline" id="GgC-TI-koG"/>
+                                            <constraint firstItem="e7w-jM-1WI" firstAttribute="baseline" secondItem="7mq-EO-ySW" secondAttribute="baseline" constant="30" id="GgC-TI-koG"/>
                                             <constraint firstItem="qGy-5f-rRT" firstAttribute="leading" secondItem="nct-GA-LBe" secondAttribute="leading" constant="25" id="I9N-12-2Fu"/>
+                                            <constraint firstItem="2fK-9b-Liz" firstAttribute="centerX" secondItem="7mq-EO-ySW" secondAttribute="centerX" id="QZu-tM-eAi"/>
                                             <constraint firstItem="3a0-QX-8qU" firstAttribute="trailing" secondItem="7mq-EO-ySW" secondAttribute="trailing" id="WUX-AS-DFr"/>
                                             <constraint firstAttribute="bottom" secondItem="e7w-jM-1WI" secondAttribute="bottom" id="XeY-Vw-Fqa"/>
                                             <constraint firstItem="qGy-5f-rRT" firstAttribute="top" secondItem="nct-GA-LBe" secondAttribute="top" constant="5" id="cRI-g1-Ibe"/>
                                             <constraint firstItem="3a0-QX-8qU" firstAttribute="leading" secondItem="e7w-jM-1WI" secondAttribute="trailing" constant="8" symbolic="YES" id="cic-X8-kN4"/>
-                                            <constraint firstItem="3a0-QX-8qU" firstAttribute="top" secondItem="nct-GA-LBe" secondAttribute="top" constant="37" id="gCJ-OT-Kzk"/>
-                                            <constraint firstItem="7mq-EO-ySW" firstAttribute="top" secondItem="nct-GA-LBe" secondAttribute="top" constant="71" id="gI1-lA-Y9b"/>
+                                            <constraint firstItem="3a0-QX-8qU" firstAttribute="top" secondItem="nct-GA-LBe" secondAttribute="top" constant="17" id="gCJ-OT-Kzk"/>
+                                            <constraint firstItem="7mq-EO-ySW" firstAttribute="top" secondItem="nct-GA-LBe" secondAttribute="top" constant="41" id="gI1-lA-Y9b"/>
                                             <constraint firstItem="3a0-QX-8qU" firstAttribute="leading" secondItem="qGy-5f-rRT" secondAttribute="trailing" constant="8" symbolic="YES" id="hc1-Mi-LVx"/>
                                             <constraint firstAttribute="trailing" secondItem="3a0-QX-8qU" secondAttribute="trailing" constant="20" id="ifh-gd-vZD"/>
-                                            <constraint firstItem="3a0-QX-8qU" firstAttribute="centerY" secondItem="nct-GA-LBe" secondAttribute="centerY" id="zSz-lM-sKK"/>
+                                            <constraint firstItem="2fK-9b-Liz" firstAttribute="top" secondItem="7mq-EO-ySW" secondAttribute="bottom" constant="-3" id="mEg-Cp-CuF"/>
+                                            <constraint firstAttribute="trailing" secondItem="2fK-9b-Liz" secondAttribute="trailing" constant="27" id="nxv-c8-NIZ"/>
+                                            <constraint firstItem="3a0-QX-8qU" firstAttribute="centerY" secondItem="nct-GA-LBe" secondAttribute="centerY" constant="-20" id="zSz-lM-sKK"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0E-M0-ZqG">
@@ -729,6 +743,7 @@ remaining</string>
                         <outlet property="flareSubtitleLabel" destination="e7w-jM-1WI" id="dgc-Jh-YXP"/>
                         <outlet property="flareTimeRemainingCountdown" destination="3a0-QX-8qU" id="YLg-Dg-CQ6"/>
                         <outlet property="flareTitleLabel" destination="qGy-5f-rRT" id="0aO-qb-6qT"/>
+                        <outlet property="reportFlare" destination="2fK-9b-Liz" id="5fB-Yx-eK4"/>
                         <outlet property="scrollView" destination="381-kp-Qh5" id="rx9-6m-ies"/>
                     </connections>
                 </viewController>
@@ -813,7 +828,7 @@ remaining</string>
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ToR-kJ-yvd"/>
+        <segue reference="ns2-iy-AlJ"/>
         <segue reference="0Z5-td-Zn0"/>
     </inferredMetricsTieBreakers>
 </document>

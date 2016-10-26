@@ -24,11 +24,13 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var cityMapperButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var distanceToFlare: UILabel!
+    @IBOutlet weak var reportFlare: UIButton!
     
     let navBar = UINavigationBar()
     var flareExport: Flare?
     var databaseRef: FIRDatabaseReference!
     var exitMapView: MKCoordinateRegion?
+    var ref = FIRDatabase.database().reference()
     
     let locationManager = CLLocationManager()
     
@@ -87,9 +89,43 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         let flarePostedTime = Double(flareExport!.timestamp!)
         let flareTimeRemaining = currentTimeInMilliseconds - flarePostedTime
         let flareTimeRemainingInMinutes = 120 - Int(flareTimeRemaining / 60 / 1000)
-        flareTimeRemainingInMinutes <= 0 ? (flareTimeRemainingCountdown.text = "0") : (flareTimeRemainingCountdown.text = String(flareTimeRemainingInMinutes))
+        if flareTimeRemainingInMinutes < 0 {
+            flareTimeRemainingCountdown.text = "0"
+        } else if flareTimeRemainingInMinutes > 120 {
+            flareTimeRemainingCountdown.text = "120"
+        } else {
+            flareTimeRemainingCountdown.text = String(flareTimeRemainingInMinutes)
+        }
     }
     
+    func sendReportToDatabase(focus: String) {
+        let reportRef = self.ref.child(byAppendingPath: "reports")
+        let user = FIRAuth.auth()?.currentUser
+        let report = ["reporter": user!.email! as String, "flareID": (self.flareExport?.flareId!)! as String, "focus": focus as String ] as [String : Any]
+        let reportUniqueRef = reportRef.childByAutoId()
+        reportUniqueRef.setValue(report)
+    }
+    
+    
+    @IBAction func reportFlareAction(_ sender: AnyObject) {
+        var reportActionSheet = UIAlertController(title: "Report?", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let reportFlareButtonAction = UIAlertAction(title: "Flare", style: UIAlertActionStyle.default) { (ACTION) in
+            self.sendReportToDatabase(focus: "flare")
+        }
+        let reportUserButtonAction = UIAlertAction(title: "User", style: UIAlertActionStyle.default) { (ACTION) in
+            self.sendReportToDatabase(focus: "user")
+        }
+        let cancelReportButtonAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { (ACTION) in
+        }
+        
+        reportActionSheet.addAction(reportFlareButtonAction)
+        reportActionSheet.addAction(reportUserButtonAction)
+        reportActionSheet.addAction(cancelReportButtonAction)
+        
+        present(reportActionSheet, animated: true, completion: nil)
+        
+        print(flareExport)
+    }
 
     @IBAction func CityMapperNavigation(_ sender: AnyObject) {
         if let url = URL(string: "https://citymapper.com/directions?endcoord=\(flareExport!.latitude!)%2C\(flareExport!.longitude!)") {
