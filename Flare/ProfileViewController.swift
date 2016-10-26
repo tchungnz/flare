@@ -11,8 +11,10 @@ import FirebaseAuth
 import FBSDKCoreKit
 import FirebaseDatabase
 import SwiftyJSON
+import MessageUI
 
-class ProfileViewController: UIViewController, UITextFieldDelegate {
+class ProfileViewController: UIViewController, UITextFieldDelegate, MFMessageComposeViewControllerDelegate {
+    
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var feedbackLink: UIButton!
@@ -20,8 +22,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var inviteFriendLink: UIButton!
     @IBOutlet weak var shareFriendLink: UIButton!
     @IBOutlet weak var friendsListText: UILabel!
-    @IBOutlet weak var logoutButton: UIButton!
-    
+    @IBOutlet weak var textCEO: UIButton!
+    @IBOutlet weak var endUserAgreement: UIButton!
+    @IBOutlet weak var logOut: UIButton!
+   
     var databaseRef: FIRDatabaseReference!
     var flareArray = [Flare]()
     var facebook = Facebook()
@@ -30,8 +34,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setProfilePhotoAndName()
         roundButtons()
+        setProfilePhotoAndName()
         retrieveAndSetFacebookFriends()
         
     }
@@ -42,7 +46,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             print(profilePicURL)
             let data = try! Data(contentsOf: profilePicURL!)
             let profilePicUI = (UIImage(data: data as Data))!
-            self.profilePic.layer.cornerRadius = self.profilePic.frame.size.width/2
+            self.profilePic.layer.cornerRadius = 37.5
             self.profilePic.clipsToBounds = true
             self.profilePic.image = profilePicUI
             name.text = user.displayName
@@ -58,7 +62,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     func setLabelText(_ result: [String]) {
         var friendNames = String()
-        print(friendNames)
         friendNames = result.joined(separator: "\n")
         friendsListText.text = String(friendNames)
     }
@@ -67,7 +70,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func logOutAction(_ sender: UIButton) {
+    @IBAction func logOutAction(_ sender: AnyObject) {
         logout()
     }
     
@@ -106,12 +109,34 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         self.present(activityViewController, animated: true, completion: nil)
     }
 
+    @IBAction func textCEO(_ sender: AnyObject) {
+        var messageVC = MFMessageComposeViewController()
+        
+        messageVC.body = "Hey Tommy";
+        messageVC.recipients = ["+447876353692"]
+        messageVC.messageComposeDelegate = self;
+        
+        self.present(messageVC, animated: false, completion: nil)
+    }
+    
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController,
+                                      didFinishWith result: MessageComposeResult) {
+    // Check the result or perform other tasks.
+    
+    // Dismiss the message compose view controller.
+    controller.dismiss(animated: true, completion: nil)
+    }
+    
     
     func roundButtons() {
         self.feedbackLink.layer.cornerRadius = 10;
         self.inviteFriendLink.layer.cornerRadius = 10;
         self.shareFriendLink.layer.cornerRadius = 10;
-        self.logoutButton.layer.cornerRadius = 10;
+        self.logOut.layer.cornerRadius = 10;
+        self.endUserAgreement.layer.cornerRadius = 10;
+        self.textCEO.layer.cornerRadius = 10;
+
     }
 
 }
