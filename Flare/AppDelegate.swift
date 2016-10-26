@@ -60,6 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let handled = FBSDKApplicationDelegate.sharedInstance().application(application, open: url as URL!, sourceApplication: sourceApplication, annotation: annotation)
         // Add any custom logic here.
         return handled
+
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
