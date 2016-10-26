@@ -11,18 +11,21 @@ import FirebaseAuth
 import FBSDKCoreKit
 import FirebaseDatabase
 import SwiftyJSON
+import MessageUI
 
-class ProfileViewController: UIViewController, UITextFieldDelegate {
+class ProfileViewController: UIViewController, UITextFieldDelegate, MFMessageComposeViewControllerDelegate {
+    
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var activeFlareLabel: UILabel!
     @IBOutlet weak var feedbackLink: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var inviteFriendLink: UIButton!
     @IBOutlet weak var shareFriendLink: UIButton!
     @IBOutlet weak var friendsListText: UILabel!
-    @IBOutlet weak var friendEmailAddress: UITextField!
-    
+    @IBOutlet weak var textCEO: UIButton!
+    @IBOutlet weak var endUserAgreement: UIButton!
+    @IBOutlet weak var logOut: UIButton!
+   
     var databaseRef: FIRDatabaseReference!
     var flareArray = [Flare]()
     var facebook = Facebook()
@@ -32,33 +35,18 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         roundButtons()
-        enableKeyboardDisappear()
-        retrieveAndSetFacebookFriends()
         setProfilePhotoAndName()
-        setActiveFlare()
-    
-    }
-    
-    func setActiveFlare() {
-        databaseRef = FIRDatabase.database().reference().child("flares")
-        databaseRef.queryOrdered(byChild: "subtitle").queryEqual(toValue: name.text).queryLimited(toLast: 1).observe(.value, with: { (snapshot) in
-            
-            for item in snapshot.children {
-                let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
-                self.activeFlareLabel.text = newFlare.title!
-            }
-            })
-        { (error) in
-            print(error.localizedDescription)
-        }
+        retrieveAndSetFacebookFriends()
+        
     }
     
     func setProfilePhotoAndName() {
         if let user = FIRAuth.auth()?.currentUser {
             let profilePicURL = user.photoURL
+            print(profilePicURL)
             let data = try! Data(contentsOf: profilePicURL!)
             let profilePicUI = (UIImage(data: data as Data))!
-            self.profilePic.layer.cornerRadius = self.profilePic.frame.size.width/2
+            self.profilePic.layer.cornerRadius = 37.5
             self.profilePic.clipsToBounds = true
             self.profilePic.image = profilePicUI
             name.text = user.displayName
@@ -72,14 +60,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func enableKeyboardDisappear() {
-        self.friendEmailAddress.delegate = self
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("dismissKeyboard")))
-    }
-    
     func setLabelText(_ result: [String]) {
         var friendNames = String()
-        print(friendNames)
         friendNames = result.joined(separator: "\n")
         friendsListText.text = String(friendNames)
     }
@@ -88,30 +70,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func logOutAction(_ sender: UIButton) {
+    @IBAction func logOutAction(_ sender: AnyObject) {
         logout()
     }
     
     @IBAction func feedbackLink(_ sender: AnyObject) {
         UIApplication.shared.openURL(URL(string: "https://flarefeedback.typeform.com/to/Bq5Sah")!)
-    }
-    
-    @IBAction func inviteLink(_ sender: AnyObject) {
-        if self.friendEmailAddress.text != "" && self.validateEmail(email: self.friendEmailAddress.text!) {
-                saveEmailToDatabase()
-                self.friendEmailAddress.text = ""
-            } else {
-                self.displayAlertMessage("Please enter a valid email address")
-                return
-            }
-        }
-
-    func saveEmailToDatabase() {
-        if let user = FIRAuth.auth()?.currentUser {
-        let emailInviteRef = ref.child(byAppendingPath: "email invites").childByAutoId()
-        let newEmailInvite = ["inviter": user.email! as String, "invitee": self.friendEmailAddress.text! as String]
-        emailInviteRef.setValue(newEmailInvite)
-        }
     }
     
     // refactor into separate class (duplicate in flareview)
@@ -131,7 +95,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func shareLink(_ sender: AnyObject) {
         // text to share
-        let text = "Hi! Come join me on Flare by signing up to the iOS beta: https://flarebeta.typeform.com/to/PTAVlO"
+        let text = "Hi! Come join me on Flare, it lets you share and discover spontaneous moments: https://itunes.apple.com/us/app/flare-share-discover-spontaneous/id1166173727?ls=1&mt=8"
         
         // set up activity view controller
         let objectsToShare: [AnyObject] = [ text as AnyObject ]
@@ -145,20 +109,34 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         self.present(activityViewController, animated: true, completion: nil)
     }
 
+    @IBAction func textCEO(_ sender: AnyObject) {
+        var messageVC = MFMessageComposeViewController()
+        
+        messageVC.body = "Hey Tommy";
+        messageVC.recipients = ["+447876353692"]
+        messageVC.messageComposeDelegate = self;
+        
+        self.present(messageVC, animated: false, completion: nil)
+    }
+    
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController,
+                                      didFinishWith result: MessageComposeResult) {
+    // Check the result or perform other tasks.
+    
+    // Dismiss the message compose view controller.
+    controller.dismiss(animated: true, completion: nil)
+    }
+    
     
     func roundButtons() {
         self.feedbackLink.layer.cornerRadius = 10;
         self.inviteFriendLink.layer.cornerRadius = 10;
         self.shareFriendLink.layer.cornerRadius = 10;
-    }
-    
-    func dismissKeyboard() {
-        friendEmailAddress.resignFirstResponder()
-    }
-    
-    func validateEmail(email: String) -> Bool {
-    let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
-    return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email)
+        self.logOut.layer.cornerRadius = 10;
+        self.endUserAgreement.layer.cornerRadius = 10;
+        self.textCEO.layer.cornerRadius = 10;
+
     }
 
 }

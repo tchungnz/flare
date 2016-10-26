@@ -11,6 +11,111 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="72o-PN-S2C">
+            <objects>
+                <viewController id="yH6-2o-6sf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kD5-xm-OB3"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hf1-tC-4kE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CUu-69-NYw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKx-n0-czB">
+                                <subviews>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0aY-v7-aPe">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIY-aS-UgG">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="44" id="C8l-Nl-1eX"/>
+                                                    <constraint firstAttribute="width" secondItem="iIY-aS-UgG" secondAttribute="height" multiplier="1:1" id="Nnc-Y4-OPc"/>
+                                                    <constraint firstAttribute="height" constant="44" id="gbw-7Q-yjO"/>
+                                                </constraints>
+                                                <state key="normal" image="back-button1">
+                                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="UKo-9T-1TW" kind="presentation" id="kbn-SX-fK1"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRw-ZM-PQm">
+                                                <frame key="frameInset" minX="15" minY="96" width="344" height="543"/>
+                                                <mutableString key="text">Flare (Flare - Share and Discover Spontaneous Moments App) App End User License Agreement
+
+
+This End User License Agreement (“Agreement”) is between you and Flare and governs use of this app made available through the Apple App Store. By installing Flare, you agree to be bound by this Agreement and understand that there is no tolerance for objectionable content. If you do not agree with the terms and conditions of this Agreement, you are not entitled to use Flare.
+
+
+In order to ensure Flare provides the best experience possible for everyone, we strongly enforce a no tolerance policy for objectionable content. If you see inappropriate content, please use the "Report" feature found under each Flare.
+
+
+1. Parties: This Agreement is between you and Flare only, and not Apple, Inc. (“Apple”). Notwithstanding the foregoing, you acknowledge that Apple and its subsidiaries are third party beneficiaries of this Agreement and Apple has the right to enforce this Agreement against you. Flare, not Apple, is solely responsible for Flare and its content.
+
+
+2. Privacy: Flare may collect and use information about your usage of Flare, including certain types of information from and about your device. Flare may use this information, as long as it is in a form that does not personally identify you, to measure the use and performance of the Flare.
+
+
+3. Limited License: Flare grants you a limited, non-exclusive, non-transferable, revocable license to use Flare for your personal, non-commercial purposes. You may only use Flare on Apple devices that you own or control and as permitted by the App Store Terms of Service.
+
+
+4. Age Restrictions: By using Flare, you represent and warrant that (a) you are 17 years of age or older and you agree to be bound by this Agreement; (b) if you are under 17 years of age, you have obtained verifiable consent from a parent or legal guardian; and (c) your use of the Flare does not violate any applicable law or regulation. Your access to the Flare may be terminated without warning if Flare believes, in its sole discretion, that you are under the age of 17 years and have not obtained verifiable consent from a parent or legal guardian. If you are a parent or legal guardian and you provide your consent to your child's use of Flare, you agree to be bound by this Agreement in respect to your child's use of Flare.
+
+
+5. Objectionable Content Policy: Content may not be submitted to Flare, who will moderate all content and ultimately decide whether or not to post a submission to the extent such content includes, is in conjunction with, or alongside any, Objectionable Content. Objectionable Content includes, but is not limited to: (i) sexually explicit materials; (ii) obscene, defamatory, libelous, slanderous, violent and/or unlawful content or profanity; (iii) content that infringes upon the rights of any third party, including copyright, trademark, privacy, publicity or other personal or proprietary right, or that is deceptive or fraudulent; (iv) content that promotes the use or sale of illegal or regulated substances, tobacco products, ammunition and/or firearms; and (v) gambling, including without limitation, any online casino, sports books, bingo or poker.
+
+
+6. Warranty: Flare disclaims all warranties about Flare to the fullest extent permitted by law. To the extent any warranty exists under law that cannot be disclaimed, Flare, not Apple, shall be solely responsible for such warranty.
+
+
+7. Maintenance and Support: Flare does provide minimal maintenance or support for it but not to the extent that any maintenance or support is required by applicable law, Flare, not Apple, shall be obligated to furnish any such maintenance or support.
+
+
+8. Product Claims: Flare, not Apple, is responsible for addressing any claims by you relating to the Flare App or use of it, including, but not limited to: (i) any product liability claim; (ii) any claim that Flare fails to conform to any applicable legal or regulatory requirement; and (iii) any claim arising under consumer protection or similar legislation. Nothing in this Agreement shall be deemed an admission that you may have such claims.
+
+
+9. Third Party Intellectual Property Claims: Flare shall not be obligated to indemnify or defend you with respect to any third party claim arising out or relating to Flare. To the extent Flare is required to provide indemnification by applicable law, Flare, not Apple, shall be solely responsible for the investigation, defense, settlement and discharge of any claim that Flare or your use of it infringes any third party intellectual property right.</mutableString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="iIY-aS-UgG" firstAttribute="top" secondItem="0aY-v7-aPe" secondAttribute="top" constant="25" id="03Z-tC-dVU"/>
+                                            <constraint firstItem="KRw-ZM-PQm" firstAttribute="leading" secondItem="0aY-v7-aPe" secondAttribute="leading" constant="15" id="0hR-LV-U17"/>
+                                            <constraint firstAttribute="bottom" secondItem="KRw-ZM-PQm" secondAttribute="bottom" constant="20" id="1Zx-Ik-myC"/>
+                                            <constraint firstItem="KRw-ZM-PQm" firstAttribute="top" secondItem="iIY-aS-UgG" secondAttribute="bottom" constant="20" id="4Sz-bB-sXg"/>
+                                            <constraint firstAttribute="trailing" secondItem="KRw-ZM-PQm" secondAttribute="trailing" constant="15" id="M4V-hY-Svr"/>
+                                            <constraint firstItem="iIY-aS-UgG" firstAttribute="leading" secondItem="0aY-v7-aPe" secondAttribute="leading" constant="15" id="X77-Ob-lJH"/>
+                                            <constraint firstItem="KRw-ZM-PQm" firstAttribute="centerX" secondItem="0aY-v7-aPe" secondAttribute="centerX" id="iSF-aR-NPS"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="0aY-v7-aPe" secondAttribute="bottom" id="9pl-vx-MdB"/>
+                                    <constraint firstItem="0aY-v7-aPe" firstAttribute="top" secondItem="rKx-n0-czB" secondAttribute="top" id="AlF-Q5-fXE"/>
+                                    <constraint firstAttribute="trailing" secondItem="0aY-v7-aPe" secondAttribute="trailing" id="k2u-Pg-b7n"/>
+                                    <constraint firstItem="0aY-v7-aPe" firstAttribute="leading" secondItem="rKx-n0-czB" secondAttribute="leading" id="ppg-hf-q5L"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Hf1-tC-4kE" firstAttribute="top" secondItem="rKx-n0-czB" secondAttribute="bottom" id="aFP-hO-nlA"/>
+                            <constraint firstItem="rKx-n0-czB" firstAttribute="top" secondItem="CUu-69-NYw" secondAttribute="top" id="bsk-pU-3ty"/>
+                            <constraint firstItem="0aY-v7-aPe" firstAttribute="width" secondItem="CUu-69-NYw" secondAttribute="width" id="fDG-tf-wcj"/>
+                            <constraint firstAttribute="trailing" secondItem="rKx-n0-czB" secondAttribute="trailing" id="r4l-He-Iga"/>
+                            <constraint firstItem="rKx-n0-czB" firstAttribute="leading" secondItem="CUu-69-NYw" secondAttribute="leading" id="ww6-RB-C27"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Duy-ot-eCQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2909.5999999999999" y="-912.5937031484259"/>
+        </scene>
         <!--Profile View Controller-->
         <scene sceneID="gDZ-ja-e3h">
             <objects>
@@ -29,8 +134,7 @@
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Fs-ET-2bv">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVz-lK-OEt">
-                                                <frame key="frameInset" minX="8" minY="11" width="44" height="44"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVz-lK-OEt">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="44" id="DJJ-sq-SaE"/>
                                                     <constraint firstAttribute="height" constant="44" id="Lh3-tQ-Rm8"/>
@@ -43,67 +147,41 @@
                                                     <segue destination="BYZ-38-t0r" kind="presentation" id="ToR-kJ-yvd"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No active flare" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="I7i-XN-ACq" userLabel="activeFlareLabel">
-                                                <frame key="frameInset" minX="18" minY="376" width="116" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Current Flare:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQj-FE-i3f">
-                                                <frame key="frameInset" minX="17" minY="344" width="128" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="redCamera" translatesAutoresizingMaskIntoConstraints="NO" id="NEg-Zd-yHU">
-                                                <frame key="frameInset" minX="151" minY="11" width="75" height="75"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redCamera" translatesAutoresizingMaskIntoConstraints="NO" id="NEg-Zd-yHU">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="75" id="4ql-LR-6wi"/>
                                                     <constraint firstAttribute="width" constant="75" id="pPg-nY-Fmx"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="xzJ-ul-mp3" userLabel="Name">
-                                                <frame key="frameInset" minX="20" minY="89" width="335" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="xzJ-ul-mp3" userLabel="Name">
                                                 <accessibility key="accessibilityConfiguration" identifier="nameLabel"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aUh-Sc-Vpc">
-                                                <frame key="frameInset" minX="18" minY="147" width="335" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="275" id="e4W-a3-XHI"/>
-                                                </constraints>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done"/>
-                                            </textField>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grT-iD-bPW">
-                                                <frame key="frameInset" minX="20" minY="185" width="338" height="29"/>
-                                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grT-iD-bPW">
+                                                <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="275" id="HFG-i9-Dhb"/>
                                                 </constraints>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Invite Friend"/>
+                                                <state key="normal" title="Invite Facebook Friends"/>
                                                 <connections>
                                                     <action selector="inviteLink:" destination="UKo-9T-1TW" eventType="touchUpInside" id="0Ma-9N-q6F"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxT-UP-MTK">
-                                                <frame key="frameInset" minX="18" minY="238" width="340" height="30"/>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxT-UP-MTK">
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="275" id="HJq-b1-7mP"/>
                                                 </constraints>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Share"/>
+                                                <state key="normal" title="Invite Contacts"/>
                                                 <connections>
                                                     <action selector="shareLink:" destination="UKo-9T-1TW" eventType="touchUpInside" id="JFj-yh-Rek"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q47-cd-UyB">
-                                                <frame key="frameInset" minX="17" minY="291" width="341" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q47-cd-UyB">
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="275" id="XA9-ho-GA6"/>
@@ -116,16 +194,33 @@
                                                     <action selector="feedbackLink:" destination="UKo-9T-1TW" eventType="touchUpInside" id="z4X-4P-XAI"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Friends Using Flare:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUs-Au-oX2">
-                                                <frame key="frameInset" minX="17" minY="418" width="185.5" height="24"/>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B7O-fy-UcL">
+                                                <frame key="frameInset" minX="50" minY="305" width="275" height="30"/>
+                                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="275" id="NdS-5u-PCe"/>
+                                                </constraints>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Text the CEO">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="textCEO:" destination="UKo-9T-1TW" eventType="touchUpInside" id="g1j-DR-0bb"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Facebook Friends on Flare:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUs-Au-oX2">
+                                                <frame key="frameInset" minX="50" minY="360" width="275" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="275" id="2ss-iK-qTp"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="None" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nD3-cg-QAm">
-                                                <frame key="frameInset" minX="19" minY="450" width="338" height="21"/>
+                                                <frame key="frameInset" minX="50" minY="386" width="275" height="18"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="340" id="bCv-qS-xEQ"/>
+                                                    <constraint firstAttribute="width" constant="275" id="bCv-qS-xEQ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
@@ -133,43 +228,57 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMM-my-hQ3">
                                                 <frame key="frameInset" minY="612" width="375" height="30"/>
+                                                <color key="backgroundColor" white="0.88674496644295298" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="275" id="mM5-ZR-dtH"/>
+                                                </constraints>
                                                 <state key="normal" title="Log Out">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="logOutAction:" destination="UKo-9T-1TW" eventType="touchUpInside" id="Ecq-js-9XQ"/>
+                                                    <action selector="logOutAction:" destination="UKo-9T-1TW" eventType="touchUpInside" id="6Wx-G3-Qru"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3m-iK-XVC">
+                                                <frame key="frameInset" minY="566" width="375" height="30"/>
+                                                <color key="backgroundColor" white="0.8867449664" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="275" id="DaD-Il-gIY"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="275" id="cKs-Z6-he9"/>
+                                                </constraints>
+                                                <state key="normal" title="End User License Agreement">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="yH6-2o-6sf" kind="presentation" id="Kgi-6j-WFR"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="AxT-UP-MTK" firstAttribute="top" secondItem="grT-iD-bPW" secondAttribute="bottom" constant="20" id="3dJ-IC-BoK"/>
-                                            <constraint firstItem="I7i-XN-ACq" firstAttribute="leading" secondItem="0Fs-ET-2bv" secondAttribute="leading" constant="20" id="86A-vQ-zMZ"/>
+                                            <constraint firstItem="GUs-Au-oX2" firstAttribute="top" secondItem="B7O-fy-UcL" secondAttribute="bottom" constant="30" id="47I-uJ-4X8"/>
+                                            <constraint firstItem="B7O-fy-UcL" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="8rI-72-5NZ"/>
                                             <constraint firstItem="xzJ-ul-mp3" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="9Y3-qP-Dvr"/>
-                                            <constraint firstItem="I7i-XN-ACq" firstAttribute="top" secondItem="SQj-FE-i3f" secondAttribute="bottom" constant="5" id="B0E-hk-OQY"/>
-                                            <constraint firstItem="aUh-Sc-Vpc" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="Bt4-m4-R8L"/>
                                             <constraint firstItem="TVz-lK-OEt" firstAttribute="leading" secondItem="0Fs-ET-2bv" secondAttribute="leading" constant="15" id="CWZ-AS-5XD"/>
-                                            <constraint firstItem="VMM-my-hQ3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="nD3-cg-QAm" secondAttribute="bottom" constant="141" id="DdP-dv-JmJ"/>
-                                            <constraint firstItem="VMM-my-hQ3" firstAttribute="leading" secondItem="0Fs-ET-2bv" secondAttribute="leading" id="ES1-f4-HyP"/>
-                                            <constraint firstItem="GUs-Au-oX2" firstAttribute="leading" secondItem="0Fs-ET-2bv" secondAttribute="leading" constant="20" id="HE1-yF-4Ss"/>
-                                            <constraint firstItem="SQj-FE-i3f" firstAttribute="leading" secondItem="0Fs-ET-2bv" secondAttribute="leading" constant="20" id="Hbw-Df-Y2h"/>
                                             <constraint firstItem="NEg-Zd-yHU" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="I3V-gW-EIY"/>
                                             <constraint firstItem="VMM-my-hQ3" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="JEz-OD-KXn"/>
                                             <constraint firstItem="q47-cd-UyB" firstAttribute="top" secondItem="AxT-UP-MTK" secondAttribute="bottom" constant="20" id="Jcy-Fj-jwf"/>
                                             <constraint firstItem="q47-cd-UyB" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="Joz-xI-dAU"/>
-                                            <constraint firstItem="grT-iD-bPW" firstAttribute="top" secondItem="aUh-Sc-Vpc" secondAttribute="bottom" constant="5" id="PRz-mq-jOU"/>
-                                            <constraint firstAttribute="trailing" secondItem="VMM-my-hQ3" secondAttribute="trailing" id="REg-g4-o6d"/>
+                                            <constraint firstItem="nD3-cg-QAm" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="KSb-YT-7Fc"/>
                                             <constraint firstItem="NEg-Zd-yHU" firstAttribute="top" secondItem="0Fs-ET-2bv" secondAttribute="top" constant="25" id="Rdv-vn-Qst"/>
                                             <constraint firstItem="grT-iD-bPW" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="YtW-a7-NXi"/>
                                             <constraint firstItem="TVz-lK-OEt" firstAttribute="top" secondItem="0Fs-ET-2bv" secondAttribute="top" constant="25" id="cnc-U7-2de"/>
-                                            <constraint firstItem="aUh-Sc-Vpc" firstAttribute="top" secondItem="xzJ-ul-mp3" secondAttribute="bottom" constant="30" id="gnd-4a-Wvg"/>
-                                            <constraint firstItem="nD3-cg-QAm" firstAttribute="leading" secondItem="0Fs-ET-2bv" secondAttribute="leading" constant="20" id="goO-jS-ozq"/>
+                                            <constraint firstItem="GUs-Au-oX2" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="e0J-gZ-hee"/>
                                             <constraint firstItem="AxT-UP-MTK" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="h8f-hm-Auk"/>
-                                            <constraint firstAttribute="bottom" secondItem="VMM-my-hQ3" secondAttribute="bottom" constant="15" id="hkq-ey-siM"/>
-                                            <constraint firstItem="xzJ-ul-mp3" firstAttribute="top" secondItem="NEg-Zd-yHU" secondAttribute="bottom" constant="10" id="k9f-zp-L35"/>
+                                            <constraint firstAttribute="bottom" secondItem="VMM-my-hQ3" secondAttribute="bottom" constant="25" id="hkq-ey-siM"/>
                                             <constraint firstItem="nD3-cg-QAm" firstAttribute="top" secondItem="GUs-Au-oX2" secondAttribute="bottom" constant="5" id="lG5-H4-iOL"/>
-                                            <constraint firstItem="GUs-Au-oX2" firstAttribute="top" secondItem="I7i-XN-ACq" secondAttribute="bottom" constant="25" id="oeL-oM-d0u"/>
-                                            <constraint firstItem="SQj-FE-i3f" firstAttribute="top" secondItem="q47-cd-UyB" secondAttribute="bottom" constant="30" id="z6E-wP-mhe"/>
+                                            <constraint firstItem="VMM-my-hQ3" firstAttribute="top" secondItem="P3m-iK-XVC" secondAttribute="bottom" constant="20" id="oJZ-4K-wNw"/>
+                                            <constraint firstItem="B7O-fy-UcL" firstAttribute="top" secondItem="q47-cd-UyB" secondAttribute="bottom" constant="20" id="oLM-hj-yvN"/>
+                                            <constraint firstItem="grT-iD-bPW" firstAttribute="top" secondItem="xzJ-ul-mp3" secondAttribute="bottom" constant="30" id="tNJ-9f-qY6"/>
+                                            <constraint firstItem="P3m-iK-XVC" firstAttribute="centerX" secondItem="0Fs-ET-2bv" secondAttribute="centerX" id="uR3-Np-YRe"/>
+                                            <constraint firstItem="xzJ-ul-mp3" firstAttribute="top" secondItem="NEg-Zd-yHU" secondAttribute="bottom" constant="10" id="wvu-Wb-pGE"/>
+                                            <constraint firstItem="P3m-iK-XVC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="nD3-cg-QAm" secondAttribute="bottom" constant="162" id="zos-hh-BPi"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -193,15 +302,16 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="activeFlareLabel" destination="I7i-XN-ACq" id="kob-Me-lpN"/>
+                        <outlet property="endUserAgreement" destination="P3m-iK-XVC" id="gcR-rI-ILu"/>
                         <outlet property="feedbackLink" destination="q47-cd-UyB" id="RAU-eM-WXS"/>
-                        <outlet property="friendEmailAddress" destination="aUh-Sc-Vpc" id="A6F-L1-jZU"/>
                         <outlet property="friendsListText" destination="nD3-cg-QAm" id="hlt-R7-ahP"/>
                         <outlet property="inviteFriendLink" destination="grT-iD-bPW" id="iTF-Ov-IKS"/>
+                        <outlet property="logOut" destination="VMM-my-hQ3" id="PYq-Vp-o4a"/>
                         <outlet property="name" destination="xzJ-ul-mp3" id="ZiG-b5-iXs"/>
                         <outlet property="profilePic" destination="NEg-Zd-yHU" id="Hpe-dy-S33"/>
                         <outlet property="scrollView" destination="OTk-fM-qe6" id="pg4-Pu-NaA"/>
                         <outlet property="shareFriendLink" destination="AxT-UP-MTK" id="OQn-TO-HSq"/>
+                        <outlet property="textCEO" destination="B7O-fy-UcL" id="pXS-zg-DhB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3g2-7h-hOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -813,6 +923,7 @@ remaining</string>
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="kbn-SX-fK1"/>
         <segue reference="ToR-kJ-yvd"/>
         <segue reference="0Z5-td-Zn0"/>
     </inferredMetricsTieBreakers>
