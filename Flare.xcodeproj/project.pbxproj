@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08033D5C1DB93B660092E45E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08033D5B1DB93B660092E45E /* GoogleService-Info.plist */; };
+		08050ECF1DBFB4CA00A60A82 /* FacebookInviteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08050ECE1DBFB4CA00A60A82 /* FacebookInviteController.swift */; };
 		08EFE9CF341AC9A8593EF0B9 /* Pods_Flare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C077AF3B95864CEF341C981 /* Pods_Flare.framework */; };
 		246276DA1D85DB0C00D434F5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246276D91D85DB0C00D434F5 /* ProfileViewController.swift */; };
 		24B68D491D8184AB004EE49A /* FlareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B68D481D8184AB004EE49A /* FlareViewController.swift */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		071010AADE24D7DACD9ABDC4 /* Pods-Flare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flare.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flare/Pods-Flare.release.xcconfig"; sourceTree = "<group>"; };
 		08033D5B1DB93B660092E45E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		08050ECE1DBFB4CA00A60A82 /* FacebookInviteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookInviteController.swift; sourceTree = "<group>"; };
 		08D1BDDF1DA6A853007EF1A0 /* Flare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flare.entitlements; sourceTree = "<group>"; };
 		1C077AF3B95864CEF341C981 /* Pods_Flare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		246276D91D85DB0C00D434F5 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				246276D91D85DB0C00D434F5 /* ProfileViewController.swift */,
+				08050ECE1DBFB4CA00A60A82 /* FacebookInviteController.swift */,
 				8273F3031D899D9100E62350 /* LogOutViewController.swift */,
 			);
 			name = Profile;
@@ -588,6 +591,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08050ECF1DBFB4CA00A60A82 /* FacebookInviteController.swift in Sources */,
 				53C8D1031D80781100E57400 /* AnnotationViewController.swift in Sources */,
 				74F405691D86ECEB00F0A6DC /* FlareDisplayController.swift in Sources */,
 				6A7ED8881D7F2E94005FF0A8 /* MapViewController.swift in Sources */,
