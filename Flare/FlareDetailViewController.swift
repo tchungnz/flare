@@ -108,14 +108,23 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         FIRAnalytics.logEvent(withName: "flare_reported", parameters: nil)
     }
     
+    func blockUser() {
+        let userRef = self.ref.child(byAppendingPath: "users/\((FIRAuth.auth()?.currentUser?.uid)!)/blockedUsers")
+//        let user = usersRef.child((FIRAuth.auth()?.currentUser?.uid)!)
+        let blockedUsers = [(self.flareExport?.facebookID)! as String : true as Bool] as [ String : Any ]
+//        print("**************")
+        
+        userRef.updateChildValues(blockedUsers)
+    }
+    
     
     @IBAction func reportFlareAction(_ sender: AnyObject) {
         var reportActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         let reportFlareButtonAction = UIAlertAction(title: "Report Innapropriate Flare", style: UIAlertActionStyle.default) { (ACTION) in
             self.sendReportToDatabase(focus: "flare")
         }
-        let reportUserButtonAction = UIAlertAction(title: "Report Innapropriate User", style: UIAlertActionStyle.default) { (ACTION) in
-            self.sendReportToDatabase(focus: "user")
+        let reportUserButtonAction = UIAlertAction(title: "Block User", style: UIAlertActionStyle.default) { (ACTION) in
+            self.blockUser()
         }
         let cancelReportButtonAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { (ACTION) in
         }
