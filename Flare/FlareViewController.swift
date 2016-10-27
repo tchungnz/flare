@@ -13,7 +13,7 @@ import Firebase
 import FirebaseDatabase
 import CoreLocation
 
-class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate {
     
     let maximumSentFlares: Int = 5
 
@@ -29,7 +29,6 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var uid : String?
     var timeHalfHourAgo : Double?
     
-
     var backCamera: Bool = true
     var isPublicFlare: Bool = true
     var letFlareSave: Bool = true
@@ -53,6 +52,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var togglePrivateLabel: UILabel!
     @IBOutlet weak var cameraSwivelButton: UIButton!
     
+   
     let locationManager = CLLocationManager()
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -154,7 +154,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     func displayAlertMessage(_ message: String)
     {
-        let myAlert = UIAlertController(title: "Ooos", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let myAlert = UIAlertController(title: "Oops", message: message, preferredStyle: UIAlertControllerStyle.alert)
         let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
         myAlert.addAction(okAction)
         self.present(myAlert, animated: true, completion: nil)

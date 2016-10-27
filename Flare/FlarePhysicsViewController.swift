@@ -44,5 +44,9 @@ extension FlareViewController {
             self.performSegue(withIdentifier: "returnMap", sender: self)
         })
     }
+    @IBAction func handleTap(_ sender: UITapGestureRecognizer) {
+        self.onSwipe()
+        self.performSegue(withIdentifier: "returnMap", sender: self)
+    }
 
 }

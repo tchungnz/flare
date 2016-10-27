@@ -61,10 +61,10 @@ In order to ensure Flare provides the best experience possible for everyone, we 
 3. Limited License: Flare grants you a limited, non-exclusive, non-transferable, revocable license to use Flare for your personal, non-commercial purposes. You may only use Flare on Apple devices that you own or control and as permitted by the App Store Terms of Service.
 
 
-4. Age Restrictions: By using Flare, you represent and warrant that (a) you are 17 years of age or older and you agree to be bound by this Agreement; (b) if you are under 17 years of age, you have obtained verifiable consent from a parent or legal guardian; and (c) your use of the Flare does not violate any applicable law or regulation. Your access to the Flare may be terminated without warning if Flare believes, in its sole discretion, that you are under the age of 17 years and have not obtained verifiable consent from a parent or legal guardian. If you are a parent or legal guardian and you provide your consent to your child's use of Flare, you agree to be bound by this Agreement in respect to your child's use of Flare.
+4. Age Restrictions: By using Flare, you represent and warrant that (a) you are 12 years of age or older and you agree to be bound by this Agreement; (b) if you are under 12 years of age, you have obtained verifiable consent from a parent or legal guardian; and (c) your use of the Flare does not violate any applicable law or regulation. Your access to the Flare may be terminated without warning if Flare believes, in its sole discretion, that you are under the age of 12 years and have not obtained verifiable consent from a parent or legal guardian. If you are a parent or legal guardian and you provide your consent to your child's use of Flare, you agree to be bound by this Agreement in respect to your child's use of Flare.
 
 
-5. Objectionable Content Policy: Content may not be submitted to Flare, who will moderate all content and ultimately decide whether or not to post a submission to the extent such content includes, is in conjunction with, or alongside any, Objectionable Content. Objectionable Content includes, but is not limited to: (i) sexually explicit materials; (ii) obscene, defamatory, libelous, slanderous, violent and/or unlawful content or profanity; (iii) content that infringes upon the rights of any third party, including copyright, trademark, privacy, publicity or other personal or proprietary right, or that is deceptive or fraudulent; (iv) content that promotes the use or sale of illegal or regulated substances, tobacco products, ammunition and/or firearms; and (v) gambling, including without limitation, any online casino, sports books, bingo or poker.
+5. Objectionable Content Policy: Content may not be submitted to Flare that includes, is in conjunction with, or alongside any, Objectionable Content. Objectionable Content includes, but is not limited to: (i) sexually explicit materials; (ii) obscene, defamatory, libelous, slanderous, violent and/or unlawful content or profanity; (iii) content that infringes upon the rights of any third party, including copyright, trademark, privacy, publicity or other personal or proprietary right, or that is deceptive or fraudulent; (iv) content that promotes the use or sale of illegal or regulated substances, tobacco products, ammunition and/or firearms; and (v) gambling, including without limitation, any online casino, sports books, bingo or poker.
 
 
 6. Warranty: Flare disclaims all warranties about Flare to the fullest extent permitted by law. To the extent any warranty exists under law that cannot be disclaimed, Flare, not Apple, shall be solely responsible for such warranty.
@@ -564,6 +564,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Ije-Oy-vdT" appends="YES" id="XrJ-6s-Pk9"/>
+                                    <outletCollection property="gestureRecognizers" destination="iO7-M2-V1W" appends="YES" id="uby-9a-KS1"/>
                                 </connections>
                             </imageView>
                         </subviews>
@@ -628,6 +629,11 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                         <action selector="handlePan:" destination="d1b-im-btc" id="LSB-Dt-uUR"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="iO7-M2-V1W">
+                    <connections>
+                        <action selector="handleTap:" destination="d1b-im-btc" id="45R-le-pBf"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3632.8000000000002" y="614.84257871064472"/>
         </scene>
@@ -938,9 +944,8 @@ remaining</string>
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-
         <segue reference="kbn-SX-fK1"/>
-        <segue reference="ToR-kJ-yvd"/>
         <segue reference="0Z5-td-Zn0"/>
+        <segue reference="mUN-UL-zRw"/>
     </inferredMetricsTieBreakers>
 </document>
