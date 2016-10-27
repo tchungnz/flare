@@ -110,10 +110,7 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     
     func blockUser() {
         let userRef = self.ref.child(byAppendingPath: "users/\((FIRAuth.auth()?.currentUser?.uid)!)/blockedUsers")
-//        let user = usersRef.child((FIRAuth.auth()?.currentUser?.uid)!)
         let blockedUsers = [(self.flareExport?.facebookID)! as String : true as Bool] as [ String : Any ]
-//        print("**************")
-        
         userRef.updateChildValues(blockedUsers)
     }
     

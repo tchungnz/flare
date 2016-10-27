@@ -32,9 +32,11 @@ extension MapViewController {
             
             let data = (item as! FIRDataSnapshot).value! as! NSDictionary
             
-            if (data["isPublic"] as! Bool) {
+            if data["isPublic"] as! Bool {
                 let flare = Flare(snapshot: item as! FIRDataSnapshot)
+                if !(self.isBlocked(facebookID: flare.facebookID!)) {
                 newItems.insert(flare, at: 0)
+                }
             }
         }
             completion(newItems)
@@ -42,6 +44,21 @@ extension MapViewController {
         { (error) in
             print(error.localizedDescription)
         }
+    }
+    
+    func isBlocked(facebookID: String) -> Bool {
+        let userRef = self.ref.child("users/\((FIRAuth.auth()?.currentUser?.uid)!)")
+        var blocked = false
+        userRef.queryOrdered(byChild: "blockedUsers").observe(.value, with: { (snapshot) in
+            for item in snapshot.children {
+                let data = (item as! FIRDataSnapshot).value! as! NSDictionary
+                print(data.allKeys)
+                if (data.allKeys as! [String]) == [facebookID] {
+                    blocked = true
+                }
+            }
+        })
+        return blocked
     }
     
     func getFacebookID() {
