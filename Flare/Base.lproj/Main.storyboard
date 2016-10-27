@@ -331,11 +331,6 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GR0-gi-2IK"/>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Public" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7W-gx-kCV">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMg-Ov-4VJ">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DMg-Ov-4VJ" secondAttribute="height" multiplier="9:10" id="IRN-AE-Sq1"/>
@@ -383,15 +378,6 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                     <segue destination="d1b-im-btc" kind="presentation" identifier="cameraView" id="a6n-dq-dfg"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hU9-gQ-Vch">
-                                <accessibility key="accessibilityConfiguration" identifier="toggleMapButton"/>
-                                <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="thumbTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <action selector="toggleMapButton:" destination="BYZ-38-t0r" eventType="valueChanged" id="Que-d2-D5R"/>
-                                    <action selector="togglePrivateAction:" destination="d1b-im-btc" eventType="valueChanged" id="Ghc-mi-DLa"/>
-                                </connections>
-                            </switch>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RqD-Xv-VYf">
                                 <frame key="frameInset" minX="328" minY="589" width="30" height="30"/>
                                 <constraints>
@@ -409,48 +395,31 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                         <constraints>
                             <constraint firstItem="DMg-Ov-4VJ" firstAttribute="top" secondItem="GR0-gi-2IK" secondAttribute="top" constant="8" id="0gK-5c-sud"/>
                             <constraint firstItem="GR0-gi-2IK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="1A8-rg-fYZ"/>
-                            <constraint firstItem="hU9-gQ-Vch" firstAttribute="trailing" secondItem="GR0-gi-2IK" secondAttribute="trailing" constant="-17" id="2rn-17-xLA"/>
                             <constraint firstItem="iy2-AK-hv6" firstAttribute="centerX" secondItem="GR0-gi-2IK" secondAttribute="centerX" id="3FR-4c-LKq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RqD-Xv-VYf" secondAttribute="trailing" constant="10" id="6Q4-Nm-foZ"/>
                             <constraint firstItem="GR0-gi-2IK" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="7NA-eg-IQd"/>
-                            <constraint firstItem="H7W-gx-kCV" firstAttribute="centerX" secondItem="hU9-gQ-Vch" secondAttribute="centerX" id="7Rw-D3-IL7"/>
                             <constraint firstItem="iy2-AK-hv6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="460" id="7Wg-vh-SlS"/>
                             <constraint firstAttribute="trailing" secondItem="GR0-gi-2IK" secondAttribute="trailing" id="BJd-gp-ntW"/>
-                            <constraint firstItem="H7W-gx-kCV" firstAttribute="top" secondItem="hU9-gQ-Vch" secondAttribute="bottom" constant="2" id="BzZ-by-a3f"/>
                             <constraint firstItem="GR0-gi-2IK" firstAttribute="centerX" secondItem="iy2-AK-hv6" secondAttribute="centerX" id="G40-Z4-u7r"/>
                             <constraint firstAttribute="bottom" secondItem="iy2-AK-hv6" secondAttribute="bottom" constant="20" symbolic="YES" id="IA1-9Z-wgF"/>
                             <constraint firstItem="GR0-gi-2IK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="LvD-fF-3SB"/>
                             <constraint firstItem="iy2-AK-hv6" firstAttribute="bottom" secondItem="GR0-gi-2IK" secondAttribute="bottom" constant="-20" id="Ook-Hc-x4z"/>
                             <constraint firstItem="DMg-Ov-4VJ" firstAttribute="leading" secondItem="GR0-gi-2IK" secondAttribute="leading" constant="10" id="PrP-9y-kPm"/>
                             <constraint firstItem="DMg-Ov-4VJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-10" id="RaK-iP-o8f"/>
-                            <constraint firstItem="DMg-Ov-4VJ" firstAttribute="top" secondItem="hU9-gQ-Vch" secondAttribute="top" id="UKk-pG-Fda"/>
                             <constraint firstItem="DMg-Ov-4VJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Ux5-0H-Wzh"/>
-                            <constraint firstItem="hU9-gQ-Vch" firstAttribute="trailing" secondItem="GR0-gi-2IK" secondAttribute="trailing" id="WfW-bA-MSq"/>
-                            <constraint firstItem="H7W-gx-kCV" firstAttribute="top" secondItem="hU9-gQ-Vch" secondAttribute="bottom" constant="2" id="b6Y-2g-two"/>
-                            <constraint firstItem="hU9-gQ-Vch" firstAttribute="top" secondItem="GR0-gi-2IK" secondAttribute="top" id="ewe-LG-kpu"/>
                             <constraint firstItem="RqD-Xv-VYf" firstAttribute="centerY" secondItem="iy2-AK-hv6" secondAttribute="centerY" id="gc8-gy-KhV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hU9-gQ-Vch" secondAttribute="trailing" constant="-3" id="imT-Qk-tJu"/>
-                            <constraint firstItem="hU9-gQ-Vch" firstAttribute="top" secondItem="GR0-gi-2IK" secondAttribute="top" constant="8" id="pJJ-c6-1s7"/>
                             <constraint firstAttribute="bottom" secondItem="iy2-AK-hv6" secondAttribute="bottom" constant="20" symbolic="YES" id="pSl-wA-nNL"/>
-                            <constraint firstItem="hU9-gQ-Vch" firstAttribute="centerX" secondItem="H7W-gx-kCV" secondAttribute="centerX" id="pdy-Aw-fAw"/>
                             <constraint firstItem="iy2-AK-hv6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="410" id="rW4-Hw-3gc"/>
                             <constraint firstItem="iy2-AK-hv6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="506" id="rzd-0K-dUc"/>
                             <constraint firstItem="GR0-gi-2IK" firstAttribute="centerX" secondItem="iy2-AK-hv6" secondAttribute="centerX" id="uWR-v0-xYT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="H7W-gx-kCV" secondAttribute="trailing" constant="-10" id="wor-cW-ozG"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DMg-Ov-4VJ" secondAttribute="bottom" constant="522" id="zUV-GP-lDj"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="RaK-iP-o8f"/>
-                                <exclude reference="UKk-pG-Fda"/>
                                 <exclude reference="Ux5-0H-Wzh"/>
                                 <exclude reference="G40-Z4-u7r"/>
                                 <exclude reference="uWR-v0-xYT"/>
-                                <exclude reference="BzZ-by-a3f"/>
-                                <exclude reference="WfW-bA-MSq"/>
-                                <exclude reference="ewe-LG-kpu"/>
-                                <exclude reference="imT-Qk-tJu"/>
-                                <exclude reference="pdy-Aw-fAw"/>
                                 <exclude reference="7Wg-vh-SlS"/>
                                 <exclude reference="IA1-9Z-wgF"/>
                                 <exclude reference="pSl-wA-nNL"/>
@@ -464,8 +433,6 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                     <connections>
                         <outlet property="centreLocationButton" destination="RqD-Xv-VYf" id="hxp-zj-Zpm"/>
                         <outlet property="mapView" destination="GR0-gi-2IK" id="0R0-Hw-i3h"/>
-                        <outlet property="toggleMapButton" destination="hU9-gQ-Vch" id="vBx-Xe-dxE"/>
-                        <outlet property="toggleMapLabel" destination="H7W-gx-kCV" id="fWo-9C-W8N"/>
                         <segue destination="Gol-l4-B8d" kind="presentation" identifier="rootViewSeque" id="0Z5-td-Zn0"/>
                         <segue destination="J6G-JP-XHO" kind="show" identifier="flareDetail" id="zHG-rs-YRJ"/>
                     </connections>

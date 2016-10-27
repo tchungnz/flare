@@ -40,33 +40,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidLoad() {
         super.viewDidLoad()
         mapSetUp()
-        publicOrFriendsOnLoad()
+        getFriends()
+        getPublic()
         waitBeforeDatabaseQuery()
-    }
-    
-    func publicOrFriendsOnLoad() {
-        if notificationFlareId == nil {
-            getPublic()
-        } else {
-            getFriends()
-            self.toggleMapButton.setOn(true, animated: true)
-            self.toggleMapLabel.text = "Friends"
-        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-
-    @IBAction func toggleMapButton(_ sender: UISwitch) {
-        FIRAnalytics.logEvent(withName: "toggle_map_public_friends", parameters: nil)
-        if toggleMapButton.isOn {
-            toggleMapLabel.text = "Friends"
-            getFriends()
-        } else {
-            toggleMapLabel.text = "Public"
-            getPublic()
-        }
     }
     
     func getFriends() {
@@ -80,9 +60,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func getPublic() {
-        getPublicFlaresFromDatabase() {
-            (result: [Flare]) in
-            self.plotFlares(result)
+        facebook.getFacebookFriends("id") {
+            (result: [String]) in
+            self.getPublicFlaresFromDatabase(result) {
+                (result: [Flare]) in
+                self.plotFlares(result)
+            }
         }
     }
     

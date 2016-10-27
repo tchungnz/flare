@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08033D5C1DB93B660092E45E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08033D5B1DB93B660092E45E /* GoogleService-Info.plist */; };
+		0803FBB91DC292E700601990 /* publicFlare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803FBB81DC292E700601990 /* publicFlare.swift */; };
 		08050ECF1DBFB4CA00A60A82 /* FacebookInviteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08050ECE1DBFB4CA00A60A82 /* FacebookInviteController.swift */; };
 		082C0C791DC21466003FABC9 /* EndUserAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082C0C781DC21466003FABC9 /* EndUserAgreementViewController.swift */; };
 		08EFE9CF341AC9A8593EF0B9 /* Pods_Flare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C077AF3B95864CEF341C981 /* Pods_Flare.framework */; };
@@ -62,6 +63,7 @@
 /* Begin PBXFileReference section */
 		071010AADE24D7DACD9ABDC4 /* Pods-Flare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flare.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flare/Pods-Flare.release.xcconfig"; sourceTree = "<group>"; };
 		08033D5B1DB93B660092E45E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0803FBB81DC292E700601990 /* publicFlare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = publicFlare.swift; sourceTree = "<group>"; };
 		08050ECE1DBFB4CA00A60A82 /* FacebookInviteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookInviteController.swift; sourceTree = "<group>"; };
 		082C0C781DC21466003FABC9 /* EndUserAgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndUserAgreementViewController.swift; sourceTree = "<group>"; };
 		08D1BDDF1DA6A853007EF1A0 /* Flare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flare.entitlements; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 			children = (
 				53C8D1001D80760B00E57400 /* flare.swift */,
 				8273F3051D899F1200E62350 /* facebook.swift */,
+				0803FBB81DC292E700601990 /* publicFlare.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				08050ECF1DBFB4CA00A60A82 /* FacebookInviteController.swift in Sources */,
 				53C8D1031D80781100E57400 /* AnnotationViewController.swift in Sources */,
 				74F405691D86ECEB00F0A6DC /* FlareDisplayController.swift in Sources */,
+				0803FBB91DC292E700601990 /* publicFlare.swift in Sources */,
 				6A7ED8881D7F2E94005FF0A8 /* MapViewController.swift in Sources */,
 				5354CF281D8467BE00D57347 /* FlareDetailViewController.swift in Sources */,
 				74F8AA591D8955E300AD655B /* CityMapperAPI.swift in Sources */,

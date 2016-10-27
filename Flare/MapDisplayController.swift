@@ -33,7 +33,6 @@ extension MapViewController {
                 let definedCenter = CLLocationCoordinate2D(latitude: result[0].latitude!, longitude: result[0].longitude!)
                 let definedRegion = MKCoordinateRegion(center: definedCenter, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
                 self.setRegion(animated: true, region: definedRegion)
-//                self.toggleMapPublicFriends()
             }
         } else if exitMapView != nil {
             let definedRegion = exitMapView!
