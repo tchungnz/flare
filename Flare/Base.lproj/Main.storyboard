@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MgA-qe-Vm4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MgA-qe-Vm4">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--End User Agreement View Controller-->
         <scene sceneID="72o-PN-S2C">
             <objects>
-                <viewController id="yH6-2o-6sf" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="endUserAgreement" id="yH6-2o-6sf" customClass="EndUserAgreementViewController" customModule="Flare" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kD5-xm-OB3"/>
                         <viewControllerLayoutGuide type="bottom" id="Hf1-tC-4kE"/>
@@ -38,12 +38,12 @@
                                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="UKo-9T-1TW" kind="presentation" id="kbn-SX-fK1"/>
+                                                    <action selector="clickBackButton:" destination="yH6-2o-6sf" eventType="touchUpInside" id="Gce-s1-vRF"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRw-ZM-PQm">
                                                 <frame key="frameInset" minX="15" minY="96" width="344" height="543"/>
-                                                <mutableString key="text">Flare (Flare - Share and Discover Spontaneous Moments App) App End User License Agreement
+                                                <string key="text">Flare (Flare - Share and Discover Spontaneous Moments App) App End User License Agreement
 
 
 This End User License Agreement (“Agreement”) is between you and Flare and governs use of this app made available through the Apple App Store. By installing Flare, you agree to be bound by this Agreement and understand that there is no tolerance for objectionable content. If you do not agree with the terms and conditions of this Agreement, you are not entitled to use Flare.
@@ -76,7 +76,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
 8. Product Claims: Flare, not Apple, is responsible for addressing any claims by you relating to the Flare App or use of it, including, but not limited to: (i) any product liability claim; (ii) any claim that Flare fails to conform to any applicable legal or regulatory requirement; and (iii) any claim arising under consumer protection or similar legislation. Nothing in this Agreement shall be deemed an admission that you may have such claims.
 
 
-9. Third Party Intellectual Property Claims: Flare shall not be obligated to indemnify or defend you with respect to any third party claim arising out or relating to Flare. To the extent Flare is required to provide indemnification by applicable law, Flare, not Apple, shall be solely responsible for the investigation, defense, settlement and discharge of any claim that Flare or your use of it infringes any third party intellectual property right.</mutableString>
+9. Third Party Intellectual Property Claims: Flare shall not be obligated to indemnify or defend you with respect to any third party claim arising out or relating to Flare. To the extent Flare is required to provide indemnification by applicable law, Flare, not Apple, shall be solely responsible for the investigation, defense, settlement and discharge of any claim that Flare or your use of it infringes any third party intellectual property right.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -119,7 +119,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
         <!--Profile View Controller-->
         <scene sceneID="gDZ-ja-e3h">
             <objects>
-                <viewController id="UKo-9T-1TW" customClass="ProfileViewController" customModule="Flare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profileView" id="UKo-9T-1TW" customClass="ProfileViewController" customModule="Flare" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qs9-Uo-UT5"/>
                         <viewControllerLayoutGuide type="bottom" id="gWu-m5-QPE"/>
@@ -889,15 +889,35 @@ remaining</string>
                                     <constraint firstAttribute="width" secondItem="5Dz-0n-Ulu" secondAttribute="height" multiplier="1:1" id="7qr-SG-bo0"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="By logging in, you are agreeing to our" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O48-EY-9M8">
+                                <frame key="frameInset" minX="82" minY="406" width="210" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJv-4w-GWD">
+                                <frame key="frameInset" minX="107" minY="425" width="160" height="10"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                <state key="normal" title="End User License Agreement.">
+                                    <color key="titleColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="yH6-2o-6sf" kind="presentation" identifier="endUserAgreementSegue" id="yvs-Uw-hKn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="1RG-US-DAI" firstAttribute="top" secondItem="lVT-fb-QwQ" secondAttribute="top" id="8JI-lP-Ud3"/>
                             <constraint firstItem="1RG-US-DAI" firstAttribute="leading" secondItem="lVT-fb-QwQ" secondAttribute="leading" id="EeP-KD-Xi0"/>
+                            <constraint firstItem="BJv-4w-GWD" firstAttribute="top" secondItem="1RG-US-DAI" secondAttribute="bottom" constant="-242" id="GZg-b0-UZk"/>
                             <constraint firstItem="1RG-US-DAI" firstAttribute="leading" secondItem="lVT-fb-QwQ" secondAttribute="leading" id="U6q-4d-NeZ"/>
                             <constraint firstItem="5Dz-0n-Ulu" firstAttribute="centerX" secondItem="1RG-US-DAI" secondAttribute="centerX" id="Us9-90-RVh"/>
+                            <constraint firstItem="O48-EY-9M8" firstAttribute="centerX" secondItem="1RG-US-DAI" secondAttribute="centerX" id="X96-vM-nIp"/>
                             <constraint firstItem="5Dz-0n-Ulu" firstAttribute="top" secondItem="7aI-BJ-IMH" secondAttribute="bottom" constant="80" id="bRH-m4-7Dr"/>
                             <constraint firstAttribute="trailing" secondItem="1RG-US-DAI" secondAttribute="trailing" id="e3O-pg-EdX"/>
                             <constraint firstItem="1RG-US-DAI" firstAttribute="top" secondItem="lVT-fb-QwQ" secondAttribute="top" id="gXc-1u-zFN"/>
+                            <constraint firstItem="BJv-4w-GWD" firstAttribute="centerX" secondItem="1RG-US-DAI" secondAttribute="centerX" id="igx-Aa-Oc2"/>
+                            <constraint firstItem="BJv-4w-GWD" firstAttribute="top" secondItem="O48-EY-9M8" secondAttribute="bottom" constant="1" id="kDI-tE-wSn"/>
                             <constraint firstItem="Vj7-AG-U0G" firstAttribute="top" secondItem="1RG-US-DAI" secondAttribute="bottom" id="vLI-lB-oVG"/>
                             <constraint firstItem="Vj7-AG-U0G" firstAttribute="top" secondItem="1RG-US-DAI" secondAttribute="bottom" id="xSn-Sw-OwP"/>
                             <constraint firstAttribute="trailing" secondItem="1RG-US-DAI" secondAttribute="trailing" id="xtl-o3-pLe"/>
@@ -944,8 +964,8 @@ remaining</string>
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kbn-SX-fK1"/>
+        <segue reference="ToR-kJ-yvd"/>
         <segue reference="0Z5-td-Zn0"/>
-        <segue reference="mUN-UL-zRw"/>
+        <segue reference="yvs-Uw-hKn"/>
     </inferredMetricsTieBreakers>
 </document>
