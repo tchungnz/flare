@@ -27,7 +27,9 @@ extension MapViewController {
             annotationView!.annotation = annotation
         }
         
-        let pinImage = UIImage(named: "redFlareMapPin")
+        let flare = annotation as! Flare
+        
+        let pinImage = UIImage(named: flare.imageName)
         annotationView!.image = pinImage
         let btn = UIButton(type: .detailDisclosure)
         annotationView!.rightCalloutAccessoryView = btn

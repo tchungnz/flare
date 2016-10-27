@@ -22,8 +22,9 @@ extension MapViewController {
         self.timeHalfHourAgo = (currentTimeInMilliseconds - flareTimeLimitInMiliseconds)
     }
 
-    func getPublicFlaresFromDatabase(_ completion: @escaping (_ result: Array<Flare>) -> ()) {
+    func getPublicFlaresFromDatabase(_ friendsArray: [String], completion: @escaping (_ result: [Flare]) -> ()) {
         getTimeHalfHourAgo()
+        getFacebookID()
         databaseRef = FIRDatabase.database().reference().child("flares")
         databaseRef.queryOrdered(byChild: "timestamp").queryStarting(atValue: timeHalfHourAgo).observe(.value, with: { (snapshot) in
         var newItems = [Flare]()
@@ -32,8 +33,9 @@ extension MapViewController {
             
             let data = (item as! FIRDataSnapshot).value! as! NSDictionary
             
-            if (data["isPublic"] as! Bool) {
+            if (data["isPublic"] as! Bool) && !(friendsArray.contains(data["facebookID"] as! String) || data["facebookID"] as! String == self.uid!) {
                 let flare = Flare(snapshot: item as! FIRDataSnapshot)
+                flare.imageName = "publicPin"
                 newItems.insert(flare, at: 0)
             }
         }
@@ -52,7 +54,7 @@ extension MapViewController {
         }
     }
     
-    func getFriendsFlaresFromDatabase(_ friendsArray: Array<String>, completion: @escaping (_ result: Array<Flare>) -> ()) {
+    func getFriendsFlaresFromDatabase(_ friendsArray: [String], completion: @escaping (_ result: [Flare]) -> ()) {
         getTimeHalfHourAgo()
         getFacebookID()
         databaseRef = FIRDatabase.database().reference().child("flares")
@@ -60,8 +62,9 @@ extension MapViewController {
             var newItems = [Flare]()
             for item in snapshot.children {
                 let data = (item as! FIRDataSnapshot).value! as! NSDictionary
-                if !(data["isPublic"] as! Bool) && ((friendsArray.contains(data["facebookID"] as! String) || data["facebookID"] as! String == self.uid!)) {
+                if (friendsArray.contains(data["facebookID"] as! String) || data["facebookID"] as! String == self.uid!) {
                     let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
+                    newFlare.imageName = "friendsPin"
                     newItems.insert(newFlare, at: 0)
                 }
             }
@@ -72,10 +75,9 @@ extension MapViewController {
         }
     }
     
-    func plotFlares(_ flares: Array<Flare>) {
+    func plotFlares(_ flares: [Flare]) {
         self.mapView.delegate = self
         let allAnnotations = self.mapView.annotations
-        self.mapView.removeAnnotations(allAnnotations)
         self.mapView.addAnnotations(flares)
     }
 

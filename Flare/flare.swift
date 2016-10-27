@@ -19,6 +19,7 @@ class Flare: MKPointAnnotation{
     var timestamp: Int?
     var isPublic: Bool?
     var flareId: String?
+    var imageName: String!
     
     init(snapshot: FIRDataSnapshot) {
         super.init()
