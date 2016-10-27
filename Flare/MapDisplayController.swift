@@ -20,19 +20,7 @@ extension MapViewController {
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
-        
-        if (self.mapView.userLocation is MKUserLocation) {
-            let annotationView = MKAnnotationView(annotation: self.mapView.userLocation , reuseIdentifier: nil)
-            annotationView.canShowCallout = false
-        }
-//
-//        var annotationView = MKAnnotationView(annotation: self.mapView.userLocation, reuseIdentifier: "annotationIdentifier")
-//        annotationView.canShowCallout = false
-        
-//        let annotationView = self.mapView.view(for: MKUserLocation() as! MKAnnotation)
-//        annotationView?.canShowCallout = false
-//        let userLocationView = MKAnnotationView(annotation: self.mapView.userLocation, reuseIdentifier: "AnnotationIdentifier")
-//        userLocationView.canShowCallout = false
+
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
