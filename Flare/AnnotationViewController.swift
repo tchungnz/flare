@@ -12,6 +12,10 @@ import MapKit
 extension MapViewController {
     
     @objc(mapView:viewForAnnotation:) func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        var av = self.mapView.view(for: self.mapView.userLocation)
+        av?.isEnabled = false
+
         if !(annotation is MKPointAnnotation) {
             return nil
         }
@@ -35,7 +39,6 @@ extension MapViewController {
         annotationView!.rightCalloutAccessoryView = btn
         return annotationView
     }
-    
     
     @objc(mapView:didSelectAnnotationView:) func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let annotation = view.annotation as? Flare {
