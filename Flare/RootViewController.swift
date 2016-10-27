@@ -59,4 +59,12 @@ class RootViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "endUserAgreementSegue" {
+            if let ivc = segue.destination as? EndUserAgreementViewController {
+                ivc.route = "rootView"
+            }
+        }
+    }
+
 }
