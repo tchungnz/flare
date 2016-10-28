@@ -46,8 +46,69 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         populateFlares()
         findAndSetBoostCount()
         findAndSetTimestamp()
+        findAndSetButtonImage()
         FIRAnalytics.logEvent(withName: "flare_detail_view", parameters: nil)
     }
+    
+    
+    func findAndSetButtonImage() {
+        findIfBoosted(flareId: (self.flareExport?.flareId!)!) {
+            (result: Bool) in
+                self.setLikeButtonImage(ifBoosted: result)
+        }
+    }
+    
+    
+    func setLikeButtonImage(ifBoosted: Bool) {
+        if ifBoosted == true {
+            boostButton.setBackgroundImage(UIImage(named: "liked"), for: .normal)
+            self.liked = true
+        }
+    }
+    
+//    func findIfBoosted(flareId: String, completion: @escaping (_ result: Bool) -> ())  {
+//        let uid = FIRAuth.auth()?.currentUser?.uid
+//        let flareRef = self.ref.child(byAppendingPath: "flares/\(flareId)/boosts").observeSingleEvent(of: .value, with: { (snapshot) in
+//            // Get user value
+//            let boosts = snapshot.value as? NSDictionary
+//            var userBoost = boosts?[uid]
+//            
+//            if userBoost == nil {
+//                userBoost = false
+//            } else {
+//                userBoost = true
+//            }
+//            print("*****")
+//            print(userBoost)
+//            completion(userBoost)
+//            })
+//        { (error) in
+//            print(error.localizedDescription)
+//        }
+//    }
+    
+    func findIfBoosted(flareId: String, completion: @escaping (_ result: Bool) -> ())  {
+        let uid = FIRAuth.auth()?.currentUser?.uid
+        let flareRef = self.ref.child(byAppendingPath: "flares/\(flareId)/boosts").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let boosts = snapshot.value as? NSDictionary
+            var ifBoosted = boosts![uid!]
+            var ifBoostedBool: Bool
+            
+            if ifBoosted == nil {
+                ifBoostedBool = false
+            } else {
+                ifBoostedBool = ifBoosted! as! Bool
+            }
+     
+            completion(ifBoostedBool)
+            })
+        { (error) in
+            print(error.localizedDescription)
+        }
+    }
+
+    
     
     func setupLabels() {
         flareTitleLabel.text = flareExport!.title!
