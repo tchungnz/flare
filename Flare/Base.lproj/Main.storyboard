@@ -630,21 +630,9 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                             <outletCollection property="gestureRecognizers" destination="Fdj-ui-I43" appends="YES" id="1Mv-LX-juz"/>
                                         </connections>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zby-Ud-qVQ">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="47" id="F8E-h9-BJT"/>
-                                            <constraint firstAttribute="width" constant="49" id="kqc-AJ-6x4"/>
-                                        </constraints>
-                                        <state key="normal" title="Button" image="citymapper"/>
-                                        <connections>
-                                            <action selector="CityMapperNavigation:" destination="J6G-JP-XHO" eventType="touchUpInside" id="fOc-zj-E9s"/>
-                                        </connections>
-                                    </button>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nct-GA-LBe">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nct-GA-LBe">
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="120" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3a0-QX-8qU">
-                                                <frame key="frameInset" minX="20" minY="90" width="26" height="16"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120 mins remaining" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3a0-QX-8qU">
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -659,14 +647,12 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Flare Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="qGy-5f-rRT">
-                                                <frame key="frameInset" minX="20" minY="25" width="270" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flare Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="qGy-5f-rRT">
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fK-9b-Liz">
-                                                <frame key="frameInset" minX="310" minY="73" width="44" height="29"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fK-9b-Liz">
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <state key="normal" title="Report">
                                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -675,30 +661,33 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                                     <action selector="reportFlareAction:" destination="J6G-JP-XHO" eventType="touchUpInside" id="Mbq-xC-yrf"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="mins left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mq-EO-ySW">
-                                                <frame key="frameInset" minX="50" minY="90" width="56" height="16"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="e7w-jM-1WI" firstAttribute="top" secondItem="qGy-5f-rRT" secondAttribute="bottom" constant="3" id="3Kx-Cw-br8"/>
                                             <constraint firstItem="RAV-ft-hVK" firstAttribute="top" secondItem="e7w-jM-1WI" secondAttribute="bottom" constant="3" id="9jG-u3-4N8"/>
                                             <constraint firstItem="3a0-QX-8qU" firstAttribute="top" secondItem="RAV-ft-hVK" secondAttribute="bottom" constant="3" id="EYr-cX-dHD"/>
+                                            <constraint firstAttribute="height" constant="120" id="F4K-vq-xip"/>
                                             <constraint firstItem="qGy-5f-rRT" firstAttribute="leading" secondItem="nct-GA-LBe" secondAttribute="leading" constant="20" id="I9N-12-2Fu"/>
-                                            <constraint firstItem="7mq-EO-ySW" firstAttribute="centerY" secondItem="3a0-QX-8qU" secondAttribute="centerY" id="JrU-iL-g3P"/>
                                             <constraint firstItem="e7w-jM-1WI" firstAttribute="leading" secondItem="nct-GA-LBe" secondAttribute="leading" constant="20" id="LAU-Lx-Ybk"/>
-                                            <constraint firstItem="2fK-9b-Liz" firstAttribute="centerY" secondItem="RAV-ft-hVK" secondAttribute="centerY" id="LcE-0l-1Ek"/>
+                                            <constraint firstItem="2fK-9b-Liz" firstAttribute="centerY" secondItem="3a0-QX-8qU" secondAttribute="centerY" id="Q1T-G5-3kO"/>
                                             <constraint firstItem="RAV-ft-hVK" firstAttribute="leading" secondItem="nct-GA-LBe" secondAttribute="leading" constant="20" id="a7w-iX-iVR"/>
                                             <constraint firstItem="qGy-5f-rRT" firstAttribute="top" secondItem="nct-GA-LBe" secondAttribute="top" constant="25" id="cRI-g1-Ibe"/>
                                             <constraint firstItem="3a0-QX-8qU" firstAttribute="leading" secondItem="nct-GA-LBe" secondAttribute="leading" constant="20" id="lAW-CZ-qhN"/>
                                             <constraint firstAttribute="trailing" secondItem="2fK-9b-Liz" secondAttribute="trailing" constant="20" id="lxY-V1-ZmY"/>
-                                            <constraint firstItem="7mq-EO-ySW" firstAttribute="leading" secondItem="3a0-QX-8qU" secondAttribute="trailing" constant="1.5" id="uvP-7M-YUI"/>
                                             <constraint firstAttribute="trailing" secondItem="qGy-5f-rRT" secondAttribute="trailing" constant="20" id="xBd-BY-C3D"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zby-Ud-qVQ">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="47" id="F8E-h9-BJT"/>
+                                            <constraint firstAttribute="width" constant="49" id="kqc-AJ-6x4"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="citymapper"/>
+                                        <connections>
+                                            <action selector="CityMapperNavigation:" destination="J6G-JP-XHO" eventType="touchUpInside" id="fOc-zj-E9s"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0E-M0-ZqG">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="847-oT-VjT"/>
@@ -711,9 +700,13 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                             <segue destination="BYZ-38-t0r" kind="show" identifier="returnToMap" id="ns2-iy-AlJ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzA-ZF-z8R">
-                                        <rect key="frame" x="164" y="612" width="46" height="30"/>
-                                        <state key="normal" title="Boost"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzA-ZF-z8R">
+                                        <accessibility key="accessibilityConfiguration" identifier="boostButton"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="7T6-EE-A3f"/>
+                                            <constraint firstAttribute="height" constant="44" id="rhu-Or-4z8"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="unliked"/>
                                         <connections>
                                             <action selector="clickBoostButton:" destination="J6G-JP-XHO" eventType="touchUpInside" id="xX7-6D-cRO"/>
                                         </connections>
@@ -736,6 +729,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                     <constraint firstAttribute="trailingMargin" secondItem="WAE-Nn-i4d" secondAttribute="trailing" constant="12" id="RCZ-xk-d9b"/>
                                     <constraint firstItem="WAE-Nn-i4d" firstAttribute="top" secondItem="381-kp-Qh5" secondAttribute="top" id="ZY1-Y0-R1z"/>
                                     <constraint firstItem="WAE-Nn-i4d" firstAttribute="leading" secondItem="381-kp-Qh5" secondAttribute="leading" id="aJJ-ip-6a1"/>
+                                    <constraint firstItem="jzA-ZF-z8R" firstAttribute="centerY" secondItem="R0E-M0-ZqG" secondAttribute="centerY" id="dkR-ec-IbZ"/>
                                     <constraint firstItem="WAE-Nn-i4d" firstAttribute="trailing" secondItem="nct-GA-LBe" secondAttribute="trailing" id="dnw-Ck-hTB"/>
                                     <constraint firstItem="WAE-Nn-i4d" firstAttribute="leading" secondItem="381-kp-Qh5" secondAttribute="leading" constant="20" id="fBn-n4-HAX"/>
                                     <constraint firstItem="R0E-M0-ZqG" firstAttribute="bottom" secondItem="zby-Ud-qVQ" secondAttribute="bottom" id="gF5-ah-gnD"/>
@@ -782,7 +776,6 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                             <constraint firstItem="381-kp-Qh5" firstAttribute="leading" secondItem="VuI-VJ-pvH" secondAttribute="leadingMargin" constant="-40" id="Ntm-NU-KrV"/>
                             <constraint firstAttribute="trailing" secondItem="381-kp-Qh5" secondAttribute="trailing" id="Nw5-ZO-xjz"/>
                             <constraint firstItem="WAE-Nn-i4d" firstAttribute="leading" secondItem="VuI-VJ-pvH" secondAttribute="leadingMargin" constant="-20" id="PAr-Wy-XAt"/>
-                            <constraint firstItem="su1-uz-yFW" firstAttribute="top" secondItem="jzA-ZF-z8R" secondAttribute="bottom" constant="25" id="Pp3-BH-Zyy"/>
                             <constraint firstItem="WAE-Nn-i4d" firstAttribute="leading" secondItem="VuI-VJ-pvH" secondAttribute="leadingMargin" constant="-20" id="TXD-Aw-4pb"/>
                             <constraint firstItem="WAE-Nn-i4d" firstAttribute="width" secondItem="VuI-VJ-pvH" secondAttribute="width" id="aqj-OX-QhV"/>
                             <constraint firstItem="381-kp-Qh5" firstAttribute="leading" secondItem="VuI-VJ-pvH" secondAttribute="leading" id="byU-Rj-mAH"/>
@@ -817,6 +810,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                     </view>
                     <connections>
                         <outlet property="backButton" destination="R0E-M0-ZqG" id="QNN-XI-Evu"/>
+                        <outlet property="boostButton" destination="jzA-ZF-z8R" id="HOK-9P-KQc"/>
                         <outlet property="boostCountLabel" destination="RAV-ft-hVK" id="iKA-QH-bRx"/>
                         <outlet property="cityMapperButton" destination="zby-Ud-qVQ" id="y5x-l4-szC"/>
                         <outlet property="flareDetailBar" destination="nct-GA-LBe" id="KRi-PD-S9T"/>
@@ -925,6 +919,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
         <image name="profileIcon" width="128" height="128"/>
         <image name="redCamera" width="1024" height="1024"/>
         <image name="switch-camera" width="256" height="256"/>
+        <image name="unliked" width="260" height="260"/>
         <image name="uprightLogo" width="250" height="431"/>
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>

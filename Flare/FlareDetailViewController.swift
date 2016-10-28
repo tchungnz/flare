@@ -25,6 +25,7 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var reportFlare: UIButton!
     @IBOutlet weak var boostCountLabel: UILabel!
+    @IBOutlet weak var boostButton: UIButton!
     
     let navBar = UINavigationBar()
     var flareExport: Flare?
@@ -32,6 +33,7 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     var exitMapView: MKCoordinateRegion?
     var ref = FIRDatabase.database().reference()
     var boostCount: Int = 0
+    var liked = false
     
     let locationManager = CLLocationManager()
     
@@ -43,6 +45,7 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         setupLabels()
         populateFlares()
         findAndSetBoostCount()
+        findAndSetTimestamp()
         FIRAnalytics.logEvent(withName: "flare_detail_view", parameters: nil)
     }
     
@@ -83,20 +86,6 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
                 let islandImage: UIImage! = UIImage(data: data!)
                 self.flareImage.image = islandImage
             }
-        }
-    }
-    
-    func findFlareRemainingTime() {
-        let currentTimeInMilliseconds = Date().timeIntervalSince1970 * 1000
-        let flarePostedTime = Double(flareExport!.timestamp!)
-        let flareTimeRemaining = currentTimeInMilliseconds - flarePostedTime
-        let flareTimeRemainingInMinutes = 120 - Int(flareTimeRemaining / 60 / 1000)
-        if flareTimeRemainingInMinutes < 0 {
-            flareTimeRemainingCountdown.text = "0"
-        } else if flareTimeRemainingInMinutes > 120 {
-            flareTimeRemainingCountdown.text = "120"
-        } else {
-            flareTimeRemainingCountdown.text = String(flareTimeRemainingInMinutes)
         }
     }
     
@@ -152,20 +141,24 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
                 self.flareDetailBar.alpha = 1
                 self.cityMapperButton.alpha = 1
                 self.backButton.alpha = 1
+                self.boostButton.alpha = 1
                 }, completion: { finished in
                     self.flareDetailBar.isHidden = false
                     self.cityMapperButton.isHidden = false
                     self.backButton.isHidden = false
+                    self.boostButton.isHidden = false
             })
         } else {
             UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
                 self.flareDetailBar.alpha = 0
                 self.cityMapperButton.alpha = 0
                 self.backButton.alpha = 0
+                self.boostButton.alpha = 0
                 }, completion: { finished in
                     self.flareDetailBar.isHidden = true
                     self.backButton.isHidden = true
                     self.cityMapperButton.isHidden = true
+                    self.boostButton.isHidden = true
             })
         }
     }
