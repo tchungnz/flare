@@ -66,27 +66,6 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-//    func findIfBoosted(flareId: String, completion: @escaping (_ result: Bool) -> ())  {
-//        let uid = FIRAuth.auth()?.currentUser?.uid
-//        let flareRef = self.ref.child(byAppendingPath: "flares/\(flareId)/boosts").observeSingleEvent(of: .value, with: { (snapshot) in
-//            // Get user value
-//            let boosts = snapshot.value as? NSDictionary
-//            var userBoost = boosts?[uid]
-//            
-//            if userBoost == nil {
-//                userBoost = false
-//            } else {
-//                userBoost = true
-//            }
-//            print("*****")
-//            print(userBoost)
-//            completion(userBoost)
-//            })
-//        { (error) in
-//            print(error.localizedDescription)
-//        }
-//    }
-    
     func findIfBoosted(flareId: String, completion: @escaping (_ result: Bool) -> ())  {
         let uid = FIRAuth.auth()?.currentUser?.uid
         let flareRef = self.ref.child(byAppendingPath: "flares/\(flareId)/boosts").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -107,8 +86,6 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
             print(error.localizedDescription)
         }
     }
-
-    
     
     func setupLabels() {
         flareTitleLabel.text = flareExport!.title!

@@ -182,20 +182,4 @@ extension FlareDetailViewController {
     }
     
     
-//    func findFlareRemainingTime() {
-//        let currentTimeInMilliseconds = Date().timeIntervalSince1970 * 1000
-//        let flarePostedTime = Double(flareExport!.timestamp!)
-//        let flareTimeRemaining = currentTimeInMilliseconds - flarePostedTime
-//        let flareTimeRemainingInMinutes = 120 - Int(flareTimeRemaining / 60 / 1000)
-//        if flareTimeRemainingInMinutes < 0 {
-//            flareTimeRemainingCountdown.text = "0"
-//        } else if flareTimeRemainingInMinutes > 120 {
-//            flareTimeRemainingCountdown.text = "120"
-//        } else {
-//            flareTimeRemainingCountdown.text = String(flareTimeRemainingInMinutes)
-//        }
-//    }
-//    
-    
-    
 }
