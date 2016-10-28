@@ -85,11 +85,21 @@ extension FlareDetailViewController {
                 var boosts : Dictionary<String, Bool>
                 boosts = flare["boosts"] as? [String : Bool] ?? [:]
                 var timestamp = flare["timestamp"] as? Int
+                let currentTimeInMilliseconds = Int(Date().timeIntervalSince1970 * 1000)
                 
-                if let _ = boosts[uid] {
-                    timestamp! -= 15*60000
+                if timestamp! < currentTimeInMilliseconds {
+                    if let _ = boosts[uid] {
+                        timestamp! -= 15*60000
+                    } else {
+                        timestamp! += 15*60000
+                    }
                 } else {
-                    timestamp! += 15*60000
+                    if let _ = boosts[uid] {
+                        timestamp! += 15*60000
+                    } else {
+                        timestamp! -= 15*60000
+                    }
+                    
                 }
                 flare["timestamp"] = timestamp as AnyObject?
                 
