@@ -28,7 +28,6 @@ class RestApiManager: NSObject {
                 onCompletion(json, error as NSError?)
                 if let time = json["travel_time_minutes"].int {
                     self.distance = "\(time) mins away"
-                    flareDetail.setDistance(self.distance!)
                 }
             } else {
                 onCompletion(nil, error as NSError?)

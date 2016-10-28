@@ -23,23 +23,26 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var flareDetailBar: UIView!
     @IBOutlet weak var cityMapperButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var distanceToFlare: UILabel!
     @IBOutlet weak var reportFlare: UIButton!
+    @IBOutlet weak var boostCountLabel: UILabel!
     
     let navBar = UINavigationBar()
     var flareExport: Flare?
     var databaseRef: FIRDatabaseReference!
     var exitMapView: MKCoordinateRegion?
     var ref = FIRDatabase.database().reference()
+    var boostCount: Int = 0
     
     let locationManager = CLLocationManager()
     
+
     override func viewDidLoad() {
         setupTapToSendFlareGesture()
         setupLocationManager()
         setupScrollView()
         setupLabels()
         populateFlares()
+        findAndSetBoostCount()
         FIRAnalytics.logEvent(withName: "flare_detail_view", parameters: nil)
     }
     
@@ -50,8 +53,6 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     
     func populateFlares() {
         retrieveFlareImage()
-        distanceToFlare.text = ""
-        findFlareRemainingTime()
     }
     
     func setupScrollView() {
@@ -110,10 +111,7 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     
     func blockUser() {
         let userRef = self.ref.child(byAppendingPath: "users/\((FIRAuth.auth()?.currentUser?.uid)!)/blockedUsers")
-//        let user = usersRef.child((FIRAuth.auth()?.currentUser?.uid)!)
         let blockedUsers = [(self.flareExport?.facebookID)! as String : true as Bool] as [ String : Any ]
-//        print("**************")
-        
         userRef.updateChildValues(blockedUsers)
     }
     
@@ -154,24 +152,20 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
                 self.flareDetailBar.alpha = 1
                 self.cityMapperButton.alpha = 1
                 self.backButton.alpha = 1
-                self.distanceToFlare.alpha = 1
                 }, completion: { finished in
                     self.flareDetailBar.isHidden = false
                     self.cityMapperButton.isHidden = false
                     self.backButton.isHidden = false
-                    self.distanceToFlare.isHidden = false
             })
         } else {
             UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
                 self.flareDetailBar.alpha = 0
                 self.cityMapperButton.alpha = 0
                 self.backButton.alpha = 0
-                self.distanceToFlare.alpha = 0
                 }, completion: { finished in
                     self.flareDetailBar.isHidden = true
                     self.backButton.isHidden = true
                     self.cityMapperButton.isHidden = true
-                    self.distanceToFlare.isHidden = true
             })
         }
     }
@@ -185,30 +179,6 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
 //    override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
 //        return UIStatusBarAnimation.slide
 //    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last
-        let userLatitude = Double(location!.coordinate.latitude)
-        let userLongitude = Double(location!.coordinate.longitude)
-        self.locationManager.stopUpdatingLocation()
-        cityMapperCall(userLatitude, longitude: userLongitude)
-    }
-    
-    func cityMapperCall(_ latitude: Double, longitude: Double) {
-        let path = "https://developer.citymapper.com/api/1/traveltime/?startcoord=\(latitude)%2C\(longitude)&endcoord=\(flareExport!.latitude!)%2C\(flareExport!.longitude!)&time_type=arrival&key=6984b374d454cc120949773ebf04442c"
-        let citymap = RestApiManager()
-        citymap.makeHTTPGetRequest(path, flareDetail: self, onCompletion: { _, _ in })
-    }
-    
-    func setDistance(_ distance: String) {
-        DispatchQueue.main.async {
-            self.distanceToFlare.text = distance
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Errors: " + error.localizedDescription)
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "returnToMap" {
