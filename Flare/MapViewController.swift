@@ -95,6 +95,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.exitMapView = nil
         mapSetUp()
     }
+    
+    
+    @IBAction func cancelToMapViewController(segue:UIStoryboardSegue) {
+    }
+    
 }
 
 
