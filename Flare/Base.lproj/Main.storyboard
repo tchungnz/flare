@@ -345,9 +345,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="UKo-9T-1TW" kind="popoverPresentation" popoverAnchorView="DMg-Ov-4VJ" id="ezD-eS-wta">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="UKo-9T-1TW" kind="show" id="ezD-eS-wta"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iy2-AK-hv6">
@@ -600,7 +598,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3632.8000000000002" y="614.84257871064472"/>
+            <point key="canvasLocation" x="3898" y="586"/>
         </scene>
         <!--Flare Detail View Controller-->
         <scene sceneID="UeN-iW-kNT">
@@ -924,8 +922,8 @@ In order to ensure Flare provides the best experience possible for everyone, we 
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ns2-iy-AlJ"/>
-        <segue reference="0Z5-td-Zn0"/>
         <segue reference="yvs-Uw-hKn"/>
+        <segue reference="0Z5-td-Zn0"/>
+        <segue reference="mUN-UL-zRw"/>
     </inferredMetricsTieBreakers>
 </document>

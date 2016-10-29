@@ -45,7 +45,7 @@ extension FlareViewController: CLLocationManagerDelegate {
         let flareRef = ref.child(byAppendingPath: "flares")
         let timestamp = FIRServerValue.timestamp()
         let user = FIRAuth.auth()?.currentUser
-        let newFlare = ["facebookID": facebook.uid! as String, "title": self.flareTitle.text!, "subtitle": user!.displayName! as String, "imageRef": "images/flare\(imageString).jpg", "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp, "isPublic": self.isPublicFlare as Bool] as [String : Any]
+        let newFlare = ["facebookID": facebook.uid! as String, "title": self.flareTitle.text!, "subtitle": user!.displayName! as String, "imageRef": "images/flare\(imageString).jpg", "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp, "isPublic": self.isPublicFlare as Bool, "boostCount": 0 as Int] as [String : Any]
         let flareUniqueRef = flareRef.childByAutoId()
         flareUniqueRef.setValue(newFlare)
         if self.isPublicFlare == false {

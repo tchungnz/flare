@@ -59,4 +59,32 @@ extension MapViewController {
         }
     }
     
+    
+    
+    func setBoostImages(flaresToPlot: [Flare], completion: @escaping (_ result: [Flare]) -> ())  {
+        for item in flaresToPlot {
+            if item.boostCount == nil {
+                item.imageName = item.imageName + "0Boost"
+            } else {
+                if item.boostCount! == 0 {
+                    item.imageName = item.imageName + "0Boost"
+                } else if item.boostCount! == 1 {
+                    item.imageName = item.imageName + "1Boost"
+                } else {
+                    item.imageName = item.imageName + "2Boost"
+                }
+//            } else if item.boostCount == 2 {
+//                item.imageName = boostImageNames[2]
+//            } else if item.boostCount == 3 {
+//                item.imageName = boostImageNames[3]
+//            } else if item.boostCount == 4 {
+//                item.imageName = boostImageNames[4]
+//            } else {
+//                item.imageName = boostImageNames[5]
+//            }
+            }
+        }
+        completion(flaresToPlot)
+    }
+
 }

@@ -80,5 +80,11 @@ extension MapViewController {
         let allAnnotations = self.mapView.annotations
         self.mapView.addAnnotations(flares)
     }
+    
+    func plotBoosts(_ flares: [Flare]) {
+        self.mapView.delegate = self
+        let allAnnotations = self.mapView.annotations
+        self.mapView.addAnnotations(flares)
+    }
 
 }

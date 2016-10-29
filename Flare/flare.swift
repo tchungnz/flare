@@ -19,7 +19,9 @@ class Flare: MKPointAnnotation{
     var timestamp: Int?
     var isPublic: Bool?
     var flareId: String?
+    var boostCount: Int?
     var imageName: String!
+    
     
     init(snapshot: FIRDataSnapshot) {
         super.init()
@@ -35,6 +37,7 @@ class Flare: MKPointAnnotation{
         self.timestamp = (snapshotValue?["timestamp"] as? Int?)!
         self.isPublic = (snapshotValue?["isPublic"] as? Bool?)!
         self.flareId = snapshot.key
+        self.boostCount = (snapshotValue?["boostCount"] as? Int?)!
     }
     
 }

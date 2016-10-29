@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "publicPin-3.png",
+      "filename" : "publicPin.png",
       "scale" : "1x"
     },
     {
@@ -14,12 +14,6 @@
       "idiom" : "universal",
       "filename" : "publicPin-2.png",
       "scale" : "3x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "publicPin.png",
-      "unassigned" : true,
-      "scale" : "1x"
     }
   ],
   "info" : {
