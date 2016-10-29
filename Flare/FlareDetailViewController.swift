@@ -34,8 +34,9 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     var ref = FIRDatabase.database().reference()
     var boostCount: Int = 0
     var liked = false
-    
+    let flareTimeInMinutes = 120
     let locationManager = CLLocationManager()
+    
     
 
     override func viewDidLoad() {
@@ -71,7 +72,7 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         let flareRef = self.ref.child(byAppendingPath: "flares/\(flareId)/boosts").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let boosts = snapshot.value as? NSDictionary
-            var ifBoosted = boosts![uid!]
+            var ifBoosted = boosts?[uid!]
             var ifBoostedBool: Bool
             
             if ifBoosted == nil {
