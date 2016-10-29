@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -112,7 +111,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Duy-ot-eCQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2909.5999999999999" y="-912.5937031484259"/>
+            <point key="canvasLocation" x="2113" y="-135"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="gDZ-ja-e3h">
@@ -142,7 +141,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="BYZ-38-t0r" kind="presentation" id="ToR-kJ-yvd"/>
+                                                    <segue destination="ROF-AE-8Yy" kind="unwind" unwindAction="cancelToMapViewControllerWithSegue:" id="S9x-KB-fXQ"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redCamera" translatesAutoresizingMaskIntoConstraints="NO" id="NEg-Zd-yHU">
@@ -313,8 +312,9 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3g2-7h-hOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ROF-AE-8Yy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2920.8000000000002" y="-173.16341829085459"/>
+            <point key="canvasLocation" x="2910" y="-135"/>
         </scene>
         <!--Flare-->
         <scene sceneID="tne-QT-ifu">
@@ -345,9 +345,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="UKo-9T-1TW" kind="popoverPresentation" popoverAnchorView="DMg-Ov-4VJ" id="ezD-eS-wta">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="UKo-9T-1TW" kind="show" id="ezD-eS-wta"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iy2-AK-hv6">
@@ -373,7 +371,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="d1b-im-btc" kind="presentation" identifier="cameraView" id="a6n-dq-dfg"/>
+                                    <segue destination="d1b-im-btc" kind="presentation" identifier="cameraView" animates="NO" id="a6n-dq-dfg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RqD-Xv-VYf">
@@ -484,11 +482,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SzE-sB-ACH">
                                 <state key="normal" title="Button" image="map-icon"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="popoverPresentation" popoverAnchorView="SzE-sB-ACH" id="4eN-1f-zgq">
-                                        <segue key="commit" destination="BYZ-38-t0r" kind="presentation" id="m8d-SZ-z6H"/>
-                                        <segue key="preview" inheritsFrom="commit" id="mUN-UL-zRw"/>
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="AzX-Gn-k8r" kind="unwind" unwindAction="cancelToMapViewControllerWithSegue:" id="ack-uK-6e9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzU-kD-nqP">
@@ -589,6 +583,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f0p-ZC-79o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="AzX-Gn-k8r" userLabel="Exit" sceneMemberID="exit"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="Ije-Oy-vdT">
                     <connections>
                         <action selector="handlePan:" destination="d1b-im-btc" id="LSB-Dt-uUR"/>
@@ -600,7 +595,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3632.8000000000002" y="614.84257871064472"/>
+            <point key="canvasLocation" x="3919" y="615"/>
         </scene>
         <!--Flare Detail View Controller-->
         <scene sceneID="UeN-iW-kNT">
@@ -697,7 +692,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                             <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="returnToMap" id="ns2-iy-AlJ"/>
+                                            <segue destination="vSS-ld-4lg" kind="unwind" unwindAction="cancelToMapViewControllerWithSegue:" id="Axg-jX-cc5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzA-ZF-z8R">
@@ -823,9 +818,10 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qtq-wk-e8L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="vSS-ld-4lg" userLabel="Exit" sceneMemberID="exit"/>
                 <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="Fdj-ui-I43"/>
             </objects>
-            <point key="canvasLocation" x="3632.8000000000002" y="-173.16341829085459"/>
+            <point key="canvasLocation" x="2945" y="1531"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="LIU-FH-2n6">
@@ -924,8 +920,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ns2-iy-AlJ"/>
+        <segue reference="Kgi-6j-WFR"/>
         <segue reference="0Z5-td-Zn0"/>
-        <segue reference="yvs-Uw-hKn"/>
     </inferredMetricsTieBreakers>
 </document>
