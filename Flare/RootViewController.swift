@@ -22,6 +22,7 @@ class RootViewController: UIViewController, FBSDKLoginButtonDelegate {
  
         FIRAuth.auth()?.addStateDidChangeListener { auth, user in
             if let user = user {
+                self.saveUserToDatabase()
                 let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
                 let mapViewController: UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "mapView")
                 self.present(mapViewController, animated: true, completion: nil)
@@ -33,7 +34,18 @@ class RootViewController: UIViewController, FBSDKLoginButtonDelegate {
                 self.loginButton.isHidden = false
             }
         }
+    }
     
+    func saveUserToDatabase() {
+        let facebook = Facebook()
+        let ref = FIRDatabase.database().reference()
+        facebook.getFacebookID()
+        if let user = FIRAuth.auth()?.currentUser, let token = FIRInstanceID.instanceID().token() {
+            let userRef = ref.child(byAppendingPath: "users/\(user.uid)")
+
+            let newUser = ["facebookID": facebook.uid! as String, "tokenID": token as String, "fullname": user.displayName! as String, "email": user.email! as String, "profileURL": String(describing: user.photoURL!) as String] as [String : Any]
+            userRef.setValue(newUser)
+        }
     }
 
     override func didReceiveMemoryWarning() {

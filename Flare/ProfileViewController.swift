@@ -46,7 +46,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, MFMessageCom
     func setProfilePhotoAndName() {
         if let user = FIRAuth.auth()?.currentUser {
             let profilePicURL = user.photoURL
-            print(profilePicURL)
             let data = try! Data(contentsOf: profilePicURL!)
             let profilePicUI = (UIImage(data: data as Data))!
             self.profilePic.layer.cornerRadius = 37.5
