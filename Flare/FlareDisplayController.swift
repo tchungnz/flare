@@ -75,6 +75,25 @@ extension MapViewController {
         }
     }
     
+    func findBoostCount(flareId: String, completion: @escaping (_ result: String) -> ())  {
+        let flareRef = self.ref.child(byAppendingPath: "flares/\(flareId)").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let flare = snapshot.value as? NSDictionary
+            var count = flare?["boostCount"]
+            var countString: String
+            if count == nil {
+                countString = "0"
+            } else {
+                countString = String(describing: count!)
+            }
+            completion(countString)
+            })
+        { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+
     func plotFlares(_ flares: [Flare]) {
         self.mapView.delegate = self
         let allAnnotations = self.mapView.annotations

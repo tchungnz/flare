@@ -55,6 +55,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             self.getFriendsFlaresFromDatabase(result) {
                 (result: [Flare]) in
                 self.plotFlares(result)
+                print("****result****")
+                print(result)
+                self.createBoostArrayAndPlot(flares: result)
+
             }
         }
     }
@@ -65,6 +69,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             self.getPublicFlaresFromDatabase(result) {
                 (result: [Flare]) in
                 self.plotFlares(result)
+                self.createBoostArrayAndPlot(flares: result)
             }
         }
     }

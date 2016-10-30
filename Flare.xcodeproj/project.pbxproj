@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		08033D5C1DB93B660092E45E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08033D5B1DB93B660092E45E /* GoogleService-Info.plist */; };
-		0803FBB91DC292E700601990 /* publicFlare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803FBB81DC292E700601990 /* publicFlare.swift */; };
 		08050ECF1DBFB4CA00A60A82 /* FacebookInviteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08050ECE1DBFB4CA00A60A82 /* FacebookInviteController.swift */; };
 		082C0C791DC21466003FABC9 /* EndUserAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082C0C781DC21466003FABC9 /* EndUserAgreementViewController.swift */; };
 		0856CEDF1DC3595C002D8D31 /* BoostFlareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0856CEDE1DC3595C002D8D31 /* BoostFlareViewController.swift */; };
+		0882B0171DC63C0C0073E3AC /* boostOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0882B0161DC63C0C0073E3AC /* boostOverlay.swift */; };
+		0882B0191DC662BA0073E3AC /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0882B0181DC662BA0073E3AC /* OverlayViewController.swift */; };
 		08EFE9CF341AC9A8593EF0B9 /* Pods_Flare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C077AF3B95864CEF341C981 /* Pods_Flare.framework */; };
 		246276DA1D85DB0C00D434F5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246276D91D85DB0C00D434F5 /* ProfileViewController.swift */; };
 		24B68D491D8184AB004EE49A /* FlareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B68D481D8184AB004EE49A /* FlareViewController.swift */; };
@@ -64,10 +65,11 @@
 /* Begin PBXFileReference section */
 		071010AADE24D7DACD9ABDC4 /* Pods-Flare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flare.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flare/Pods-Flare.release.xcconfig"; sourceTree = "<group>"; };
 		08033D5B1DB93B660092E45E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		0803FBB81DC292E700601990 /* publicFlare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = publicFlare.swift; sourceTree = "<group>"; };
 		08050ECE1DBFB4CA00A60A82 /* FacebookInviteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookInviteController.swift; sourceTree = "<group>"; };
 		082C0C781DC21466003FABC9 /* EndUserAgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndUserAgreementViewController.swift; sourceTree = "<group>"; };
 		0856CEDE1DC3595C002D8D31 /* BoostFlareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoostFlareViewController.swift; sourceTree = "<group>"; };
+		0882B0161DC63C0C0073E3AC /* boostOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = boostOverlay.swift; sourceTree = "<group>"; };
+		0882B0181DC662BA0073E3AC /* OverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
 		08D1BDDF1DA6A853007EF1A0 /* Flare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flare.entitlements; sourceTree = "<group>"; };
 		1C077AF3B95864CEF341C981 /* Pods_Flare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		246276D91D85DB0C00D434F5 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				6A7ED8871D7F2E94005FF0A8 /* MapViewController.swift */,
 				74F405681D86ECEB00F0A6DC /* FlareDisplayController.swift */,
 				53C8D1021D80781100E57400 /* AnnotationViewController.swift */,
+				0882B0181DC662BA0073E3AC /* OverlayViewController.swift */,
 				74F405661D86EA5A00F0A6DC /* MapDisplayController.swift */,
 			);
 			name = Map;
@@ -299,8 +302,8 @@
 			isa = PBXGroup;
 			children = (
 				53C8D1001D80760B00E57400 /* flare.swift */,
+				0882B0161DC63C0C0073E3AC /* boostOverlay.swift */,
 				8273F3051D899F1200E62350 /* facebook.swift */,
-				0803FBB81DC292E700601990 /* publicFlare.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -603,9 +606,9 @@
 				08050ECF1DBFB4CA00A60A82 /* FacebookInviteController.swift in Sources */,
 				53C8D1031D80781100E57400 /* AnnotationViewController.swift in Sources */,
 				74F405691D86ECEB00F0A6DC /* FlareDisplayController.swift in Sources */,
-				0803FBB91DC292E700601990 /* publicFlare.swift in Sources */,
 				6A7ED8881D7F2E94005FF0A8 /* MapViewController.swift in Sources */,
 				5354CF281D8467BE00D57347 /* FlareDetailViewController.swift in Sources */,
+				0882B0191DC662BA0073E3AC /* OverlayViewController.swift in Sources */,
 				74F8AA591D8955E300AD655B /* CityMapperAPI.swift in Sources */,
 				746DDF451D844570004A27A2 /* SendFlareViewController.swift in Sources */,
 				6A7ED8861D7F2E94005FF0A8 /* AppDelegate.swift in Sources */,
@@ -613,6 +616,7 @@
 				8273F3061D899F1200E62350 /* facebook.swift in Sources */,
 				246276DA1D85DB0C00D434F5 /* ProfileViewController.swift in Sources */,
 				537EB5ED1D87240C00F3E4F6 /* FlashViewController.swift in Sources */,
+				0882B0171DC63C0C0073E3AC /* boostOverlay.swift in Sources */,
 				74F405671D86EA5A00F0A6DC /* MapDisplayController.swift in Sources */,
 				826E4E991D81CA6F00CA4493 /* RootViewController.swift in Sources */,
 				82FF4C911D85C26E00B44AF7 /* UITextFieldLimit.m in Sources */,

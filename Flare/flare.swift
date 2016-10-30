@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 import FirebaseDatabase
 
-class Flare: MKPointAnnotation{
+class Flare: MKPointAnnotation {
 
     var facebookID: String?
     var latitude: Double?
@@ -20,6 +20,7 @@ class Flare: MKPointAnnotation{
     var isPublic: Bool?
     var flareId: String?
     var imageName: String!
+    var boostCount: Int?
     
     init(snapshot: FIRDataSnapshot) {
         super.init()
@@ -35,6 +36,7 @@ class Flare: MKPointAnnotation{
         self.timestamp = (snapshotValue?["timestamp"] as? Int?)!
         self.isPublic = (snapshotValue?["isPublic"] as? Bool?)!
         self.flareId = snapshot.key
+        self.boostCount = (snapshotValue?["boostCount"] as? Int?)!
     }
     
 }
