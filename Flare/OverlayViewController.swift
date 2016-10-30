@@ -8,44 +8,75 @@
 
 import Foundation
 import MapKit
+import Firebase
 
 extension MapViewController {
     
     func plotBoosts(_ boostOverlays: [MKCircle]) {
+        print("****running plotboosts****")
         self.mapView.delegate = self
         self.mapView.removeOverlays(boostOverlays)
         //        self.mapView.addOverlays(boostOverlays)
         for item in boostOverlays {
-            print("X")
             self.mapView.add(item)
         }
     }
     
     func createBoostArrayAndPlot(flares: [Flare]) {
-        createBoostOverlayArray(flares: flares) {
+        getBoostCountsFromDatabase() {
             (result: [MKCircle]) in
             self.plotBoosts(result)
         }
     }
     
-    func createBoostOverlayArray(flares: [Flare], completion: @escaping (_ result: [MKCircle]) -> ()) {
-        var boostOverlays = [MKCircle]()
-        for item in flares {
-            if item.boostCount != nil && item.boostCount != 0 {
-                for index in 1...(item.boostCount!) {
-                    let radius: CLLocationDistance
-                    if item.boostCount != nil {
+    func getBoostCountsFromDatabase(completion: @escaping (_ result: [MKCircle]) -> ()) {
+        print("boostcounts running")
+        getTimeHalfHourAgo()
+        let flareRef = self.ref.child("flares").queryOrdered(byChild: "timestamp").queryStarting(atValue: timeHalfHourAgo)
+        print(flareRef)
+        flareRef.observe(.value, with: { (snapshot) in
+            var boostOverlays = [MKCircle]()
+            for item in snapshot.children {
+                let flare = (item as! FIRDataSnapshot).value! as! [String : AnyObject]
+                let boostCount = flare["boostCount"] as? Int ?? 0
+                let latitude = flare["latitude"] as! String
+                let longitude = flare["longitude"] as! String
+                if boostCount != nil && boostCount != 0 {
+                    for index in 1...(boostCount) {
+                        let radius: CLLocationDistance
                         radius = CLLocationDistance(index*150)
-                    } else {
-                        radius = CLLocationDistance(0)
+                        let newBoostOverlay = MKCircle(center: CLLocationCoordinate2D(latitude: Double(latitude)!, longitude: Double(longitude)!), radius: radius)
+                        boostOverlays.append(newBoostOverlay)
                     }
-                    let newBoostOverlay = MKCircle(center: item.coordinate, radius: radius)
-                    boostOverlays.append(newBoostOverlay)
                 }
             }
+            print("****number of circles to plot*****")
+            print(boostOverlays.count)
+            completion(boostOverlays)
+            })
+        { (error) in
+            print(error.localizedDescription)
         }
-        completion(boostOverlays)
     }
+    
+//    func createBoostOverlayArray(flares: [Flare], completion: @escaping (_ result: [MKCircle]) -> ()) {
+//        var boostOverlays = [MKCircle]()
+//        for item in flares {
+//            if item.boostCount != nil && item.boostCount != 0 {
+//                for index in 1...(item.boostCount!) {
+//                    let radius: CLLocationDistance
+//                    if item.boostCount != nil {
+//                        radius = CLLocationDistance(index*150)
+//                    } else {
+//                        radius = CLLocationDistance(0)
+//                    }
+//                    let newBoostOverlay = MKCircle(center: item.coordinate, radius: radius)
+//                    boostOverlays.append(newBoostOverlay)
+//                }
+//            }
+//        }
+//        completion(boostOverlays)
+//    }
     
     @objc(mapView:viewForOverlay:) func mapView(_ mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay.isKind(of: MKCircle.self){
