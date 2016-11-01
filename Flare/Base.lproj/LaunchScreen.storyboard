@@ -20,21 +20,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FLAREBACKGROUND" translatesAutoresizingMaskIntoConstraints="NO" id="InC-e3-jrS"/>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FLARELOGOUP" translatesAutoresizingMaskIntoConstraints="NO" id="i5q-3d-BCa">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="FLARELOGOUP" translatesAutoresizingMaskIntoConstraints="NO" id="4oR-CU-3gK">
+                                <frame key="frameInset" minX="100" minY="73" width="175" height="175"/>
+                                <accessibility key="accessibilityConfiguration" identifier="flareLogo">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="175" id="OBb-qo-QMw"/>
-                                    <constraint firstAttribute="width" constant="175" id="Oxp-8e-Eze"/>
-                                    <constraint firstAttribute="width" secondItem="i5q-3d-BCa" secondAttribute="height" multiplier="1:1" id="i66-I1-W4Q"/>
+                                    <constraint firstAttribute="width" secondItem="4oR-CU-3gK" secondAttribute="height" multiplier="1:1" id="Ygr-CQ-Yg7"/>
+                                    <constraint firstAttribute="width" constant="175" id="d5G-Zs-ELj"/>
+                                    <constraint firstAttribute="height" constant="175" id="g9v-71-TpQ"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="InC-e3-jrS" secondAttribute="bottom" id="RIF-Al-uXL"/>
-                            <constraint firstItem="i5q-3d-BCa" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="80" id="USX-Af-wgy"/>
                             <constraint firstAttribute="trailing" secondItem="InC-e3-jrS" secondAttribute="trailing" id="htl-ab-7ml"/>
                             <constraint firstItem="InC-e3-jrS" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="jC1-Ej-v2q"/>
+                            <constraint firstItem="4oR-CU-3gK" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="55" id="lls-0D-CeE"/>
                             <constraint firstItem="InC-e3-jrS" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="nWu-cQ-fne"/>
-                            <constraint firstItem="i5q-3d-BCa" firstAttribute="centerX" secondItem="InC-e3-jrS" secondAttribute="centerX" id="pf5-Y6-MAa"/>
+                            <constraint firstItem="4oR-CU-3gK" firstAttribute="centerX" secondItem="InC-e3-jrS" secondAttribute="centerX" id="sld-4Q-H96"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -45,6 +49,6 @@
     </scenes>
     <resources>
         <image name="FLAREBACKGROUND" width="509" height="906"/>
-        <image name="FLARELOGOUP" width="463" height="798"/>
+        <image name="FLARELOGOUP" width="231" height="399"/>
     </resources>
 </document>
