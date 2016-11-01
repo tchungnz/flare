@@ -13,40 +13,85 @@ import Firebase
 extension MapViewController {
     
     func plotBoosts(_ boostOverlays: [MKCircle]) {
-        print("****running plotboosts****")
         self.mapView.delegate = self
-        self.mapView.removeOverlays(boostOverlays)
-        //        self.mapView.addOverlays(boostOverlays)
-        for item in boostOverlays {
-            self.mapView.add(item)
-        }
+        var overlays = mapView.overlays
+        mapView.removeOverlays(overlays)
+        self.mapView.addOverlays(boostOverlays)
     }
     
-    func createBoostArrayAndPlot(flares: [Flare]) {
-        getBoostCountsFromDatabase() {
+    func createFriendsBoostArrayAndPlot(friendsArray: [String]) {
+        getFriendsBoostCountsFromDatabase(friendsArray) {
             (result: [MKCircle]) in
             self.plotBoosts(result)
         }
     }
     
-    func getBoostCountsFromDatabase(completion: @escaping (_ result: [MKCircle]) -> ()) {
-        print("boostcounts running")
+
+    func createPublicBoostArrayAndPlot(friendsArray: [String]) {
+        getPublicBoostCountsFromDatabase(friendsArray) {
+            (result: [MKCircle]) in
+            self.plotBoosts(result)
+        }
+    }
+    
+    func getFriendsBoostCountsFromDatabase(_ friendsArray: [String], completion: @escaping (_ result: [MKCircle]) -> ()) {
+        print("friends boostcounts running")
         getTimeHalfHourAgo()
+        
+        // Not efficient code, as firebase looks for any change to flares (both boostcount and boost attributes change so runs code 2x)
+        
         let flareRef = self.ref.child("flares").queryOrdered(byChild: "timestamp").queryStarting(atValue: timeHalfHourAgo)
-        print(flareRef)
         flareRef.observe(.value, with: { (snapshot) in
             var boostOverlays = [MKCircle]()
             for item in snapshot.children {
+                let data = (item as! FIRDataSnapshot).value! as! NSDictionary
+                if (friendsArray.contains(data["facebookID"] as! String) || data["facebookID"] as! String == self.uid!) {
                 let flare = (item as! FIRDataSnapshot).value! as! [String : AnyObject]
                 let boostCount = flare["boostCount"] as? Int ?? 0
                 let latitude = flare["latitude"] as! String
                 let longitude = flare["longitude"] as! String
-                if boostCount != nil && boostCount != 0 {
+                if boostCount != 0 {
                     for index in 1...(boostCount) {
                         let radius: CLLocationDistance
-                        radius = CLLocationDistance(index*150)
+                        radius = CLLocationDistance(index*75)
                         let newBoostOverlay = MKCircle(center: CLLocationCoordinate2D(latitude: Double(latitude)!, longitude: Double(longitude)!), radius: radius)
                         boostOverlays.append(newBoostOverlay)
+                    }
+                }
+            }
+            }
+            print("****number of circles to plot*****")
+            print(boostOverlays.count)
+            completion(boostOverlays)
+            })
+        { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    func getPublicBoostCountsFromDatabase(_ friendsArray: [String], completion: @escaping (_ result: [MKCircle]) -> ()) {
+        print("public boostcounts running")
+        getTimeHalfHourAgo()
+        
+        // Not efficient code, as firebase looks for any change to flares (both boostcount and boost attributes change so runs code 2x)
+        
+        let flareRef = self.ref.child("flares").queryOrdered(byChild: "timestamp").queryStarting(atValue: timeHalfHourAgo)
+        flareRef.observe(.value, with: { (snapshot) in
+            var boostOverlays = [MKCircle]()
+            for item in snapshot.children {
+                let data = (item as! FIRDataSnapshot).value! as! NSDictionary
+                if (data["isPublic"] as! Bool) && !(friendsArray.contains(data["facebookID"] as! String) || data["facebookID"] as! String == self.uid!) {
+                    let flare = (item as! FIRDataSnapshot).value! as! [String : AnyObject]
+                    let boostCount = flare["boostCount"] as? Int ?? 0
+                    let latitude = flare["latitude"] as! String
+                    let longitude = flare["longitude"] as! String
+                    if boostCount != 0 {
+                        for index in 1...(boostCount) {
+                            let radius: CLLocationDistance
+                            radius = CLLocationDistance(index*75)
+                            let newBoostOverlay = MKCircle(center: CLLocationCoordinate2D(latitude: Double(latitude)!, longitude: Double(longitude)!), radius: radius)
+                            boostOverlays.append(newBoostOverlay)
+                        }
                     }
                 }
             }
@@ -58,6 +103,7 @@ extension MapViewController {
             print(error.localizedDescription)
         }
     }
+
     
 //    func createBoostOverlayArray(flares: [Flare], completion: @escaping (_ result: [MKCircle]) -> ()) {
 //        var boostOverlays = [MKCircle]()
@@ -66,7 +112,7 @@ extension MapViewController {
 //                for index in 1...(item.boostCount!) {
 //                    let radius: CLLocationDistance
 //                    if item.boostCount != nil {
-//                        radius = CLLocationDistance(index*150)
+//                        radius = CLLocationDistance(index*75)
 //                    } else {
 //                        radius = CLLocationDistance(0)
 //                    }

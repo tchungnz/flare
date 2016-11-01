@@ -22,24 +22,21 @@ extension MapViewController {
         self.timeHalfHourAgo = (currentTimeInMilliseconds - flareTimeLimitInMiliseconds)
     }
 
-    func getPublicFlaresFromDatabase(_ friendsArray: [String], completion: @escaping (_ result: [Flare]) -> ()) {
+    func getPublicFlaresFromDatabase(_ friendsArray: [String], completion: @escaping (_ result: [Flare], _ friendsArray: [String]) -> ()) {
         getTimeHalfHourAgo()
         getFacebookID()
-        databaseRef = FIRDatabase.database().reference().child("flares")
-        databaseRef.queryOrdered(byChild: "timestamp").queryStarting(atValue: timeHalfHourAgo).observe(.value, with: { (snapshot) in
+        let flareRef = ref.child("flares")
+        flareRef.queryOrdered(byChild: "timestamp").queryStarting(atValue: timeHalfHourAgo).observe(.value, with: { (snapshot) in
         var newItems = [Flare]()
-        
         for item in snapshot.children {
-            
             let data = (item as! FIRDataSnapshot).value! as! NSDictionary
-            
             if (data["isPublic"] as! Bool) && !(friendsArray.contains(data["facebookID"] as! String) || data["facebookID"] as! String == self.uid!) {
                 let flare = Flare(snapshot: item as! FIRDataSnapshot)
                 flare.imageName = "publicPin"
                 newItems.insert(flare, at: 0)
             }
         }
-            completion(newItems)
+            completion(newItems, friendsArray)
             })
         { (error) in
             print(error.localizedDescription)
@@ -54,11 +51,11 @@ extension MapViewController {
         }
     }
     
-    func getFriendsFlaresFromDatabase(_ friendsArray: [String], completion: @escaping (_ result: [Flare]) -> ()) {
+    func getFriendsFlaresFromDatabase(_ friendsArray: [String], completion: @escaping (_ result: [Flare], _ friendsarray: [String]) -> ()) {
         getTimeHalfHourAgo()
         getFacebookID()
-        databaseRef = FIRDatabase.database().reference().child("flares")
-        databaseRef.queryOrdered(byChild: "timestamp").queryStarting(atValue: timeHalfHourAgo).observe(.value, with: { (snapshot) in
+        let flareRef = ref.child("flares")
+        flareRef.queryOrdered(byChild: "timestamp").queryStarting(atValue: timeHalfHourAgo).observe(.value, with: { (snapshot) in
             var newItems = [Flare]()
             for item in snapshot.children {
                 let data = (item as! FIRDataSnapshot).value! as! NSDictionary
@@ -68,7 +65,7 @@ extension MapViewController {
                     newItems.insert(newFlare, at: 0)
                 }
             }
-            completion(newItems)
+            completion(newItems, friendsArray)
             })
         { (error) in
             print(error.localizedDescription)
