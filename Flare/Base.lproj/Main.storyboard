@@ -841,7 +841,9 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="07T-0X-XUq"/>
                                     <constraint firstAttribute="width" secondItem="5Dz-0n-Ulu" secondAttribute="height" multiplier="1:1" id="7qr-SG-bo0"/>
+                                    <constraint firstAttribute="height" constant="175" id="zAj-rn-FEF"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="By logging in, you are agreeing to our" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O48-EY-9M8">
@@ -905,7 +907,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
     </scenes>
     <resources>
         <image name="FLAREBACKGROUND" width="509" height="906"/>
-        <image name="FLARELOGOUP" width="88" height="152"/>
+        <image name="FLARELOGOUP" width="463" height="798"/>
         <image name="Group" width="512" height="512"/>
         <image name="back-button1" width="260" height="260"/>
         <image name="centerButton" width="512" height="512"/>
@@ -920,7 +922,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kgi-6j-WFR"/>
         <segue reference="0Z5-td-Zn0"/>
+        <segue reference="yvs-Uw-hKn"/>
     </inferredMetricsTieBreakers>
 </document>
