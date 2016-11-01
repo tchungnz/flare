@@ -9,6 +9,3 @@
 import Foundation
 import MapKit
 
-class BoostOverlay: MKCircle {
-    var circleColour: String? = ""
-}
