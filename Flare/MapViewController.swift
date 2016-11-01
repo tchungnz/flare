@@ -26,7 +26,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     let locationManager = CLLocationManager()
     
-    var databaseRef: FIRDatabaseReference!
     var flareExport: Flare?
     var timeHalfHourAgo : Double?
     var uid : String?
@@ -53,7 +52,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         facebook.getFacebookFriends("id") {
             (result: [String]) in
             self.getFriendsFlaresFromDatabase(result) {
-                (result: [Flare]) in
+                (result: [Flare], friendsArray: [String]) in
                 self.plotFlares(result)
             }
         }
@@ -63,8 +62,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         facebook.getFacebookFriends("id") {
             (result: [String]) in
             self.getPublicFlaresFromDatabase(result) {
-                (result: [Flare]) in
+                (result: [Flare], friendsArray: [String]) in
                 self.plotFlares(result)
+                self.createBoostArrayAndPlot(friendsArray: friendsArray)
             }
         }
     }
