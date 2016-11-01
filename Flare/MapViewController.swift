@@ -42,6 +42,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         getFriends()
         getPublic()
         waitBeforeDatabaseQuery()
+        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+    }
+    
+    func didBecomeActive() {
+        print("did become active")
+        let allAnnotations = self.mapView.annotations
+        self.mapView.removeAnnotations(allAnnotations)
+        getFriends()
+        getPublic()
     }
     
     override func didReceiveMemoryWarning() {
