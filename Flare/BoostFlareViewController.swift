@@ -135,6 +135,9 @@ extension FlareDetailViewController {
             } else {
                 minutesRemaining = self.flareTimeInMinutes + (abs(currentFlareTimestamp - currentTimeInMilliseconds) / 60000)
             }
+            if minutesRemaining < 0 {
+                minutesRemaining = 0
+            }
             completion(minutesRemaining)
             })
         { (error) in

@@ -72,6 +72,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         cameraSession("back")
         activeFlareCheck()
+        enableKeyboardDisappear()
     }
 
     override func didReceiveMemoryWarning() {
@@ -177,4 +178,14 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.togglePrivateLabel.isHidden = true
         self.togglePrivateButton.isHidden = true
     }
+    
+    func enableKeyboardDisappear() {
+        self.flareTitle.delegate = self
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("dismissKeyboard")))
+    }
+    
+    func dismissKeyboard() {
+        flareTitle.resignFirstResponder()
+    }
+    
 }

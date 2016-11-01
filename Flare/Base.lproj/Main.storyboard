@@ -841,7 +841,9 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="07T-0X-XUq"/>
                                     <constraint firstAttribute="width" secondItem="5Dz-0n-Ulu" secondAttribute="height" multiplier="1:1" id="7qr-SG-bo0"/>
+                                    <constraint firstAttribute="height" constant="175" id="zAj-rn-FEF"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="By logging in, you are agreeing to our" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O48-EY-9M8">
@@ -860,19 +862,27 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                     <segue destination="yH6-2o-6sf" kind="presentation" identifier="endUserAgreementSegue" id="yvs-Uw-hKn"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Flare will never post on your public profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjc-dw-oDP">
+                                <frame key="frameInset" minX="52" minY="341" width="269" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="qjc-dw-oDP" firstAttribute="centerX" secondItem="1RG-US-DAI" secondAttribute="centerX" id="6w6-OR-qID"/>
                             <constraint firstItem="1RG-US-DAI" firstAttribute="top" secondItem="lVT-fb-QwQ" secondAttribute="top" id="8JI-lP-Ud3"/>
                             <constraint firstItem="1RG-US-DAI" firstAttribute="leading" secondItem="lVT-fb-QwQ" secondAttribute="leading" id="EeP-KD-Xi0"/>
-                            <constraint firstItem="BJv-4w-GWD" firstAttribute="top" secondItem="1RG-US-DAI" secondAttribute="bottom" constant="-242" id="GZg-b0-UZk"/>
+                            <constraint firstItem="O48-EY-9M8" firstAttribute="top" secondItem="qjc-dw-oDP" secondAttribute="bottom" constant="20" id="H2A-Jz-p9O"/>
+                            <constraint firstItem="Vj7-AG-U0G" firstAttribute="top" secondItem="BJv-4w-GWD" secondAttribute="bottom" constant="170" id="Nvy-pV-osM"/>
                             <constraint firstItem="1RG-US-DAI" firstAttribute="leading" secondItem="lVT-fb-QwQ" secondAttribute="leading" id="U6q-4d-NeZ"/>
                             <constraint firstItem="5Dz-0n-Ulu" firstAttribute="centerX" secondItem="1RG-US-DAI" secondAttribute="centerX" id="Us9-90-RVh"/>
                             <constraint firstItem="O48-EY-9M8" firstAttribute="centerX" secondItem="1RG-US-DAI" secondAttribute="centerX" id="X96-vM-nIp"/>
-                            <constraint firstItem="5Dz-0n-Ulu" firstAttribute="top" secondItem="7aI-BJ-IMH" secondAttribute="bottom" constant="80" id="bRH-m4-7Dr"/>
+                            <constraint firstItem="5Dz-0n-Ulu" firstAttribute="top" secondItem="7aI-BJ-IMH" secondAttribute="bottom" constant="55" id="bRH-m4-7Dr"/>
                             <constraint firstAttribute="trailing" secondItem="1RG-US-DAI" secondAttribute="trailing" id="e3O-pg-EdX"/>
                             <constraint firstItem="1RG-US-DAI" firstAttribute="top" secondItem="lVT-fb-QwQ" secondAttribute="top" id="gXc-1u-zFN"/>
                             <constraint firstItem="BJv-4w-GWD" firstAttribute="centerX" secondItem="1RG-US-DAI" secondAttribute="centerX" id="igx-Aa-Oc2"/>
-                            <constraint firstItem="BJv-4w-GWD" firstAttribute="top" secondItem="O48-EY-9M8" secondAttribute="bottom" constant="1" id="kDI-tE-wSn"/>
+                            <constraint firstItem="BJv-4w-GWD" firstAttribute="top" secondItem="O48-EY-9M8" secondAttribute="bottom" constant="0.5" id="kDI-tE-wSn"/>
                             <constraint firstItem="Vj7-AG-U0G" firstAttribute="top" secondItem="1RG-US-DAI" secondAttribute="bottom" id="vLI-lB-oVG"/>
                             <constraint firstItem="Vj7-AG-U0G" firstAttribute="top" secondItem="1RG-US-DAI" secondAttribute="bottom" id="xSn-Sw-OwP"/>
                             <constraint firstAttribute="trailing" secondItem="1RG-US-DAI" secondAttribute="trailing" id="xtl-o3-pLe"/>
@@ -905,7 +915,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
     </scenes>
     <resources>
         <image name="FLAREBACKGROUND" width="509" height="906"/>
-        <image name="FLARELOGOUP" width="88" height="152"/>
+        <image name="FLARELOGOUP" width="231" height="399"/>
         <image name="Group" width="512" height="512"/>
         <image name="back-button1" width="260" height="260"/>
         <image name="centerButton" width="512" height="512"/>
@@ -920,7 +930,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
         <image name="whiteCamera" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kgi-6j-WFR"/>
         <segue reference="0Z5-td-Zn0"/>
+        <segue reference="yvs-Uw-hKn"/>
     </inferredMetricsTieBreakers>
 </document>
