@@ -30,7 +30,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var timeHalfHourAgo : Double?
     
     var backCamera: Bool = true
-    var isPublicFlare: Bool = true
+    var isPublicFlare: Bool = false
     var letFlareSave: Bool = true
     
     var toggleState: Bool?
@@ -48,11 +48,10 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var backToMapButton: UIButton!
     @IBOutlet weak var flareTitle: UITextField!
     @IBOutlet weak var flashBtn: UIButton!
-    @IBOutlet weak var togglePrivateButton: UISwitch!
-    @IBOutlet weak var togglePrivateLabel: UILabel!
     @IBOutlet weak var cameraSwivelButton: UIButton!
+    @IBOutlet weak var sendToFriendsButton: UIButton!
+    @IBOutlet weak var sendToEveryoneButton: UIButton!
     
-   
     let locationManager = CLLocationManager()
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -143,15 +142,29 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
     }
     
-    @IBAction func togglePrivateAction(_ sender: UISwitch) {
-        if togglePrivateButton.isOn {
-            isPublicFlare = false
-            togglePrivateLabel.text = "Friends"
-        } else {
-            isPublicFlare = true
-            togglePrivateLabel.text = "Public"
-        }
+//    @IBAction func togglePrivateAction(_ sender: UISwitch) {
+//        if togglePrivateButton.isOn {
+//            isPublicFlare = false
+//            togglePrivateLabel.text = "Friends"
+//        } else {
+//            isPublicFlare = true
+//            togglePrivateLabel.text = "Public"
+//        }
+//    }
+    
+    @IBAction func clickSendToFriendsButton(_ sender: AnyObject) {
+        sendToFriendsButton.backgroundColor = UIColor.red
+        sendToEveryoneButton.backgroundColor = UIColor.lightGray
+        isPublicFlare = false
+
     }
+    
+    @IBAction func clickSendToEveryoneButton(_ sender: AnyObject) {
+        sendToEveryoneButton.backgroundColor = UIColor.orange
+        sendToFriendsButton.backgroundColor = UIColor.lightGray
+        isPublicFlare = true
+    }
+    
     
     func displayAlertMessage(_ message: String)
     {
@@ -166,8 +179,8 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.takePhotoButton.isHidden = !self.takePhotoButton.isHidden ? true : false
         self.sendFlareImageButton.isHidden = !self.sendFlareImageButton.isHidden ? true : false
         backToMapButton.isHidden = backToMapButton.isHidden ? false : true
-        self.togglePrivateLabel.isHidden = !self.togglePrivateLabel.isHidden ? true : false
-        self.togglePrivateButton.isHidden = !self.togglePrivateButton.isHidden ? true : false
+         self.sendToFriendsButton.isHidden = self.sendToFriendsButton.isHidden ? false : true
+         self.sendToEveryoneButton.isHidden = self.sendToEveryoneButton.isHidden ? false : true
     }
     
     func setButtons() {
@@ -175,8 +188,11 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.sendFlareImageButton.isHidden = true
         self.flareTitle.delegate = self;
         self.flareTitle.isHidden = true
-        self.togglePrivateLabel.isHidden = true
-        self.togglePrivateButton.isHidden = true
+        self.sendToFriendsButton.isHidden = true
+        self.sendToEveryoneButton.isHidden = true
+        self.sendToFriendsButton.layer.cornerRadius = 7.5;
+        self.sendToEveryoneButton.layer.cornerRadius = 7.5;
+
     }
     
     func enableKeyboardDisappear() {
