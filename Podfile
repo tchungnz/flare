@@ -15,7 +15,6 @@ target 'Flare' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'SwiftyJSON', '3.0.0'
-  pod 'EasyTipView', '~> 1.0.2'
 
   target 'FlareTests' do
     inherit! :search_paths

@@ -38,6 +38,8 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     let storage = FIRStorage.storage()
     var ref = FIRDatabase.database().reference()
     var facebook = Facebook()
+    var selectedFriends: [String]?
+    var selectedFriendsIds: [String]?
     
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var tempImageView: UIImageView!
@@ -61,7 +63,6 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setButtons()
         // Refactor to a separate class
         self.locationManager.delegate = self
@@ -98,6 +99,10 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBAction func retakeAction(_ sender: UIButton) {
         toggleButtons()
         didPressTakeAnother()
+        print("****selectedfriendIds*****")
+        print(selectedFriendsIds)
+        print("****selectedfriendnames*****")
+        print(selectedFriends)
         
     }
     @IBAction func takePhotoAction(_ sender: UIButton) {
@@ -156,7 +161,6 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         sendToFriendsButton.backgroundColor = UIColor.red
         sendToEveryoneButton.backgroundColor = UIColor.lightGray
         isPublicFlare = false
-
     }
     
     @IBAction func clickSendToEveryoneButton(_ sender: AnyObject) {
@@ -202,6 +206,10 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     func dismissKeyboard() {
         flareTitle.resignFirstResponder()
+    }
+    
+    @IBAction func cancelToFlareViewController(segue:UIStoryboardSegue) {
+        
     }
     
 }

@@ -1,5 +1,4 @@
 PODS:
-  - EasyTipView (1.0.2)
   - Firebase (3.7.0):
     - Firebase/Core (= 3.7.0)
   - Firebase/Core (3.7.0):
@@ -52,7 +51,6 @@ PODS:
   - SwiftyJSON (3.0.0)
 
 DEPENDENCIES:
-  - EasyTipView (~> 1.0.2)
   - Firebase
   - Firebase/Database
   - Firebase/Messaging
@@ -61,7 +59,6 @@ DEPENDENCIES:
   - SwiftyJSON (= 3.0.0)
 
 SPEC CHECKSUMS:
-  EasyTipView: b93a19be981cc2221d6d7191d49872f547e0bebf
   Firebase: 3875e140d77c7572c6d4852faf94144ffcdb0704
   FirebaseAnalytics: 02d0aed8c6246a9c8683ac3e9825c67ceb657bde
   FirebaseAuth: 75a062bbf2d3c97d1e6e55bbc110e13a6853e25d
@@ -77,6 +74,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
   SwiftyJSON: f57b2b44bc166617372d1c70773591fe9f0f5fd4
 
-PODFILE CHECKSUM: 825e4b2c0ef152df6027bc255f1c2f979125e431
+PODFILE CHECKSUM: 2c48ded2f53146f181b8ee1e78a5cb754a112966
 
 COCOAPODS: 1.0.1

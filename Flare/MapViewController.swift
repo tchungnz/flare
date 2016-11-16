@@ -35,6 +35,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var notificationFlareId: String?
     var location: CLLocation?
     var flareId: String?
+    var friends: NSDictionary?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
