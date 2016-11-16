@@ -1,6 +1,0 @@
-framework module Pods_FlareTests {
-  umbrella header "Pods-FlareTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
