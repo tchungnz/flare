@@ -53,7 +53,7 @@ extension FlareViewController: CLLocationManagerDelegate {
         flareUniqueRef.setValue(newFlare)
         if self.isPublicFlare == false {
             FIRAnalytics.logEvent(withName: "public_flare_sent", parameters: nil)
-            self.saveNotifications(flareRef: String(describing: flareUniqueRef))
+            self.saveNotificationsToDatabase(recipients: selectedFriendsIds!, flareRef: String(describing: flareUniqueRef))
         } else {
             FIRAnalytics.logEvent(withName: "friends_flare_sent", parameters: nil)
         }
@@ -67,7 +67,7 @@ extension FlareViewController: CLLocationManagerDelegate {
     
 
     func activeFlareCheck() {
-        getTimeHalfHourAgo()
+        getFlareTime()
         var usersFlares = [Flare]()
         facebook.getFacebookID()
         let databaseRef = FIRDatabase.database().reference().child("flares")
@@ -87,22 +87,9 @@ extension FlareViewController: CLLocationManagerDelegate {
         })
     }
     
-    func getTimeHalfHourAgo() {
-        let currentTimeInMilliseconds = Date().timeIntervalSince1970 * 1000
-        self.activeFlareTime = (currentTimeInMilliseconds - 1800000)
-    }
-    
-    func saveNotifications(flareRef: String) {
-        let facebook = Facebook()
-        facebook.getFacebookFriends("id") {
-            (result: [String]) in
-            self.saveNotificationsToDatabase(friendsArray: result, flareRef: flareRef)
-        }
-    }
-    
-    func saveNotificationsToDatabase(friendsArray: [String], flareRef: String) {
+    func saveNotificationsToDatabase(recipients: [String], flareRef: String) {
         let notificationsRef = ref.child(byAppendingPath: "notifications").childByAutoId()
-        let newNotification = ["friendsFacebookIds": friendsArray as Array, "flareId": flareRef as String] as [String : Any]
+        let newNotification = ["friendsFacebookIds": recipients as Array, "flareId": flareRef as String] as [String : Any]
         notificationsRef.setValue(newNotification)
     }
     
