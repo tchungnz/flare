@@ -15,7 +15,7 @@ import CoreLocation
 
 class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate {
     
-    let maximumSentFlares: Int = 5
+    var maximumSentFlares: Int?
 
     var captureSession : AVCaptureSession?
     var input: AVCaptureDeviceInput?
@@ -27,7 +27,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var flareLongitude : String?
     
     var uid : String?
-    var timeHalfHourAgo : Double?
+    var activeFlareTime : Double?
     
     var backCamera: Bool = true
     var isPublicFlare: Bool = false
@@ -63,6 +63,8 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getFlareMaxLimit()
+        getFlareTime()
         setButtons()
         // Refactor to a separate class
         self.locationManager.delegate = self
@@ -99,12 +101,8 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBAction func retakeAction(_ sender: UIButton) {
         toggleButtons()
         didPressTakeAnother()
-        print("****selectedfriendIds*****")
-        print(selectedFriendsIds)
-        print("****selectedfriendnames*****")
-        print(selectedFriends)
-        
     }
+    
     @IBAction func takePhotoAction(_ sender: UIButton) {
         if letFlareSave == true {
             toggleButtons()
@@ -146,16 +144,6 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
             flashBtn.isHidden = false
         }
     }
-    
-//    @IBAction func togglePrivateAction(_ sender: UISwitch) {
-//        if togglePrivateButton.isOn {
-//            isPublicFlare = false
-//            togglePrivateLabel.text = "Friends"
-//        } else {
-//            isPublicFlare = true
-//            togglePrivateLabel.text = "Public"
-//        }
-//    }
     
     @IBAction func clickSendToFriendsButton(_ sender: AnyObject) {
         sendToFriendsButton.backgroundColor = UIColor.red
@@ -210,6 +198,47 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBAction func cancelToFlareViewController(segue:UIStoryboardSegue) {
         
+    }
+    
+    func getFlareTime() {
+        let currentTimeInMilliseconds = Date().timeIntervalSince1970 * 1000
+        retrieveTimeDurationFromFirebase() {
+            (result: Int) in
+            var flareTimeLimitInMinutes = result
+            let flareTimeLimitInMiliseconds = Double(flareTimeLimitInMinutes * 60000)
+            self.activeFlareTime = (currentTimeInMilliseconds - flareTimeLimitInMiliseconds)
+        }
+    }
+    
+    func retrieveTimeDurationFromFirebase(completion: @escaping (_ result: Int) -> ())  {
+        let durationRef = self.ref.child(byAppendingPath: "flareConstants").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let duration = value?["duration"] as! Int
+            completion(duration)
+            })
+        { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    func getFlareMaxLimit() {
+        retrieveFlareLimitFromFirebase() {
+            (result: Int) in
+            self.maximumSentFlares = result
+        }
+    }
+    
+    func retrieveFlareLimitFromFirebase(completion: @escaping (_ result: Int) -> ())  {
+        let flareConstantsRef = self.ref.child(byAppendingPath: "flareConstants").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let limit = value?["limit"] as! Int
+            completion(limit)
+            })
+        { (error) in
+            print(error.localizedDescription)
+        }
     }
     
 }

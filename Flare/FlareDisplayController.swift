@@ -15,22 +15,37 @@ import SwiftyJSON
 
 extension MapViewController {
     
-    func getTimeHalfHourAgo() {
+    func getFlareTime() {
         let currentTimeInMilliseconds = Date().timeIntervalSince1970 * 1000
-        let flareTimeLimitInMinutes = 120
-        let flareTimeLimitInMiliseconds = Double(flareTimeLimitInMinutes * 60000)
-        self.timeHalfHourAgo = (currentTimeInMilliseconds - flareTimeLimitInMiliseconds)
+        retrieveTimeDurationFromFirebase() {
+            (result: Int) in
+            var flareTimeLimitInMinutes = result
+            let flareTimeLimitInMiliseconds = Double(flareTimeLimitInMinutes * 60000)
+            self.activeFlareTime = (currentTimeInMilliseconds - flareTimeLimitInMiliseconds)
+        }
+    }
+    
+    func retrieveTimeDurationFromFirebase(completion: @escaping (_ result: Int) -> ())  {
+        let durationRef = self.ref.child(byAppendingPath: "flareConstants").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let duration = value?["duration"] as! Int
+            completion(duration)
+            })
+        { (error) in
+            print(error.localizedDescription)
+        }
     }
 
     func getPublicFlaresFromDatabase(_ friendsArray: [String], completion: @escaping (_ result: [Flare], _ friendsArray: [String]) -> ()) {
-        getTimeHalfHourAgo()
+        getFlareTime()
         getFacebookID()
         let flareRef = ref.child("flares")
-        flareRef.queryOrdered(byChild: "timestamp").queryStarting(atValue: timeHalfHourAgo).observe(.value, with: { (snapshot) in
+        flareRef.queryOrdered(byChild: "timestamp").queryStarting(atValue: activeFlareTime).observe(.value, with: { (snapshot) in
         var newItems = [Flare]()
         for item in snapshot.children {
             let data = (item as! FIRDataSnapshot).value! as! NSDictionary
-            if (data["isPublic"] as! Bool) && !(friendsArray.contains(data["facebookID"] as! String) || data["facebookID"] as! String == self.uid!) {
+            if ((data["isPublic"] as! Bool) && !(friendsArray.contains(data["facebookID"] as! String))) && !(data["facebookID"] as! String == self.uid!)  {
                 let flare = Flare(snapshot: item as! FIRDataSnapshot)
                 flare.imageName = "publicPin"
                 newItems.insert(flare, at: 0)
@@ -52,14 +67,18 @@ extension MapViewController {
     }
     
     func getFriendsFlaresFromDatabase(_ friendsArray: [String], completion: @escaping (_ result: [Flare], _ friendsarray: [String]) -> ()) {
-        getTimeHalfHourAgo()
+        getFlareTime()
         getFacebookID()
         let flareRef = ref.child("flares")
-        flareRef.queryOrdered(byChild: "timestamp").queryStarting(atValue: timeHalfHourAgo).observe(.value, with: { (snapshot) in
+        flareRef.queryOrdered(byChild: "timestamp").queryStarting(atValue: activeFlareTime).observe(.value, with: { (snapshot) in
             var newItems = [Flare]()
             for item in snapshot.children {
                 let data = (item as! FIRDataSnapshot).value! as! NSDictionary
-                if (friendsArray.contains(data["facebookID"] as! String) || data["facebookID"] as! String == self.uid!) {
+                var recipients = [String]()
+                if data["recipients"] != nil {
+                    recipients = data["recipients"] as! [String]
+                }
+                if data["facebookID"] as! String == self.uid! || recipients.contains(self.uid!) || (data["isPublic"] as! Bool == true && friendsArray.contains(data["facebookID"] as! String)) {
                     let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
                     newFlare.imageName = "friendsPin"
                     newItems.insert(newFlare, at: 0)

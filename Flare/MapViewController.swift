@@ -27,7 +27,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     let locationManager = CLLocationManager()
     
     var flareExport: Flare?
-    var timeHalfHourAgo : Double?
+    var activeFlareTime : Double?
     var uid : String?
     var facebook = Facebook()
     var exitMapView: MKCoordinateRegion?
@@ -46,6 +46,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         waitBeforeDatabaseQuery()
         NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
     }
+    
+//    override func viewDidDisappear(_ animated: Bool) {
+//        print("view did disappear")
+//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+//    }
     
     func didBecomeActive() {
         print("did become active")

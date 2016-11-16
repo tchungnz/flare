@@ -16,6 +16,7 @@ class FriendsTableViewController: UITableViewController {
     var friendsNames = [String]()
     var selectedFriends = [String]()
     
+    
     @IBOutlet weak var selectFriendImage: UIImageView!
     
     override func viewDidLoad() {
@@ -40,15 +41,12 @@ class FriendsTableViewController: UITableViewController {
         facebook.getFacebookFriendsIdName {
             (result: NSDictionary) in
             self.friends = result
-            orderAlphabeticallyAndAddAllFriends()
+            self.selectedFriends = result.allValues as! [String]
+            var unorderedFriendsNames = result.allValues as! [String]
+            self.friendsNames = unorderedFriendsNames.sorted(by: { (s1: String, s2: String) -> Bool in return s2 > s1 } )
+            self.friendsNames[0] = "All Friends"
             self.tableView.reloadData()
         }
-    }
-    
-    func orderAlphabeticallyAndAddAllFriends() {
-        var unorderedFriendsNames = result.allValues as! [String]
-        self.friendsNames = unorderedFriendsNames.sorted(by: { (s1: String, s2: String) -> Bool in return s2 > s1 } )
-        self.friendsNames[0] = "All Friends"
     }
 
     // MARK: - Table view data source
@@ -81,14 +79,10 @@ class FriendsTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         let cell = tableView.cellForRow(at: indexPath) as! FriendsTableViewCell
 
-        
         if cell.facebookNameLabel.text == "All Friends" && cell.selectFriendImage.image == UIImage(named: "unticked") {
-            selectedFriends = friends?.allValues
+            selectedFriends = self.friends?.allValues as! [String]
+            self.tableView.reloadData()
             cell.selectFriendImage.image = UIImage(named: "ticked")
-            for row in 2...self.friendsNames.count {
-                let cell = tableView.cellForRow(at: NSIndexPath(row: row, section: 1) as IndexPath) as! FriendsTableViewCell
-                cell.selectFriendImage.image = UIImage(named: "unticked")
-            }
         } else if cell.facebookNameLabel.text == "All Friends" && cell.selectFriendImage.image == UIImage(named: "ticked") {
             selectedFriends = [String]()
             cell.selectFriendImage.image = UIImage(named: "unticked")
@@ -97,6 +91,11 @@ class FriendsTableViewController: UITableViewController {
             if let index = selectedFriends.index(of: (cell.facebookNameLabel.text)!) {
                 selectedFriends.remove(at: index)
             }
+        } else if cell.selectFriendImage.image == UIImage(named: "unticked") && (tableView.cellForRow(at: NSIndexPath(row: 0, section: 0) as IndexPath) as! FriendsTableViewCell).selectFriendImage.image == UIImage(named: "ticked") {
+            selectedFriends = [String]()
+            (tableView.cellForRow(at: NSIndexPath(row: 0, section: 0) as IndexPath) as! FriendsTableViewCell).selectFriendImage.image = UIImage(named: "unticked")
+            cell.selectFriendImage.image = UIImage(named: "ticked")
+            selectedFriends.append((cell.facebookNameLabel?.text)!)
         } else {
             cell.selectFriendImage.image = UIImage(named: "ticked")
             selectedFriends.append((cell.facebookNameLabel?.text)!)
@@ -104,7 +103,6 @@ class FriendsTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "SaveSelectedFriends" {
             if let ivc = segue.destination as? FlareViewController {
                 ivc.selectedFriends = self.selectedFriends

@@ -45,6 +45,9 @@ extension FlareViewController: CLLocationManagerDelegate {
         let flareRef = ref.child(byAppendingPath: "flares")
         let timestamp = FIRServerValue.timestamp()
         let user = FIRAuth.auth()?.currentUser
+        if selectedFriendsIds == nil {
+            selectedFriendsIds = ["N/A"]
+        }
         let newFlare = ["facebookID": facebook.uid! as String, "title": self.flareTitle.text!, "subtitle": user!.displayName! as String, "imageRef": "images/flare\(imageString).jpg", "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp, "isPublic": self.isPublicFlare as Bool, "recipients": self.selectedFriendsIds!] as [String : Any]
         let flareUniqueRef = flareRef.childByAutoId()
         flareUniqueRef.setValue(newFlare)
@@ -72,10 +75,10 @@ extension FlareViewController: CLLocationManagerDelegate {
             
             for item in snapshot.children {
                 let flare = Flare(snapshot: item as! FIRDataSnapshot)
-                if Double(flare.timestamp!) >= self.timeHalfHourAgo! {
+                if Double(flare.timestamp!) >= self.activeFlareTime! {
                     usersFlares.insert(flare, at: 0)
                 }
-                if usersFlares.count >= self.maximumSentFlares {
+                if usersFlares.count >= self.maximumSentFlares! {
                     self.letFlareSave = false
                 } else {
                     self.letFlareSave = true
@@ -86,7 +89,7 @@ extension FlareViewController: CLLocationManagerDelegate {
     
     func getTimeHalfHourAgo() {
         let currentTimeInMilliseconds = Date().timeIntervalSince1970 * 1000
-        self.timeHalfHourAgo = (currentTimeInMilliseconds - 1800000)
+        self.activeFlareTime = (currentTimeInMilliseconds - 1800000)
     }
     
     func saveNotifications(flareRef: String) {
