@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MgA-qe-Vm4">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MgA-qe-Vm4">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -461,7 +461,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                     <action selector="retakeAction:" destination="d1b-im-btc" eventType="touchUpInside" id="io4-dd-BYY"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's going on?" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="bhx-DR-QUb" customClass="UITextFieldLimit">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's going on?" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="bhx-DR-QUb" customClass="UITextFieldLimit">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="OUH-J5-Wwf"/>
@@ -482,7 +482,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SzE-sB-ACH">
                                 <state key="normal" title="Button" image="map-icon"/>
                                 <connections>
-                                    <segue destination="AzX-Gn-k8r" kind="unwind" unwindAction="cancelToMapViewControllerWithSegue:" id="ack-uK-6e9"/>
+                                    <segue destination="AzX-Gn-k8r" kind="unwind" unwindAction="cancelToMapViewControllerWithSegue:" id="ow5-xD-uV9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzU-kD-nqP">
@@ -504,17 +504,6 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                     <action selector="changeCameraIconAction:" destination="d1b-im-btc" eventType="touchUpInside" id="GPC-Eb-6vc"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LFA-kd-SoJ">
-                                <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <action selector="togglePrivateAction:" destination="d1b-im-btc" eventType="valueChanged" id="dF3-UJ-a52"/>
-                                </connections>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Public" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DgG-UO-BVj">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uprightLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5kc-bo-fR1">
                                 <gestureRecognizers/>
                                 <constraints>
@@ -526,40 +515,78 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                     <outletCollection property="gestureRecognizers" destination="iO7-M2-V1W" appends="YES" id="uby-9a-KS1"/>
                                 </connections>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qvk-s3-LwG">
+                                <frame key="frameInset" minX="195" minY="80" width="164" height="30"/>
+                                <color key="backgroundColor" red="0.63261217950000004" green="0.63261217950000004" blue="0.63261217950000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="friendsButton"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="V8V-1R-fYh"/>
+                                    <constraint firstAttribute="width" constant="150" id="zmV-Wl-ebc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
+                                <state key="normal" title="Friends">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickSendToFriendsButton:" destination="d1b-im-btc" eventType="touchUpInside" id="hMq-8H-2NM"/>
+                                    <segue destination="rFq-Qd-cRJ" kind="presentation" identifier="SaveSelectedFriends" id="02b-cp-nH9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWS-Vn-kDQ">
+                                <frame key="frameInset" minX="17" minY="80" width="164" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="VBj-JQ-mx4"/>
+                                    <constraint firstAttribute="width" constant="150" id="sUu-eN-Fnw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
+                                <state key="normal" title="Everyone">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickSendToEveryoneButton:" destination="d1b-im-btc" eventType="touchUpInside" id="OfK-Ai-PF1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="eMQ-rC-P60" firstAttribute="top" secondItem="6is-w7-hqv" secondAttribute="top" id="1Ve-oh-KSn"/>
+                            <constraint firstItem="bhx-DR-QUb" firstAttribute="leading" secondItem="6is-w7-hqv" secondAttribute="leadingMargin" id="28m-tP-4NC"/>
                             <constraint firstItem="SzE-sB-ACH" firstAttribute="trailing" secondItem="3bf-he-SZq" secondAttribute="trailing" id="2tB-Pm-BNd"/>
                             <constraint firstAttribute="bottom" secondItem="3bf-he-SZq" secondAttribute="bottom" constant="20" symbolic="YES" id="2uf-dh-Xji"/>
+                            <constraint firstItem="bhx-DR-QUb" firstAttribute="trailing" secondItem="6is-w7-hqv" secondAttribute="trailingMargin" id="3Ri-L2-v0G"/>
                             <constraint firstItem="Vnx-3Z-MtI" firstAttribute="bottom" secondItem="Gli-Fp-sNS" secondAttribute="top" id="48b-80-ytb"/>
-                            <constraint firstItem="LFA-kd-SoJ" firstAttribute="leading" secondItem="DgG-UO-BVj" secondAttribute="leading" id="AfV-dz-afF"/>
+                            <constraint firstItem="jzU-kD-nqP" firstAttribute="trailing" secondItem="6is-w7-hqv" secondAttribute="trailingMargin" constant="-3" id="BNz-xz-Zof"/>
                             <constraint firstItem="fra-nb-sTF" firstAttribute="leading" secondItem="6is-w7-hqv" secondAttribute="leadingMargin" constant="1" id="CAQ-TU-8wf"/>
                             <constraint firstItem="fra-nb-sTF" firstAttribute="top" secondItem="fbf-fy-9xy" secondAttribute="bottom" constant="10" id="Edd-J7-82L"/>
                             <constraint firstItem="Vnx-3Z-MtI" firstAttribute="leading" secondItem="eMQ-rC-P60" secondAttribute="leading" id="FGM-2l-iEJ"/>
                             <constraint firstItem="bhx-DR-QUb" firstAttribute="centerY" secondItem="fra-nb-sTF" secondAttribute="centerY" id="JPX-JC-Ehi"/>
-                            <constraint firstItem="DgG-UO-BVj" firstAttribute="top" secondItem="LFA-kd-SoJ" secondAttribute="bottom" constant="8" symbolic="YES" id="KKs-7s-cJh"/>
                             <constraint firstAttribute="bottomMargin" secondItem="5kc-bo-fR1" secondAttribute="bottom" constant="20" id="SWw-al-wD3"/>
                             <constraint firstItem="SzE-sB-ACH" firstAttribute="centerY" secondItem="jzU-kD-nqP" secondAttribute="centerY" id="SxF-aH-m3k"/>
                             <constraint firstItem="5kc-bo-fR1" firstAttribute="centerX" secondItem="X9n-uW-Cgh" secondAttribute="centerX" id="Tbw-P8-GS4"/>
+                            <constraint firstItem="Qvk-s3-LwG" firstAttribute="centerY" secondItem="DWS-Vn-kDQ" secondAttribute="centerY" id="XXi-I9-rrY"/>
                             <constraint firstItem="Vnx-3Z-MtI" firstAttribute="trailing" secondItem="eMQ-rC-P60" secondAttribute="trailing" id="Zbm-D8-dBL"/>
                             <constraint firstItem="eMQ-rC-P60" firstAttribute="top" secondItem="Vnx-3Z-MtI" secondAttribute="top" id="apR-n9-vn4"/>
                             <constraint firstAttribute="trailing" secondItem="eMQ-rC-P60" secondAttribute="trailing" id="ciJ-lV-yZJ"/>
                             <constraint firstItem="fra-nb-sTF" firstAttribute="centerX" secondItem="SzE-sB-ACH" secondAttribute="centerX" id="ddC-09-EGg"/>
                             <constraint firstItem="eMQ-rC-P60" firstAttribute="bottom" secondItem="Gli-Fp-sNS" secondAttribute="top" id="ekq-eh-wi8"/>
-                            <constraint firstItem="bhx-DR-QUb" firstAttribute="trailing" secondItem="LFA-kd-SoJ" secondAttribute="trailing" id="fQu-Zj-Sas"/>
                             <constraint firstItem="Vnx-3Z-MtI" firstAttribute="leading" secondItem="6is-w7-hqv" secondAttribute="leading" id="huI-jQ-4pg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qvk-s3-LwG" secondAttribute="trailing" id="lGl-90-JYU"/>
                             <constraint firstItem="bhx-DR-QUb" firstAttribute="centerX" secondItem="X9n-uW-Cgh" secondAttribute="centerX" id="lte-TB-Xl5"/>
                             <constraint firstItem="Vnx-3Z-MtI" firstAttribute="centerX" secondItem="bhx-DR-QUb" secondAttribute="centerX" id="lwC-cv-3sG"/>
-                            <constraint firstItem="LFA-kd-SoJ" firstAttribute="trailing" secondItem="jzU-kD-nqP" secondAttribute="trailing" id="mKB-7D-smx"/>
-                            <constraint firstItem="LFA-kd-SoJ" firstAttribute="top" secondItem="bhx-DR-QUb" secondAttribute="bottom" constant="8" symbolic="YES" id="mPO-Fq-DdY"/>
                             <constraint firstItem="Gli-Fp-sNS" firstAttribute="top" secondItem="X9n-uW-Cgh" secondAttribute="bottom" constant="30" id="mnF-Wg-Y0H"/>
+                            <constraint firstItem="DWS-Vn-kDQ" firstAttribute="top" secondItem="bhx-DR-QUb" secondAttribute="bottom" constant="20" id="ndS-nq-RbS"/>
                             <constraint firstItem="3bf-he-SZq" firstAttribute="bottom" secondItem="jzU-kD-nqP" secondAttribute="bottom" id="pWc-Qm-xvd"/>
                             <constraint firstItem="SzE-sB-ACH" firstAttribute="leading" secondItem="6is-w7-hqv" secondAttribute="leadingMargin" constant="-3" id="pxR-Bm-rvP"/>
                             <constraint firstItem="Gli-Fp-sNS" firstAttribute="top" secondItem="X9n-uW-Cgh" secondAttribute="bottom" constant="25" id="qUg-jN-dNi"/>
+                            <constraint firstItem="DWS-Vn-kDQ" firstAttribute="leading" secondItem="6is-w7-hqv" secondAttribute="leadingMargin" id="r82-dz-C4z"/>
                             <constraint firstItem="bhx-DR-QUb" firstAttribute="top" secondItem="fbf-fy-9xy" secondAttribute="bottom" constant="16" id="waU-Uv-D5b"/>
                             <constraint firstItem="Gli-Fp-sNS" firstAttribute="top" secondItem="SzE-sB-ACH" secondAttribute="bottom" constant="16" id="wp6-gB-dV4"/>
-                            <constraint firstItem="bhx-DR-QUb" firstAttribute="leading" secondItem="3bf-he-SZq" secondAttribute="leading" id="xHT-9x-LeW"/>
+                            <constraint firstItem="bhx-DR-QUb" firstAttribute="leading" secondItem="3bf-he-SZq" secondAttribute="leading" constant="-1" id="xHT-9x-LeW"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -575,11 +602,13 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                         <outlet property="flashBtn" destination="fra-nb-sTF" id="eVX-dN-9nP"/>
                         <outlet property="retakePhotoButton" destination="3bf-he-SZq" id="GlI-TH-MbP"/>
                         <outlet property="sendFlareImageButton" destination="5kc-bo-fR1" id="ggZ-sM-PXk"/>
+                        <outlet property="sendToEveryoneButton" destination="DWS-Vn-kDQ" id="Bii-J2-2JC"/>
+                        <outlet property="sendToFriendsButton" destination="Qvk-s3-LwG" id="LsY-IR-pe9"/>
                         <outlet property="takePhotoButton" destination="X9n-uW-Cgh" id="UJK-Q9-i8g"/>
                         <outlet property="tempImageView" destination="eMQ-rC-P60" id="L6a-LR-S5N"/>
-                        <outlet property="togglePrivateButton" destination="LFA-kd-SoJ" id="agN-Hv-WQM"/>
-                        <outlet property="togglePrivateLabel" destination="DgG-UO-BVj" id="YLD-dP-EzB"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="returnMap" id="fAW-4j-zEK"/>
+                        <segue destination="AzX-Gn-k8r" kind="unwind" identifier="cancelToMapView" unwindAction="cancelToMapViewControllerWithSegue:" id="WSV-MC-enc"/>
+                        <segue destination="AzX-Gn-k8r" kind="unwind" identifier="cancelToMapView" unwindAction="cancelToMapViewControllerWithSegue:" id="BFu-Ya-0eu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f0p-ZC-79o" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -595,7 +624,78 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3919" y="615"/>
+            <point key="canvasLocation" x="3917.5999999999999" y="614.84257871064472"/>
+        </scene>
+        <!--Send to Friends-->
+        <scene sceneID="mDz-BP-HPt">
+            <objects>
+                <tableViewController id="iNJ-rH-lbc" customClass="FriendsTableViewController" customModule="Flare" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="h6E-u2-vwV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendToInvite" id="lb0-Dt-pNb" customClass="FriendsTableViewCell" customModule="Flare" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lb0-Dt-pNb" id="oux-wc-Xcm">
+                                    <frame key="frameInset" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfc-57-JyL">
+                                            <frame key="frameInset" minX="322" minY="4" width="45" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="tfc-57-JyL" secondAttribute="height" multiplier="1:1" id="An5-1V-lur"/>
+                                                <constraint firstAttribute="width" constant="30" id="p20-Nq-Xn9"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="sMk-N8-Lju">
+                                            <frame key="frameInset" minX="8" minY="11" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="sMk-N8-Lju" firstAttribute="centerY" secondItem="oux-wc-Xcm" secondAttribute="centerY" id="Zsu-TI-dOq"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstItem="sMk-N8-Lju" firstAttribute="leading" secondItem="lb0-Dt-pNb" secondAttribute="leading" constant="20" id="LWm-h1-sbj"/>
+                                    <constraint firstItem="tfc-57-JyL" firstAttribute="centerY" secondItem="lb0-Dt-pNb" secondAttribute="centerY" id="ghm-bk-UGh"/>
+                                    <constraint firstAttribute="trailing" secondItem="tfc-57-JyL" secondAttribute="trailing" constant="20" id="xKE-uc-B6l"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="facebookNameLabel" destination="sMk-N8-Lju" id="CbE-aO-gOk"/>
+                                    <outlet property="selectFriendImage" destination="tfc-57-JyL" id="ETq-2B-g8n"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="iNJ-rH-lbc" id="IYp-jX-SMx"/>
+                            <outlet property="delegate" destination="iNJ-rH-lbc" id="3fW-HX-hQu"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Send to Friends" id="L0B-R9-79g">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="pIM-MI-glP">
+                            <connections>
+                                <segue destination="Y1p-J3-fUL" kind="unwind" identifier="SaveSelectedFriends" unwindAction="cancelToFlareViewControllerWithSegue:" id="Hcg-0e-1Dy"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Invite" id="ebD-4z-3mH">
+                            <connections>
+                                <action selector="clickInviteFriends:" destination="iNJ-rH-lbc" id="H2y-wN-SQo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="inviteFriendsButton" destination="ebD-4z-3mH" id="tLH-a2-Gjd"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XHi-h9-0Bw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Y1p-J3-fUL" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="5388" y="615"/>
         </scene>
         <!--Flare Detail View Controller-->
         <scene sceneID="UeN-iW-kNT">
@@ -912,6 +1012,24 @@ In order to ensure Flare provides the best experience possible for everyone, we 
             </objects>
             <point key="canvasLocation" x="652" y="1041"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Sbv-dR-wm9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rFq-Qd-cRJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="h7v-iB-LmA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="iNJ-rH-lbc" kind="relationship" relationship="rootViewController" id="zyq-wh-ocu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X2a-pn-hc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4650" y="615"/>
+        </scene>
     </scenes>
     <resources>
         <image name="FLAREBACKGROUND" width="509" height="906"/>
@@ -931,6 +1049,6 @@ In order to ensure Flare provides the best experience possible for everyone, we 
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0Z5-td-Zn0"/>
-        <segue reference="yvs-Uw-hKn"/>
+        <segue reference="Kgi-6j-WFR"/>
     </inferredMetricsTieBreakers>
 </document>

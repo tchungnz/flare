@@ -16,7 +16,7 @@ class Facebook: NSObject{
     
     var uid : String?
 
-    // Pass the parameter of the item of data you want from Faceook e.g. "id", "name"
+    // Pass the parameter of the item of data you want from Facebook e.g. "id", "name"
     func getFacebookFriends(_ requestedData: String?, completion: @escaping (_ result: Array<String>) -> ())  {
         let params = ["fields": "friends"]
         let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: params)
@@ -32,6 +32,25 @@ class Facebook: NSObject{
                 }
             }
             completion(tempArray)
+        }
+    }
+    
+    func getFacebookFriendsIdName(completion: @escaping (_ result: NSDictionary) -> ())  {
+        let params = ["fields": "friends"]
+        let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: params)
+        graphRequest?.start { [weak self] connection, result, error in
+            var tempDictionary = Dictionary<String, String>()
+            if error != nil {
+                print(error.debugDescription)
+                return
+            } else {
+                let json:JSON = JSON(result)
+                for item in json["friends"]["data"].arrayValue {
+                    tempDictionary[item["id"].stringValue] = item["name"].stringValue
+                }
+            }
+            let nsDict = tempDictionary as! NSDictionary
+            completion(nsDict)
         }
     }
     

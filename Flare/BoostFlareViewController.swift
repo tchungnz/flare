@@ -117,13 +117,16 @@ extension FlareDetailViewController {
     }
     
     func findAndSetTimestamp() {
-        findMinutesRemaining(flareId: (self.flareExport?.flareId!)!) {
+        retrieveTimeDurationFromFirebase() {
             (result: Int) in
-            self.setTimestampLabel(minutesRemaining: result)
+            self.findMinutesRemaining(flareTime: result, flareId: (self.flareExport?.flareId!)!) {
+                (result: Int) in
+                self.setTimestampLabel(minutesRemaining: result)
+            }
         }
     }
     
-    func findMinutesRemaining(flareId: String, completion: @escaping (_ result: Int) -> ()) {
+    func findMinutesRemaining(flareTime: Int, flareId: String, completion: @escaping (_ result: Int) -> ()) {
         let flareRef = self.ref.child(byAppendingPath: "flares/\(flareId)").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let flare = snapshot.value as? NSDictionary
@@ -131,9 +134,9 @@ extension FlareDetailViewController {
             let currentTimeInMilliseconds = Int(Date().timeIntervalSince1970 * 1000)
             var minutesRemaining: Int
             if currentFlareTimestamp <= currentTimeInMilliseconds {
-                minutesRemaining = self.flareTimeInMinutes - (abs(currentTimeInMilliseconds - currentFlareTimestamp) / 60000)
+                minutesRemaining = flareTime - (abs(currentTimeInMilliseconds - currentFlareTimestamp) / 60000)
             } else {
-                minutesRemaining = self.flareTimeInMinutes + (abs(currentFlareTimestamp - currentTimeInMilliseconds) / 60000)
+                minutesRemaining = flareTime + (abs(currentFlareTimestamp - currentTimeInMilliseconds) / 60000)
             }
             if minutesRemaining < 0 {
                 minutesRemaining = 0

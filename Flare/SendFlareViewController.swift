@@ -45,12 +45,15 @@ extension FlareViewController: CLLocationManagerDelegate {
         let flareRef = ref.child(byAppendingPath: "flares")
         let timestamp = FIRServerValue.timestamp()
         let user = FIRAuth.auth()?.currentUser
-        let newFlare = ["facebookID": facebook.uid! as String, "title": self.flareTitle.text!, "subtitle": user!.displayName! as String, "imageRef": "images/flare\(imageString).jpg", "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp, "isPublic": self.isPublicFlare as Bool] as [String : Any]
+        if selectedFriendsIds == nil {
+            selectedFriendsIds = ["N/A"]
+        }
+        let newFlare = ["facebookID": facebook.uid! as String, "title": self.flareTitle.text!, "subtitle": user!.displayName! as String, "imageRef": "images/flare\(imageString).jpg", "latitude": self.flareLatitude! as String, "longitude": self.flareLongitude! as String, "timestamp": timestamp, "isPublic": self.isPublicFlare as Bool, "recipients": self.selectedFriendsIds!] as [String : Any]
         let flareUniqueRef = flareRef.childByAutoId()
         flareUniqueRef.setValue(newFlare)
         if self.isPublicFlare == false {
             FIRAnalytics.logEvent(withName: "public_flare_sent", parameters: nil)
-            self.saveNotifications(flareRef: String(describing: flareUniqueRef))
+            self.saveNotificationsToDatabase(recipients: selectedFriendsIds!, flareRef: String(describing: flareUniqueRef))
         } else {
             FIRAnalytics.logEvent(withName: "friends_flare_sent", parameters: nil)
         }
@@ -64,7 +67,7 @@ extension FlareViewController: CLLocationManagerDelegate {
     
 
     func activeFlareCheck() {
-        getTimeHalfHourAgo()
+        getFlareTime()
         var usersFlares = [Flare]()
         facebook.getFacebookID()
         let databaseRef = FIRDatabase.database().reference().child("flares")
@@ -72,10 +75,10 @@ extension FlareViewController: CLLocationManagerDelegate {
             
             for item in snapshot.children {
                 let flare = Flare(snapshot: item as! FIRDataSnapshot)
-                if Double(flare.timestamp!) >= self.timeHalfHourAgo! {
+                if Double(flare.timestamp!) >= self.activeFlareTime! {
                     usersFlares.insert(flare, at: 0)
                 }
-                if usersFlares.count >= self.maximumSentFlares {
+                if usersFlares.count >= self.maximumSentFlares! {
                     self.letFlareSave = false
                 } else {
                     self.letFlareSave = true
@@ -84,22 +87,9 @@ extension FlareViewController: CLLocationManagerDelegate {
         })
     }
     
-    func getTimeHalfHourAgo() {
-        let currentTimeInMilliseconds = Date().timeIntervalSince1970 * 1000
-        self.timeHalfHourAgo = (currentTimeInMilliseconds - 1800000)
-    }
-    
-    func saveNotifications(flareRef: String) {
-        let facebook = Facebook()
-        facebook.getFacebookFriends("id") {
-            (result: [String]) in
-            self.saveNotificationsToDatabase(friendsArray: result, flareRef: flareRef)
-        }
-    }
-    
-    func saveNotificationsToDatabase(friendsArray: [String], flareRef: String) {
+    func saveNotificationsToDatabase(recipients: [String], flareRef: String) {
         let notificationsRef = ref.child(byAppendingPath: "notifications").childByAutoId()
-        let newNotification = ["friendsFacebookIds": friendsArray as Array, "flareId": flareRef as String] as [String : Any]
+        let newNotification = ["friendsFacebookIds": recipients as Array, "flareId": flareRef as String] as [String : Any]
         notificationsRef.setValue(newNotification)
     }
     

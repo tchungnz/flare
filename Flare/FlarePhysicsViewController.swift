@@ -41,12 +41,12 @@ extension FlareViewController {
         let dispatchTime = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
         
        DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
-            self.performSegue(withIdentifier: "returnMap", sender: self)
+            self.performSegue(withIdentifier: "cancelToMapView", sender: self)
         })
     }
     @IBAction func handleTap(_ sender: UITapGestureRecognizer) {
         self.onSwipe()
-        self.performSegue(withIdentifier: "returnMap", sender: self)
+        self.performSegue(withIdentifier: "cancelToMapView", sender: self)
     }
 
 }

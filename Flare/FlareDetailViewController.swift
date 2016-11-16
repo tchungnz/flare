@@ -34,10 +34,8 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     var ref = FIRDatabase.database().reference()
     var boostCount: Int = 0
     var liked = false
-    let flareTimeInMinutes = 120
+    var flareTimeLimitInMinutes: Int?
     let locationManager = CLLocationManager()
-    
-    
 
     override func viewDidLoad() {
         setupTapToSendFlareGesture()
@@ -51,6 +49,17 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         FIRAnalytics.logEvent(withName: "flare_detail_view", parameters: nil)
     }
     
+    func retrieveTimeDurationFromFirebase(completion: @escaping (_ result: Int) -> ())  {
+        let durationRef = self.ref.child(byAppendingPath: "flareConstants").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let duration = value?["duration"] as! Int
+            completion(duration)
+            })
+        { (error) in
+            print(error.localizedDescription)
+        }
+    }
     
     func findAndSetButtonImage() {
         findIfBoosted(flareId: (self.flareExport?.flareId!)!) {

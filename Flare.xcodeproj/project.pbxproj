@@ -14,6 +14,8 @@
 		0882B0171DC63C0C0073E3AC /* boostOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0882B0161DC63C0C0073E3AC /* boostOverlay.swift */; };
 		0882B0191DC662BA0073E3AC /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0882B0181DC662BA0073E3AC /* OverlayViewController.swift */; };
 		08EFE9CF341AC9A8593EF0B9 /* Pods_Flare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C077AF3B95864CEF341C981 /* Pods_Flare.framework */; };
+		08FF7A191DD3708800961E92 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FF7A181DD3708800961E92 /* FriendsTableViewController.swift */; };
+		08FF7A1B1DD38D8A00961E92 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FF7A1A1DD38D8A00961E92 /* FriendsTableViewCell.swift */; };
 		246276DA1D85DB0C00D434F5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246276D91D85DB0C00D434F5 /* ProfileViewController.swift */; };
 		24B68D491D8184AB004EE49A /* FlareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B68D481D8184AB004EE49A /* FlareViewController.swift */; };
 		378C31308AD144F1C77A72A4 /* Pods_FlareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE71BA334882FB87A15CE562 /* Pods_FlareTests.framework */; };
@@ -71,6 +73,8 @@
 		0882B0161DC63C0C0073E3AC /* boostOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = boostOverlay.swift; sourceTree = "<group>"; };
 		0882B0181DC662BA0073E3AC /* OverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
 		08D1BDDF1DA6A853007EF1A0 /* Flare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flare.entitlements; sourceTree = "<group>"; };
+		08FF7A181DD3708800961E92 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
+		08FF7A1A1DD38D8A00961E92 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		1C077AF3B95864CEF341C981 /* Pods_Flare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		246276D91D85DB0C00D434F5 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		24B68D481D8184AB004EE49A /* FlareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlareViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +151,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08FF7A1E1DD6264400961E92 /* FriendsTable */ = {
+			isa = PBXGroup;
+			children = (
+				08FF7A181DD3708800961E92 /* FriendsTableViewController.swift */,
+				08FF7A1A1DD38D8A00961E92 /* FriendsTableViewCell.swift */,
+			);
+			name = FriendsTable;
+			sourceTree = "<group>";
+		};
 		4F8610AB8FC603138453277A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +293,7 @@
 		8296B41C1D86BF8900F3B1A7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				08FF7A1E1DD6264400961E92 /* FriendsTable */,
 				537EB5EA1D8717C200F3E4F6 /* Flare */,
 				74F4056A1D87019800F0A6DC /* Map */,
 				8273F3021D899D7400E62350 /* Profile */,
@@ -605,6 +619,7 @@
 			files = (
 				08050ECF1DBFB4CA00A60A82 /* FacebookInviteController.swift in Sources */,
 				53C8D1031D80781100E57400 /* AnnotationViewController.swift in Sources */,
+				08FF7A191DD3708800961E92 /* FriendsTableViewController.swift in Sources */,
 				74F405691D86ECEB00F0A6DC /* FlareDisplayController.swift in Sources */,
 				6A7ED8881D7F2E94005FF0A8 /* MapViewController.swift in Sources */,
 				5354CF281D8467BE00D57347 /* FlareDetailViewController.swift in Sources */,
@@ -614,6 +629,7 @@
 				6A7ED8861D7F2E94005FF0A8 /* AppDelegate.swift in Sources */,
 				082C0C791DC21466003FABC9 /* EndUserAgreementViewController.swift in Sources */,
 				8273F3061D899F1200E62350 /* facebook.swift in Sources */,
+				08FF7A1B1DD38D8A00961E92 /* FriendsTableViewCell.swift in Sources */,
 				246276DA1D85DB0C00D434F5 /* ProfileViewController.swift in Sources */,
 				537EB5ED1D87240C00F3E4F6 /* FlashViewController.swift in Sources */,
 				0882B0171DC63C0C0073E3AC /* boostOverlay.swift in Sources */,
