@@ -11,6 +11,7 @@ import Firebase
 import MapKit
 import FirebaseDatabase
 import CoreLocation
+import JSQMessagesViewController
 
 
 class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
@@ -26,6 +27,11 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var reportFlare: UIButton!
     @IBOutlet weak var boostCountLabel: UILabel!
     @IBOutlet weak var boostButton: UIButton!
+    @IBOutlet weak var chatButton: UIButton!
+    
+    @IBAction func chatButtonAction(_ sender: Any) {
+        self.performSegue(withIdentifier: "ShowChannel", sender: sender)
+    }
     
     let navBar = UINavigationBar()
     var flareExport: Flare?
@@ -36,8 +42,6 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     var liked = false
     var flareTimeLimitInMinutes: Int?
     let locationManager = CLLocationManager()
-    var flareId: String?
-    var flareTitle: String?
 
     override func viewDidLoad() {
         setupTapToSendFlareGesture()
@@ -49,10 +53,6 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         findAndSetTimestamp()
         findAndSetButtonImage()
         FIRAnalytics.logEvent(withName: "flare_detail_view", parameters: nil)
-        print(self.flareExport!.flareId!)
-        print(self.flareExport!.title!)
-        self.flareId = self.flareExport!.flareId!
-        self.flareTitle = self.flareExport!.title!
     }
     
     func retrieveTimeDurationFromFirebase(completion: @escaping (_ result: Int) -> ())  {
@@ -177,13 +177,6 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         present(reportActionSheet, animated: true, completion: nil)
     }
 
-    @IBAction func CityMapperNavigation(_ sender: AnyObject) {
-        if let url = URL(string: "https://citymapper.com/directions?endcoord=\(flareExport!.latitude!)%2C\(flareExport!.longitude!)") {
-            UIApplication.shared.openURL(url as URL)
-            FIRAnalytics.logEvent(withName: "directions_selected", parameters: nil)
-        }
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -193,25 +186,25 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         if flareDetailBar.isHidden == true {
             UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
                 self.flareDetailBar.alpha = 1
-                self.cityMapperButton.alpha = 1
+                self.chatButton.alpha = 1
                 self.backButton.alpha = 1
                 self.boostButton.alpha = 1
                 }, completion: { finished in
                     self.flareDetailBar.isHidden = false
-                    self.cityMapperButton.isHidden = false
+                    self.chatButton.isHidden = false
                     self.backButton.isHidden = false
                     self.boostButton.isHidden = false
             })
         } else {
             UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
                 self.flareDetailBar.alpha = 0
-                self.cityMapperButton.alpha = 0
+                self.chatButton.alpha = 0
                 self.backButton.alpha = 0
                 self.boostButton.alpha = 0
                 }, completion: { finished in
                     self.flareDetailBar.isHidden = true
                     self.backButton.isHidden = true
-                    self.cityMapperButton.isHidden = true
+                    self.chatButton.isHidden = true
                     self.boostButton.isHidden = true
             })
         }
@@ -223,20 +216,16 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-//    override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
-//        return UIStatusBarAnimation.slide
-//    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowChannel" {
-            if let ivc = segue.destination as? ChatViewController {
-                print("************Segue****************")
-                print(self.flareExport!)
-                ivc.flareId = self.flareId
-//                ivc.flareTitle = self.flareExport?.title!
-            }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+        
+        if (segue.identifier == "ShowChannel") {
+            let navController = segue.destination as! UINavigationController
+            let detailController = navController.topViewController as! ChatViewController
+            print("************Segue****************")
+            detailController.flareExport = self.flareExport
         }
     }
+
     
     
     @IBAction func cancelToFlareDetailViewController(segue:UIStoryboardSegue) {

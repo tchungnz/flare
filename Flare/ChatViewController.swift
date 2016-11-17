@@ -11,7 +11,7 @@ import Photos
 import Firebase
 import JSQMessagesViewController
 
-class ChatViewController: JSQMessagesViewController {
+final class ChatViewController: JSQMessagesViewController {
     
     // MARK: Properties
     private let imageURLNotSetKey = "NOTSET"
@@ -19,13 +19,23 @@ class ChatViewController: JSQMessagesViewController {
     var channelRef: FIRDatabaseReference?
     var ref = FIRDatabase.database().reference()
     let user = FIRAuth.auth()?.currentUser
+    var flareExport: Flare?
     var flareId: String?
-//    var flareTitle: String?
     
-    private lazy var messageRef: FIRDatabaseReference = self.ref.child("flares").child("-KWiIOwKF0BG9JD8g2cr").child("messages")
+    @IBAction func directionsAction(_ sender: UIBarButtonItem) {
+        if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL)) {
+            UIApplication.shared.openURL(NSURL(string:
+                "comgooglemaps://?saddr=&daddr=\(self.flareExport!.latitude!),\(self.flareExport!.longitude!)&directionsmode=transit")! as URL)
+            
+        } else {
+            NSLog("Can't use comgooglemaps://");
+        }
+    }
+    
+    private lazy var messageRef: FIRDatabaseReference = self.ref.child("flares").child(self.flareExport!.flareId!).child("messages")
 //    fileprivate lazy var storageRef: FIRStorageReference = FIRStorage.storage().reference(forURL: "gs://chatchat-rw-cf107.appspot.com")
-    private lazy var userIsTypingRef: FIRDatabaseReference = self.ref.child("flares").child("-KWiIOwKF0BG9JD8g2cr").child("typingIndicator").child(self.senderId)
-    private lazy var usersTypingQuery: FIRDatabaseQuery = self.ref.child("flares").child("-KWiIOwKF0BG9JD8g2cr").child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
+    private lazy var userIsTypingRef: FIRDatabaseReference = self.ref.child("flares").child(self.flareExport!.flareId!).child("typingIndicator").child(self.senderId)
+    private lazy var usersTypingQuery: FIRDatabaseQuery = self.ref.child("flares").child(self.flareExport!.flareId!).child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
     
     private var newMessageRefHandle: FIRDatabaseHandle?
     private var updatedMessageRefHandle: FIRDatabaseHandle?
@@ -57,13 +67,11 @@ class ChatViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("****************************")
-        print(self.flareId)
 //        print(self.flareTitle!)
         self.senderId = FIRAuth.auth()?.currentUser?.uid
         self.senderDisplayName = user!.displayName! as String
         observeMessages()
-//        self.title = self.flareTitle
+        self.title = self.flareExport!.title!
         
         // No avatars
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
@@ -73,6 +81,10 @@ class ChatViewController: JSQMessagesViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         observeTyping()
+        self.flareId = self.flareExport!.flareId!
+        print("****************************")
+        print(self.flareExport!)
+        print(self.flareExport!.flareId!)
     }
     
     deinit {
@@ -142,7 +154,7 @@ class ChatViewController: JSQMessagesViewController {
     // MARK: Firebase related methods
     
     private func observeMessages() {
-        messageRef = self.ref.child("flares").child("-KWiIOwKF0BG9JD8g2cr").child("messages")
+        messageRef = self.ref.child("flares").child(self.flareExport!.flareId!).child("messages")
         let messageQuery = messageRef.queryLimited(toLast:25)
         
         // We can use the observe method to listen for new
@@ -215,7 +227,7 @@ class ChatViewController: JSQMessagesViewController {
 //    }
     
     private func observeTyping() {
-        let typingIndicatorRef = self.ref.child("flares").child("-KWiIOwKF0BG9JD8g2cr").child("typingIndicator")
+        let typingIndicatorRef = self.ref.child("flares").child(self.flareExport!.flareId!).child("typingIndicator")
         userIsTypingRef = typingIndicatorRef.child(senderId)
         userIsTypingRef.onDisconnectRemoveValue()
         usersTypingQuery = typingIndicatorRef.queryOrderedByValue().queryEqual(toValue: true)
