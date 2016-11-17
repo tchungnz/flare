@@ -639,7 +639,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lb0-Dt-pNb" id="oux-wc-Xcm">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfc-57-JyL">
@@ -806,12 +806,20 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                             <action selector="clickBoostButton:" destination="J6G-JP-XHO" eventType="touchUpInside" id="xX7-6D-cRO"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqW-2f-3WQ">
+                                        <rect key="frame" x="237" y="612" width="46" height="30"/>
+                                        <state key="normal" title="Chat"/>
+                                        <connections>
+                                            <segue destination="HzM-hs-OUK" kind="show" identifier="FlareChat" id="u0K-DN-c1p"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="WAE-Nn-i4d" firstAttribute="leading" secondItem="381-kp-Qh5" secondAttribute="leadingMargin" constant="12" id="4AE-aU-q3r"/>
                                     <constraint firstItem="WAE-Nn-i4d" firstAttribute="top" secondItem="381-kp-Qh5" secondAttribute="topMargin" constant="12" id="4GU-hi-gmp"/>
                                     <constraint firstItem="R0E-M0-ZqG" firstAttribute="leading" secondItem="381-kp-Qh5" secondAttribute="leading" constant="16" id="8ns-67-K9j"/>
                                     <constraint firstItem="WAE-Nn-i4d" firstAttribute="top" secondItem="381-kp-Qh5" secondAttribute="top" id="DFg-Cq-0QE"/>
+                                    <constraint firstItem="jqW-2f-3WQ" firstAttribute="leading" secondItem="jzA-ZF-z8R" secondAttribute="trailing" constant="27.5" id="Exl-QO-rLx"/>
                                     <constraint firstItem="WAE-Nn-i4d" firstAttribute="centerX" secondItem="381-kp-Qh5" secondAttribute="centerX" id="FUI-cw-wdT"/>
                                     <constraint firstAttribute="bottom" secondItem="WAE-Nn-i4d" secondAttribute="bottom" constant="20" id="GMM-LW-Mcf"/>
                                     <constraint firstAttribute="bottom" secondItem="WAE-Nn-i4d" secondAttribute="bottom" id="HNx-gT-UOj"/>
@@ -828,6 +836,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                     <constraint firstItem="WAE-Nn-i4d" firstAttribute="trailing" secondItem="nct-GA-LBe" secondAttribute="trailing" id="dnw-Ck-hTB"/>
                                     <constraint firstItem="WAE-Nn-i4d" firstAttribute="leading" secondItem="381-kp-Qh5" secondAttribute="leading" constant="20" id="fBn-n4-HAX"/>
                                     <constraint firstItem="R0E-M0-ZqG" firstAttribute="bottom" secondItem="zby-Ud-qVQ" secondAttribute="bottom" id="gF5-ah-gnD"/>
+                                    <constraint firstItem="jqW-2f-3WQ" firstAttribute="centerY" secondItem="jzA-ZF-z8R" secondAttribute="centerY" id="gfQ-zF-1iW"/>
                                     <constraint firstAttribute="trailing" secondItem="WAE-Nn-i4d" secondAttribute="trailing" id="ifm-h5-uEh"/>
                                     <constraint firstItem="nct-GA-LBe" firstAttribute="centerX" secondItem="381-kp-Qh5" secondAttribute="centerX" id="j8L-6I-gm8"/>
                                     <constraint firstItem="WAE-Nn-i4d" firstAttribute="leading" secondItem="381-kp-Qh5" secondAttribute="leading" id="kPi-OQ-6vY"/>
@@ -1029,6 +1038,107 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X2a-pn-hc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4650" y="615"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="dJO-3c-FwK">
+            <objects>
+                <viewController id="3A5-hY-fab" customClass="ChatViewController" customModule="Flare" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SFn-hA-jHF"/>
+                        <viewControllerLayoutGuide type="bottom" id="gIp-Ih-5fg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="alI-rt-9vL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0P1-Le-IS9">
+                                <frame key="frameInset" minY="75" width="375" height="527"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableViewCell" id="Amn-WL-8cQ">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Amn-WL-8cQ" id="S9S-lF-cg6">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="3A5-hY-fab" id="neG-xv-dF6"/>
+                                    <outlet property="delegate" destination="3A5-hY-fab" id="YR6-rV-eGL"/>
+                                </connections>
+                            </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mqf-oo-dTi">
+                                <accessibility key="accessibilityConfiguration" label="TextField"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="cU9-Kx-RQX"/>
+                                    <constraint firstAttribute="width" constant="279" id="vd1-xw-YbS"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="3A5-hY-fab" id="9hH-sA-RFN"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6T-57-wN6">
+                                <frame key="frameInset" minX="313" minY="611" width="46" height="30"/>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="didSendMessage:" destination="3A5-hY-fab" eventType="touchUpInside" id="PF0-Kj-EBT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="K6T-57-wN6" secondAttribute="trailing" id="8lQ-Ph-yxJ"/>
+                            <constraint firstItem="0P1-Le-IS9" firstAttribute="leading" secondItem="alI-rt-9vL" secondAttribute="leading" id="Lrp-ee-eyS"/>
+                            <constraint firstAttribute="trailing" secondItem="0P1-Le-IS9" secondAttribute="trailing" id="LvV-bk-rne"/>
+                            <constraint firstItem="K6T-57-wN6" firstAttribute="centerY" secondItem="mqf-oo-dTi" secondAttribute="centerY" id="Ova-Rc-lUG"/>
+                            <constraint firstItem="mqf-oo-dTi" firstAttribute="top" secondItem="0P1-Le-IS9" secondAttribute="bottom" constant="10" id="ewm-fk-HGs"/>
+                            <constraint firstItem="gIp-Ih-5fg" firstAttribute="top" secondItem="mqf-oo-dTi" secondAttribute="bottom" constant="25" id="hyG-cH-ufa"/>
+                            <constraint firstItem="K6T-57-wN6" firstAttribute="leading" secondItem="mqf-oo-dTi" secondAttribute="trailing" constant="10" id="sHG-CS-Pa1"/>
+                            <constraint firstItem="mqf-oo-dTi" firstAttribute="top" secondItem="0P1-Le-IS9" secondAttribute="bottom" constant="10" id="ulN-qV-gbV"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="mqf-oo-dTi" secondAttribute="leading" id="wDF-xn-STU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Chat" id="JXb-s8-T7x">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="mMG-Xa-J9s">
+                            <connections>
+                                <segue destination="cGa-S3-kab" kind="unwind" unwindAction="cancelToFlareDetailViewControllerWithSegue:" id="0Ct-eq-UHh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="clientTable" destination="0P1-Le-IS9" id="uet-sR-SJp"/>
+                        <outlet property="sendButton" destination="K6T-57-wN6" id="0Hi-Ej-F0z"/>
+                        <outlet property="textField" destination="mqf-oo-dTi" id="3Am-4Y-o4V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="89q-cF-1qq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="cGa-S3-kab" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4735.1999999999998" y="1530.5847076461771"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mYP-d2-rzR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HzM-hs-OUK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nfR-e5-gpm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3A5-hY-fab" kind="relationship" relationship="rootViewController" id="e2F-PN-ADl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Xt-Nf-igJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3796" y="1530.5847076461771"/>
         </scene>
     </scenes>
     <resources>

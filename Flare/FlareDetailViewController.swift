@@ -221,6 +221,9 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
 //        return UIStatusBarAnimation.slide
 //    }
     
+    @IBAction func cancelToFlareDetailViewController(segue:UIStoryboardSegue) {
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "returnToMap" {
             if let ivc = segue.destination as? MapViewController {

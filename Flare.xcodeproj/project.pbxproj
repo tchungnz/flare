@@ -24,6 +24,7 @@
 		5354CF321D85B35400D57347 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5354CF2F1D85B35400D57347 /* FBSDKCoreKit.framework */; };
 		5354CF331D85B35400D57347 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5354CF301D85B35400D57347 /* FBSDKLoginKit.framework */; };
 		5354CF341D85B35400D57347 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5354CF311D85B35400D57347 /* FBSDKShareKit.framework */; };
+		5377621A1DDD17880040402C /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537762191DDD17880040402C /* ChatViewController.swift */; };
 		537EB5E71D870B3C00F3E4F6 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537EB5E61D870B3C00F3E4F6 /* CameraViewController.swift */; };
 		537EB5E91D8710C500F3E4F6 /* FlarePhysicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537EB5E81D8710C500F3E4F6 /* FlarePhysicsViewController.swift */; };
 		537EB5ED1D87240C00F3E4F6 /* FlashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537EB5EC1D87240C00F3E4F6 /* FlashViewController.swift */; };
@@ -83,6 +84,7 @@
 		5354CF2F1D85B35400D57347 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../FacebookSDK/FacebookSDKs-iOS-4.15.1/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		5354CF301D85B35400D57347 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../FacebookSDK/FacebookSDKs-iOS-4.15.1/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		5354CF311D85B35400D57347 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../FacebookSDK/FacebookSDKs-iOS-4.15.1/FBSDKShareKit.framework"; sourceTree = "<group>"; };
+		537762191DDD17880040402C /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		537EB5E61D870B3C00F3E4F6 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		537EB5E81D8710C500F3E4F6 /* FlarePhysicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlarePhysicsViewController.swift; sourceTree = "<group>"; };
 		537EB5EC1D87240C00F3E4F6 /* FlashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +175,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		537762181DDD17670040402C /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				537762191DDD17880040402C /* ChatViewController.swift */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
 		537EB5EA1D8717C200F3E4F6 /* Flare */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +202,15 @@
 				082C0C781DC21466003FABC9 /* EndUserAgreementViewController.swift */,
 			);
 			name = User;
+			sourceTree = "<group>";
+		};
+		53CCFB7D1DDDB4F400278D12 /* DetailedFlare */ = {
+			isa = PBXGroup;
+			children = (
+				5354CF271D8467BE00D57347 /* FlareDetailViewController.swift */,
+				0856CEDE1DC3595C002D8D31 /* BoostFlareViewController.swift */,
+			);
+			name = DetailedFlare;
 			sourceTree = "<group>";
 		};
 		6A7ED8791D7F2E94005FF0A8 = {
@@ -256,8 +275,6 @@
 		74F4056A1D87019800F0A6DC /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				5354CF271D8467BE00D57347 /* FlareDetailViewController.swift */,
-				0856CEDE1DC3595C002D8D31 /* BoostFlareViewController.swift */,
 				6A7ED8871D7F2E94005FF0A8 /* MapViewController.swift */,
 				74F405681D86ECEB00F0A6DC /* FlareDisplayController.swift */,
 				53C8D1021D80781100E57400 /* AnnotationViewController.swift */,
@@ -293,6 +310,8 @@
 		8296B41C1D86BF8900F3B1A7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				53CCFB7D1DDDB4F400278D12 /* DetailedFlare */,
+				537762181DDD17670040402C /* Chat */,
 				08FF7A1E1DD6264400961E92 /* FriendsTable */,
 				537EB5EA1D8717C200F3E4F6 /* Flare */,
 				74F4056A1D87019800F0A6DC /* Map */,
@@ -639,6 +658,7 @@
 				537EB5E71D870B3C00F3E4F6 /* CameraViewController.swift in Sources */,
 				53C8D1011D80760B00E57400 /* flare.swift in Sources */,
 				537EB5E91D8710C500F3E4F6 /* FlarePhysicsViewController.swift in Sources */,
+				5377621A1DDD17880040402C /* ChatViewController.swift in Sources */,
 				8273F3041D899D9100E62350 /* LogOutViewController.swift in Sources */,
 				24B68D491D8184AB004EE49A /* FlareViewController.swift in Sources */,
 				0856CEDF1DC3595C002D8D31 /* BoostFlareViewController.swift in Sources */,
