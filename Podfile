@@ -15,6 +15,7 @@ target 'Flare' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'SwiftyJSON', '3.0.0'
+  pod 'JSQMessagesViewController'
 
   target 'FlareTests' do
     inherit! :search_paths

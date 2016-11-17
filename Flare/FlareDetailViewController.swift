@@ -36,6 +36,8 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     var liked = false
     var flareTimeLimitInMinutes: Int?
     let locationManager = CLLocationManager()
+    var flareId: String?
+    var flareTitle: String?
 
     override func viewDidLoad() {
         setupTapToSendFlareGesture()
@@ -47,6 +49,10 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         findAndSetTimestamp()
         findAndSetButtonImage()
         FIRAnalytics.logEvent(withName: "flare_detail_view", parameters: nil)
+        print(self.flareExport!.flareId!)
+        print(self.flareExport!.title!)
+        self.flareId = self.flareExport!.flareId!
+        self.flareTitle = self.flareExport!.title!
     }
     
     func retrieveTimeDurationFromFirebase(completion: @escaping (_ result: Int) -> ())  {
@@ -222,11 +228,18 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
 //    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "returnToMap" {
-            if let ivc = segue.destination as? MapViewController {
-                ivc.exitMapView = self.exitMapView
+        if segue.identifier == "ShowChannel" {
+            if let ivc = segue.destination as? ChatViewController {
+                print("************Segue****************")
+                print(self.flareExport!)
+                ivc.flareId = self.flareId
+//                ivc.flareTitle = self.flareExport?.title!
             }
         }
+    }
+    
+    
+    @IBAction func cancelToFlareDetailViewController(segue:UIStoryboardSegue) {
     }
 
 

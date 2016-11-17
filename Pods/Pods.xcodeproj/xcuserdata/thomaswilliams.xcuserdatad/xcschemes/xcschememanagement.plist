@@ -4,7 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>EasyTipView.xcscheme</key>
+		<key>GTMSessionFetcher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>JSQMessagesViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>JSQSystemSoundPlayer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,27 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0047DFA894D360CA3271AE4A088B4118</key>
+		<key>03E6E56F8533C2E42C696D7CCAC42910</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5579BAD702E8654A6336C8C983581E71</key>
+		<key>1ED4DFAAD25E1999D0244868457A351E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>806857FCB46763B2A91CBCF405DC5D5B</key>
+		<key>23BA9083ED0D2392A167A8AFA04427FA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8A8403DAA806D6AA6A89304CB7723A71</key>
+		<key>3C49F00BA3C523856AAA2B5B45435A9E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>95BDEFB76ED3F46E90CA9A7DC842A232</key>
+		<key>59CDDB315DD2B098E0CD9ED56B026F4B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>85B6A116DDD57A8C70A3D1405FCBD07C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>89D9F3237F0E59A419A572214F9F503A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D2335D9FA8AE40D34A0B417D7D408FDE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

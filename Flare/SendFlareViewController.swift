@@ -42,7 +42,7 @@ extension FlareViewController: CLLocationManagerDelegate {
     
     func saveFlareToDatabase(_ imageString: String) {
         facebook.getFacebookID()
-        let flareRef = ref.child(byAppendingPath: "flares")
+        let flareRef = ref.child(byAppendingPath: "flares") 
         let timestamp = FIRServerValue.timestamp()
         let user = FIRAuth.auth()?.currentUser
         if selectedFriendsIds == nil {
