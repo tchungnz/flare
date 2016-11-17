@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MgA-qe-Vm4">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MgA-qe-Vm4">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,11 +24,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKx-n0-czB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0aY-v7-aPe">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIY-aS-UgG">
+                                                <rect key="frame" x="15" y="25" width="44" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="44" id="C8l-Nl-1eX"/>
                                                     <constraint firstAttribute="width" secondItem="iIY-aS-UgG" secondAttribute="height" multiplier="1:1" id="Nnc-Y4-OPc"/>
@@ -39,7 +44,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRw-ZM-PQm">
-                                                <frame key="frameInset" minX="15" minY="96" width="344" height="543"/>
+                                                <rect key="frame" x="15" y="96" width="344" height="543"/>
                                                 <string key="text">Flare (Flare - Share and Discover Spontaneous Moments App) App End User License Agreement
 
 
@@ -126,12 +131,13 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OTk-fM-qe6">
-                                <frame key="frameInset" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Fs-ET-2bv">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVz-lK-OEt">
+                                                <rect key="frame" x="15" y="25" width="44" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="44" id="DJJ-sq-SaE"/>
                                                     <constraint firstAttribute="height" constant="44" id="Lh3-tQ-Rm8"/>
@@ -145,18 +151,21 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redCamera" translatesAutoresizingMaskIntoConstraints="NO" id="NEg-Zd-yHU">
+                                                <rect key="frame" x="150" y="25" width="75" height="75"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="75" id="4ql-LR-6wi"/>
                                                     <constraint firstAttribute="width" constant="75" id="pPg-nY-Fmx"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="xzJ-ul-mp3" userLabel="Name">
+                                                <rect key="frame" x="160" y="110" width="55" height="24"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="nameLabel"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grT-iD-bPW">
+                                                <rect key="frame" x="50" y="164" width="275" height="30"/>
                                                 <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="275" id="HFG-i9-Dhb"/>
@@ -168,6 +177,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                                 </connections>
                                             </button>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxT-UP-MTK">
+                                                <rect key="frame" x="50" y="214" width="275" height="30"/>
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="275" id="HJq-b1-7mP"/>
@@ -179,6 +189,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q47-cd-UyB">
+                                                <rect key="frame" x="50" y="264" width="275" height="30"/>
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="275" id="XA9-ho-GA6"/>
@@ -192,7 +203,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B7O-fy-UcL">
-                                                <frame key="frameInset" minX="50" minY="305" width="275" height="30"/>
+                                                <rect key="frame" x="50" y="305" width="275" height="30"/>
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="275" id="NdS-5u-PCe"/>
@@ -206,7 +217,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Facebook Friends on Flare:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUs-Au-oX2">
-                                                <frame key="frameInset" minX="50" minY="360" width="275" height="18"/>
+                                                <rect key="frame" x="50" y="360" width="275" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="275" id="2ss-iK-qTp"/>
                                                 </constraints>
@@ -215,7 +226,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="None" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nD3-cg-QAm">
-                                                <frame key="frameInset" minX="50" minY="386" width="275" height="18"/>
+                                                <rect key="frame" x="50" y="386" width="275" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="275" id="bCv-qS-xEQ"/>
                                                 </constraints>
@@ -224,7 +235,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMM-my-hQ3">
-                                                <frame key="frameInset" minY="612" width="375" height="30"/>
+                                                <rect key="frame" x="0.0" y="612" width="375" height="30"/>
                                                 <color key="backgroundColor" white="0.88674496644295298" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="275" id="mM5-ZR-dtH"/>
@@ -237,7 +248,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3m-iK-XVC">
-                                                <frame key="frameInset" minY="566" width="375" height="30"/>
+                                                <rect key="frame" x="0.0" y="566" width="375" height="30"/>
                                                 <color key="backgroundColor" white="0.8867449664" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="275" id="DaD-Il-gIY"/>
@@ -328,8 +339,11 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GR0-gi-2IK"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GR0-gi-2IK">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMg-Ov-4VJ">
+                                <rect key="frame" x="10" y="28" width="45" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DMg-Ov-4VJ" secondAttribute="height" multiplier="9:10" id="IRN-AE-Sq1"/>
                                     <constraint firstAttribute="width" constant="45" id="PvP-4Z-ctA"/>
@@ -349,6 +363,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iy2-AK-hv6">
+                                <rect key="frame" x="145" y="562" width="85" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="iy2-AK-hv6" secondAttribute="height" multiplier="1:1" id="6Ib-nv-YHU"/>
                                     <constraint firstAttribute="width" constant="150" id="7Sd-OK-wGi"/>
@@ -375,7 +390,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RqD-Xv-VYf">
-                                <frame key="frameInset" minX="328" minY="589" width="30" height="30"/>
+                                <rect key="frame" x="328" y="589" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="RqD-Xv-VYf" secondAttribute="height" multiplier="1:1" id="DJX-hA-0Ku"/>
                                     <constraint firstAttribute="width" constant="30" id="SiK-ur-JRx"/>
@@ -450,10 +465,14 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vnx-3Z-MtI">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eMQ-rC-P60"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eMQ-rC-P60">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bf-he-SZq">
+                                <rect key="frame" x="17" y="617" width="47" height="30"/>
                                 <state key="normal" title="Retake">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -462,6 +481,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's going on?" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="bhx-DR-QUb" customClass="UITextFieldLimit">
+                                <rect key="frame" x="16" y="36" width="343" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="OUH-J5-Wwf"/>
@@ -470,6 +490,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" keyboardAppearance="light" returnKeyType="done"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9n-uW-Cgh" userLabel="Take Photo Button">
+                                <rect key="frame" x="137.5" y="537" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="5fs-Td-V0V"/>
                                     <constraint firstAttribute="width" constant="100" id="Mix-tT-rqU"/>
@@ -480,12 +501,14 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SzE-sB-ACH">
+                                <rect key="frame" x="13" y="602" width="51" height="49"/>
                                 <state key="normal" title="Button" image="map-icon"/>
                                 <connections>
                                     <segue destination="AzX-Gn-k8r" kind="unwind" unwindAction="cancelToMapViewControllerWithSegue:" id="ow5-xD-uV9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzU-kD-nqP">
+                                <rect key="frame" x="315" y="606" width="41" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="4Ur-m2-7vq"/>
                                     <constraint firstAttribute="width" constant="41" id="cbh-6X-nMk"/>
@@ -496,6 +519,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fra-nb-sTF">
+                                <rect key="frame" x="17" y="30" width="43" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="43" id="tUe-Yd-yUx"/>
                                 </constraints>
@@ -505,6 +529,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                 </connections>
                             </button>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uprightLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5kc-bo-fR1">
+                                <rect key="frame" x="147" y="527" width="81" height="120"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="P4a-L1-cnT"/>
@@ -516,7 +541,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qvk-s3-LwG">
-                                <frame key="frameInset" minX="195" minY="80" width="164" height="30"/>
+                                <rect key="frame" x="195" y="80" width="164" height="30"/>
                                 <color key="backgroundColor" red="0.63261217950000004" green="0.63261217950000004" blue="0.63261217950000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="friendsButton"/>
                                 <constraints>
@@ -535,7 +560,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWS-Vn-kDQ">
-                                <frame key="frameInset" minX="17" minY="80" width="164" height="30"/>
+                                <rect key="frame" x="17" y="80" width="164" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="VBj-JQ-mx4"/>
@@ -636,21 +661,21 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendToInvite" id="lb0-Dt-pNb" customClass="FriendsTableViewCell" customModule="Flare" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lb0-Dt-pNb" id="oux-wc-Xcm">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfc-57-JyL">
-                                            <frame key="frameInset" minX="322" minY="4" width="45" height="35"/>
+                                            <rect key="frame" x="322" y="4" width="45" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="tfc-57-JyL" secondAttribute="height" multiplier="1:1" id="An5-1V-lur"/>
                                                 <constraint firstAttribute="width" constant="30" id="p20-Nq-Xn9"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="sMk-N8-Lju">
-                                            <frame key="frameInset" minX="8" minY="11" width="42" height="21"/>
+                                            <rect key="frame" x="8" y="11" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -710,8 +735,10 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="381-kp-Qh5">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WAE-Nn-i4d">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="750" id="58Y-mN-ibW"/>
@@ -726,28 +753,34 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                         </connections>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nct-GA-LBe">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120 mins remaining" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3a0-QX-8qU">
+                                                <rect key="frame" x="20" y="90" width="117.5" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flare Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7w-jM-1WI">
+                                                <rect key="frame" x="20" y="52" width="80" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 boosts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAV-ft-hVK">
+                                                <rect key="frame" x="20" y="71" width="53" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flare Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="qGy-5f-rRT">
+                                                <rect key="frame" x="20" y="25" width="335" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fK-9b-Liz">
+                                                <rect key="frame" x="314" y="84" width="41" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <state key="normal" title="Report">
                                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -774,6 +807,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zby-Ud-qVQ">
+                                        <rect key="frame" x="307" y="604" width="49" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="47" id="F8E-h9-BJT"/>
                                             <constraint firstAttribute="width" constant="49" id="kqc-AJ-6x4"/>
@@ -784,6 +818,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0E-M0-ZqG">
+                                        <rect key="frame" x="16" y="607" width="44" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="847-oT-VjT"/>
                                             <constraint firstAttribute="width" constant="44" id="wo7-JW-pPN"/>
@@ -796,6 +831,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzA-ZF-z8R">
+                                        <rect key="frame" x="165.5" y="607" width="44" height="44"/>
                                         <accessibility key="accessibilityConfiguration" identifier="boostButton"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="7T6-EE-A3f"/>
@@ -935,8 +971,11 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FLAREBACKGROUND" translatesAutoresizingMaskIntoConstraints="NO" id="1RG-US-DAI"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FLAREBACKGROUND" translatesAutoresizingMaskIntoConstraints="NO" id="1RG-US-DAI">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FLARELOGOUP" translatesAutoresizingMaskIntoConstraints="NO" id="5Dz-0n-Ulu">
+                                <rect key="frame" x="100" y="75" width="175" height="175"/>
                                 <accessibility key="accessibilityConfiguration" identifier="flareLogo">
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
@@ -947,13 +986,13 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="By logging in, you are agreeing to our" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O48-EY-9M8">
-                                <frame key="frameInset" minX="82" minY="406" width="210" height="21"/>
+                                <rect key="frame" x="82" y="406" width="210" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJv-4w-GWD">
-                                <frame key="frameInset" minX="107" minY="425" width="160" height="10"/>
+                                <rect key="frame" x="107" y="425" width="160" height="10"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                 <state key="normal" title="End User License Agreement.">
                                     <color key="titleColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -963,7 +1002,7 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Flare will never post on your public profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjc-dw-oDP">
-                                <frame key="frameInset" minX="52" minY="341" width="269" height="33"/>
+                                <rect key="frame" x="52" y="341" width="269" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -993,6 +1032,24 @@ In order to ensure Flare provides the best experience possible for everyone, we 
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2I-Au-nUC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1429.5999999999999" y="1039.4302848575712"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="2Pc-1D-GYo">
+            <objects>
+                <viewController id="L5i-0x-gqh" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bWx-C9-nPw"/>
+                        <viewControllerLayoutGuide type="bottom" id="pQD-dK-h9G"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jB5-Ri-5uU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s6s-ep-IwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="970" y="242"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="p0y-pI-mNl">

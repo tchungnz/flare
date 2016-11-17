@@ -17,6 +17,7 @@
 		08FF7A191DD3708800961E92 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FF7A181DD3708800961E92 /* FriendsTableViewController.swift */; };
 		08FF7A1B1DD38D8A00961E92 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FF7A1A1DD38D8A00961E92 /* FriendsTableViewCell.swift */; };
 		246276DA1D85DB0C00D434F5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246276D91D85DB0C00D434F5 /* ProfileViewController.swift */; };
+		24A12D331DDE0EA900673188 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A12D321DDE0EA900673188 /* OnBoardingViewController.swift */; };
 		24B68D491D8184AB004EE49A /* FlareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B68D481D8184AB004EE49A /* FlareViewController.swift */; };
 		378C31308AD144F1C77A72A4 /* Pods_FlareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE71BA334882FB87A15CE562 /* Pods_FlareTests.framework */; };
 		531D01CD1D89BF7600AA7D1C /* CameraViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531D01CC1D89BF7600AA7D1C /* CameraViewControllerUITests.swift */; };
@@ -77,6 +78,7 @@
 		08FF7A1A1DD38D8A00961E92 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		1C077AF3B95864CEF341C981 /* Pods_Flare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		246276D91D85DB0C00D434F5 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		24A12D321DDE0EA900673188 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		24B68D481D8184AB004EE49A /* FlareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlareViewController.swift; sourceTree = "<group>"; };
 		531D01CC1D89BF7600AA7D1C /* CameraViewControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewControllerUITests.swift; sourceTree = "<group>"; };
 		5354CF271D8467BE00D57347 /* FlareDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlareDetailViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +160,14 @@
 				08FF7A1A1DD38D8A00961E92 /* FriendsTableViewCell.swift */,
 			);
 			name = FriendsTable;
+			sourceTree = "<group>";
+		};
+		24A12D311DDE0E8A00673188 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				24A12D321DDE0EA900673188 /* OnBoardingViewController.swift */,
+			);
+			name = OnBoarding;
 			sourceTree = "<group>";
 		};
 		4F8610AB8FC603138453277A /* Frameworks */ = {
@@ -293,6 +303,7 @@
 		8296B41C1D86BF8900F3B1A7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				24A12D311DDE0E8A00673188 /* OnBoarding */,
 				08FF7A1E1DD6264400961E92 /* FriendsTable */,
 				537EB5EA1D8717C200F3E4F6 /* Flare */,
 				74F4056A1D87019800F0A6DC /* Map */,
@@ -636,6 +647,7 @@
 				74F405671D86EA5A00F0A6DC /* MapDisplayController.swift in Sources */,
 				826E4E991D81CA6F00CA4493 /* RootViewController.swift in Sources */,
 				82FF4C911D85C26E00B44AF7 /* UITextFieldLimit.m in Sources */,
+				24A12D331DDE0EA900673188 /* OnBoardingViewController.swift in Sources */,
 				537EB5E71D870B3C00F3E4F6 /* CameraViewController.swift in Sources */,
 				53C8D1011D80760B00E57400 /* flare.swift in Sources */,
 				537EB5E91D8710C500F3E4F6 /* FlarePhysicsViewController.swift in Sources */,
