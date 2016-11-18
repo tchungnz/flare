@@ -54,7 +54,7 @@ extension MapViewController {
         if segue.identifier == "flareDetail" {
             if let ivc = segue.destination as? FlareDetailViewController {
                 ivc.flareExport = self.flareExport
-                ivc.exitMapView = self.mapView.region
+                ivc.userLocation = self.location
             }
         }
     }

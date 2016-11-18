@@ -42,6 +42,7 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     var liked = false
     var flareTimeLimitInMinutes = 240
     let locationManager = CLLocationManager()
+    var userLocation: CLLocation?
 
     override func viewDidLoad() {
         setupTapToSendFlareGesture()
@@ -222,6 +223,7 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
             let navController = segue.destination as! UINavigationController
             let detailController = navController.topViewController as! ChatViewController
             detailController.flareExport = self.flareExport
+            detailController.userLocation = self.userLocation
         }
     }
 

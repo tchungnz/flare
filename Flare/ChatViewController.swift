@@ -11,7 +11,7 @@ import Photos
 import Firebase
 import JSQMessagesViewController
 
-final class ChatViewController: JSQMessagesViewController {
+final class ChatViewController: JSQMessagesViewController, CLLocationManagerDelegate {
     
     // MARK: Properties
     private let imageURLNotSetKey = "NOTSET"
@@ -21,6 +21,10 @@ final class ChatViewController: JSQMessagesViewController {
     let user = FIRAuth.auth()?.currentUser
     var flareExport: Flare?
     var flareId: String?
+    var lat: Double?
+    var long: Double?
+    var userLocation: CLLocation?
+    
     
     private lazy var messageRef: FIRDatabaseReference = self.ref.child("flares").child(self.flareExport!.flareId!).child("messages")
 //    fileprivate lazy var storageRef: FIRStorageReference = FIRStorage.storage().reference(forURL: "gs://chatchat-rw-cf107.appspot.com")
@@ -62,6 +66,8 @@ final class ChatViewController: JSQMessagesViewController {
         self.inputToolbar.contentView.leftBarButtonItem = nil
         self.inputToolbar.contentView.rightBarButtonItem.setTitleColor(UIColor.red, for: .normal)
         self.title = self.flareExport!.title!
+        self.lat = self.userLocation!.coordinate.latitude
+        self.long = self.userLocation!.coordinate.longitude
         observeMessages()
         
         // No avatars
@@ -229,11 +235,13 @@ final class ChatViewController: JSQMessagesViewController {
     @IBAction func directionsAction(_ sender: UIBarButtonItem) {
         if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL)) {
             UIApplication.shared.openURL(NSURL(string:
-                "comgooglemaps://?saddr=&daddr=\(self.flareExport!.latitude!),\(self.flareExport!.longitude!)&directionsmode=transit")! as URL)
+                "comgooglemaps://?saddr=\(self.lat!),\(self.long!)&daddr=\(self.flareExport!.latitude!),\(self.flareExport!.longitude!)&directionsmode=transit")! as URL)
             
         } else {
             NSLog("Can't use comgooglemaps://");
         }
     }
+    
+//    comgooglemaps://?saddr=&daddr=\(self.flareExport!.latitude!),\(self.flareExport!.longitude!)&center=\(self.flareExport!.latitude!),\(self.flareExport!.longitude!)&directionsmode=transit&zoom=17
     
 }
