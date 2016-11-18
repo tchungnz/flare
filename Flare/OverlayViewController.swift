@@ -33,12 +33,8 @@ extension MapViewController {
     
     func getFriendsBoostCountsFromDatabase(_ friendsArray: [String], completion: @escaping (_ result: [MKCircle]) -> ()) {
         getFlareTime()
-        
-        // Not efficient code, as firebase looks for any change to flares (both boostcount and boost attributes change so runs code 3x if there is a user in boosts)
-        
         let flareRef = self.ref.child("flares").queryOrdered(byChild: "timestamp").queryStarting(atValue: activeFlareTime)
         var handle: UInt = 0
-
 
         handle = flareRef.observe(.value, with: { (snapshot) in
             var boostOverlays = [MKCircle]()
@@ -77,7 +73,6 @@ extension MapViewController {
         getFlareTime()
         var friendsBoostArray = friendsBoostArray
         
-        // Not efficient code, as firebase looks for any change to flares (both boostcount and boost attributes change so runs code 2x)
         let flareRef = self.ref.child("flares").queryOrdered(byChild: "timestamp").queryStarting(atValue: activeFlareTime)
         var handle: UInt = 0
         

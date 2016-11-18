@@ -66,26 +66,7 @@ extension FlareViewController: CLLocationManagerDelegate {
     }
     
 
-    func activeFlareCheck() {
-        getFlareTime()
-        var usersFlares = [Flare]()
-        facebook.getFacebookID()
-        let databaseRef = FIRDatabase.database().reference().child("flares")
-        databaseRef.queryOrdered(byChild: "facebookID").queryEqual(toValue: facebook.uid).observe(.value, with: { (snapshot) in
-            
-            for item in snapshot.children {
-                let flare = Flare(snapshot: item as! FIRDataSnapshot)
-                if Double(flare.timestamp!) >= self.activeFlareTime! {
-                    usersFlares.insert(flare, at: 0)
-                }
-                if usersFlares.count >= self.maximumSentFlares! {
-                    self.letFlareSave = false
-                } else {
-                    self.letFlareSave = true
-                }
-            }
-        })
-    }
+
     
     func saveNotificationsToDatabase(recipients: [String], flareRef: String) {
         let notificationsRef = ref.child(byAppendingPath: "notifications").childByAutoId()

@@ -27,8 +27,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     let locationManager = CLLocationManager()
     
     var flareExport: Flare?
-    var activeFlareTime : Double?
-    var uid : String?
+    var activeFlareTime: Double?
+    var uid: String?
     var facebook = Facebook()
     var exitMapView: MKCoordinateRegion?
     var ref = FIRDatabase.database().reference()
@@ -111,7 +111,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.exitMapView = nil
         mapSetUp()
     }
-    
     
     @IBAction func cancelToMapViewController(segue:UIStoryboardSegue) {
     }

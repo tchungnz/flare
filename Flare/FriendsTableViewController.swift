@@ -15,9 +15,9 @@ class FriendsTableViewController: UITableViewController {
     var friends: NSDictionary?
     var friendsNames = [String]()
     var selectedFriends = [String]()
+    var boolArray = [Bool]()
+    
     @IBOutlet weak var inviteFriendsButton: UIBarButtonItem!
-    
-    
     @IBOutlet weak var selectFriendImage: UIImageView!
     
     override func viewDidLoad() {
@@ -43,11 +43,20 @@ class FriendsTableViewController: UITableViewController {
             (result: NSDictionary) in
             self.friends = result
             self.selectedFriends = result.allValues as! [String]
-            var unorderedFriendsNames = result.allValues as! [String]
+            let unorderedFriendsNames = result.allValues as! [String]
             self.friendsNames = unorderedFriendsNames.sorted(by: { (s1: String, s2: String) -> Bool in return s2 > s1 } )
             self.friendsNames[0] = "All Friends"
+            self.setBoolArray()
             self.tableView.reloadData()
         }
+    }
+    
+    func setBoolArray() {
+        boolArray = [Bool]()
+        for _ in 1...friendsNames.count {
+            boolArray.append(false)
+        }
+        boolArray[0] = true
     }
 
     // MARK: - Table view data source
@@ -66,11 +75,13 @@ class FriendsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendToInvite", for: indexPath) as! FriendsTableViewCell
         cell.facebookNameLabel.text = self.friendsNames[indexPath.row]
-        if cell.facebookNameLabel.text == "All Friends" {
+       
+        if boolArray[indexPath.row] {
             cell.selectFriendImage.image = UIImage(named: "ticked")
-        } else {
+            } else {
             cell.selectFriendImage.image = UIImage(named: "unticked")
         }
         return cell
@@ -79,27 +90,31 @@ class FriendsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let cell = tableView.cellForRow(at: indexPath) as! FriendsTableViewCell
-
+        
         if cell.facebookNameLabel.text == "All Friends" && cell.selectFriendImage.image == UIImage(named: "unticked") {
             selectedFriends = self.friends?.allValues as! [String]
+            setBoolArray()
             self.tableView.reloadData()
-            cell.selectFriendImage.image = UIImage(named: "ticked")
         } else if cell.facebookNameLabel.text == "All Friends" && cell.selectFriendImage.image == UIImage(named: "ticked") {
             selectedFriends = [String]()
             cell.selectFriendImage.image = UIImage(named: "unticked")
+            boolArray[indexPath.row] = false
         } else if cell.selectFriendImage.image == UIImage(named: "ticked") {
             cell.selectFriendImage.image = UIImage(named: "unticked")
+            boolArray[indexPath.row] = false
             if let index = selectedFriends.index(of: (cell.facebookNameLabel.text)!) {
                 selectedFriends.remove(at: index)
             }
-        } else if cell.selectFriendImage.image == UIImage(named: "unticked") && (tableView.cellForRow(at: NSIndexPath(row: 0, section: 0) as IndexPath) as! FriendsTableViewCell).selectFriendImage.image == UIImage(named: "ticked") {
+        } else if cell.selectFriendImage.image == UIImage(named: "unticked") && boolArray[0] == false {
+            cell.selectFriendImage.image = UIImage(named: "ticked")
+            boolArray[indexPath.row] = true
+            selectedFriends.append((cell.facebookNameLabel?.text)!)
+        } else if cell.selectFriendImage.image == UIImage(named: "unticked") && boolArray[0] {
             selectedFriends = [String]()
-            (tableView.cellForRow(at: NSIndexPath(row: 0, section: 0) as IndexPath) as! FriendsTableViewCell).selectFriendImage.image = UIImage(named: "unticked")
-            cell.selectFriendImage.image = UIImage(named: "ticked")
+            boolArray[0] = false
+            boolArray[indexPath.row] = true
             selectedFriends.append((cell.facebookNameLabel?.text)!)
-        } else {
-            cell.selectFriendImage.image = UIImage(named: "ticked")
-            selectedFriends.append((cell.facebookNameLabel?.text)!)
+            self.tableView.reloadData()
         }
     }
     
@@ -115,49 +130,6 @@ class FriendsTableViewController: UITableViewController {
             }
         }
     }
- 
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+
 }
+
