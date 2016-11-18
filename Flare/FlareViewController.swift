@@ -63,17 +63,15 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getFlareMaxLimit()
         getFlareTime()
+        getFlareMaxLimit()
         setButtons()
         // Refactor to a separate class
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
-        
         cameraSession("back")
-        activeFlareCheck()
         enableKeyboardDisappear()
     }
 
@@ -226,7 +224,28 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         retrieveFlareLimitFromFirebase() {
             (result: Int) in
             self.maximumSentFlares = result
+            self.activeFlareCheck(flareLimit: result)
         }
+    }
+    
+    func activeFlareCheck(flareLimit: Int) {
+        var usersFlares = [Flare]()
+        facebook.getFacebookID()
+        let databaseRef = FIRDatabase.database().reference().child("flares")
+        databaseRef.queryOrdered(byChild: "facebookID").queryEqual(toValue: facebook.uid).observe(.value, with: { (snapshot) in
+            
+            for item in snapshot.children {
+                let flare = Flare(snapshot: item as! FIRDataSnapshot)
+                if Double(flare.timestamp!) >= self.activeFlareTime! {
+                    usersFlares.insert(flare, at: 0)
+                }
+                if usersFlares.count >= flareLimit {
+                    self.letFlareSave = false
+                } else {
+                    self.letFlareSave = true
+                }
+            }
+        })
     }
     
     func retrieveFlareLimitFromFirebase(completion: @escaping (_ result: Int) -> ())  {
