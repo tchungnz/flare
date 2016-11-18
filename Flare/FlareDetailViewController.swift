@@ -34,7 +34,7 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
     var ref = FIRDatabase.database().reference()
     var boostCount: Int = 0
     var liked = false
-    var flareTimeLimitInMinutes: Int?
+    var flareTimeLimitInMinutes = 240
     let locationManager = CLLocationManager()
 
     override func viewDidLoad() {

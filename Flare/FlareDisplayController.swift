@@ -17,24 +17,9 @@ extension MapViewController {
     
     func getFlareTime() {
         let currentTimeInMilliseconds = Date().timeIntervalSince1970 * 1000
-        retrieveTimeDurationFromFirebase() {
-            (result: Int) in
-            var flareTimeLimitInMinutes = result
-            let flareTimeLimitInMiliseconds = Double(flareTimeLimitInMinutes * 60000)
-            self.activeFlareTime = (currentTimeInMilliseconds - flareTimeLimitInMiliseconds)
-        }
-    }
-    
-    func retrieveTimeDurationFromFirebase(completion: @escaping (_ result: Int) -> ())  {
-        let durationRef = self.ref.child(byAppendingPath: "flareConstants").observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            let value = snapshot.value as? NSDictionary
-            let duration = value?["duration"] as! Int
-            completion(duration)
-            })
-        { (error) in
-            print(error.localizedDescription)
-        }
+        let flareTimeLimitInMinutes = 240
+        let flareTimeLimitInMiliseconds = Double(flareTimeLimitInMinutes * 60000)
+        self.activeFlareTime = (currentTimeInMilliseconds - flareTimeLimitInMiliseconds)
     }
 
     func getPublicFlaresFromDatabase(_ friendsArray: [String], completion: @escaping (_ result: [Flare], _ friendsArray: [String]) -> ()) {
@@ -95,7 +80,7 @@ extension MapViewController {
         let flareRef = self.ref.child(byAppendingPath: "flares/\(flareId)").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let flare = snapshot.value as? NSDictionary
-            var count = flare?["boostCount"]
+            let count = flare?["boostCount"]
             var countString: String
             if count == nil {
                 countString = "0"

@@ -112,7 +112,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapSetUp()
     }
     
-    
     @IBAction func cancelToMapViewController(segue:UIStoryboardSegue) {
     }
     

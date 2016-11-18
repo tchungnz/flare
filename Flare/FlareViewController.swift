@@ -15,7 +15,9 @@ import CoreLocation
 
 class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate {
     
-    var maximumSentFlares: Int?
+    let maximumSentFlares = 5
+    let flareTimeLimitInMinutes = 240
+    var activeFlareTime : Double?
 
     var captureSession : AVCaptureSession?
     var input: AVCaptureDeviceInput?
@@ -27,7 +29,6 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var flareLongitude : String?
     
     var uid : String?
-    var activeFlareTime : Double?
     
     var backCamera: Bool = true
     var isPublicFlare: Bool = false
@@ -64,7 +65,6 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         getFlareTime()
-        getFlareMaxLimit()
         setButtons()
         // Refactor to a separate class
         self.locationManager.delegate = self
@@ -73,6 +73,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.locationManager.startUpdatingLocation()
         cameraSession("back")
         enableKeyboardDisappear()
+        activeFlareCheck()
     }
 
     override func didReceiveMemoryWarning() {
@@ -200,35 +201,12 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     func getFlareTime() {
         let currentTimeInMilliseconds = Date().timeIntervalSince1970 * 1000
-        retrieveTimeDurationFromFirebase() {
-            (result: Int) in
-            var flareTimeLimitInMinutes = result
-            let flareTimeLimitInMiliseconds = Double(flareTimeLimitInMinutes * 60000)
-            self.activeFlareTime = (currentTimeInMilliseconds - flareTimeLimitInMiliseconds)
-        }
+        let flareTimeLimitInMiliseconds = Double(flareTimeLimitInMinutes * 60000)
+        self.activeFlareTime = (currentTimeInMilliseconds - flareTimeLimitInMiliseconds)
     }
     
-    func retrieveTimeDurationFromFirebase(completion: @escaping (_ result: Int) -> ())  {
-        let durationRef = self.ref.child(byAppendingPath: "flareConstants").observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            let value = snapshot.value as? NSDictionary
-            let duration = value?["duration"] as! Int
-            completion(duration)
-            })
-        { (error) in
-            print(error.localizedDescription)
-        }
-    }
     
-    func getFlareMaxLimit() {
-        retrieveFlareLimitFromFirebase() {
-            (result: Int) in
-            self.maximumSentFlares = result
-            self.activeFlareCheck(flareLimit: result)
-        }
-    }
-    
-    func activeFlareCheck(flareLimit: Int) {
+    func activeFlareCheck() {
         var usersFlares = [Flare]()
         facebook.getFacebookID()
         let databaseRef = FIRDatabase.database().reference().child("flares")
@@ -239,25 +217,13 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 if Double(flare.timestamp!) >= self.activeFlareTime! {
                     usersFlares.insert(flare, at: 0)
                 }
-                if usersFlares.count >= flareLimit {
+                if usersFlares.count >= self.maximumSentFlares {
                     self.letFlareSave = false
                 } else {
                     self.letFlareSave = true
                 }
             }
         })
-    }
-    
-    func retrieveFlareLimitFromFirebase(completion: @escaping (_ result: Int) -> ())  {
-        let flareConstantsRef = self.ref.child(byAppendingPath: "flareConstants").observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            let value = snapshot.value as? NSDictionary
-            let limit = value?["limit"] as! Int
-            completion(limit)
-            })
-        { (error) in
-            print(error.localizedDescription)
-        }
     }
     
 }
