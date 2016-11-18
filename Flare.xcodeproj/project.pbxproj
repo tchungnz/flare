@@ -40,6 +40,7 @@
 		74F405671D86EA5A00F0A6DC /* MapDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F405661D86EA5A00F0A6DC /* MapDisplayController.swift */; };
 		74F405691D86ECEB00F0A6DC /* FlareDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F405681D86ECEB00F0A6DC /* FlareDisplayController.swift */; };
 		74F8AA591D8955E300AD655B /* CityMapperAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8AA581D8955E300AD655B /* CityMapperAPI.swift */; };
+		823F014C1DDDDEF1001DA208 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823F014B1DDDDEF1001DA208 /* ChatViewController.swift */; };
 		826E4E991D81CA6F00CA4493 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826E4E981D81CA6F00CA4493 /* RootViewController.swift */; };
 		8273F3041D899D9100E62350 /* LogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8273F3031D899D9100E62350 /* LogOutViewController.swift */; };
 		8273F3061D899F1200E62350 /* facebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8273F3051D899F1200E62350 /* facebook.swift */; };
@@ -105,6 +106,7 @@
 		74F405661D86EA5A00F0A6DC /* MapDisplayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDisplayController.swift; sourceTree = "<group>"; };
 		74F405681D86ECEB00F0A6DC /* FlareDisplayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlareDisplayController.swift; sourceTree = "<group>"; };
 		74F8AA581D8955E300AD655B /* CityMapperAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityMapperAPI.swift; sourceTree = "<group>"; };
+		823F014B1DDDDEF1001DA208 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		826E4E981D81CA6F00CA4493 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		8273F3031D899D9100E62350 /* LogOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogOutViewController.swift; sourceTree = "<group>"; };
 		8273F3051D899F1200E62350 /* facebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = facebook.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				53C8D1021D80781100E57400 /* AnnotationViewController.swift */,
 				0882B0181DC662BA0073E3AC /* OverlayViewController.swift */,
 				74F405661D86EA5A00F0A6DC /* MapDisplayController.swift */,
+				823F014B1DDDDEF1001DA208 /* ChatViewController.swift */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -517,7 +520,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		5384FB5CF102A015F732C635 /* [CP] Check Pods Manifest.lock */ = {
@@ -532,7 +535,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		5ED52350C79EF2CAD3E02849 /* [CP] Embed Pods Frameworks */ = {
@@ -607,7 +610,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -639,6 +642,7 @@
 				537EB5E71D870B3C00F3E4F6 /* CameraViewController.swift in Sources */,
 				53C8D1011D80760B00E57400 /* flare.swift in Sources */,
 				537EB5E91D8710C500F3E4F6 /* FlarePhysicsViewController.swift in Sources */,
+				823F014C1DDDDEF1001DA208 /* ChatViewController.swift in Sources */,
 				8273F3041D899D9100E62350 /* LogOutViewController.swift in Sources */,
 				24B68D491D8184AB004EE49A /* FlareViewController.swift in Sources */,
 				0856CEDF1DC3595C002D8D31 /* BoostFlareViewController.swift in Sources */,

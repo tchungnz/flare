@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '5579BAD702E8654A6336C8C983581E71'
-               BlueprintName = 'EasyTipView'
+               BlueprintIdentifier = '59CDDB315DD2B098E0CD9ED56B026F4B'
+               BlueprintName = 'JSQMessagesViewController'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'EasyTipView.framework'>
+               BuildableName = 'JSQMessagesViewController.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
