@@ -67,11 +67,12 @@ final class ChatViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print(self.flareTitle!)
         self.senderId = FIRAuth.auth()?.currentUser?.uid
         self.senderDisplayName = user!.displayName! as String
-        observeMessages()
+        self.inputToolbar.contentView.leftBarButtonItem = nil
+        self.inputToolbar.contentView.rightBarButtonItem.setTitleColor(UIColor.red, for: .normal)
         self.title = self.flareExport!.title!
+        observeMessages()
         
         // No avatars
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
@@ -81,10 +82,6 @@ final class ChatViewController: JSQMessagesViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         observeTyping()
-        self.flareId = self.flareExport!.flareId!
-        print("****************************")
-        print(self.flareExport!)
-        print(self.flareExport!.flareId!)
     }
     
     deinit {
@@ -143,7 +140,7 @@ final class ChatViewController: JSQMessagesViewController {
         case senderId:
             return nil
         default:
-            guard let senderDisplayName = senderDisplayName else {
+            guard let senderDisplayName = message.senderDisplayName else {
                 assertionFailure()
                 return nil
             }

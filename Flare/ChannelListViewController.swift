@@ -23,7 +23,7 @@ class ChannelListViewController: UITableViewController {
     private var channelRefHandle: FIRDatabaseHandle?
     private var channels: [Channel] = []
     
-    private lazy var channelRef: FIRDatabaseReference = FIRDatabase.database().reference().child("channels")
+    private lazy var channelRef: FIRDatabaseReference = FIRDatabase.database().reference().child("flares")
     
     // MARK: View Lifecycle
     
