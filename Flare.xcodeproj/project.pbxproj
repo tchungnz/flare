@@ -41,10 +41,7 @@
 		74F405691D86ECEB00F0A6DC /* FlareDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F405681D86ECEB00F0A6DC /* FlareDisplayController.swift */; };
 		74F8AA591D8955E300AD655B /* CityMapperAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8AA581D8955E300AD655B /* CityMapperAPI.swift */; };
 		823F014C1DDDDEF1001DA208 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823F014B1DDDDEF1001DA208 /* ChatViewController.swift */; };
-		8269FD2F1DDDE95E00CF1620 /* ChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8269FD2E1DDDE95E00CF1620 /* ChannelListViewController.swift */; };
-		8269FD311DDDEA3900CF1620 /* channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8269FD301DDDEA3900CF1620 /* channel.swift */; };
 		826E4E991D81CA6F00CA4493 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826E4E981D81CA6F00CA4493 /* RootViewController.swift */; };
-		8273D2B51DDDECDB003D025F /* CreateChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8273D2B41DDDECDB003D025F /* CreateChannelCell.swift */; };
 		8273F3041D899D9100E62350 /* LogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8273F3031D899D9100E62350 /* LogOutViewController.swift */; };
 		8273F3061D899F1200E62350 /* facebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8273F3051D899F1200E62350 /* facebook.swift */; };
 		82FF4C911D85C26E00B44AF7 /* UITextFieldLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FF4C901D85C26E00B44AF7 /* UITextFieldLimit.m */; };
@@ -110,10 +107,7 @@
 		74F405681D86ECEB00F0A6DC /* FlareDisplayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlareDisplayController.swift; sourceTree = "<group>"; };
 		74F8AA581D8955E300AD655B /* CityMapperAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityMapperAPI.swift; sourceTree = "<group>"; };
 		823F014B1DDDDEF1001DA208 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		8269FD2E1DDDE95E00CF1620 /* ChannelListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
-		8269FD301DDDEA3900CF1620 /* channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = channel.swift; sourceTree = "<group>"; };
 		826E4E981D81CA6F00CA4493 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		8273D2B41DDDECDB003D025F /* CreateChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChannelCell.swift; sourceTree = "<group>"; };
 		8273F3031D899D9100E62350 /* LogOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogOutViewController.swift; sourceTree = "<group>"; };
 		8273F3051D899F1200E62350 /* facebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = facebook.swift; sourceTree = "<group>"; };
 		82FF4C8E1D85C26E00B44AF7 /* Flare-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Flare-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -272,8 +266,6 @@
 				0882B0181DC662BA0073E3AC /* OverlayViewController.swift */,
 				74F405661D86EA5A00F0A6DC /* MapDisplayController.swift */,
 				823F014B1DDDDEF1001DA208 /* ChatViewController.swift */,
-				8269FD2E1DDDE95E00CF1620 /* ChannelListViewController.swift */,
-				8273D2B41DDDECDB003D025F /* CreateChannelCell.swift */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -329,7 +321,6 @@
 				53C8D1001D80760B00E57400 /* flare.swift */,
 				0882B0161DC63C0C0073E3AC /* boostOverlay.swift */,
 				8273F3051D899F1200E62350 /* facebook.swift */,
-				8269FD301DDDEA3900CF1620 /* channel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -630,12 +621,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				08050ECF1DBFB4CA00A60A82 /* FacebookInviteController.swift in Sources */,
-				8269FD311DDDEA3900CF1620 /* channel.swift in Sources */,
 				53C8D1031D80781100E57400 /* AnnotationViewController.swift in Sources */,
 				08FF7A191DD3708800961E92 /* FriendsTableViewController.swift in Sources */,
 				74F405691D86ECEB00F0A6DC /* FlareDisplayController.swift in Sources */,
 				6A7ED8881D7F2E94005FF0A8 /* MapViewController.swift in Sources */,
-				8269FD2F1DDDE95E00CF1620 /* ChannelListViewController.swift in Sources */,
 				5354CF281D8467BE00D57347 /* FlareDetailViewController.swift in Sources */,
 				0882B0191DC662BA0073E3AC /* OverlayViewController.swift in Sources */,
 				74F8AA591D8955E300AD655B /* CityMapperAPI.swift in Sources */,
@@ -655,7 +644,6 @@
 				537EB5E91D8710C500F3E4F6 /* FlarePhysicsViewController.swift in Sources */,
 				823F014C1DDDDEF1001DA208 /* ChatViewController.swift in Sources */,
 				8273F3041D899D9100E62350 /* LogOutViewController.swift in Sources */,
-				8273D2B51DDDECDB003D025F /* CreateChannelCell.swift in Sources */,
 				24B68D491D8184AB004EE49A /* FlareViewController.swift in Sources */,
 				0856CEDF1DC3595C002D8D31 /* BoostFlareViewController.swift in Sources */,
 			);

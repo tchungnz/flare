@@ -22,16 +22,6 @@ final class ChatViewController: JSQMessagesViewController {
     var flareExport: Flare?
     var flareId: String?
     
-    @IBAction func directionsAction(_ sender: UIBarButtonItem) {
-        if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL)) {
-            UIApplication.shared.openURL(NSURL(string:
-                "comgooglemaps://?saddr=&daddr=\(self.flareExport!.latitude!),\(self.flareExport!.longitude!)&directionsmode=transit")! as URL)
-            
-        } else {
-            NSLog("Can't use comgooglemaps://");
-        }
-    }
-    
     private lazy var messageRef: FIRDatabaseReference = self.ref.child("flares").child(self.flareExport!.flareId!).child("messages")
 //    fileprivate lazy var storageRef: FIRStorageReference = FIRStorage.storage().reference(forURL: "gs://chatchat-rw-cf107.appspot.com")
     private lazy var userIsTypingRef: FIRDatabaseReference = self.ref.child("flares").child(self.flareExport!.flareId!).child("typingIndicator").child(self.senderId)
@@ -163,65 +153,11 @@ final class ChatViewController: JSQMessagesViewController {
                 self.addMessage(withId: id, name: name, text: text)
                 self.finishReceivingMessage()
             }
-//            else if let id = messageData["senderId"] as String!, let photoURL = messageData["photoURL"] as String! {
-//                if let mediaItem = JSQPhotoMediaItem(maskAsOutgoing: id == self.senderId) {
-//                    self.addPhotoMessage(withId: id, key: snapshot.key, mediaItem: mediaItem)
-//                    
-//                    if photoURL.hasPrefix("gs://") {
-//                        self.fetchImageDataAtURL(photoURL, forMediaItem: mediaItem, clearsPhotoMessageMapOnSuccessForKey: nil)
-//                    }
-//                }
-//            }
             else {
                 print("Error! Could not decode message data")
             }
         })
-        
-        // We can also use the observer method to listen for
-        // changes to existing messages.
-        // We use this to be notified when a photo has been stored
-        // to the Firebase Storage, so we can update the message data
-//        updatedMessageRefHandle = messageRef.observe(.childChanged, with: { (snapshot) in
-//            let key = snapshot.key
-//            let messageData = snapshot.value as! Dictionary<String, String>
-//            
-//            if let photoURL = messageData["photoURL"] as String! {
-//                // The photo has been updated.
-//                if let mediaItem = self.photoMessageMap[key] {
-//                    self.fetchImageDataAtURL(photoURL, forMediaItem: mediaItem, clearsPhotoMessageMapOnSuccessForKey: key)
-//                }
-//            }
-//        })
     }
-    
-//    private func fetchImageDataAtURL(_ photoURL: String, forMediaItem mediaItem: JSQPhotoMediaItem, clearsPhotoMessageMapOnSuccessForKey key: String?) {
-//        let storageRef = FIRStorage.storage().reference(forURL: photoURL)
-//        storageRef.data(withMaxSize: INT64_MAX){ (data, error) in
-//            if let error = error {
-//                print("Error downloading image data: \(error)")
-//                return
-//            }
-//            
-//            storageRef.metadata(completion: { (metadata, metadataErr) in
-//                if let error = metadataErr {
-//                    print("Error downloading metadata: \(error)")
-//                    return
-//                }
-//                
-//                if (metadata?.contentType == "image/gif") {
-//                    mediaItem.image = UIImage.gifWithData(data!)
-//                } else {
-//                    mediaItem.image = UIImage.init(data: data!)
-//                }
-//                self.collectionView.reloadData()
-//                
-//                guard key != nil else {
-//                    return
-//                }
-//                self.photoMessageMap.removeValue(forKey: key!)
-//            })
-//        }
-//    }
     
     private func observeTyping() {
         let typingIndicatorRef = self.ref.child("flares").child(self.flareExport!.flareId!).child("typingIndicator")
@@ -264,27 +200,6 @@ final class ChatViewController: JSQMessagesViewController {
         isTyping = false
     }
     
-//    func sendPhotoMessage() -> String? {
-//        let itemRef = messageRef.childByAutoId()
-//        
-//        let messageItem = [
-//            "photoURL": imageURLNotSetKey,
-//            "senderId": senderId!,
-//            ]
-//        
-//        itemRef.setValue(messageItem)
-//        
-//        JSQSystemSoundPlayer.jsq_playMessageSentSound()
-//        
-//        finishSendingMessage()
-//        return itemRef.key
-//    }
-    
-//    func setImageURL(_ url: String, forPhotoMessageWithKey key: String) {
-//        let itemRef = messageRef.child(key)
-//        itemRef.updateChildValues(["photoURL": url])
-//    }
-    
     // MARK: UI and User Interaction
     
     private func setupOutgoingBubble() -> JSQMessagesBubbleImage {
@@ -297,35 +212,11 @@ final class ChatViewController: JSQMessagesViewController {
         return bubbleImageFactory!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
     }
     
-//    override func didPressAccessoryButton(_ sender: UIButton) {
-//        let picker = UIImagePickerController()
-//        picker.delegate = self
-//        if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)) {
-//            picker.sourceType = UIImagePickerControllerSourceType.camera
-//        } else {
-//            picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-//        }
-//        
-//        present(picker, animated: true, completion:nil)
-//    }
-    
     private func addMessage(withId id: String, name: String, text: String) {
         if let message = JSQMessage(senderId: id, displayName: name, text: text) {
             messages.append(message)
         }
     }
-    
-//    private func addPhotoMessage(withId id: String, key: String, mediaItem: JSQPhotoMediaItem) {
-//        if let message = JSQMessage(senderId: id, displayName: "", media: mediaItem) {
-//            messages.append(message)
-//            
-//            if (mediaItem.image == nil) {
-//                photoMessageMap[key] = mediaItem
-//            }
-//            
-//            collectionView.reloadData()
-//        }
-//    }
     
     // MARK: UITextViewDelegate methods
     
@@ -335,48 +226,14 @@ final class ChatViewController: JSQMessagesViewController {
         isTyping = textView.text != ""
     }
     
+    @IBAction func directionsAction(_ sender: UIBarButtonItem) {
+        if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL)) {
+            UIApplication.shared.openURL(NSURL(string:
+                "comgooglemaps://?saddr=&daddr=\(self.flareExport!.latitude!),\(self.flareExport!.longitude!)&directionsmode=transit")! as URL)
+            
+        } else {
+            NSLog("Can't use comgooglemaps://");
+        }
+    }
+    
 }
-
-//// MARK: Image Picker Delegate
-//extension ChatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-//    func imagePickerController(_ picker: UIImagePickerController,
-//                               didFinishPickingMediaWithInfo info: [String : Any]) {
-//        
-//        picker.dismiss(animated: true, completion:nil)
-//        
-//        // 1
-//        if let photoReferenceUrl = info[UIImagePickerControllerReferenceURL] as? URL {
-//            // Handle picking a Photo from the Photo Library
-//            // 2
-//            let assets = PHAsset.fetchAssets(withALAssetURLs: [photoReferenceUrl], options: nil)
-//            let asset = assets.firstObject
-//            
-//            // 3
-//            if let key = sendPhotoMessage() {
-//                // 4
-//                asset?.requestContentEditingInput(with: nil, completionHandler: { (contentEditingInput, info) in
-//                    let imageFileURL = contentEditingInput?.fullSizeImageURL
-//                    
-//                    // 5
-//                    let path = "\(FIRAuth.auth()?.currentUser?.uid)/\(Int(Date.timeIntervalSinceReferenceDate * 1000))/\(photoReferenceUrl.lastPathComponent)"
-//                    
-//                    // 6
-//                    self.storageRef.child(path).putFile(imageFileURL!, metadata: nil) { (metadata, error) in
-//                        if let error = error {
-//                            print("Error uploading photo: \(error.localizedDescription)")
-//                            return
-//                        }
-//                        // 7
-//                        self.setImageURL(self.storageRef.child((metadata?.path)!).description, forPhotoMessageWithKey: key)
-//                    }
-//                })
-//            }
-//        } else {
-//            // Handle picking a Photo from the Camera - TODO
-//        }
-//    }
-//    
-//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        picker.dismiss(animated: true, completion:nil)
-//    }
-//}

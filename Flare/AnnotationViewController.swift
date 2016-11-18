@@ -55,7 +55,6 @@ extension MapViewController {
             if let ivc = segue.destination as? FlareDetailViewController {
                 ivc.flareExport = self.flareExport
                 ivc.exitMapView = self.mapView.region
-                print("*************annotation segue***************")
             }
         }
     }

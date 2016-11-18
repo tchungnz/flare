@@ -221,7 +221,6 @@ class FlareDetailViewController: UIViewController, CLLocationManagerDelegate {
         if (segue.identifier == "ShowChannel") {
             let navController = segue.destination as! UINavigationController
             let detailController = navController.topViewController as! ChatViewController
-            print("************Segue****************")
             detailController.flareExport = self.flareExport
         }
     }
