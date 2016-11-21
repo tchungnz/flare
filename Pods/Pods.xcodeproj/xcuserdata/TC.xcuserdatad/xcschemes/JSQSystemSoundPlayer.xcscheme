@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5AD96339EAF4520C371E788D41A384C6"
-               BuildableName = "SwiftyJSON.framework"
-               BlueprintName = "SwiftyJSON"
+               BlueprintIdentifier = "1ED4DFAAD25E1999D0244868457A351E"
+               BuildableName = "JSQSystemSoundPlayer.framework"
+               BlueprintName = "JSQSystemSoundPlayer"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5AD96339EAF4520C371E788D41A384C6"
-            BuildableName = "SwiftyJSON.framework"
-            BlueprintName = "SwiftyJSON"
+            BlueprintIdentifier = "1ED4DFAAD25E1999D0244868457A351E"
+            BuildableName = "JSQSystemSoundPlayer.framework"
+            BlueprintName = "JSQSystemSoundPlayer"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5AD96339EAF4520C371E788D41A384C6"
-            BuildableName = "SwiftyJSON.framework"
-            BlueprintName = "SwiftyJSON"
+            BlueprintIdentifier = "1ED4DFAAD25E1999D0244868457A351E"
+            BuildableName = "JSQSystemSoundPlayer.framework"
+            BlueprintName = "JSQSystemSoundPlayer"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

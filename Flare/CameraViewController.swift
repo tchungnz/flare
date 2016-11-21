@@ -32,6 +32,7 @@ extension FlareViewController {
     func switchCameraViewFront() {
         backCamera = false
         cameraSession("front")
+        save30FlaresToDatabase()
     }
     
     func switchCameraViewBack() {
