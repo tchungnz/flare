@@ -85,7 +85,7 @@ extension FlareViewController: CLLocationManagerDelegate {
         var i = 0
         while i <= 29 {
             
-            let flare1 = ["facebookID": "x", "title": "fake flare", "subtitle": "fake flare", "imageRef": "test image", "latitude": "x", "longitude": "y", "timestamp": timestamp, "isPublic": true as Bool] as [String : Any]
+            let flare1 = ["facebookID": "123456789098765", "title": "flare", "subtitle": "flare", "imageRef": "flare", "latitude": "51.57045215", "longitude": "-0.15943138", "timestamp": 1482537600000, "startTimestamp": 1482537600000, "isPublic": true as Bool] as [String : Any]
             let flare1Ref = flareRef.childByAutoId()
             flare1Ref.setValue(flare1)
             
