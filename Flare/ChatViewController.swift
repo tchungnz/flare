@@ -35,14 +35,8 @@ final class ChatViewController: JSQMessagesViewController, CLLocationManagerDele
     private var updatedMessageRefHandle: FIRDatabaseHandle?
     
     private var messages: [JSQMessage] = []
-//    private var photoMessageMap = [String: JSQPhotoMediaItem]()
     
     private var localTyping = false
-//    var channel: Channel? {
-//        didSet {
-//            title = channel?.name
-//        }
-//    }
     
     var isTyping: Bool {
         get {
@@ -113,10 +107,10 @@ final class ChatViewController: JSQMessagesViewController, CLLocationManagerDele
         
         let message = messages[indexPath.item]
         
-        if message.senderId == senderId { // 1
-            cell.textView?.textColor = UIColor.white // 2
+        if message.senderId == senderId {
+            cell.textView?.textColor = UIColor.white
         } else {
-            cell.textView?.textColor = UIColor.black // 3
+            cell.textView?.textColor = UIColor.black
         }
         
         return cell
@@ -185,23 +179,19 @@ final class ChatViewController: JSQMessagesViewController, CLLocationManagerDele
     }
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
-        // 1
+
         let itemRef = messageRef.childByAutoId()
-        
-        // 2
+
         let messageItem = [
             "senderId": senderId!,
             "senderName": senderDisplayName!,
             "text": text!,
             ]
-        
-        // 3
+
         itemRef.setValue(messageItem)
-        
-        // 4
+
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
-        
-        // 5
+
         finishSendingMessage()
         isTyping = false
     }
@@ -242,6 +232,5 @@ final class ChatViewController: JSQMessagesViewController, CLLocationManagerDele
         }
     }
     
-//    comgooglemaps://?saddr=&daddr=\(self.flareExport!.latitude!),\(self.flareExport!.longitude!)&center=\(self.flareExport!.latitude!),\(self.flareExport!.longitude!)&directionsmode=transit&zoom=17
     
 }

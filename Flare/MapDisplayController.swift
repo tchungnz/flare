@@ -41,7 +41,7 @@ extension MapViewController {
             setRegion(animated: false, region: definedRegion)
         } else {
             let definedCenter = CLLocationCoordinate2D(latitude: self.location!.coordinate.latitude, longitude: self.location!.coordinate.longitude)
-            let definedRegion = MKCoordinateRegion(center: definedCenter, span: MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08))
+            let definedRegion = MKCoordinateRegion(center: definedCenter, span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
             self.setRegion(animated: true, region: definedRegion)
         }
     }

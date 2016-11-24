@@ -12,7 +12,11 @@ import UIKit
 
 extension FlareViewController {
     
+    
+    
+    
     @IBAction func handlePan(_ recognizer:UIPanGestureRecognizer) {
+        if self.flareTitle.text != "" {
         let translation = recognizer.translation(in: self.view)
         if let view = recognizer.view {
             view.center = CGPoint(x:view.center.x + 0,
@@ -33,20 +37,24 @@ extension FlareViewController {
                 animations: {recognizer.view!.center = finalPoint },
                 completion: nil
         )
-            self.onSwipe()
-
+            if self.onSwipe() {
+                let seconds = 0.8
+                let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+                let dispatchTime = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
+                
+                DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
+                    self.performSegue(withIdentifier: "cancelToMapView", sender: self)
+                })
+            }
         }
-        let seconds = 0.8
-        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
-        let dispatchTime = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
-        
-       DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
-            self.performSegue(withIdentifier: "cancelToMapView", sender: self)
-        })
+        } else {
+            self.displayAlertMessage("Please enter a title")
+        }
     }
+    
     @IBAction func handleTap(_ sender: UITapGestureRecognizer) {
-        self.onSwipe()
+        if self.onSwipe() {
         self.performSegue(withIdentifier: "cancelToMapView", sender: self)
+        }
     }
-
 }

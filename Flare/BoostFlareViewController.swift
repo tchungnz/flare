@@ -30,7 +30,7 @@ extension FlareDetailViewController {
                 
                 if let _ = boosts[uid] {
                     boostCount -= 1
-                    boosts.removeValue(forKey: uid)
+                    boosts[uid] = false
                 } else {
                     boostCount += 1
                     boosts[uid] = true
@@ -67,9 +67,9 @@ extension FlareDetailViewController {
                 boosts = flare["boosts"] as? [String : Bool] ?? [:]
                 var timestamp = flare["timestamp"] as? Int
                 if let _ = boosts[uid] {
-                    timestamp! += 15*60000
+                    timestamp! += 30*60000
                 } else {
-                    timestamp! -= 15*60000
+                    timestamp! -= 30*60000
                 }
                 flare["timestamp"] = timestamp as AnyObject?
                 currentData.value = flare

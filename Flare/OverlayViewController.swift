@@ -111,9 +111,9 @@ extension MapViewController {
         if overlay.isKind(of: MKCircle.self){
             let circleRenderer = MKCircleRenderer(overlay: overlay)
             if overlay.title! == "friends" {
-                circleRenderer.fillColor = UIColor.red.withAlphaComponent(0.1)
-            } else {
                 circleRenderer.fillColor = UIColor.orange.withAlphaComponent(0.15)
+            } else {
+                circleRenderer.fillColor = UIColor.red.withAlphaComponent(0.1)
 
             }
             return circleRenderer

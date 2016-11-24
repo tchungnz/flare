@@ -14,15 +14,16 @@ import CoreLocation
 
 extension FlareViewController: CLLocationManagerDelegate {
     
-    func onSwipe() {
+    func onSwipe() -> Bool {
         let imageString = UUID().uuidString
         if self.flareTitle.text != "" {
             saveFlareToDatabase(imageString)
             uploadImage(imageString)
             FIRAnalytics.logEvent(withName: "flare_sent", parameters: nil)
+            return true
         } else {
             self.displayAlertMessage("Please enter a title")
-            return
+            return false
         }
     }
     
@@ -52,10 +53,10 @@ extension FlareViewController: CLLocationManagerDelegate {
         let flareUniqueRef = flareRef.childByAutoId()
         flareUniqueRef.setValue(newFlare)
         if self.isPublicFlare == false {
-            FIRAnalytics.logEvent(withName: "public_flare_sent", parameters: nil)
+            FIRAnalytics.logEvent(withName: "friends_flare_sent", parameters: nil)
             self.saveNotificationsToDatabase(recipients: selectedFriendsIds!, flareRef: String(describing: flareUniqueRef))
         } else {
-            FIRAnalytics.logEvent(withName: "friends_flare_sent", parameters: nil)
+            FIRAnalytics.logEvent(withName: "public_flare_sent", parameters: nil)
         }
     }
     

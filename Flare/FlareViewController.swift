@@ -31,7 +31,7 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var uid : String?
     
     var backCamera: Bool = true
-    var isPublicFlare: Bool = false
+    var isPublicFlare: Bool = true
     var letFlareSave: Bool = true
     
     var toggleState: Bool?
@@ -145,13 +145,13 @@ class FlareViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     @IBAction func clickSendToFriendsButton(_ sender: AnyObject) {
-        sendToFriendsButton.backgroundColor = UIColor.red
+        sendToFriendsButton.backgroundColor = UIColor.orange
         sendToEveryoneButton.backgroundColor = UIColor.lightGray
         isPublicFlare = false
     }
     
     @IBAction func clickSendToEveryoneButton(_ sender: AnyObject) {
-        sendToEveryoneButton.backgroundColor = UIColor.orange
+        sendToEveryoneButton.backgroundColor = UIColor.red
         sendToFriendsButton.backgroundColor = UIColor.lightGray
         isPublicFlare = true
     }

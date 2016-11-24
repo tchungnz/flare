@@ -32,7 +32,7 @@ extension MapViewController {
             let data = (item as! FIRDataSnapshot).value! as! NSDictionary
             if ((data["isPublic"] as! Bool) && !(friendsArray.contains(data["facebookID"] as! String))) && !(data["facebookID"] as! String == self.uid!)  {
                 let flare = Flare(snapshot: item as! FIRDataSnapshot)
-                flare.imageName = "publicPin"
+                flare.imageName = "friendsPin"
                 newItems.insert(flare, at: 0)
             }
         }
@@ -65,7 +65,7 @@ extension MapViewController {
                 }
                 if data["facebookID"] as! String == self.uid! || recipients.contains(self.uid!) || (data["isPublic"] as! Bool == true && friendsArray.contains(data["facebookID"] as! String)) {
                     let newFlare = Flare(snapshot: item as! FIRDataSnapshot)
-                    newFlare.imageName = "friendsPin"
+                    newFlare.imageName = "publicPin"
                     newItems.insert(newFlare, at: 0)
                 }
             }

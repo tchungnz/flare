@@ -79,7 +79,7 @@ extension FlareViewController {
                     let cgImageRef = CGImage(jpegDataProviderSource: dataProvider!, decode: nil, shouldInterpolate: true, intent: .defaultIntent)
                     
                     let largeImage = UIImage(cgImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.right)
-                    let image = UIImage(data: UIImageJPEGRepresentation(largeImage, 0.25)!)!
+                    let image = UIImage(data: UIImageJPEGRepresentation(largeImage, 0.10)!)!
                     if self.self.backCamera == true {
                         self.tempImageView.image = image
                         FIRAnalytics.logEvent(withName: "back_camera_flare", parameters: nil)
